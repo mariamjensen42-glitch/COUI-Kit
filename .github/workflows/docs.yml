@@ -44,6 +44,14 @@ jobs:
       - name: 安装 Zensical
         run: pip install zensical==0.1.1
 
+      - name: 对齐站点地址
+        run: |
+          set -euo pipefail
+          base="https://${GITHUB_REPOSITORY_OWNER,,}.github.io/${GITHUB_REPOSITORY#*/}/"
+          sed -i "s|^site_url = .*|site_url = \"$base\"|" zensical.toml
+          sed -i "s|https://itoseo.github.io/COUI-Kit/|$base|g" zensical.toml
+          grep -n "^site_url" zensical.toml
+
       - name: 构建文档站点
         run: |
           set -euo pipefail
@@ -72,6 +80,8 @@ jobs:
           cp -r Pages/. site/icons/
           rm -rf site/icons/node_modules site/icons/generate.mjs site/icons/package.json \
             site/icons/package-lock.json site/icons/GENERATION.md site/icons/README.md
+          base="https://${GITHUB_REPOSITORY_OWNER,,}.github.io/${GITHUB_REPOSITORY#*/}/"
+          sed -i "s|https://itoseo.github.io/COUI-Kit/|$base|g" site/icons/index.html site/icons/icons/index.html
           test -s site/icons/index.html
           test -s site/icons/icons/index.html
           test -s site/icons/data.js

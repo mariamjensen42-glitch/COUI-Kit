@@ -37,6 +37,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import com.itos.coui.backdrop.CouiBackdrop
 import com.itos.coui.effect.CouiFloatingRenderer
 import com.itos.coui.effect.CouiFloatingSurface
 import com.itos.coui.effect.SpotlightPreset
@@ -56,10 +57,14 @@ fun TopAppBarButton(
     enabled: Boolean = true,
     text: Boolean = false,
     renderer: CouiFloatingRenderer = remember { CouiFloatingRenderer.standalone() },
+    backdrop: CouiBackdrop? = null,
     style: CouiToolbarStyle = CouiTopAppBarButtonDefaults.style(),
     content: @Composable RowScope.() -> Unit,
 ) {
-    val backdrop = checkNotNull(LocalCouiToolbarBackdrop.current) { "顶栏按钮必须位于顶栏效果作用域内" }
+    // 自定义顶栏可显式传入只含背景的采样源; 省略时沿用所在顶栏效果作用域提供的源。
+    val surfaceBackdrop = backdrop ?: checkNotNull(LocalCouiToolbarBackdrop.current) {
+        "顶栏按钮必须位于顶栏效果作用域内, 或显式传入 backdrop"
+    }
     val dark = style.dark
     val contour = style.contourGlowEnabled
     var boundsSize by remember { mutableStateOf(IntSize.Zero) }
@@ -98,7 +103,7 @@ fun TopAppBarButton(
                 }
             }
             .couiFloatingSurface(
-                backdrop = backdrop,
+                backdrop = surfaceBackdrop,
                 renderer = renderer,
                 material = material,
                 shadow = shadow,

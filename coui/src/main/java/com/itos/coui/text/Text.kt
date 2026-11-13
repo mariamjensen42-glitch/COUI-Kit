@@ -29,6 +29,12 @@ enum class CouiTextKind(internal val size: Float, internal val family: String, i
     /** 正文的小号说明，对应原厂 `couiTextBodyXS`：12sp 常规字重。 */
     Body(12f, "sans-serif", 400),
 
+    /**
+     * 正文段落，对应手机管家首页提示条的说明文字：15sp 常规字重。
+     * 比 [Body] 大一级，用于没有标题、说明本身承担主文案的场景。
+     */
+    BodyLarge(15f, "sans-serif", 400),
+
     /** 紧凑顶栏的参考排版。顶栏默认标题取此处的字号，字体和字重沿用 [HomeTitle]。 */
     TopBar(18f, "sans-serif-medium", 550),
 
@@ -66,7 +72,7 @@ fun Text(modifier: Modifier = Modifier, text: String, kind: CouiTextKind, color:
     BasicText(text, modifier,
         style = style.copy(color = color.takeOrElse { CouiTheme.contentColor },
             textAlign = textAlign ?: when (kind) {
-                CouiTextKind.ItemTitle, CouiTextKind.ItemSummary, CouiTextKind.Body,
+                CouiTextKind.ItemTitle, CouiTextKind.ItemSummary, CouiTextKind.Body, CouiTextKind.BodyLarge,
                 CouiTextKind.GroupFooter, CouiTextKind.Display -> TextAlign.Start
                 else -> TextAlign.Center
             }),
@@ -108,6 +114,7 @@ private fun couiLineSpacing(kind: CouiTextKind): Float = when (kind) {
     CouiTextKind.TopBar -> if (Build.VERSION.SDK_INT >= 35) 1.1429f else 1.15f
     CouiTextKind.ItemSummary -> if (Build.VERSION.SDK_INT >= 35) 1.1739f else 1.1f
     CouiTextKind.Body -> if (Build.VERSION.SDK_INT >= 35) 1.143f else 1f
+    CouiTextKind.BodyLarge -> if (Build.VERSION.SDK_INT >= 35) 1.143f else 1.1f
     CouiTextKind.HomeTitle -> 1f
     CouiTextKind.Display -> 1f
     CouiTextKind.Search -> if (Build.VERSION.SDK_INT >= 35) 1.1321f else 1.1f

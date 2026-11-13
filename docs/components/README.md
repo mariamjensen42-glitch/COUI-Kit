@@ -12,6 +12,7 @@
 | [常驻搜索](search-bar.md) | 搜索胶囊与独立取消按钮 |
 | [折叠顶栏](collapsing-app-bar.md) | `LargeTopAppBar` 大标题折叠、`CollapsingTopAppBar` 常驻搜索联动 |
 | [底栏](navigation-bar.md) | 页面选择、左右附件和融合表面 |
+| [悬浮底栏](dock-bar.md) | 胶囊导航与中央凸起圆钮的融球底栏 |
 | [FAB](fab.md) | 独立浮动操作 |
 
 ## 列表与内容
@@ -20,6 +21,17 @@
 | --- | --- |
 | [Group](group.md) | 分组卡片、标题操作与说明 |
 | [快捷动作网格](quick-action-grid.md) | 两列图标入口卡片与等宽排布 |
+| [操作卡](action-card.md) | 图标、标题与说明组成的提示卡与推荐卡 |
+| [通知卡](notification-card.md) | 单条通知的图标、标题、相对时间与正文 |
+| [控制中心磁贴](quick-setting.md) | 快捷开关磁贴与竖排档位条 |
+| [模式选择卡](choice-card.md) | 等宽模式卡与强调色选中描边 |
+| [缩略图选择卡](thumbnail-choice.md) | 缩略图单选卡与三列缩略图导航卡 |
+| [柱状图](bar-chart.md) | 圆角柱形、逐柱配色与右侧刻度 |
+| [折叠面板](accordion.md) | 卡片内按需展开的设置分组 |
+| [头像](avatar.md) | 固定尺寸的可裁剪头像容器 |
+| [步骤条](stepper.md) | 横向步骤圆点、连线与标签 |
+| [三态容器](state-layout.md) | 加载、空、失败与就绪的统一切换 |
+| [下拉刷新](pull-to-refresh.md) | 列表到顶下拉触发刷新与进度指示 |
 | [Item](item.md) | 行内容与点击、选择装配 |
 | [Divider](divider.md) | 组内分隔线 |
 | [Footer](footer.md) | 分组辅助说明 |

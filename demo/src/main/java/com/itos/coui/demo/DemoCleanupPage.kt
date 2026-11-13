@@ -42,6 +42,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.itos.coui.button.Button
 import com.itos.coui.button.CouiButtonStyle
+import com.itos.coui.backdrop.CouiBackdrop
+import com.itos.coui.backdrop.couiBackdrop
+import com.itos.coui.backdrop.rememberCouiBackdrop
 import com.itos.coui.demo.ui.Icon
 import com.itos.coui.icons.CouiIcons
 import com.itos.coui.layout.Divider
@@ -88,10 +91,14 @@ internal fun CleanupPageSample(dark: Boolean, onBack: () -> Unit) {
         )
         // 菜单的毛玻璃需要窗口采样源; 不提供时只有不透明底色。
         ProvideCouiMenuBackdrop { windowModifier ->
-            Box(windowModifier.fillMaxSize().drawBehind { drawRect(cleanupBackdrop(dark, size.width, size.height)) }) {
+            val backdrop = rememberCouiBackdrop()
+            Box(windowModifier.fillMaxSize()) {
+                // 只含页面渐变底的采样源; 顶栏按钮在源之外, 不会采样到自身。
+                Box(Modifier.fillMaxSize().couiBackdrop(backdrop)
+                    .drawBehind { drawRect(cleanupBackdrop(dark, size.width, size.height)) })
                 Column(Modifier.fillMaxSize().statusBarsPadding().verticalScroll(rememberScrollState())
                     .padding(bottom = 32.dp)) {
-                    CleanupToolbar(title, dark, items, menuStyle) { }
+                    CleanupToolbar(title, dark, items, menuStyle, backdrop) { }
                     Spacer(Modifier.height(20.dp))
                     CleanupHeadline(title, summary)
                     Spacer(Modifier.height(16.dp))
@@ -118,6 +125,7 @@ private fun CleanupToolbar(
     dark: Boolean,
     items: List<CouiMenuItem<Int>>,
     menuStyle: com.itos.coui.menu.CouiMenuStyle,
+    backdrop: CouiBackdrop,
     onBack: () -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -125,7 +133,8 @@ private fun CleanupToolbar(
     val more = stringResource(R.string.manager_more)
     Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically) {
-        GlassIconButton(dark = dark, contentDescription = stringResource(R.string.settings_back), onClick = onBack) {
+        GlassIconButton(dark = dark, contentDescription = stringResource(R.string.settings_back), onClick = onBack,
+            backdrop = backdrop) {
             Icon(CouiIcons.Filled.Back, null, Modifier.size(22.dp), tint = title)
         }
         Spacer(Modifier.width(12.dp))
@@ -133,7 +142,7 @@ private fun CleanupToolbar(
             style = rememberCouiTextStyle(CouiTextKind.TopBar).copy(fontSize = 20.sp, color = title),
             modifier = Modifier.weight(1f))
         GlassIconButton(modifier = Modifier.couiMenuAnchor(anchor), dark = dark, contentDescription = more,
-            onClick = { anchor.open { expanded = true } }) {
+            backdrop = backdrop, onClick = { anchor.open { expanded = true } }) {
             Icon(CouiIcons.Filled.More, null, Modifier.size(22.dp), tint = title)
         }
     }

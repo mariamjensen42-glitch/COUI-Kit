@@ -7,6 +7,7 @@
     <string name="progress_segmented">Segmented</string>
     <string name="progress_ring">Large ring</string>
     <string name="progress_ring_score">Score</string>
+    <string name="progress_ring_unit">pts</string>
     <string name="progress_skeleton">Skeleton</string>
     <string name="progress_animated">Animate placeholder</string>
 </resources>

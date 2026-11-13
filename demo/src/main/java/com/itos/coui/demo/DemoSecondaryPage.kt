@@ -40,7 +40,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
     var roundedFab by rememberSaveable { mutableStateOf(false) }
     val toastState = rememberToastHostState()
     val catalogPage = if (DemoWheelPickerEntries.any { it.page == page }) "wheel" else page
-    val entry = (DemoComponentGroups + DemoEffectGroups).flatten().firstOrNull { it.page == catalogPage }
+    val entry = (DemoComponentGroups + DemoEffectGroups).flatMap { it.entries }.firstOrNull { it.page == catalogPage }
     val title = entry?.title ?: R.string.settings_about
     val floatingAction: (@Composable BoxScope.() -> Unit)? = if (page == "fab") {
         {
@@ -94,6 +94,18 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     }
                     "appbar", "search", "navigation" -> ChromeDetail(page, dark)
                     "floatingtoolbar" -> FloatingToolbarSample(dark)
+                    "cards" -> ActionCardSample(dark)
+                    "choice" -> ChoiceCardSample(dark)
+                    "thumbnail" -> ThumbnailChoiceSample(dark)
+                    "notification" -> NotificationCardSample(dark)
+                    "quicksetting" -> QuickSettingSample(dark)
+                    "chart" -> BarChartSample(dark)
+                    "dockbar" -> DockBarSample(dark)
+                    "refresh" -> PullToRefreshSample(dark)
+                    "accordion" -> AccordionSample(dark)
+                    "avatar" -> AvatarSample(dark)
+                    "statelayout" -> StateLayoutSample(dark)
+                    "stepper" -> StepperSample(dark)
                     "fab" -> FabSample(preset = fabPreset, onPresetChange = { fabPreset = it },
                         rounded = roundedFab, onRoundedChange = { roundedFab = it })
                     "about" -> {

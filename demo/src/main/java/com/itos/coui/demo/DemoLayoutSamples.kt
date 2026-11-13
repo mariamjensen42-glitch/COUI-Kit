@@ -15,6 +15,7 @@ import com.itos.coui.demo.ui.Icon
 import com.itos.coui.icons.CouiIcons
 import com.itos.coui.layout.CouiPageDefaults
 import com.itos.coui.layout.CouiQuickAction
+import com.itos.coui.layout.CouiQuickActionStyle
 import com.itos.coui.layout.Divider
 import com.itos.coui.layout.Footer
 import com.itos.coui.layout.Group
@@ -89,6 +90,13 @@ private fun QuickActionsSample() {
             color = colors.onSurfaceVariant,
             modifier = Modifier.padding(horizontal = 32.dp, vertical = 8.dp))
         QuickActionGrid(Modifier.padding(horizontal = CouiPageDefaults.horizontalMargin), actions = actions)
+    }
+    Column(Modifier.padding(top = CouiPageDefaults.categoryTopSpacing)) {
+        Text(text = stringResource(R.string.quick_action_capsule_title), kind = CouiTextKind.GroupTitle,
+            color = colors.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = 32.dp, vertical = 8.dp))
+        QuickActionGrid(Modifier.padding(horizontal = CouiPageDefaults.horizontalMargin), actions = actions,
+            style = CouiQuickActionStyle.Capsule)
     }
 }
 

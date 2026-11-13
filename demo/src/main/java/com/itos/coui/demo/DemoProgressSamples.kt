@@ -1,6 +1,8 @@
 package com.itos.coui.demo
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +18,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -88,6 +91,37 @@ internal fun ProgressSample(dark: Boolean) {
                             color = scheme.onSurface)
                     },
                 )
+            }
+        }
+    }
+    Group(title = stringResource(R.string.progress_ring_score)) {
+        Row(Modifier.fillMaxWidth().padding(vertical = 20.dp),
+            horizontalArrangement = Arrangement.Center) {
+            CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
+                val scheme = CouiTheme.colorScheme
+                // 手机管家分数环：白色内圆填满环内孔，外环 189dp、描边 24dp、内孔 141dp。
+                // 开 glow 时环按 circularGlowRingScale(0.82) 内收且 size 含光晕，
+                // 故 size = 189 / 0.82 + 24 ≈ 225dp 才能得到 189dp 的环外径。
+                // 白圆画在环之后：环内侧的发光会透到内孔里，压一层白圆才干净。
+                Box(Modifier.size(225.dp), contentAlignment = Alignment.Center) {
+                    CircularProgress(
+                        progress = progress,
+                        size = 225.dp,
+                        strokeWidth = 24.dp,
+                        gapDegrees = 70f,
+                        startAngleDegrees = 80f,
+                        glow = true,
+                        color = scheme.accent,
+                        trackColor = scheme.accent.copy(alpha = .18f),
+                    )
+                    Box(Modifier.size(141.dp).clip(CircleShape).background(Color.White))
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(text = "${(progress * 100).roundToInt()}",
+                            kind = CouiTextKind.Display, color = Color(0xFF1A1A1A))
+                        Text(text = stringResource(R.string.progress_ring_unit),
+                            kind = CouiTextKind.Body, color = Color(0xFF6B6B6B))
+                    }
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.itos.coui.demo
 
+import android.os.Build
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -15,18 +16,25 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
+import com.itos.coui.backdrop.CouiBackdrop
+import com.itos.coui.effect.LocalCouiContourGlowEnabled
+import com.itos.coui.topappbar.CouiTopAppBarButtonDefaults
+import com.itos.coui.topappbar.TopAppBarButton
 
 /**
  * 顶栏圆底玻璃按钮。
  *
- * 库的浮动材质（`couiFloatingSurface` / `TopAppBarButton`）要求 API 34，
- * 而 ColorOS 17 顶栏这类按钮在更低版本同样呈现半透明磨砂 + 边缘高光，
- * 因此这里用绘制还原玻璃观感：竖向渐变的半透明底、顶部更亮的描边、底端内阴影。
- * 真实背景模糊仍由库的采样材质承担，此实现不做离屏采样。
+ * API 34 及以上直接装配库的 `TopAppBarButton`：采样真实背景、跟随光与形变都走 `couiFloatingSurface`，
+ * 观感与详情页顶栏一致。传入 [backdrop]（只含页面背景的采样源）时按钮才可能拿到模糊，因此自定义顶栏
+ * 需把背景层单独挂成源、内容层放在源之外，避免按钮采样到自身。
+ *
+ * 低版本（库的浮动材质要求 API 34）保留绘制兜底：竖向渐变的半透明底、顶部更亮的描边、底端内阴影，
+ * 不做离屏采样。
  */
 @Composable
 internal fun GlassIconButton(
@@ -34,13 +42,31 @@ internal fun GlassIconButton(
     dark: Boolean,
     contentDescription: String,
     onClick: () -> Unit,
+    backdrop: CouiBackdrop? = null,
     content: @Composable () -> Unit,
 ) {
+    // 采样源是否可用、系统版本都在页面生命周期内恒定, 分支不会在组合中反复切换。
     val source = remember { MutableInteractionSource() }
-    Box(modifier.size(44.dp).clip(CircleShape).glassCircle(dark)
-        .semantics { this.contentDescription = contentDescription }
-        .clickable(source, indication = null, role = Role.Button, onClick = onClick),
-        contentAlignment = Alignment.Center) { content() }
+    if (Build.VERSION.SDK_INT >= 34 && backdrop != null) {
+        val density = LocalDensity.current.density
+        val contour = LocalCouiContourGlowEnabled.current
+        TopAppBarButton(
+            modifier = modifier.semantics { this.contentDescription = contentDescription },
+            onClick = onClick,
+            backdrop = backdrop,
+            style = CouiTopAppBarButtonDefaults.style(dark).copy(
+                material = { capsule -> CouiTopAppBarButtonDefaults.systemMaterial(dark, capsule) },
+                shadow = { capsule ->
+                    CouiTopAppBarButtonDefaults.shadow(dark, capsule, density, contour, alphaScale = 1f)
+                },
+            ).withDemoThemeTint(),
+        ) { content() }
+    } else {
+        Box(modifier.size(44.dp).clip(CircleShape).glassCircle(dark)
+            .semantics { this.contentDescription = contentDescription }
+            .clickable(source, indication = null, role = Role.Button, onClick = onClick),
+            contentAlignment = Alignment.Center) { content() }
+    }
 }
 
 /** 玻璃质感：底色与描边都是竖向渐变，光源在顶部。 */

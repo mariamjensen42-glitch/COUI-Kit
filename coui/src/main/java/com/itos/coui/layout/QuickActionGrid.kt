@@ -36,12 +36,18 @@ class CouiQuickAction(
     val icon: @Composable () -> Unit,
     val onClick: () -> Unit,
     val enabled: Boolean = true,
+    /** 标题最多显示的行数；原厂「常用信息与密码」这类入口占两行。 */
+    val labelMaxLines: Int = 2,
 )
+
+/** 快捷入口的两种外观：[Card] 为 24dp 圆角卡片，[Capsule] 为实用工具页的全圆胶囊条目。 */
+enum class CouiQuickActionStyle { Card, Capsule }
 
 /**
  * 两列图标快捷卡片，对应 ColorOS 实用工具页的分组入口形态。
  * 每行按 [columns] 等分，末行不足时用空位补齐，卡片宽度不随内容变化。
- * 卡片沿用 [CouiPageDefaults.shape] 与 [CouiPageColors.card]，与 [Group] 卡片保持同一轮廓和底色。
+ * [CouiQuickActionStyle.Card] 沿用 [CouiPageDefaults.shape] 与 [CouiPageColors.card]；
+ * [CouiQuickActionStyle.Capsule] 改用 [CouiPageDefaults.quickActionCapsuleShape]、60dp 行高、8dp 间距与 14sp 标签。
  * 整张卡片承担点击，图标与文字不单独响应；禁用时只降低内容不透明度，仍保留占位。
  */
 @Composable
@@ -49,15 +55,18 @@ fun QuickActionGrid(
     modifier: Modifier = Modifier,
     actions: List<CouiQuickAction>,
     columns: Int = CouiPageDefaults.quickActionColumns,
+    style: CouiQuickActionStyle = CouiQuickActionStyle.Card,
     dark: Boolean = CouiTheme.isDark,
     colors: CouiPageColors = CouiPageDefaults.themeColors(dark),
 ) {
     require(columns > 0) { "列数必须是正整数" }
-    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(CouiPageDefaults.quickActionSpacing)) {
+    val spacing = if (style == CouiQuickActionStyle.Capsule) CouiPageDefaults.quickActionCapsuleSpacing
+        else CouiPageDefaults.quickActionSpacing
+    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(spacing)) {
         actions.chunked(columns).forEach { rowActions ->
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(CouiPageDefaults.quickActionSpacing)) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing)) {
                 rowActions.forEach { action ->
-                    QuickActionCell(Modifier.weight(1f), action, dark, colors)
+                    QuickActionCell(Modifier.weight(1f), action, style, dark, colors)
                 }
                 repeat(columns - rowActions.size) { Spacer(Modifier.weight(1f)) }
             }
@@ -69,14 +78,17 @@ fun QuickActionGrid(
 private fun QuickActionCell(
     modifier: Modifier,
     action: CouiQuickAction,
+    style: CouiQuickActionStyle,
     dark: Boolean,
     colors: CouiPageColors,
 ) {
     val source = remember { MutableInteractionSource() }
     val contentColor = if (action.enabled) colors.title else colors.disabled
+    val capsule = style == CouiQuickActionStyle.Capsule
     Row(
-        modifier.defaultMinSize(minHeight = CouiPageDefaults.quickActionMinHeight)
-            .clip(CouiPageDefaults.shape)
+        modifier.defaultMinSize(minHeight = if (capsule) CouiPageDefaults.quickActionCapsuleMinHeight
+            else CouiPageDefaults.quickActionMinHeight)
+            .clip(if (capsule) CouiPageDefaults.quickActionCapsuleShape else CouiPageDefaults.shape)
             .background(colors.card)
             .couiButtonFeedback(dark, source, action.enabled, list = true)
             .clickable(source, null, action.enabled, role = Role.Button, onClick = action.onClick)
@@ -84,8 +96,11 @@ private fun QuickActionCell(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(Modifier.size(CouiPageDefaults.iconSize), contentAlignment = Alignment.Center) { action.icon() }
-        Spacer(Modifier.width(CouiPageDefaults.quickActionIconSpacing))
-        Text(text = action.label, kind = CouiTextKind.ItemTitle, color = contentColor,
-            maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))
+        Spacer(Modifier.width(if (capsule) CouiPageDefaults.quickActionCapsuleIconSpacing
+            else CouiPageDefaults.quickActionIconSpacing))
+        Text(text = action.label,
+            kind = if (capsule) CouiTextKind.ItemValue else CouiTextKind.ItemTitle,
+            color = contentColor,
+            maxLines = action.labelMaxLines, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))
     }
 }

@@ -29,6 +29,8 @@ fun ToolbarAction(
 
 `TopAppBarButton` 默认使用 `CouiTopAppBarButtonDefaults.style()`；`TopAppBarSearchButton` 和 `TopAppBarSearch` 默认使用 `CouiTopAppBarButtonDefaults.style(search = true)`。显式传入 `style` 时覆盖默认值。通用主题规则见[外观与预设](../guide/appearance.md)。
 
+按钮默认从所在 `TopAppBarSurface` 取背景源。自定义顶栏（不使用 `TopAppBarSurface`）时显式传入 `backdrop`，此时按钮不再依赖顶栏作用域；传入的源应只覆盖页面背景，按钮自身不能落在该源的子树里，否则会采样到自身。
+
 ## 显示一个简单顶栏
 
 下面的顶栏显示标题和一个文字按钮。按钮需要 API 34；放入 COUI Scaffold 的 `topBar` 时可省略 `backdrop`。本例通过参数接收源，适用于第三方容器，接入方式见[快速开始](../guide/getting-started.md#浮动组件的背景源)。

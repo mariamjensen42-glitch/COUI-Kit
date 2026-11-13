@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
@@ -29,6 +30,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.itos.coui.effect.couiButtonFeedback
+import com.itos.coui.shape.CouiCapsuleShape
 import com.itos.coui.shape.CouiShape
 import com.itos.coui.theme.CouiTheme
 import com.itos.coui.theme.CouiColorScheme
@@ -61,6 +63,12 @@ object CouiPageDefaults {
     val quickActionMinHeight = 56.dp
     val quickActionPadding = 16.dp
     val quickActionIconSpacing = 12.dp
+
+    /** 胶囊形态的快捷入口：对应实用工具页，行高 60dp、间距 8dp、图标后留白 8dp。 */
+    val quickActionCapsuleShape: Shape = CouiCapsuleShape
+    val quickActionCapsuleMinHeight = 60.dp
+    val quickActionCapsuleSpacing = 8.dp
+    val quickActionCapsuleIconSpacing = 8.dp
     /** 消费当前原生/可选宿主策略；显式 colors 仍优先。 */
     @Composable
     fun themeColors(dark: Boolean = CouiTheme.isDark): CouiPageColors =

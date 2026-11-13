@@ -20,10 +20,27 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 新增线性进度 `LinearProgress` 与分段占用 `SegmentedProgress`：8dp / 12dp 胶囊轨道，轨道与进度共用同一轮廓裁剪，分段版按占比累加、尾部保留轨道色。[进度与占位](docs/components/progress.md)
 - `CircularProgress` 新增 `size`、`gapDegrees`、`startAngleDegrees`、`glow` 与 `content`：支持大号读数环、缺口弧、外发光光晕与环心内容，原有 40dp / 30dp 默认行为不变。[进度与占位](docs/components/progress.md)
 - 新增快捷动作网格 `QuickActionGrid` 与 `CouiQuickAction`：两列等分图标卡片，沿用 `Group` 的 24dp 轮廓与卡片底色，末行自动补齐。[快捷动作网格](docs/components/quick-action-grid.md)
+- `QuickActionGrid` 新增 `style` 参数与 `CouiQuickActionStyle.Capsule`：实用工具页的全圆胶囊条目，60dp 行高、8dp 间距、图标后留白 8dp、14sp 标签，数值取自真机截图测量；默认仍为 24dp 圆角卡片，调用方行为不变。[快捷动作网格](docs/components/quick-action-grid.md#外观与预设)
 - `CouiPresets` 新增 `GreenLight` / `GreenDark` 与 `green(dark)`：只替换强调色及强调内容色，中性表面沿用原生预设。[外观与预设](docs/guide/appearance.md)
 - `CouiTextKind` 新增 `Display`：48sp 展示型读数，用于电量百分比、健康分数等页面主数字。
 - `CouiButtonDefaults.primaryColors` 与 `colors` 新增 `onAccent` 参数，主按钮内容色默认取 `CouiColorScheme.onAccent`；原生蓝色主题仍为白色，亮色强调（如绿色预设）自动转为深色内容。[按钮](docs/components/button.md)
 - 轻提示修正三处与原厂九宫格的偏差：容器改用等半径标准圆角、补绘九宫格烘焙的内阴影、带图标时上下留白由 16dp 收到 10dp（容器高度 62dp → 50dp）。[轻提示](docs/components/toast.md)
+- `TopAppBarButton` 新增可选 `backdrop`：自定义顶栏（不套 `TopAppBarSurface`）可直接传入只含页面背景的采样源，按钮不再依赖顶栏作用域；省略时沿用所在顶栏的源，行为不变。[顶栏](docs/components/top-app-bar.md)
+- 新增操作卡 `ActionCard`：图标 + 可选标题 + 说明 + 右下操作组，`title` 省略时为提示卡形态，用于手机管家的通知卡与推荐优化卡。[操作卡](docs/components/action-card.md)
+- 新增通知卡 `NotificationCard`：图标 + 标题 + 相对时间 + 正文，对应通知中心的单条通知。组件只做布局，`containerColor` 默认取页面卡片色，宿主传 `Color.Transparent` 并用 `Modifier.couiFloatingSurface` 包裹即可接入凝光玻璃，材质逻辑不在此复制。[通知卡](docs/components/notification-card.md)
+- 新增控制中心磁贴 `QuickSettingTile` 与竖排档位条 `LevelSlider`：小磁贴 62dp 方块 + 下方标签、大磁贴 138×62dp 标签在磁贴内、档位条 62×138dp 底部填充，四列单元 62dp、间距 14dp，数值取自控制中心真机布局树。两者同样不自带材质，`containerColor` 传 `Color.Transparent` 后由宿主用 `Modifier.couiFloatingSurface` 包裹。[控制中心磁贴](docs/components/quick-setting.md)
+- 修正 `ActionCard` 提示卡形态的说明字号：从 13sp 改为 15sp（`CouiTextKind.BodyLarge`），推荐卡形态保持 13sp。真机实测提示条单行墨迹 13.7dp、行距 20.3dp，对应 15sp 而非 13sp。[操作卡](docs/components/action-card.md)
+- `CouiTextKind` 新增 `BodyLarge`：15sp 常规字重正文，用于没有标题、说明本身承担主文案的场景。
+- 新增模式选择卡 `ChoiceCardGroup` 与 `CouiChoiceCard`：横向等分、图标 + 主副文字、选中态强调描边与 `RadioButton` 语义，对应电池页的模式选择。[模式选择卡](docs/components/choice-card.md)
+- 新增缩略图卡 `ThumbnailChoiceGroup` 与 `ThumbnailNavigationGroup`，共享 `CouiThumbnailChoice`：两列单选型不自绘底色、两卡无缝并排、底部为单选钮，对应显示与亮度；三列导航型自带 `CouiShape(20.dp, 3f)` 轮廓、8dp 间距与「当前值 + 箭头」，对应通知与控制中心的分类设置。尺寸取自真机布局树。[缩略图选择卡](docs/components/thumbnail-choice.md)
+- 新增柱状图 `BarChart` 与 `CouiBar`：圆角柱、逐柱配色、右侧刻度与水平网格线，用于电量使用情况。[柱状图](docs/components/bar-chart.md)
+- 新增悬浮底栏 `DockBar`：胶囊导航与中央凸起圆钮共用双主体玻璃材质并按融球合成，对应手机管家与实用工具页的 dock。[悬浮底栏](docs/components/dock-bar.md)
+- `CouiQuickAction` 新增 `labelMaxLines`（默认 2）：入口标题可换行，原厂「常用信息与密码」这类两行入口不再被截断。[快捷动作网格](docs/components/quick-action-grid.md)
+- 新增下拉刷新 `PullToRefresh`：列表到顶后继续下拉累积位移，松手超过阈值触发刷新，指示器收到下拉进度并可替换。[下拉刷新](docs/components/pull-to-refresh.md)
+- 新增折叠面板 `Accordion`：受控展开态、展开/收起动画与自绘旋转箭头，用于设置页的按需展开分组。[折叠面板](docs/components/accordion.md)
+- 新增头像容器 `Avatar` 与 `CouiAvatarDefaults`：固定尺寸、可裁剪、底色可覆盖，内容由宿主提供。[头像](docs/components/avatar.md)
+- 新增三态容器 `StateLayout` 与 `CouiLoadState`：加载、空、失败与就绪的统一分发，文案与重试入口由宿主提供。[三态容器](docs/components/state-layout.md)
+- 新增步骤条 `Stepper`：横向圆点、连接线与标签，当前步骤由宿主持有。[步骤条](docs/components/stepper.md)
 - Demo 新增「手机管家」与「清理存储」两个页面级复刻，演示绿色渐变底、页内大标题、通知卡、白心分数环、2×2 入口卡、多色存储构成条，以及锚定在圆底更多按钮上的毛玻璃菜单。
 
 按钮、环形进度、角标、气泡、页码、空状态、输入框、底部面板与轻提示均对齐 ColorOS 17 应用内嵌的 COUI 资源；原厂没有对应分支的细节（按钮加载的三点动画、不确定态弧长、占位脉冲、轻提示投影）按同族资源的数值与节奏推演。

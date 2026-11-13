@@ -7,6 +7,7 @@
     <string name="progress_segmented">分段</string>
     <string name="progress_ring">大环</string>
     <string name="progress_ring_score">分数</string>
+    <string name="progress_ring_unit">分</string>
     <string name="progress_skeleton">骨架占位</string>
     <string name="progress_animated">占位动画</string>
 </resources>

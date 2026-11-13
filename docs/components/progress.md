@@ -51,6 +51,38 @@ CircularProgress(
 
 `startAngleDegrees` 是进度起点，默认 `-90f`（正上方）；缺口位于起点之前，不参与比例换算，`gapDegrees` 夹紧到 `CouiProgressDefaults.maxCircularGapDegrees` 以内，保证轨道至少保留一段可见弧长。`glow` 在弧外叠加同色光晕，此时环半径按 `circularGlowRingScale` 内收，`size` 表示含光晕的整体尺寸，不是环外径。`content` 在环心居中绘制，不参与环的测量，也不会被轨道或光晕裁剪。
 
+### 分数环
+
+手机管家首页那种「白色圆盘 + 外环」的分数环不单独提供组件，用 `CircularProgress` 叠一层实心圆即可——内圆尺寸取环的内径，两者正好贴合：
+
+~~~kotlin
+// 开 glow 时 size 含光晕且环按 circularGlowRingScale 内收，
+// 要得到 189dp 的环外径，size 需取 189 / 0.82 + 24 ≈ 225dp。
+Box(Modifier.size(225.dp), contentAlignment = Alignment.Center) {
+    Box(Modifier.size(141.dp).clip(CircleShape).background(Color.White))
+    CircularProgress(
+        progress = score / 100f,
+        size = 225.dp,
+        strokeWidth = 24.dp,
+        gapDegrees = 70f,
+        startAngleDegrees = 80f,
+        glow = true,
+        color = scheme.accent,
+        trackColor = scheme.accent.copy(alpha = .18f),
+        content = {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = score.toString(), kind = CouiTextKind.Display, color = Color(0xFF1A1A1A))
+                Text(text = "分", kind = CouiTextKind.Body, color = Color(0xFF6B6B6B))
+            }
+        },
+    )
+}
+~~~
+
+数值取自真机测量（872×1920 手机管家截图，2.2px/dp）：环外径 189dp、描边 24dp、内孔 141dp，三者满足 `189 - 2×24 = 141`，说明圆盘正好填满环内孔。缺口落在右下，对应 `startAngleDegrees = 80f`、`gapDegrees = 70f`。
+
+**内圆尺寸必须按环内孔算，不能按环外径算**：开 `glow` 时环会按 `circularGlowRingScale`（0.82）内收，且 `size` 表示含光晕的整体尺寸，直接传 189dp 得到的环只有约 159dp 外径、111dp 内孔，白色圆盘会盖住环的内侧。圆盘与数字的配色是页面级的（原厂是白底深字），由调用方显式给出，不跟随深色主题——手机管家整页是深色背景，圆盘仍是白色。
+
 ## 线性进度
 
 横条进度与环共用取色规则：省略 `color` 取主题强调色，省略 `trackColor` 取分隔线色。

@@ -37,6 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.itos.coui.button.Button
 import com.itos.coui.button.CouiButtonStyle
+import com.itos.coui.backdrop.CouiBackdrop
+import com.itos.coui.backdrop.couiBackdrop
+import com.itos.coui.backdrop.rememberCouiBackdrop
 import com.itos.coui.demo.ui.Icon
 import com.itos.coui.icons.CouiIcons
 import com.itos.coui.progress.CircularProgress
@@ -57,10 +60,14 @@ internal fun ManagerHomeSample(dark: Boolean, onBack: () -> Unit) {
     CouiTheme(darkTheme = dark, colorScheme = scheme) {
         val title = scheme.onSurface
         val summary = scheme.onSurfaceVariant
-        Box(Modifier.fillMaxSize().drawBehind { drawRect(managerBackdrop(dark, size.width, size.height)) }) {
+        val backdrop = rememberCouiBackdrop()
+        Box(Modifier.fillMaxSize()) {
+            // 只含页面渐变底的采样源; 顶栏按钮在源之外, 不会采样到自身。
+            Box(Modifier.fillMaxSize().couiBackdrop(backdrop)
+                .drawBehind { drawRect(managerBackdrop(dark, size.width, size.height)) })
             Column(Modifier.fillMaxSize().statusBarsPadding().verticalScroll(rememberScrollState())
                 .padding(bottom = 32.dp)) {
-                ManagerToolbar(title, dark)
+                ManagerToolbar(title, dark, backdrop)
                 Spacer(Modifier.height(8.dp))
                 ManagerNoticeCard(title, summary, scheme.accent)
                 Spacer(Modifier.height(28.dp))
@@ -81,13 +88,13 @@ internal fun ManagerHomeSample(dark: Boolean, onBack: () -> Unit) {
 
 /** 顶部只保留页内大标题与玻璃圆底更多按钮，不使用折叠顶栏，避免与渐变底叠加两层背景。 */
 @Composable
-private fun ManagerToolbar(title: Color, dark: Boolean) {
+private fun ManagerToolbar(title: Color, dark: Boolean, backdrop: CouiBackdrop) {
     val style = rememberCouiTextStyle(CouiTextKind.HomeTitle).copy(fontSize = 30.sp, color = title)
     val more = stringResource(R.string.manager_more)
     Row(Modifier.fillMaxWidth().padding(start = 20.dp, end = 16.dp, top = 12.dp, bottom = 4.dp),
         verticalAlignment = Alignment.CenterVertically) {
         BasicText(text = stringResource(R.string.manager_name), style = style, modifier = Modifier.weight(1f))
-        GlassIconButton(dark = dark, contentDescription = more, onClick = {}) {
+        GlassIconButton(dark = dark, contentDescription = more, onClick = {}, backdrop = backdrop) {
             Icon(CouiIcons.Filled.More, null, Modifier.size(22.dp), tint = title)
         }
     }

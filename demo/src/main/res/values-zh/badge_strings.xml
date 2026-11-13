@@ -1,0 +1,11 @@
+<resources>
+    <string name="badge_title">角标与气泡</string>
+    <string name="intro_badge">未读角标、红点与受控气泡提示</string>
+    <string name="badge_count">数量</string>
+    <string name="badge_examples">角标</string>
+    <string name="tooltip_examples">气泡</string>
+    <string name="tooltip_hint">长按图标显示气泡</string>
+    <string name="tooltip_text">说明这个控件的作用</string>
+    <string name="tooltip_show">显示气泡</string>
+    <string name="tooltip_hide">关闭气泡</string>
+</resources>

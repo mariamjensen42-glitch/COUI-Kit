@@ -2,7 +2,6 @@ package com.itos.coui.demo
 
 import android.os.SystemClock
 import android.widget.Toast
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue

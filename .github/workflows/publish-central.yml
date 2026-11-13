@@ -54,8 +54,8 @@ jobs:
           PACKAGE_VERSION: ${{ steps.version.outputs.version }}
         run: |
           set -euo pipefail
-          ./gradlew :coui:lintRelease :coui-material3:lintRelease :coui-icons:lintRelease \
-            :coui:publishAllPublicationsToLocalRepository :coui-material3:publishAllPublicationsToLocalRepository :coui-icons:publishAllPublicationsToLocalRepository \
+          ./gradlew :coui:lintRelease :coui-icons:lintRelease \
+            :coui:publishAllPublicationsToLocalRepository :coui-icons:publishAllPublicationsToLocalRepository \
             "-PVERSION_NAME=$PACKAGE_VERSION" --no-configuration-cache --stacktrace
           node .github/scripts/verify-maven-artifacts.cjs
       - name: 签名并提交自动发布
@@ -85,7 +85,6 @@ jobs:
             echo
             echo '```kotlin'
             echo "implementation(\"$group:coui:$PACKAGE_VERSION\")"
-            echo "implementation(\"$group:coui-material3:$PACKAGE_VERSION\")"
             echo "implementation(\"$group:coui-icons:$PACKAGE_VERSION\")"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"

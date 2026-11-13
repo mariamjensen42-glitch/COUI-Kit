@@ -1,0 +1,12 @@
+<resources>
+    <string name="progress_title">Progress</string>
+    <string name="intro_progress">Circular progress, indeterminate spinner and skeleton placeholder</string>
+    <string name="progress_value">Progress</string>
+    <string name="progress_circular">Circular</string>
+    <string name="progress_linear">Linear</string>
+    <string name="progress_segmented">Segmented</string>
+    <string name="progress_ring">Large ring</string>
+    <string name="progress_ring_score">Score</string>
+    <string name="progress_skeleton">Skeleton</string>
+    <string name="progress_animated">Animate placeholder</string>
+</resources>

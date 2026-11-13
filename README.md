@@ -16,11 +16,11 @@ COUI-Kit 参考 ColorOS 17 的「凝光视效」，提供背景模糊、材质�
 ## 特点
 
 - 组件和效果可以分别使用，也可以组合使用。
-- 纯 COUI 页面可组合 `CouiTheme` 与可选的 [Scaffold](docs/components/scaffold.md)，统一栏位测量和安全区，无需 Material 3 等外部依赖。
-- 可以只取用单个 COUI 组件，与 Material、Miuix 或自有设计混搭；不要求替换宿主的 Scaffold、主题和导航。
+- 纯 COUI 页面可组合 `CouiTheme` 与可选的 [Scaffold](docs/components/scaffold.md)，统一栏位测量和安全区，不引入外部设计体系依赖。
+- 可以只取用单个 COUI 组件，与宿主现有设计体系或自有组件混搭；不要求替换宿主的 Scaffold、主题和导航，**灵活自由**
 - 支持接入 App 的配色、文字样式和形状，并提供常用外观预设。
-- 提供原生主题、组件默认值与可选 `coui-material3` 适配模块。核心独立于 Material 3；M3 宿主可在启动时初始化适配，见[外观与预设](docs/guide/appearance.md)。
-- 基于 Android、Compose 和 AndroidX 的公开 API，不依赖厂商 SDK 或私有 SO；支持 Android 12 及以上设备，部分效果要求更高版本。
+- 内置原生主题与组件默认值，配色、字体和 Shape 可由宿主逐项覆盖，见[外观与预设](docs/guide/appearance.md)。
+- 基于 Android、Compose 和 AndroidX 的公开 API，不依赖厂商 SDK 或私有 SO，**全系统可用**
 
 ## Demo
 
@@ -42,36 +42,17 @@ dependencies {
 
 使用 `CouiIcons` 时，添加可选的图标依赖，详见[图标用法](docs/components/icons.md)。
 
-### 接入 Material 3
+### 外观与主题
 
-已有 Material 3 App 可以让 COUI 的默认配色和字体跟随当前 `MaterialTheme`，插槽中的 M3 `Text`、`Icon` 直接继承组件样式，无需逐处接线或增加根主题包装。
-
-`coui`、`coui-material3` 与 `coui-icons` 采用相同版本并同步发布。通过 Maven Central 接入 M3 时，只需添加适配模块：
+组件默认使用 COUI 原生配色与排版。需要接入宿主配色时，在页面作用域组合 `CouiTheme`；也可以只用显式参数覆盖单个组件：
 
 ```kotlin
-val couiVersion = "0.0.1-alpha11"
-
-dependencies {
-    implementation("io.github.itoseo:coui-material3:$couiVersion")
+CouiTheme(darkTheme = darkTheme) {
+    content()
 }
 ```
 
-适配模块会传递引入同版本核心与 M3；如果同时显式声明 `coui`，也使用该版本。
-
-协作调试时，也可通过 [GitHub Packages](docs/guide/github-packages.md) 接入已发布的开发快照。需要本地修改库时，按[源码模块接入](docs/guide/getting-started.md#源码模块)配置工程；`project(":coui-material3")` 仅用于这种情况。
-
-在已有 `Application.onCreate()` 中、创建 Compose UI 前初始化一次：
-
-```kotlin
-class App : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        Coui.initialize(defaultStyle = CouiMaterial3Style())
-    }
-}
-```
-
-已有 Application 只需加入初始化；新建 Application 时需在 manifest 中注册。初始化选择固定策略，重复调用会报错。组件在各自的 Compose 作用域读取 M3 配色与字体，随动态色、主题动画和嵌套主题更新。
+`CouiTheme` 只提供配色、排版和内容作用域，不接管导航、业务状态或页面容器。需要自定义色板时传入 `colorScheme`，局部覆盖规则见[外观与预设](docs/guide/appearance.md)。
 
 默认深浅模式跟随系统。App 有独立主题开关时，在现有主题 Provider 中提供实际的 `darkTheme`：
 
@@ -81,7 +62,9 @@ CompositionLocalProvider(LocalCouiDarkTheme provides darkTheme) {
 }
 ```
 
-`darkTheme` 和 `content` 来自宿主主题。嵌套 `MaterialTheme` 若独立改变深浅模式，也在该边界提供此 Local；库不会从自定义色板猜测模式。显式组件参数继续优先，局部原生主题、字体与染色规则见[外观与预设](docs/guide/appearance.md)。
+`darkTheme` 和 `content` 来自宿主主题。库不会从自定义色板猜测模式；显式组件参数继续优先。
+
+协作调试时，也可通过 [GitHub Packages](docs/guide/github-packages.md) 接入已发布的开发快照。需要本地修改库时，按[源码模块接入](docs/guide/getting-started.md#源码模块)配置工程。
 
 ## 文档
 

@@ -1,0 +1,9 @@
+<resources>
+    <string name="bottomsheet_title">底部面板</string>
+    <string name="intro_bottomsheet">面板从底部升起。点击遮罩或按返回键关闭。</string>
+    <string name="bottomsheet_open">打开底部面板</string>
+    <string name="bottomsheet_header">选择一个操作</string>
+    <string name="bottomsheet_option_first">第一个选项</string>
+    <string name="bottomsheet_option_second">第二个选项</string>
+    <string name="bottomsheet_option_third">第三个选项</string>
+</resources>

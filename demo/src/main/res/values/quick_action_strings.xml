@@ -1,0 +1,7 @@
+<resources>
+    <string name="quick_action_title">Quick actions</string>
+    <string name="quick_action_photos">Photos</string>
+    <string name="quick_action_videos">Videos</string>
+    <string name="quick_action_apps">App data</string>
+    <string name="quick_action_health">Battery health</string>
+</resources>

@@ -73,13 +73,13 @@ ChipTabRow(
 )
 ~~~
 
-`onOpenCategories`、`categoriesLabel` 和 `categoriesVisible` 由页面提供。需要退出动画时，保留 `leadingAction` 的内容，只切换 `leadingActionVisible`。示例假定已接入可选 M3 适配，ChipSurface 自动同步最终内容色，M3 `Icon` 可直接继承；leadingAction 本身只转发内容。应用需要声明示例使用的 Material3 和图标依赖。
+`onOpenCategories`、`categoriesLabel` 和 `categoriesVisible` 由页面提供。需要退出动画时，保留 `leadingAction` 的内容，只切换 `leadingActionVisible`。ChipSurface 自动同步最终内容色，插槽中的 `Icon` 可继承该内容色；leadingAction 本身只转发内容。
 
 ## 文字、间距和动画
 
 可以通过 `textStyle` 和 `contentColor` 修改文字样式与颜色。分类间距默认遵循原厂布局，可通过 `itemSpacing` 调整；`animationLevel` 从 1 到 4，1 的动画最明显，4 最弱。
 
-M3 自动模式仅从 labelLarge 接入字体族，保留 Chip 的原字号、字重和排版。显式 textStyle 仍完整生效，图标显式 tint 优先。
+Chip 只从主题取字体族，保留自身的字号、字重和排版。显式 textStyle 仍完整生效，图标显式 tint 优先。
 
 每个分类项和独立图标按钮各自持有单主体 renderer。显式传 `renderers` 时，数量要和 `items` 一致，实例不能重复。
 

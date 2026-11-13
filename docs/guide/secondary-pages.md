@@ -1,47 +1,41 @@
 # 在宿主页面中组合 COUI
 
-COUI 组件可以放入现有 Material、Miuix 或自有页面。纯 COUI 应用也可选择 [Scaffold](../components/scaffold.md) 处理栏位测量和安全区。
+COUI 组件可以放入宿主已有的页面。纯 COUI 应用也可选择 [Scaffold](../components/scaffold.md) 处理栏位测量和安全区。
 
 | 页面需要 | 装配方式 |
 | --- | --- |
 | 普通分组与控件 | 直接放入已有布局，见[Group](../components/group.md) |
 | COUI 惯性与回弹 | 在实际滚动容器使用 [couiVerticalScroll](../effects/overscroll.md) |
-| 模糊顶栏、底栏或 FAB | COUI Scaffold 自动提供正文源；第三方容器显式接入 Backdrop |
+| 模糊顶栏、底栏或 FAB | COUI Scaffold 自动提供正文源；其他容器显式接入 Backdrop |
 | 材质菜单或弹窗 | 按需提供窗口背景源 |
 
-配色来自组件参数或当前 `CouiTheme`。M3 适配是可选依赖，接入方法见[外观与预设](appearance.md)。
+配色来自组件参数或当前 `CouiTheme`，覆盖方式见[外观与预设](appearance.md)。
 
-## 使用已有 Scaffold
+## 使用 COUI Scaffold
 
-下面的应用层示例使用 Material 3 Scaffold。宿主需自行依赖 Material 3 并提供 MaterialTheme；文案和导航回调由宿主传入。
+纯 COUI 页面直接使用 `Scaffold`，它同时提供正文源、栏位测量和正文 Padding。文案和导航回调由宿主传入。
 
 ```kotlin
 @Composable
-fun MixedPage(
+fun CouiPage(
     modifier: Modifier = Modifier,
     title: String,
     rowTitle: String,
     onOpen: () -> Unit,
 ) {
-    val backdrop = rememberCouiBackdrop()
-    val background = MaterialTheme.colorScheme.background
-    val titleColor = MaterialTheme.colorScheme.onBackground
     val colors = CouiPageDefaults.themeColors()
-    androidx.compose.material3.Scaffold(
+    Scaffold(
         modifier = modifier,
-        containerColor = background,
         topBar = {
             TopAppBar(
-                backdrop = backdrop,
                 colors = CouiTopAppBarDefaults.colors(
-                    backgroundColor = background, titleColor = titleColor),
+                    backgroundColor = colors.background, titleColor = colors.title),
                 title = { BasicText(title, style = LocalCouiTextStyle.current) },
             )
         },
     ) { padding ->
         LazyColumn(
-            modifier = Modifier.fillMaxSize().couiBackdrop(backdrop).background(background)
-                .consumeWindowInsets(padding),
+            modifier = Modifier.fillMaxSize().consumeWindowInsets(padding),
             contentPadding = padding,
         ) {
             item {
@@ -57,13 +51,13 @@ fun MixedPage(
 }
 ```
 
-仅使用 Group、Item 或普通控件时，不需要示例中的 Backdrop。使用其他页面容器时，保留相同的源与消费者关系。
+仅使用 Group、Item 或普通控件时，不需要示例中的 Scaffold。放入第三方容器时，保留相同的源与消费者关系：创建 `rememberCouiBackdrop()`，在正文容器挂载 `.couiBackdrop(backdrop)`，再把同一个源显式传给顶栏。
 
 ## Padding、Insets 与滚动
 
 正文应用并消费宿主给出的 Padding。LazyColumn 使用 `contentPadding`；Column 使用 `verticalScroll` 或 `couiVerticalScroll` 时，将 Padding 放在滚动 Modifier 后，使内容能滚入浮动栏位下方。不要叠加两层纵向滚动。
 
-顶栏负责顶部及自身横向安全区，底栏负责底部安全区；宿主容器返回的占位包含这些实测高度。已消费的部分不再添加第二次。Material 3 的分工见 [Android 官方说明](https://developer.android.com/develop/ui/compose/system/material-insets)，Scaffold 的分工见[页面容器](../components/scaffold.md#padding-与系统-insets)。
+顶栏负责顶部及自身横向安全区，底栏负责底部安全区；宿主容器返回的占位包含这些实测高度。已消费的部分不再添加第二次。Scaffold 的分工见[页面容器](../components/scaffold.md#padding-与系统-insets)。
 
 含输入框的页面在滚动容器外使用 `imePadding()`，使键盘打开时实际视口缩小，Foundation 才能处理焦点避让。只增加滚动内容尾部空白不会缩小视口。父级已处理 IME 时沿用其分工，详见 [Insets 消费规则](https://developer.android.com/develop/ui/compose/system/insets-ui)。
 

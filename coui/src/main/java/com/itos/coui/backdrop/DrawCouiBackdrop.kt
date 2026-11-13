@@ -70,6 +70,8 @@ private data class DrawBackdropElement(
         node.effects = effects
         node.surface = surface
         node.drawBackdrop = drawBackdrop
+        node.markEffectsDirty()
+        node.invalidateDraw()
     }
     override fun InspectorInfo.inspectableProperties() { name = "drawCouiBackdrop" }
 }
@@ -84,6 +86,9 @@ internal open class DrawCouiBackdropNode(
     private var layer: GraphicsLayer? = null
     private var coordinates: LayoutCoordinates? = null
     private var effectScope: CouiBackdropEffectScope? = null
+    private var effectSize = IntSize.Zero
+    private var effectDensity: Density? = null
+    private var effectsDirty = true
 
     override fun onAttach() { layer = requireGraphicsContext().createGraphicsLayer() }
 
@@ -92,12 +97,18 @@ internal open class DrawCouiBackdropNode(
         layer = null
         coordinates = null
         effectScope = null
+        effectSize = IntSize.Zero
+        effectDensity = null
+        effectsDirty = true
     }
 
     override fun onGloballyPositioned(coordinates: LayoutCoordinates) {
         this.coordinates = coordinates
         invalidateDraw()
     }
+
+    /** 参数或所属渲染器变化后请求重跑效果装配; 子类更新自身参数时同步调用。 */
+    internal fun markEffectsDirty() { effectsDirty = true }
 
     protected open fun configureEffects(scope: CouiBackdropEffectScope) { scope.effects() }
 
@@ -111,13 +122,20 @@ internal open class DrawCouiBackdropNode(
         if (target != null && target.isAttached && size.width > 0f && size.height > 0f) {
             val scope = effectScope?.takeIf { it.density == density && it.fontScale == fontScale }
                 ?: CouiBackdropEffectScope(Density(density, fontScale)).also { effectScope = it }
-            scope.size = size
-            scope.padding = 0f
-            scope.renderEffect = null
-            configureEffects(scope)
+            val sizeKey = IntSize(size.width.toInt(), size.height.toInt())
+            // 滚动与动画期间尺寸不变, 复用已装配的效果快照, 不每帧重建平台滤镜。
+            if (effectsDirty || effectSize != sizeKey || effectDensity != scope.recordingDensity) {
+                scope.size = size
+                scope.padding = 0f
+                scope.renderEffect = null
+                configureEffects(scope)
+                effectSize = sizeKey
+                effectDensity = scope.recordingDensity
+                effectsDirty = false
+            }
             val padding = ceil(scope.padding).toInt()
             val targetLayer = checkNotNull(layer)
-            targetLayer.renderEffect = scope.renderEffect
+            if (targetLayer.renderEffect !== scope.renderEffect) targetLayer.renderEffect = scope.renderEffect
             targetLayer.topLeft = IntOffset(-padding, -padding)
             targetLayer.record(scope.recordingDensity, layoutDirection,
                 IntSize(size.width.toInt() + 2 * padding, size.height.toInt() + 2 * padding)) {

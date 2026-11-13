@@ -1,0 +1,18 @@
+<resources>
+    <string name="cleanup_title">清理存储</string>
+    <string name="cleanup_menu_history">清理记录</string>
+    <string name="cleanup_menu_whitelist">应用清理白名单</string>
+    <string name="cleanup_garbage">存在垃圾</string>
+    <string name="cleanup_detail">查看详情</string>
+    <string name="cleanup_action">放心清理</string>
+    <string name="cleanup_storage">存储空间</string>
+    <string name="cleanup_used">已用211 GB / 256 GB</string>
+    <string name="cleanup_recommend">推荐优化</string>
+    <string name="cleanup_apps">应用管理</string>
+    <string name="cleanup_apps_summary">应用安装、升级与卸载</string>
+    <string name="cleanup_go">前往</string>
+    <string name="cleanup_app_section">应用专清</string>
+    <string name="cleanup_wechat">微信专清</string>
+    <string name="cleanup_wechat_action">前往清理</string>
+    <string name="cleanup_qq">QQ专清</string>
+</resources>

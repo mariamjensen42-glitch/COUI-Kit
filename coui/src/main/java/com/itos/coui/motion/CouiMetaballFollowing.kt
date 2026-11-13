@@ -44,8 +44,9 @@ fun rememberCouiMetaballFollowingTranslation(
                 if (reveal <= followEnd) {
                     translation.snapTo(translation.value - delta * followRatio)
                 }
+                // followingDistancePx 为 0 时位移恒为 0, 需显式排除, 否则条件恒真而每帧重建回弹。
                 if ((previousReveal < followEnd && reveal >= followEnd) ||
-                    translation.value <= -followingDistancePx
+                    followingDistancePx > 0f && translation.value <= -followingDistancePx
                 ) {
                     rebound = launch {
                         translation.animateTo(0f, reboundSpec, initialVelocity = 0f)

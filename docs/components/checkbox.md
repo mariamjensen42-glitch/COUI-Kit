@@ -45,7 +45,7 @@ fun RadioButtonGroup(
 }
 ~~~
 
-在 `onSelect` 中把选中值设为点击项的索引。行和单选框必须使用相同的 `selected` 和 `enabled`。只由父项处理点击，不给绘制组件添加第二个点击入口。示例中的 `Text` 来自 Material3，项目需要声明该依赖。
+在 `onSelect` 中把选中值设为点击项的索引。行和单选框必须使用相同的 `selected` 和 `enabled`。只由父项处理点击，不给绘制组件添加第二个点击入口。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
 
 单选框默认尺寸为 24dp，点击范围由父项提供。公开参数见 [RadioButton](../../coui/src/main/java/com/itos/coui/radiobutton/RadioButton.kt)。
 
@@ -59,7 +59,7 @@ fun RadioButtonGroup(
 Checkbox(checked = checked)
 ~~~
 
-组件没有点击回调或 `dark` 参数。默认配色使用 COUI checkbox 角色；原生主题使用强调色，M3 适配在浅色使用 primary、深色使用 inversePrimary。交互由外层提供。通用主题规则见[外观与预设](../guide/appearance.md)。
+组件没有点击回调或 `dark` 参数。默认配色使用 COUI checkbox 角色，强调色来自当前主题。交互由外层提供。通用主题规则见[外观与预设](../guide/appearance.md)。
 
 ## 显示一个整行复选框
 
@@ -102,7 +102,7 @@ fun CheckboxRow(
 
 在 `onCheckedChange` 中更新页面的 `checked`，并将 `checked` 和 `enabled` 同时传给行和复选框。不要再给复选框添加单独的点击处理，以免与整行争用点击。
 
-`indication = null` 关掉整行涟漪，但保留 `toggleable` 的点击和 Checkbox 语义。示例中的 `Text` 来自 Material3，项目需要声明该依赖。
+`indication = null` 关掉整行涟漪，但保留 `toggleable` 的点击和 Checkbox 语义。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
 
 ## 只放一个复选框
 

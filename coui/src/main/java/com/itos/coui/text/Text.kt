@@ -26,17 +26,29 @@ enum class CouiTextKind(internal val size: Float, internal val family: String, i
     /** 列表项的次要文字，用于补充说明主文字。 */
     ItemSummary(13f, "sans-serif", 400),
 
+    /** 正文的小号说明，对应原厂 `couiTextBodyXS`：12sp 常规字重。 */
+    Body(12f, "sans-serif", 400),
+
     /** 紧凑顶栏的参考排版。顶栏默认标题取此处的字号，字体和字重沿用 [HomeTitle]。 */
     TopBar(18f, "sans-serif-medium", 550),
 
     /** 首页和大标题顶栏的展开样式，也是普通顶栏默认字体与字重的来源。 */
     HomeTitle(40f, "sans-serif-semibold", 700),
 
+    /**
+     * 页面主读数，例如电量百分比、健康分数这类展示型数字。
+     * 比 [HomeTitle] 更大且不承担标题语义，可与小号单位文字并排组合。
+     */
+    Display(48f, "sans-serif-semibold", 700),
+
     /** 常驻搜索栏的输入文字和占位提示。 */
     Search(15f, "sans-serif", 400),
 
     /** 列表项末端的当前值或状态，字号以 dp 固定。 */
     ItemValue(14f, "sans-serif", 400),
+
+    /** 文字按钮的标签，对应原厂 `couiTextButtonM`：14sp medium。 */
+    ButtonLabel(14f, "sans-serif-medium", 500),
 
     /** 分组容器上方的标题。 */
     GroupTitle(12f, "sans-serif-medium", 500),
@@ -54,8 +66,8 @@ fun Text(modifier: Modifier = Modifier, text: String, kind: CouiTextKind, color:
     BasicText(text, modifier,
         style = style.copy(color = color.takeOrElse { CouiTheme.contentColor },
             textAlign = textAlign ?: when (kind) {
-                CouiTextKind.ItemTitle, CouiTextKind.ItemSummary,
-                CouiTextKind.GroupFooter -> TextAlign.Start
+                CouiTextKind.ItemTitle, CouiTextKind.ItemSummary, CouiTextKind.Body,
+                CouiTextKind.GroupFooter, CouiTextKind.Display -> TextAlign.Start
                 else -> TextAlign.Center
             }),
         onTextLayout = { onLineCount(it.lineCount) }, maxLines = maxLines, overflow = overflow)
@@ -83,7 +95,8 @@ private fun rememberCouiTextStyle(kind: CouiTextKind, weight: Int, size: Float =
         val pixels = if (kind == CouiTextKind.ItemValue) size * density.density
             else with(density) { size.sp.toPx().roundToInt().toFloat() }
         couiTextStyle(typeface, weight, pixels, couiLineSpacing(kind),
-            includeFontPadding = kind != CouiTextKind.TopBar && kind != CouiTextKind.HomeTitle,
+            includeFontPadding = kind != CouiTextKind.TopBar && kind != CouiTextKind.HomeTitle &&
+                kind != CouiTextKind.Display,
             density = density)
     }
 }
@@ -94,7 +107,10 @@ private fun couiLineSpacing(kind: CouiTextKind): Float = when (kind) {
     CouiTextKind.ItemTitle -> if (Build.VERSION.SDK_INT >= 35) 1.158f else 1.05f
     CouiTextKind.TopBar -> if (Build.VERSION.SDK_INT >= 35) 1.1429f else 1.15f
     CouiTextKind.ItemSummary -> if (Build.VERSION.SDK_INT >= 35) 1.1739f else 1.1f
+    CouiTextKind.Body -> if (Build.VERSION.SDK_INT >= 35) 1.143f else 1f
     CouiTextKind.HomeTitle -> 1f
+    CouiTextKind.Display -> 1f
     CouiTextKind.Search -> if (Build.VERSION.SDK_INT >= 35) 1.1321f else 1.1f
     CouiTextKind.ItemValue -> if (Build.VERSION.SDK_INT >= 35) 1.2245f else 1.1f
+    CouiTextKind.ButtonLabel -> if (Build.VERSION.SDK_INT >= 35) 1.2245f else 1.1f
 }

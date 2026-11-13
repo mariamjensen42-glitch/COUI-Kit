@@ -35,9 +35,9 @@ dependencies {
 
 ## 配置页面
 
-纯 COUI 应用可使用 `CouiTheme + Scaffold + COUI 组件`，无需添加 Material 3。容器、Padding 和安全区的完整用法见[页面容器](../components/scaffold.md)。已有宿主页面也可以直接放入 COUI 组件。
+纯 COUI 应用可使用 `CouiTheme + Scaffold + COUI 组件`，不引入任何外部设计体系。容器、Padding 和安全区的完整用法见[页面容器](../components/scaffold.md)。已有宿主页面也可以直接放入 COUI 组件。
 
-组件可以直接使用 COUI 原生默认值，也可以由局部 `CouiTheme` 或显式参数配置。M3 宿主添加同版本的可选 `coui-material3` 模块，并在 `Application.onCreate` 调用 `Coui.initialize(defaultStyle = CouiMaterial3Style())`；完整初始化与模式配置见 [README：接入 Material 3](../../README.md#接入-material-3)。
+组件可以直接使用 COUI 原生默认值，也可以由局部 `CouiTheme` 或显式参数配置。配色、字体和 Shape 的覆盖方式见[外观与预设](appearance.md)。
 
 平台要求按能力分：普通控件跟随库的最低系统；渐进模糊、轮廓和融合要 API 33；底栏、FAB、顶栏按钮/展开式搜索、ChipTab 和普通阴影要 API 34。常驻 `SearchBar` 在 API 31–33 使用普通填色，API 34 起提供浮动材质与融合。调用 API 34 的组件前先判断版本，完整表格见[兼容要求](compatibility.md#效果门槛)。
 
@@ -91,7 +91,7 @@ fun PageContent(
 }
 ~~~
 
-容器录制完整正文视口与 `containerColor`，不包含顶栏、底栏和 FAB。正文需应用并消费 Padding。正文内部的模糊效果需使用独立源，不能采样自身。Material 等第三方容器需手动创建源、挂载源并显式传参，见[宿主页面接入](secondary-pages.md)。
+容器录制完整正文视口与 `containerColor`，不包含顶栏、底栏和 FAB。正文需应用并消费 Padding。正文内部的模糊效果需使用独立源，不能采样自身。宿主自己的页面容器需手动创建源、挂载源并显式传参，见[宿主页面接入](secondary-pages.md)。
 
 `TopAppBar` 提供标题字体和主题内容色，并处理顶部及横向安全区。示例文字使用 Foundation，通过 `LocalCouiTextStyle` 读取槽位样式。
 
@@ -122,8 +122,6 @@ dependencies {
 ```
 
 源码模块还引用了 Maven Publish 和 Dokka 等插件别名。插件与依赖版本由项目统一声明。工具链和依赖对齐见[兼容要求](compatibility.md)。
-
-需要 M3 适配时，同样复制 `coui-material3/`，在 settings 增加 `include(":coui-material3")`，并在调用模块依赖 `project(":coui-material3")`。
 
 需要 `CouiIcons` 时，复制 `coui-icons/`，在 settings 增加 `include(":coui-icons")`，并在调用模块依赖 `project(":coui-icons")`。该模块依赖 `coui` 读取主题；只使用核心组件时不需要它。Maven 坐标及使用方式见[图标用法](../components/icons.md)。
 

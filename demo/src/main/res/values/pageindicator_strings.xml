@@ -1,0 +1,8 @@
+<resources>
+    <string name="pageindicator_title">Page indicator</string>
+    <string name="intro_pageindicator">Page dots that follow the current page</string>
+    <string name="pageindicator_count">Dots</string>
+    <string name="pageindicator_selected">Current page</string>
+    <string name="pageindicator_example">Example</string>
+    <string name="pageindicator_click_example">Tap a dot</string>
+</resources>

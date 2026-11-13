@@ -177,8 +177,9 @@ internal fun TopAppBarSearchPair(
             }
         }.single().measure(Constraints.fixed(frame.inputBounds.width.roundToInt(), height))
         layout(constraints.maxWidth, height) {
-            // 材质顺序由双主体 renderer 管理；已显露的动作优先接收触摸。
-            if (frame.actionAlpha > 0f) button.place(frame.actionBounds.left.roundToInt(), 0, zIndex = 1f)
+            // 材质顺序由双主体 renderer 管理; 动作完全显露后才提升层级接收触摸,
+            // 否则展开前段仍在胶囊内的按钮会抢走输入框的点击。
+            if (frame.actionAlpha >= 1f) button.place(frame.actionBounds.left.roundToInt(), 0, zIndex = 1f)
             body.place(frame.inputBounds.left.roundToInt(), 0)
         }
     }

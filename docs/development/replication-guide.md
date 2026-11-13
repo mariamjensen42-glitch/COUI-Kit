@@ -193,7 +193,7 @@ COUIPopupListWindow / COUIPopupWindow
   → coui：COUI 控件、固定预设、效果、采样、几何、动效和输入
 ```
 
-公共 Defaults 由各组件族持有，原生默认主题由库持有；动态取色、HCT、应用偏好和日志归宿主，Material 映射归可选适配模块。完整边界见[架构](architecture.md)及[分层决策](../../.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)。
+公共 Defaults 由各组件族持有，原生默认主题由库持有；动态取色、HCT、应用偏好和日志归宿主。完整边界见[架构](architecture.md)及[分层决策](../../.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)。
 
 ### 4.3 为一条绘制链核对这些输入
 

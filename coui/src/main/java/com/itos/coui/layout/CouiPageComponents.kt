@@ -54,6 +54,13 @@ object CouiPageDefaults {
     val shape = CouiShape(24.dp, 3f)
     val toolbarHeight = 52.dp
     val dividerHeight = 0.33.dp
+
+    /** 网格快捷卡片的列数、间距与单卡尺寸；列数与间距共同决定卡片宽度。 */
+    val quickActionColumns = 2
+    val quickActionSpacing = 12.dp
+    val quickActionMinHeight = 56.dp
+    val quickActionPadding = 16.dp
+    val quickActionIconSpacing = 12.dp
     /** 消费当前原生/可选宿主策略；显式 colors 仍优先。 */
     @Composable
     fun themeColors(dark: Boolean = CouiTheme.isDark): CouiPageColors =

@@ -67,6 +67,8 @@ internal class CouiSearchMotion(
 
     fun finishCollapse() {
         if (expanded) return
+        // 收起中段再次按下入口: 保留当前进度、图层和弹簧速度, 由 updateTarget 从当前值反向。
+        if (searchAnimation.isRunning) return
         dispose()
         // 完成收起时重建弹簧，下一次展开从静止开始。
         searchAnimation = newAnimation(toolbar = false)

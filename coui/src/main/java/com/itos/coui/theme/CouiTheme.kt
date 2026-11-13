@@ -40,6 +40,39 @@ object CouiPresets {
     val Dark = CouiColorScheme(CouiColor.Night.BLUE, Color.White, Color(0xFF1E1E1E), Color(0xFF333333),
         Color(0xE6FFFFFF), Color(0x8AFFFFFF), Color(0x33FFFFFF), Color(0xFF5C9DFF),
         background = Color.Black, card = Color(0x1AFFFFFF))
+
+    /**
+     * 绿色强调色预设，用于手机管家一类以绿色为主的页面。
+     * 中性表面、卡片与深浅模式沿用对应模式的原生预设，只替换强调色及强调内容色；
+     * 强调色为页面主色，不表示原厂存在名为 Green 的主题。
+     */
+    val GreenLight = CouiColorScheme(
+        accent = Color(0xFF00BD13),
+        onAccent = Color.White,
+        surface = Light.surface,
+        container = Light.container,
+        onSurface = Light.onSurface,
+        onSurfaceVariant = Light.onSurfaceVariant,
+        outlineVariant = Light.outlineVariant,
+        accentOnSurface = Color(0xFF00BD13),
+        background = Light.background,
+        card = Light.card,
+    )
+    val GreenDark = CouiColorScheme(
+        accent = Color(0xFF3DDC5A),
+        onAccent = Color.Black,
+        surface = Dark.surface,
+        container = Dark.container,
+        onSurface = Dark.onSurface,
+        onSurfaceVariant = Dark.onSurfaceVariant,
+        outlineVariant = Dark.outlineVariant,
+        accentOnSurface = Color(0xFF3DDC5A),
+        background = Dark.background,
+        card = Dark.card,
+    )
+
+    /** 按深浅模式取绿色预设。 */
+    fun green(dark: Boolean): CouiColorScheme = if (dark) GreenDark else GreenLight
 }
 
 /** 普通内容预设及可选字体族；Dialog 保留字号与行距，M3 仅适配字体族，native 保留系统字体。 */
@@ -65,7 +98,7 @@ private data class CouiThemeValues(val dark: Boolean, val colors: CouiColorSchem
     val typography: CouiTypography, val materialTint: Color)
 
 private val LocalCouiTheme = staticCompositionLocalOf<CouiThemeValues?> { null }
-/** 宿主已知的主题模式；嵌套 MaterialTheme 改变模式时也应在同一作用域提供。 */
+/** 宿主已知的主题模式；嵌套外观边界改变模式时也应在同一作用域提供。 */
 val LocalCouiDarkTheme = staticCompositionLocalOf<Boolean?> { null }
 /** Unspecified 表示没有提供内容色，组件在消费处读取当前主题。 */
 val LocalCouiContentColor = staticCompositionLocalOf { Color.Unspecified }

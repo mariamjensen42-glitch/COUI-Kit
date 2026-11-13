@@ -1,0 +1,17 @@
+<resources>
+    <string name="toast_title">Toast</string>
+    <string name="intro_toast">Short bottom feedback with auto dismiss and stacking</string>
+    <string name="toast_show_short">Show toast</string>
+    <string name="toast_show_long">Show long toast</string>
+    <string name="toast_show_stack">Show three toasts</string>
+    <string name="toast_show_action">Show toast with action</string>
+    <string name="toast_show_icon">Show toast with icon</string>
+    <string name="toast_dismiss_all">Dismiss all</string>
+    <string name="toast_message_short">Saved</string>
+    <string name="toast_message_long">This message stays a little longer</string>
+    <string name="toast_message_stack">Toast %1$d</string>
+    <string name="toast_message_action">Conversation deleted</string>
+    <string name="toast_action_undo">Undo</string>
+    <string name="toast_message_undone">Conversation restored</string>
+    <string name="toast_message_icon">Copied to clipboard</string>
+</resources>

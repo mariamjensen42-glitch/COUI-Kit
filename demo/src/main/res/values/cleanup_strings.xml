@@ -1,0 +1,18 @@
+<resources>
+    <string name="cleanup_title">Clean up storage</string>
+    <string name="cleanup_menu_history">Cleanup history</string>
+    <string name="cleanup_menu_whitelist">App cleanup whitelist</string>
+    <string name="cleanup_garbage">Junk found</string>
+    <string name="cleanup_detail">View details</string>
+    <string name="cleanup_action">Clean safely</string>
+    <string name="cleanup_storage">Storage</string>
+    <string name="cleanup_used">211 GB / 256 GB used</string>
+    <string name="cleanup_recommend">Recommended</string>
+    <string name="cleanup_apps">App management</string>
+    <string name="cleanup_apps_summary">Install, update and uninstall apps</string>
+    <string name="cleanup_go">Go</string>
+    <string name="cleanup_app_section">Per-app cleanup</string>
+    <string name="cleanup_wechat">WeChat cleanup</string>
+    <string name="cleanup_wechat_action">Clean up</string>
+    <string name="cleanup_qq">QQ cleanup</string>
+</resources>

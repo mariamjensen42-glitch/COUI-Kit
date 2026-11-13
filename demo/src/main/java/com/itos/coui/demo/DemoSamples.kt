@@ -17,7 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.selection.toggleable
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.semantics.Role
 import com.itos.coui.checkbox.Checkbox
@@ -157,10 +157,6 @@ internal fun SettingsDemo(dark: Boolean, preferences: DemoPreferences,
     rightAccessory: Boolean, onRightAccessoryChange: (Boolean) -> Unit,
     onAbout: () -> Unit, onReset: () -> Unit) {
     var reset by rememberSaveable { mutableStateOf(false) }
-    Group(title = stringResource(R.string.demo_theme_settings)) {
-        DemoSwitchPreference(title = stringResource(R.string.material_theme_toggle), checked = preferences.materialTheme,
-            onCheckedChange = preferences::materialTheme)
-    }
     Group(title = stringResource(R.string.demo_navigation_settings)) {
         DemoSwitchPreference(title = stringResource(R.string.contour_toggle), checked = preferences.contour,
             onCheckedChange = preferences::contour)

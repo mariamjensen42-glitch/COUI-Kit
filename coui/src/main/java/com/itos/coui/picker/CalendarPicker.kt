@@ -86,7 +86,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.format.TextStyle as DateTextStyle
 import java.time.temporal.ChronoUnit
-import java.util.Calendar
+import java.time.temporal.WeekFields
 import java.util.Locale
 
 /**
@@ -392,8 +392,8 @@ private fun CalendarMonthPage(
     fullDateFormatter: DateTimeFormatter,
     onValueChange: (LocalDate) -> Unit,
 ) {
-    val firstDay = Calendar.SUNDAY
-    val startDay = (firstDay + 5) % 7 + 1
+    // 周起始日跟随 locale: 简体中文等区域为周一开头, 不固定为周日。
+    val startDay = WeekFields.of(locale).firstDayOfWeek.value
     val start = (month.atDay(1).dayOfWeek.value - startDay + 7) % 7
     val base = month.atDay(1).minusDays(start.toLong())
     val sixWeeks = month.lengthOfMonth() + start > 35

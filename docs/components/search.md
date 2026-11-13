@@ -139,7 +139,7 @@ TopAppBarSearch(
 
 完整示例见[顶栏示例](../../demo/src/main/java/com/itos/coui/demo/DemoToolbarSamples.kt)。
 
-M3 插槽的主题继承见[外观与预设](../guide/appearance.md)。收起时的 title 使用宿主样式。`TopAppBarSearchButton` 使用固定布局容器，不受 M3 最小交互尺寸 Local 控制。
+插槽的主题继承见[外观与预设](../guide/appearance.md)。收起时的 title 使用宿主样式。`TopAppBarSearchButton` 使用固定布局容器，不受外部最小交互尺寸 Local 控制。
 
 ## 搜索框样式
 
@@ -154,7 +154,7 @@ shadow = { capsule -> CouiTopAppBarButtonDefaults.shadow(dark, capsule, density,
 
 ## 版本和键盘
 
-`BackHandler` 来自 Activity Compose，`IconButton` 来自 Material3，页面需要声明相应依赖。
+`BackHandler` 来自 Activity Compose，`IconButton` 由宿主提供，页面需要声明相应依赖。
 
 部分设备在请求焦点后可能不会自动弹出键盘，可以手动点击输入框。
 

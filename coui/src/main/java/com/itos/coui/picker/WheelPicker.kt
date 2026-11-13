@@ -140,6 +140,8 @@ fun WheelPicker(
     val normalColor = colors.normal
     val focusColor = colors.focus
     val baselineMetrics = remember(normal) { Paint().apply { this.textSize = normal.toFloat() }.fontMetrics }
+    // 选中行字号更大, 基线需按自身度量单独计算, 否则数字整体偏上。
+    val focusBaselineMetrics = remember(focus) { Paint().apply { this.textSize = focus.toFloat() }.fontMetrics }
     val mask = if (verticalFading) Modifier.graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
         .drawWithContent {
             drawContent()
@@ -235,10 +237,13 @@ fun WheelPicker(
             val band = 24.dp.toPx() + spread
             paint.textSize = normal.toFloat()
             val baseline = (size.height - baselineMetrics.top - baselineMetrics.bottom) / 2
+            val focusBaseline = (size.height - focusBaselineMetrics.top - focusBaselineMetrics.bottom) / 2
             for (relative in -2..2) {
                 val number = motion.display(relative) ?: continue
                 val text = formatter(number)
-                val y = (baseline + motion.offset + relative * (motion.step + spread)).toInt().toFloat()
+                val rowOffset = motion.offset + relative * (motion.step + spread)
+                val y = (baseline + rowOffset).toInt().toFloat()
+                val focusY = (focusBaseline + rowOffset).toInt().toFloat()
                 val alpha = if (enabled) 1f else .5f
                 // 原厂超宽文本以普通字号判断，放不下时保留开头而非两侧裁切。
                 paint.textSize = normal.toFloat()
@@ -250,7 +255,7 @@ fun WheelPicker(
                 canvas.drawText(text, x, y, paint); canvas.restore()
                 canvas.save(); canvas.clipRect(0f, center - band, size.width, center + band)
                 paint.textSize = focus.toFloat(); paint.color = focusColor.copy(alpha = focusColor.alpha * alpha).toArgb()
-                canvas.drawText(text, x, y, paint); canvas.restore()
+                canvas.drawText(text, x, focusY, paint); canvas.restore()
             }
         }
     }

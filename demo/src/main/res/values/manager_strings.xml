@@ -1,0 +1,19 @@
+<resources>
+    <string name="manager_title">Phone manager</string>
+    <string name="manager_name">Phone manager</string>
+    <string name="manager_more">More</string>
+    <string name="manager_notice">Turn on Phone manager notifications to learn about device status and reduce security risks</string>
+    <string name="manager_ignore">Ignore</string>
+    <string name="manager_enable">Turn on</string>
+    <string name="manager_score_unit">pts</string>
+    <string name="manager_score_hint">Good condition, further optimization available</string>
+    <string name="manager_optimize">Optimize now</string>
+    <string name="manager_storage_title">Clean up storage</string>
+    <string name="manager_storage_summary">211 GB / 256 GB</string>
+    <string name="manager_virus_title">Virus risk</string>
+    <string name="manager_virus_summary">No risky apps found</string>
+    <string name="manager_speed_title">System boost</string>
+    <string name="manager_speed_summary">Improve system smoothness</string>
+    <string name="manager_update_title">App updates</string>
+    <string name="manager_update_summary">3 apps to update</string>
+</resources>

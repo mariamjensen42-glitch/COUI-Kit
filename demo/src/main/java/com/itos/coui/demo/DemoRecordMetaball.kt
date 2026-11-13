@@ -2,12 +2,12 @@ package com.itos.coui.demo
 
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Canvas
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import com.itos.coui.theme.CouiTheme
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.CompositingStrategy
@@ -35,7 +35,7 @@ internal fun DemoRecordMetaballBackground(
     fusionActive: Boolean,
     deleteActionAlpha: Float,
 ) {
-    val cardColor = MaterialTheme.colorScheme.surfaceBright
+    val cardColor = CouiTheme.colorScheme.container
     Canvas(modifier = modifier) {
         drawRecordMetaball(
             renderer, size, visibleCardWidth, deleteActionWidth,

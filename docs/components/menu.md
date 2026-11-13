@@ -175,9 +175,9 @@ fun rememberMenuStyle(
 
 自定义样式应传入 `dark`，省略时按 surface 亮度判断。默认工厂使用当前主题模式，主菜单与子菜单的文字、材质、阴影和反馈共同使用它。
 
-启用 M3 适配时，菜单的模糊材质使用 `surface` 补底；没有背景源时，菜单容器使用 `surfaceBright`。选中项使用 `primary`，复选框在深色模式使用 `inversePrimary`。
+模糊补底取 `surface`；没有背景源时，菜单容器使用 `container`。选中项使用强调色，复选框取 `checkboxAccent`。
 
-原生默认 `themeTint` 透明；M3 适配使用宿主的 `surface`。设为透明时关闭采样材质上的页面色相叠加；显式样式可以提供非透明色。
+原生默认 `themeTint` 透明；宿主提供 `materialTint` 时按该值染色。设为透明时关闭采样材质上的页面色相叠加；显式样式可以提供非透明色。
 
 ## 设置菜单标题
 

@@ -12,15 +12,12 @@ internal class DemoPreferences private constructor(context: Context) {
     private val store = context.applicationContext.getSharedPreferences("demo-settings", Context.MODE_PRIVATE)
     var darkOverride by mutableStateOf(if (store.contains("dark")) store.getBoolean("dark", false) else null)
         private set
-    var materialTheme by mutableStateOf(store.getBoolean("materialTheme", false))
-        private set
-    fun materialTheme(value: Boolean) { materialTheme = value; store.edit().putBoolean("materialTheme", value).apply() }
     var contour by mutableStateOf(store.getBoolean("contour", true))
         private set
 
     fun dark(value: Boolean) { darkOverride = value; store.edit().putBoolean("dark", value).apply() }
     fun contour(value: Boolean) { contour = value; store.edit().putBoolean("contour", value).apply() }
-    fun reset() { materialTheme(false); contour(true) }
+    fun reset() { contour(true) }
 
     companion object {
         private var instance: DemoPreferences? = null

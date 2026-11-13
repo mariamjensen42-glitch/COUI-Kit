@@ -1,0 +1,8 @@
+<resources>
+    <string name="pageindicator_title">页码指示器</string>
+    <string name="intro_pageindicator">跟随当前页的圆点指示器</string>
+    <string name="pageindicator_count">点数</string>
+    <string name="pageindicator_selected">当前页</string>
+    <string name="pageindicator_example">示例</string>
+    <string name="pageindicator_click_example">点按圆点</string>
+</resources>

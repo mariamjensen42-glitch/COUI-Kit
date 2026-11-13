@@ -1,0 +1,17 @@
+<resources>
+    <string name="toast_title">轻提示</string>
+    <string name="intro_toast">底部短暂反馈，自动消失并支持堆叠</string>
+    <string name="toast_show_short">显示提示</string>
+    <string name="toast_show_long">显示长提示</string>
+    <string name="toast_show_stack">连续显示三条</string>
+    <string name="toast_show_action">显示带操作按钮的提示</string>
+    <string name="toast_show_icon">显示带图标的提示</string>
+    <string name="toast_dismiss_all">清空提示</string>
+    <string name="toast_message_short">已保存</string>
+    <string name="toast_message_long">这条提示会停留更久一些</string>
+    <string name="toast_message_stack">提示 %1$d</string>
+    <string name="toast_message_action">已删除会话</string>
+    <string name="toast_action_undo">撤销</string>
+    <string name="toast_message_undone">已恢复会话</string>
+    <string name="toast_message_icon">已复制到剪贴板</string>
+</resources>

@@ -21,7 +21,7 @@
 
 核心库请求 AndroidX DynamicAnimation `1.1.0`。Gradle 按宿主依赖图解析版本，例如与同样请求 `1.1.0` 的 Material Components for Android 共用。取消后重启的行为见[主动控制运动](../effects/motion.md#主动控制运动)。
 
-`coui-material3` 传递引入同版本的 `coui` 与 M3；同时声明两个模块时，使用相同版本。核心库不依赖 Material3 或 Material Icons。宿主直接调用 Material3、Activity 等 API 时，应声明相应依赖；Demo 的 Capsule 依赖无需随库引入。
+核心库不依赖 Material 3 或 Material Icons，也不引入其他外部设计体系。宿主直接调用外部设计体系、Activity 等 API 时，应自行声明相应依赖；Demo 的 Capsule 依赖无需随库引入。
 
 `CouiIcons` 位于可选的 `coui-icons` 模块；使用时需添加该模块，并与核心使用相同版本。图标模块依赖核心读取主题，核心不依赖图标模块。
 

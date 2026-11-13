@@ -26,11 +26,11 @@
 
 ## 版本与产物
 
-`coui`、`coui-material3` 与 `coui-icons` 同版本、同步发布，正式版、预览版和开发快照均遵守此规则。即使某个模块没有代码变化，也随其他模块发布对应版本。适配模块和图标模块依赖同版本核心；只有三个坐标均可下载，才视为该版本发布完成。
+`coui` 与 `coui-icons` 同版本、同步发布，正式版、预览版和开发快照均遵守此规则。即使某个模块没有代码变化，也随另一模块发布对应版本。图标模块依赖同版本核心；只有两个坐标均可下载，才视为该版本发布完成。
 
-库 group、核心 artifactId 和开发基础版本由根目录 [gradle.properties](../../gradle.properties) 持有。可选模块分别在[适配模块](../../coui-material3/build.gradle.kts)和[图标模块](../../coui-icons/build.gradle.kts)显式指定 artifactId。GitHub Packages 在开发版本中加入提交短 SHA；Central 从 Tag 去掉首字母 `v`，通过 `-PVERSION_NAME` 同时覆盖三个模块的版本，不修改开发基础版本。库版本不读取 Demo versionCode 或显示版本名。
+库 group、核心 artifactId 和开发基础版本由根目录 [gradle.properties](../../gradle.properties) 持有。图标模块在[图标模块](../../coui-icons/build.gradle.kts)显式指定 artifactId。GitHub Packages 在开发版本中加入提交短 SHA；Central 从 Tag 去掉首字母 `v`，通过 `-PVERSION_NAME` 同时覆盖两个模块的版本，不修改开发基础版本。库版本不读取 Demo versionCode 或显示版本名。
 
-[核心配置](../../coui/build.gradle.kts)与两个可选模块配置均只发布 release 变体，包含 AAR、源码包、Dokka HTML 文档包、POM 和 Gradle Module Metadata。源码与文档归档附带根许可、来源与名称声明；核心与图标模块归档包含 ICON_SOURCES.md，核心还包含既有 Skia/AndroidX 声明。不发布 Demo、不提前混淆库，也不上传 Demo 密钥。
+[核心配置](../../coui/build.gradle.kts)与[图标模块配置](../../coui-icons/build.gradle.kts)均只发布 release 变体，包含 AAR、源码包、Dokka HTML 文档包、POM 和 Gradle Module Metadata。源码与文档归档附带根许可、来源与名称声明；核心与图标模块归档包含 ICON_SOURCES.md，核心还包含既有 Skia/AndroidX 声明。不发布 Demo、不提前混淆库，也不上传 Demo 密钥。
 
 两个发布工作流先生成三个模块的本地 Maven 文件仓库，调用与 PR 相同的[真实产物检查](../../.github/scripts/verify-maven-artifacts.cjs)。脚本检查独立坐标、非空产物、源码与 HTML、许可、Compose BOM、核心动画依赖的版本声明，以及各模块依赖边界。全部通过后再上传三个 artifact。Packages 检查远端版本元数据；Central 接受上传后继续异步校验和发布。Gradle 的版本约束以 `.module` 为准。每次发行仍须确认对应运行结果，不能以历史成功代替当前版本验收。
 
@@ -86,7 +86,7 @@ GitHub Packages 工作流使用自身的 `GITHUB_TOKEN`，仅上传与远端读�
 获得当前任务的本地构建授权后，可在根目录仅生成文件仓库，不需要任何上传凭据：
 
 ```sh
-./gradlew :coui:publishAllPublicationsToLocalRepository :coui-material3:publishAllPublicationsToLocalRepository :coui-icons:publishAllPublicationsToLocalRepository --no-configuration-cache
+./gradlew :coui:publishAllPublicationsToLocalRepository :coui-icons:publishAllPublicationsToLocalRepository --no-configuration-cache
 node .github/scripts/verify-maven-artifacts.cjs
 ```
 

@@ -72,11 +72,8 @@ android {
 dependencies {
     implementation(project(":coui"))
     implementation(project(":coui-icons"))
-    implementation(project(":coui-material3"))
     implementation(libs.capsule)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material.icons.extended)
 }

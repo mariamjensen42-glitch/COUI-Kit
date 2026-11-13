@@ -93,7 +93,7 @@ fun PageNavigationBar(
 
 `icon` 是未选中的图形，`selectedIcon` 是选中和拖动预选时的图形；省略 `selectedIcon` 时，两种状态共用 `icon`。底栏内部选择图形、绘制 24dp 图标并应用状态色，同时处理点击、焦点、选择语义和文字标签。页面状态通过 `onSelection` 提交。
 
-示例使用可选的 `coui-icons` 图标包，原生主题和 M3 适配均可直接使用。主题接入见[外观与预设](../guide/appearance.md)。示例文案在实际应用中应使用字符串资源。
+示例使用可选的 `coui-icons` 图标包，原生主题下可直接使用。主题接入见[外观与预设](../guide/appearance.md)。示例文案在实际应用中应使用字符串资源。
 
 使用 COUI Scaffold 时，将底栏放在 `bottomBar`。第三方容器将底栏放在背景源节点之外，例如放在页面 `Box` 的底部。
 
@@ -128,9 +128,9 @@ NavigationBar(
 )
 ~~~
 
-`themeTint` 默认读取匹配模式的主题策略：原生为透明，M3 适配为宿主 surface，仅进入已有页面色相层。显式透明关闭染色；异模式自动回退也为透明。显式传入其他颜色时按该颜色染色。`lightColor` 用于高光；`circleShape` 和 `capsuleShape` 分别控制两侧按钮和中间导航栏的形状。
+`themeTint` 默认读取匹配模式的主题策略：原生为透明，宿主提供 `materialTint` 时取该值，仅进入已有页面色相层。显式透明关闭染色；异模式自动回退也为透明。显式传入其他颜色时按该颜色染色。`lightColor` 用于高光；`circleShape` 和 `capsuleShape` 分别控制两侧按钮和中间导航栏的形状。
 
-M3 适配下，自有文字继承宿主 ambient 字体属性，同时保留底栏自己的字号、行高与字重。附件图标仍遵守各自配色契约。
+底栏自有文字继承宿主 ambient 字体属性，同时保留底栏自己的字号、行高与字重。附件图标仍遵守各自配色契约。
 
 ## 版本和采样
 

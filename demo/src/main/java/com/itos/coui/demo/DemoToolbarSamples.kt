@@ -7,8 +7,7 @@ import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.ScrollState
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +20,7 @@ import com.itos.coui.scroll.couiVerticalScroll
 import com.itos.coui.search.SearchBar
 import com.itos.coui.search.rememberCouiSearchBarState
 import com.itos.coui.topappbar.*
+import com.itos.coui.theme.CouiTheme
 
 private enum class SearchSampleMode { Persistent, Toolbar }
 
@@ -66,7 +66,7 @@ internal fun ToolbarSample() {
                 backdrop = backdrop,
                 windowInsets = WindowInsets(0, 0, 0, 0),
                 colors = CouiTopAppBarDefaults.colors(backgroundColor = LocalDemoTopBarGradient.current,
-                    titleColor = MaterialTheme.colorScheme.onSurface),
+                    titleColor = CouiTheme.colorScheme.onSurface),
                 title = {
                     if (Build.VERSION.SDK_INT >= 34 && state != null) {
                         TopAppBarSearch(state = state, style = style,
@@ -162,7 +162,7 @@ internal fun SearchSamples(dark: Boolean) {
                                 onActionClick = closeSearch) {
                                 Text(stringResource(R.string.toolbar_preview_title),
                                     style = titleStyle,
-                                    color = MaterialTheme.colorScheme.onSurface)
+                                    color = CouiTheme.colorScheme.onSurface)
                             }
                             TopAppBarButtonGroup {
                                 TopAppBarSearchButton(state = state, style = style,

@@ -4,14 +4,13 @@
 
 ~~~text
 宿主 App / demo
-  ├─ coui-material3（可选）→ coui + Material 3
   ├─ coui-icons（可选）→ coui
   └─ coui → Android / Compose / AndroidX
 ~~~
 
-coui 持有通用 COUI 组件、原生主题与固定预设、效果、背景采样、几何、输入与动效。宿主提供受控状态、导航、错误展示和业务回调，并可覆盖配色、字体、Shape 与 Style。应用偏好与动态色创建仍归宿主；核心不读取应用设置或 MaterialTheme。
+coui 持有通用 COUI 组件、原生主题与固定预设、效果、背景采样、几何、输入与动效。宿主提供受控状态、导航、错误展示和业务回调，并可覆盖配色、字体、Shape 与 Style。应用偏好与动态色创建仍归宿主；核心不读取应用设置或外部设计体系的主题。
 
-可选 coui-material3 只承担宿主 M3 默认值解析、内容 Local 桥接与 M3 最小交互尺寸。Application 通过 Coui.initialize 固定策略；适配器在组件消费处读取 MaterialTheme，不缓存根色板、不持有 Context、不接管业务状态。核心的 CouiStyle 只使用核心和基础 Compose 类型。局部 CouiTheme 提供 native/custom 外观，同时保留已选适配器的插槽桥接。模式与覆盖顺序见[外观指南](../guide/appearance.md)。
+核心的 CouiStyle 只使用核心和基础 Compose 类型。宿主外观通过 CouiTheme 或显式参数接入；库不缓存宿主色板、不持有 Context、不接管业务状态。局部 CouiTheme 提供 native/custom 外观。模式与覆盖顺序见[外观指南](../guide/appearance.md)。
 
 可选 `coui-icons` 提供 `CouiIcons`，依赖核心以读取同一主题和色板；核心不依赖图标包。核心搜索组件持有内部搜索图形，因此不使用公开图标时无需引入该模块。
 
@@ -50,7 +49,7 @@ Group、Item、Divider、Footer 处理局部分组和行布局。Item.onClick �
 
 ## Demo 契约
 
-展示范围见 [Demo 指南](../guide/demo.md)。Demo 独立维护 M3 语义、页面与卡片层级和 G2 形状；设置开关、单选与复选分别使用相应语义，整行交互时子控件不重复点击。数值滑条使用 Slider。
+展示范围见 [Demo 指南](../guide/demo.md)。Demo 独立维护页面语义、卡片层级和 G2 形状；设置开关、单选与复选分别使用相应语义，整行交互时子控件不重复点击。数值滑条使用 Slider。Demo 只用公开 API 与 COUI 自身主题，不引入外部设计体系。
 
 首页使用底部导航，API 34 以下使用普通底栏。目录搜索负责筛选可导航条目，详情由独立 Activity 展示；切页和搜索期间保留相应页面状态。
 

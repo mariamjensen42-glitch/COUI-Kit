@@ -159,6 +159,8 @@ internal class CouiSliderMotion(
         dragging = false
         fastRelease = false
         stopPositionAnimations()
+        // 取消时逻辑值已随拖动提交, 绘制位置停在中途会让拇指与刻度脱节, 收回到已提交值。
+        position.snapTo(fraction * length)
         resetAnchor()
     }
 

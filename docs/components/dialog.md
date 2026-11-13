@@ -98,7 +98,7 @@ Dialog(
 }
 ~~~
 
-`content` 位于正文滚动区。操作区独立排列；正文较长时，按钮仍保留在窗口内。示例中的 `Text` 来自 Material3，项目需要声明该依赖。
+`content` 位于正文滚动区。操作区独立排列；正文较长时，按钮仍保留在窗口内。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
 
 ## 输入型弹窗
 
@@ -225,7 +225,7 @@ Dialog(
 )
 ~~~
 
-`dark` 和 `colors` 默认读取局部 `CouiTheme` 或初始化策略；未初始化时使用原生预设，模式来自 Local 或系统。M3 模式使用对应文字角色的字体族，字号、字重、行距和 fontScale 由组件控制。自定义正文使用宿主样式。通用规则见[外观与预设](../guide/appearance.md)。
+`dark` 和 `colors` 默认读取局部 `CouiTheme`；没有主题时使用原生预设，模式来自 Local 或系统。字号、字重、行距和 fontScale 由组件控制。自定义正文使用宿主样式。通用规则见[外观与预设](../guide/appearance.md)。
 
 默认 `colors` 使用 `CouiDialogDefaults.themeColors(dark)`。显式自定义时可从该入口复制调整；主操作配色可以使用 `CouiDialogDefaults.primaryActionColors(accent)`。
 

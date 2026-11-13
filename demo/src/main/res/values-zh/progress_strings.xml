@@ -1,0 +1,12 @@
+<resources>
+    <string name="progress_title">进度</string>
+    <string name="intro_progress">环形进度、不确定态旋转与骨架占位</string>
+    <string name="progress_value">进度</string>
+    <string name="progress_circular">环形</string>
+    <string name="progress_linear">线性</string>
+    <string name="progress_segmented">分段</string>
+    <string name="progress_ring">大环</string>
+    <string name="progress_ring_score">分数</string>
+    <string name="progress_skeleton">骨架占位</string>
+    <string name="progress_animated">占位动画</string>
+</resources>

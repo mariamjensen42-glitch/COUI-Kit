@@ -82,7 +82,7 @@ Fab(
 
 ## 图标和轮廓光
 
-启用 M3 适配后，FAB 会向 M3 `Icon` 提供内容色，图标可省略 `tint`。要覆盖整个内容槽，可传入 `contentColor = Color.Black` 等颜色；`contentColor = Color.Unspecified` 表示继承外部内容色。子图标显式指定 `tint` 时优先使用该值，`Image` 不会自动读取内容色。
+FAB 会向内容槽提供内容色，图标可省略 `tint`。要覆盖整个内容槽，可传入 `contentColor = Color.Black` 等颜色；`contentColor = Color.Unspecified` 表示继承外部内容色。子图标显式指定 `tint` 时优先使用该值，`Image` 不会自动读取内容色。
 
 轮廓光由 `LocalCouiContourGlowEnabled` 控制；关闭后，`CouiFabDefaults.shadow` 使用普通有色投影。
 

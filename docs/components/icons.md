@@ -12,7 +12,7 @@ implementation("io.github.itoseo:coui-icons:$couiVersion")
 
 ## 基本显示
 
-在 Composable 中使用 `Image` 可直接显示图标内置颜色；使用 Material 3 `Icon` 时，传 `tint = Color.Unspecified` 以保留图标默认配色：
+在 Composable 中使用 `Image` 可直接显示图标内置颜色；需要跟随内容色时传入 `tint`，传 `Color.Unspecified` 保留图标默认配色：
 
 ```kotlin
 Image(
@@ -45,7 +45,7 @@ Image(
 )
 ```
 
-`DevicePair` 根据 COUI 主题使用日间或夜间原图。在 `Item` 的 `icon` 插槽内显示时，可将 `contentDescription` 设为 `null`，由列表标签说明含义。使用 Material 3 `Icon` 时，将同一个 `Painter` 传给 `painter` 参数，并设置 `tint = Color.Unspecified` 保留原色。传统 View 可通过 `@drawable/coui_device_pair` 引用该资源。
+`DevicePair` 根据 COUI 主题使用日间或夜间原图。在 `Item` 的 `icon` 插槽内显示时，可将 `contentDescription` 设为 `null`，由列表标签说明含义。使用 `Image` 显示该 `Painter`，并设置 `colorFilter = null` 保留原色。传统 View 可通过 `@drawable/coui_device_pair` 引用该资源。
 
 ## 指定颜色与特殊图标
 

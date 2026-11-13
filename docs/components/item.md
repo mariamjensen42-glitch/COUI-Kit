@@ -36,7 +36,7 @@ fun AboutRow(
 }
 ```
 
-`title` 是必填内容槽，可用尾随 lambda 提供。`icon` 放图标，`summary` 放辅助文字，`trailing` 放值或控件。内容槽可以使用 COUI、Material、Miuix 或宿主自己的组件。
+`title` 是必填内容槽，可用尾随 lambda 提供。`icon` 放图标，`summary` 放辅助文字，`trailing` 放值或控件。内容槽可以使用 COUI 组件，也可以使用宿主自己的组件。
 
 ## 点击与选择
 
@@ -63,13 +63,13 @@ fun AboutRow(
 
 默认配色由组件读取 `CouiTheme`。`CouiPageDefaults.themeColors(dark)` 解析当前主题；`colors(accent, dark)` 从原生浅色或深色预设生成独立配色值。可用 `copy` 覆盖所需角色。`Group.colors` 不改变内容槽的主题，自定义文字和 Divider 需要显式接收对应颜色。
 
-`Text.kind` 选择固定的 COUI 排版角色。`rememberCouiTextStyle(kind)` 将同一排版用于 BasicText 或编辑框。这些角色使用系统字体与对应度量，不读取 `CouiTypography` 的普通文字样式。`ItemTitle`、`ItemSummary` 和 `Description` 默认按逻辑起始边对齐，其他角色默认居中。可用 `textAlign` 覆盖对齐方式。`onLineCount` 返回实际布局的行数。
+`Text.kind` 选择固定的 COUI 排版角色。`rememberCouiTextStyle(kind)` 将同一排版用于 BasicText 或编辑框。这些角色使用系统字体与对应度量，不读取 `CouiTypography` 的普通文字样式。`ItemTitle`、`ItemSummary`、`GroupFooter` 和 `Body` 默认按逻辑起始边对齐，其他角色默认居中。可用 `textAlign` 覆盖对齐方式。`onLineCount` 返回实际布局的行数。
 
 从旧版升级时，将 `CouiTextKind.PreferenceTitle` 改为 `CouiTextKind.ItemTitle`。
 
 需要限制行数或显示省略号时，设置 `maxLines = 1` 和 `overflow = TextOverflow.Ellipsis`；`TextOverflow` 来自 `androidx.compose.ui.text.style`。默认不限制行数，溢出策略为 `Clip`，`maxLines` 必须大于零。
 
-`Text.color` 省略或为 `Color.Unspecified` 时，先使用已提供的 `LocalCouiContentColor`，再使用当前 `CouiTheme.colorScheme.onSurface`。没有 Theme 或 Provider 也能跟随系统深浅色；显式颜色始终优先。需要区分主文字与辅助文字时，可像示例一样传入各自角色。主题和可选 M3 适配的用法见[外观与预设](../guide/appearance.md)。
+`Text.color` 省略或为 `Color.Unspecified` 时，先使用已提供的 `LocalCouiContentColor`，再使用当前 `CouiTheme.colorScheme.onSurface`。没有 Theme 或 Provider 也能跟随系统深浅色；显式颜色始终优先。需要区分主文字与辅助文字时，可像示例一样传入各自角色。主题用法见[外观与预设](../guide/appearance.md)。
 
 ## 页面装配
 

@@ -62,7 +62,7 @@ fun SwitchRow(
 }
 ~~~
 
-行和开关共用 `MutableInteractionSource`，使按压和焦点反馈保持一致。示例将同一个回调传给 `onDragCheckedChange`，因此也可以拖动滑块；传 `null` 则只保留整行点击。示例中的 `Text` 来自 Material3，项目需要声明该依赖。
+行和开关共用 `MutableInteractionSource`，使按压和焦点反馈保持一致。示例将同一个回调传给 `onDragCheckedChange`，因此也可以拖动滑块；传 `null` 则只保留整行点击。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
 
 ## 显示加载状态
 

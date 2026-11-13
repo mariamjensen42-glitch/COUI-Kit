@@ -1,0 +1,7 @@
+<resources>
+    <string name="quick_action_title">快捷入口</string>
+    <string name="quick_action_photos">照片清理</string>
+    <string name="quick_action_videos">视频清理</string>
+    <string name="quick_action_apps">应用数据</string>
+    <string name="quick_action_health">电池健康</string>
+</resources>

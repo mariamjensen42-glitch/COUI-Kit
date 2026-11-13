@@ -4,9 +4,8 @@ import android.os.Build
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Icon
+import com.itos.coui.demo.ui.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -32,6 +31,7 @@ import com.itos.coui.navigation.CouiNavigationItem
 import com.itos.coui.navigation.NavigationBar
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.rememberCouiTextStyle
+import com.itos.coui.theme.CouiTheme
 
 @Composable
 internal fun ChromeDetail(page: String, dark: Boolean) {
@@ -79,7 +79,7 @@ private fun NavigationSample(dark: Boolean) {
         }
         if (Build.VERSION.SDK_INT < 34) DemoPreference(title = stringResource(R.string.requires_api_34), enabled = false)
         rendering?.exceptionOrNull()?.let { Text(stringResource(R.string.renderer_error, it.message ?: it.javaClass.simpleName),
-            color = MaterialTheme.colorScheme.error) }
+            color = DemoPalette.error) }
     }
 }
 
@@ -131,7 +131,7 @@ internal fun FabSampleButton(modifier: Modifier = Modifier, dark: Boolean, prese
         }
         rendering.exceptionOrNull()?.let { error ->
             Text(stringResource(R.string.renderer_error, error.message ?: error.javaClass.simpleName),
-                modifier, color = MaterialTheme.colorScheme.error)
+                modifier, color = DemoPalette.error)
         }
     }
 }
@@ -142,14 +142,14 @@ internal fun ChromePreview(
     modifier: Modifier = Modifier,
     background: @Composable BoxScope.() -> Unit = {
         Text(stringResource(R.string.settings_preview), Modifier.padding(18.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = CouiTheme.colorScheme.onSurfaceVariant,
             style = rememberCouiTextStyle(CouiTextKind.ItemSummary))
     },
     content: @Composable BoxScope.(CouiBackdrop) -> Unit,
 ) {
     val backdrop = rememberCouiBackdrop()
     Box(modifier.fillMaxWidth().clip(CouiPageDefaults.shape)) {
-        Box(Modifier.matchParentSize().couiBackdrop(backdrop).background(MaterialTheme.colorScheme.background),
+        Box(Modifier.matchParentSize().couiBackdrop(backdrop).background(CouiTheme.colorScheme.background),
             content = background)
         content(backdrop)
     }

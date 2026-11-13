@@ -2,6 +2,44 @@
 
 COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和兼容要求的变化。日期以提交合并时间为准；版本归档以真实 Git Tag 和发行产物为准。
 
+## [未发布]
+
+以下为相对 `0.0.1-alpha11` 的变更。本版起项目只保留 ColorOS 17 一套外观，不再提供任何外部设计体系的适配层。
+
+### 新增与改进
+
+- 新增按钮 `Button`：几何、排版、配色与反馈链取自 ColorOS 17 的 `Widget.COUI.Button.Large`（44dp 高、最小 132dp 宽、12dp / 8dp 内留白、16sp `sans-serif-medium`），提供主操作与次操作，加载态为原厂 `coui_loading_btn_circle_*` 的三圆点，并支持禁用。[按钮](docs/components/button.md)
+- 新增环形进度 `CircularProgress` 与占位 `Skeleton`：尺寸、描边与配色取自 `Widget.COUI.COUICircularProgressBar`（40dp / 5dp、30dp / 3dp），不确定态的 800ms 旋转与 270° 弧长沿用原厂加载字形 `coui_icon_loading`。[进度与占位](docs/components/progress.md)
+- 新增轻提示 `ToastHost` 与 `ToastHostState`：几何与配色取 `coui_snack_bar_*`（12.67dp 圆角、16/10dp 留白、14dp 文字、26dp 跨度 5% 投影），支持操作按钮、图标槽、多行留白、自动消失与最多三条堆叠。[轻提示](docs/components/toast.md)
+- 新增角标 `Badge`、`BadgedBox` 与受控气泡 `Tooltip`：角标取自 `Widget.COUI.COUIHintRedDot`（红点 6dp、数字宽 16/20/26dp、10dp 字号、`coui_color_additional_red`），气泡取自 `COUIToolTips`（强调色容器、13dp 留白、12dp 圆角）。[角标与气泡](docs/components/badge-tooltip.md)
+
+- 新增页码指示器 `PageIndicator`：半径按原厂 `COUIPageIndicator` 的四段距离带连续插值（`COUIEaseInterpolator` 0.33 / 0 / 0.67 / 1），最多显示 6 个点、窗口随当前页滑动，可选 `onDotClick` 点按回调。[页码指示器](docs/components/page-indicator.md)
+- 新增空状态 `EmptyState`：布局按 `coui_component_empty_state.xml` 复刻（图标槽 120×100dp、文字列 280dp、标题 2 行 / 说明 3 行），说明 12sp、操作按钮 14sp medium，新增 `actionLabel` + `onAction` 入口。[空状态](docs/components/empty-state.md)
+- 新增输入框 `TextField`：对应 `Widget.COUI.EditText.HintAnim.Rectangle` 分支，10dp 圆角描边容器、最小高度 62dp、内留白 16/10/20.4/12dp，浮动标签 200ms 上浮，描边常态 0.33dp、聚焦与错误 1dp。[输入框](docs/components/text-field.md)
+- 新增底部面板 `BottomSheet`：`Dialog` 承载、遮罩自绘、退场动画结束后才销毁窗口；圆角 32dp、elevation 17dp、四周 8dp 留白、上下限与遮罩取自 `coui_bottom_sheet_*`；支持拖拽跟手、按速度与位移结算、下拉关闭，并与内容滚动共存。[底部面板](docs/components/bottom-sheet.md)
+- 新增线性进度 `LinearProgress` 与分段占用 `SegmentedProgress`：8dp / 12dp 胶囊轨道，轨道与进度共用同一轮廓裁剪，分段版按占比累加、尾部保留轨道色。[进度与占位](docs/components/progress.md)
+- `CircularProgress` 新增 `size`、`gapDegrees`、`startAngleDegrees`、`glow` 与 `content`：支持大号读数环、缺口弧、外发光光晕与环心内容，原有 40dp / 30dp 默认行为不变。[进度与占位](docs/components/progress.md)
+- 新增快捷动作网格 `QuickActionGrid` 与 `CouiQuickAction`：两列等分图标卡片，沿用 `Group` 的 24dp 轮廓与卡片底色，末行自动补齐。[快捷动作网格](docs/components/quick-action-grid.md)
+- `CouiPresets` 新增 `GreenLight` / `GreenDark` 与 `green(dark)`：只替换强调色及强调内容色，中性表面沿用原生预设。[外观与预设](docs/guide/appearance.md)
+- `CouiTextKind` 新增 `Display`：48sp 展示型读数，用于电量百分比、健康分数等页面主数字。
+- `CouiButtonDefaults.primaryColors` 与 `colors` 新增 `onAccent` 参数，主按钮内容色默认取 `CouiColorScheme.onAccent`；原生蓝色主题仍为白色，亮色强调（如绿色预设）自动转为深色内容。[按钮](docs/components/button.md)
+- 轻提示修正三处与原厂九宫格的偏差：容器改用等半径标准圆角、补绘九宫格烘焙的内阴影、带图标时上下留白由 16dp 收到 10dp（容器高度 62dp → 50dp）。[轻提示](docs/components/toast.md)
+- Demo 新增「手机管家」与「清理存储」两个页面级复刻，演示绿色渐变底、页内大标题、通知卡、白心分数环、2×2 入口卡、多色存储构成条，以及锚定在圆底更多按钮上的毛玻璃菜单。
+
+按钮、环形进度、角标、气泡、页码、空状态、输入框、底部面板与轻提示均对齐 ColorOS 17 应用内嵌的 COUI 资源；原厂没有对应分支的细节（按钮加载的三点动画、不确定态弧长、占位脉冲、轻提示投影）按同族资源的数值与节奏推演。
+
+### 移除
+
+- 移除可选 `coui-material3` 模块。`io.github.itoseo:coui-material3` 不再随新版本发布，已发布的历史版本仍可从 Maven Central 下载。
+- 核心不再提供任何外部设计体系的默认值解析；`Coui.initialize` 仍可接收宿主自定义的 `CouiStyle`。
+- Demo 移除 Material 3 与 Material Icons 依赖，改用 `com.itos.coui.text.Text`、`coui-icons` 与 `CouiTheme` 色板；「Material 主题配色」开关及其偏好项一并删除。
+- 文档移除 Material 3 接入章节、颜色与字体角色映射表，以及 CI 中的第三坐标检查。
+
+### 升级说明
+
+- 原先依赖 `coui-material3` 的调用方，删除该依赖与 `Coui.initialize(defaultStyle = CouiMaterial3Style())`，改用 `CouiTheme` 提供配色，或显式传参覆盖单个组件，见[外观与预设](docs/guide/appearance.md)。
+- 预览版不保证二进制兼容，升级后重新编译使用库的模块。
+
 ## [0.0.1-alpha11] - 2026-11-12
 
 ### 新增与改进

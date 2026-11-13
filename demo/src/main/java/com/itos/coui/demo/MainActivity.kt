@@ -37,7 +37,7 @@ abstract class DemoHostActivity : ComponentActivity() {
                     isAppearanceLightNavigationBars = !dark
                 }
             }
-            DemoTheme(dark = dark, materialTheme = preferences.materialTheme) {
+            DemoTheme(dark = dark) {
                 ProvideCouiMenuBackdrop(isolateContent = false) { windowSource ->
                     Box(Modifier.fillMaxSize().then(windowSource)) {
                         Page(dark, preferences)

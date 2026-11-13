@@ -20,11 +20,8 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FilterAlt
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Icon
+import com.itos.coui.demo.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
@@ -59,6 +56,10 @@ import androidx.core.graphics.drawable.toBitmap
 import com.itos.coui.dialog.Dialog
 import com.itos.coui.dialog.CouiDialogAction
 import com.itos.coui.effect.CouiMetaballRenderer
+import com.itos.coui.icons.CouiIcons
+import com.itos.coui.text.CouiTextKind
+import com.itos.coui.text.rememberCouiTextStyle
+import com.itos.coui.theme.CouiTheme
 import kotlinx.coroutines.launch
 
 private data class DemoRecord(
@@ -144,7 +145,7 @@ private fun RecordSample(record: DemoRecord, icon: ImageBitmap, isLastViewed: Bo
     if (renderers == null) {
         val failure = rendering.exceptionOrNull()
         Text(stringResource(R.string.renderer_error, failure?.message ?: failure?.javaClass?.simpleName.orEmpty()),
-            color = MaterialTheme.colorScheme.error)
+            color = DemoPalette.error)
         return
     }
     Box(Modifier.fillMaxWidth().then(rowModifier).clipToBounds().onSizeChanged {
@@ -178,7 +179,7 @@ private fun RecordSample(record: DemoRecord, icon: ImageBitmap, isLastViewed: Bo
                             role = Role.Button, onClickLabel = label, onClick = requestDelete,
                         ), contentAlignment = Alignment.Center) {
                             DemoRecordDeleteIcon(modifier = Modifier.size(20.dp * (38f / 44f)),
-                                confirmation = confirmation, committed = committed, color = MaterialTheme.colorScheme.error)
+                                confirmation = confirmation, committed = committed, color = DemoPalette.error)
                         }
                     },
                 ) {
@@ -193,17 +194,17 @@ private fun RecordSample(record: DemoRecord, icon: ImageBitmap, isLastViewed: Bo
 
 @Composable
 private fun RecordHistoryContent(modifier: Modifier = Modifier, record: DemoRecord) {
-    val colors = MaterialTheme.colorScheme
-    val detailStyle = MaterialTheme.typography.labelSmall.copy(fontSize = 10.sp, lineHeight = 12.sp)
+    val colors = CouiTheme.colorScheme
+    val detailStyle = rememberCouiTextStyle(CouiTextKind.GroupFooter).copy(fontSize = 10.sp, lineHeight = 12.sp)
     Column(modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 9.dp),
         verticalArrangement = Arrangement.spacedBy(3.dp)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalAlignment = Alignment.CenterVertically) {
-            if (record.hasSegmentFilter) Icon(Icons.Outlined.FilterAlt,
-                contentDescription = stringResource(R.string.record_filtered), tint = colors.primary,
+            if (record.hasSegmentFilter) Icon(CouiIcons.Outlined.ListFilter,
+                contentDescription = stringResource(R.string.record_filtered), tint = colors.accent,
                 modifier = Modifier.size(14.dp))
             Text(stringResource(R.string.app_name), Modifier.weight(1f),
-                style = MaterialTheme.typography.titleSmall.copy(fontSize = 12.sp, lineHeight = 14.sp),
+                style = rememberCouiTextStyle(CouiTextKind.ItemValue).copy(fontSize = 12.sp, lineHeight = 14.sp),
                 fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis, color = colors.onSurface)
         }
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
@@ -213,7 +214,7 @@ private fun RecordHistoryContent(modifier: Modifier = Modifier, record: DemoReco
                 horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.Bottom) {
                 Text(stringResource(R.string.record_fps, record.averageFpsText), style = detailStyle,
                     color = colors.onSurfaceVariant, maxLines = 1)
-                Text(stringResource(R.string.record_separator), style = detailStyle, color = colors.outline, maxLines = 1)
+                Text(stringResource(R.string.record_separator), style = detailStyle, color = colors.onSurfaceVariant, maxLines = 1)
                 Text(record.averagePowerText, style = detailStyle, color = colors.onSurfaceVariant, maxLines = 1)
             }
             Text(record.durationText, Modifier.width(58.dp).align(Alignment.Bottom), style = detailStyle,

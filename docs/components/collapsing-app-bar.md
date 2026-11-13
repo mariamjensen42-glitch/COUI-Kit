@@ -34,7 +34,7 @@ Scaffold(
 
 `scrollBehavior` 持有折叠 state 和嵌套滚动连接。连接只挂到实际滚动正文的一个祖先；`canScroll` 读取实际滚动范围，LazyColumn 可使用 `canScrollForward || canScrollBackward`。正文必须保留 `state.contentPadding(padding, density)` 补偿，Insets 仍消费 Scaffold 返回的原始 Padding。
 
-省略 `scrollBehavior` 时保持展开。`title`、`navigationIcon` 和 `actions` 槽位与 `TopAppBar` 相同，字体由组件提供；接入 M3 适配后，M3 `Text` 可继承该字体。`expandedHeight` 与 `collapsedHeight` 不包含安全区，必须是有限正数，且展开高度大于收起高度。
+省略 `scrollBehavior` 时保持展开。`title`、`navigationIcon` 和 `actions` 槽位与 `TopAppBar` 相同，字体由组件提供，插槽内容可继承该字体。`expandedHeight` 与 `collapsedHeight` 不包含安全区，必须是有限正数，且展开高度大于收起高度。
 
 默认展开字号为 40sp，基础字重为 700。收起时，起始侧导航槽占用空间则使用 18sp，导航槽为空则使用 24sp。标题槽位须继承组件提供的样式。
 
@@ -71,7 +71,7 @@ CollapsingTopAppBar(
 
 ## 基本装配
 
-下面在 Material 3 Scaffold 中组合折叠标题、搜索框和结果层。片段放在页面 Composable 中，页面提供模式、文案、查询状态和回调；`openDetail` 打开详情，`results(query, enabled)` 显示结果并控制其滚动与交互。
+下面在 COUI Scaffold 中组合折叠标题、搜索框和结果层。片段放在页面 Composable 中，页面提供模式、文案、查询状态和回调；`openDetail` 打开详情，`results(query, enabled)` 显示结果并控制其滚动与交互。
 
 ```kotlin
 val density = LocalDensity.current
@@ -81,7 +81,7 @@ val header = rememberCouiCollapsingAppBarState(canScroll = { scroll.maxValue > 0
 val search = rememberCouiSearchBarState(expanded)
 val colors = CouiPageDefaults.themeColors(dark)
 BackHandler(enabled = expanded) { updateExpanded(false) }
-androidx.compose.material3.Scaffold(
+Scaffold(
     modifier = Modifier.nestedScroll(header.nestedScrollConnection),
     containerColor = colors.background,
     topBar = {
@@ -155,6 +155,6 @@ LazyColumn 使用补偿后的 `contentPadding`，但 `consumeWindowInsets` 仍�
 
 `backgroundColor` 省略或传入 `Color.Unspecified` 时，背景遮罩在浅色模式使用白色、深色模式使用黑色，并向下渐隐。显式颜色覆盖默认遮罩；`Color.Transparent` 关闭遮罩并保留模糊。模糊背景使用固定的下沿延伸，并随折叠向上平移；完整背景高度不随当前栏高缩放。普通大标题保持不透明；带常驻搜索时，背景淡入跟随正文实际位置，搜索活动期间保持显示。这些绘制范围不改变布局或命中高度。
 
-COUI Scaffold 自动录制正文与结果，不包含顶栏或其浮动消费者；`LargeTopAppBar` 和 `CollapsingTopAppBar` 放在 `topBar` 时可省略 `backdrop`，显式参数优先。上面的 Material 3 示例仍需创建源，在现有正文容器添加 `.couiBackdrop(backdrop)`，并将源显式传给顶栏。图层由库管理，无需全局初始化，见[背景采样](../effects/backdrop.md#顶栏接入)。自定义背景容器 `TopAppBarSurface` 的参数见[顶栏与按钮](top-app-bar.md#背景参数)。
+COUI Scaffold 自动录制正文与结果，不包含顶栏或其浮动消费者；`LargeTopAppBar` 和 `CollapsingTopAppBar` 放在 `topBar` 时可省略 `backdrop`，显式参数优先。上面的示例显式创建源，是为了让结果层与顶栏共享同一份正文采样；改用 Scaffold 默认源时可省略这些参数。图层由库管理，无需全局初始化，见[背景采样](../effects/backdrop.md#顶栏接入)。自定义背景容器 `TopAppBarSurface` 的参数见[顶栏与按钮](top-app-bar.md#背景参数)。
 
 [LargeTopAppBar](../../coui/src/main/java/com/itos/coui/topappbar/TopAppBar.kt) · [滚动行为与 Defaults](../../coui/src/main/java/com/itos/coui/topappbar/CouiTopAppBarDefaults.kt) · [CollapsingTopAppBar](../../coui/src/main/java/com/itos/coui/topappbar/CollapsingTopAppBar.kt) · [状态](../../coui/src/main/java/com/itos/coui/topappbar/CouiCollapsingAppBarState.kt) · [首页 Demo](../../demo/src/main/java/com/itos/coui/demo/DemoApp.kt)

@@ -7,9 +7,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.ui.Alignment
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Icon
+import com.itos.coui.demo.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -29,6 +28,7 @@ import com.itos.coui.chip.ChipTabButton
 import com.itos.coui.chip.CouiChipTabItem
 import com.itos.coui.chip.ChipTabRow
 import com.itos.coui.theme.LocalCouiContentColor
+import com.itos.coui.theme.CouiTheme
 import com.itos.coui.effect.CouiFloatingRenderer
 import com.itos.coui.menu.Menu
 import com.itos.coui.menu.CouiMenuItem
@@ -38,7 +38,7 @@ import com.itos.coui.menu.rememberCouiMenuAnchor
 @Composable
 internal fun ChipTabSample(dark: Boolean) {
     if (Build.VERSION.SDK_INT >= 34) ChipTabMaterialSample(dark)
-    else Text(stringResource(R.string.requires_api_34), color = MaterialTheme.colorScheme.onSurfaceVariant)
+    else Text(stringResource(R.string.requires_api_34), color = CouiTheme.colorScheme.onSurfaceVariant)
 }
 
 @RequiresApi(34)
@@ -64,7 +64,7 @@ private fun ChipTabMaterialSample(dark: Boolean) {
     val anchor = rememberCouiMenuAnchor()
     val backgroundColor = if (solidBackground) {
         if (dark) Color.Black else Color.White
-    } else if (dark) MaterialTheme.colorScheme.surfaceBright else MaterialTheme.colorScheme.background
+    } else if (dark) CouiTheme.colorScheme.container else CouiTheme.colorScheme.background
     Group {
         DemoSwitchPreference(title = stringResource(R.string.chip_enable), checked = enabled, onCheckedChange = { enabled = it })
         Divider()
@@ -75,7 +75,7 @@ private fun ChipTabMaterialSample(dark: Boolean) {
     if (renderers == null || (showIconButton && buttonRenderer == null)) {
         val failure = checkNotNull(rendering.exceptionOrNull() ?: buttonResult?.exceptionOrNull())
         Text(stringResource(R.string.renderer_error, failure.message ?: failure.javaClass.simpleName),
-            color = MaterialTheme.colorScheme.error)
+            color = DemoPalette.error)
         return
     }
     // 卡片只在完整示意区域裁剪；不能用 48dp 行高把分类项的投影上下截断。

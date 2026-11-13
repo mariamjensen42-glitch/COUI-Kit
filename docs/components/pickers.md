@@ -4,7 +4,7 @@
 
 库公开的是这两个受控组件。时间、倒计时、年月日滚轮组合和选择弹窗属于 Demo 示例，不是额外的公开 Picker API。
 
-滚轮是一列上下滚动的数字，中间为较大的当前值，上下显示相邻数字；单列本身没有时间冒号和整组选择线。月历包含月份标题、左右翻月按钮、七列日期网格和选中圆圈。点击标题切换到内置的年/月/日三列滚轮，不需要单独创建三个 `WheelPicker`。
+滚轮是一列上下滚动的数字，中间为较大的当前值，上下显示相邻数字；单列本身没有时间冒号和整组选择线。月历包含月份标题、左右翻月按钮、七列日期网格和选中圆圈；网格首日跟随系统语言的周起始日，简体中文为周一。点击标题切换到内置的年/月/日三列滚轮，不需要单独创建三个 `WheelPicker`。
 
 ## 最小调用
 
@@ -28,7 +28,7 @@ CalendarPicker(
 )
 ~~~
 
-上述变量由页面提供。`value` 是已接受的值；页面必须在 `onValueChange` 中更新它。两个组件的 `dark` 和 `colors` 默认从 `CouiTheme` 解析，不需要 Material3。主题规则见[外观与预设](../guide/appearance.md)。
+上述变量由页面提供。`value` 是已接受的值；页面必须在 `onValueChange` 中更新它。两个组件的 `dark` 和 `colors` 默认从 `CouiTheme` 解析，不需要额外主题依赖。主题规则见[外观与预设](../guide/appearance.md)。
 
 ## 组合小时和分钟滚轮
 
@@ -192,7 +192,7 @@ Row(
 
 `CouiWheelColors` 包含 `normal`（普通项）和 `focus`（选中项）；`CouiCalendarColors` 包含 `foreground`、`secondary`、`weekday`、`hint`、`highlight`、`divider` 和 `onAccent`。月历另有独立的 `accent` 参数，用于选中圆及强调色元素。自定义 `accent` 时，应确保 `onAccent` 文字与选中圆有足够对比度。
 
-M3 主题适配的接入方式见[外观与预设](../guide/appearance.md)。
+主题接入方式见[外观与预设](../guide/appearance.md)。
 
 ## 交互与限制
 

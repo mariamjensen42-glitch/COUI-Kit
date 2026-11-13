@@ -39,11 +39,11 @@ backgroundColor 需不透明，background 绘制实际图案或页面内容。�
 
 使用 COUI [Scaffold](../components/scaffold.md) 时，容器自动录制完整正文视口和 `containerColor`。顶栏、底栏和 FAB 槽位获得默认源，无需创建、挂载或传参。正文不获得自身源，正文内部效果需独立装配，避免自采样。
 
-使用 Material 等第三方容器时，创建源，把 `couiBackdrop` 添加到现有正文容器，再把同一个源显式传给顶栏。下面片段使用 Material 3 Scaffold；`backgroundColor`、`title` 和正文 `content` 由宿主提供：
+使用第三方容器时，创建源，把 `couiBackdrop` 添加到现有正文容器，再把同一个源显式传给顶栏。下面片段使用宿主已有的 Scaffold；`backgroundColor`、`title` 和正文 `content` 由宿主提供：
 
 ```kotlin
 val backdrop = rememberCouiBackdrop()
-androidx.compose.material3.Scaffold(
+HostScaffold(
     topBar = {
         TopAppBar(
             backdrop = backdrop,

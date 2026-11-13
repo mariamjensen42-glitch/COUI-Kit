@@ -27,3 +27,7 @@ signing.properties
 
 # 网页生成器依赖
 Pages/node_modules/
+
+# AI 协作工具的项目数据
+.workbuddy-ai/
+.workbuddy/

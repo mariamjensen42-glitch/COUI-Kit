@@ -4,7 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
+import com.itos.coui.demo.ui.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment

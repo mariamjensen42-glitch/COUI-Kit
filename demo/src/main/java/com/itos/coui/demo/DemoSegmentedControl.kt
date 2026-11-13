@@ -10,8 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -32,11 +31,14 @@ import com.itos.coui.layout.CouiPageDefaults
 import com.itos.coui.layout.Divider
 import com.itos.coui.layout.Group
 import com.itos.coui.segmentbutton.SegmentedControl
+import com.itos.coui.text.CouiTextKind
+import com.itos.coui.text.rememberCouiTextStyle
+import com.itos.coui.theme.CouiTheme
 
 @Composable
 internal fun SegmentedControlSample(dark: Boolean) {
     if (Build.VERSION.SDK_INT >= 34) SegmentedControlContent(dark)
-    else Text(stringResource(R.string.requires_api_34), color = MaterialTheme.colorScheme.onSurfaceVariant)
+    else Text(stringResource(R.string.requires_api_34), color = CouiTheme.colorScheme.onSurfaceVariant)
 }
 
 @RequiresApi(34)
@@ -78,11 +80,11 @@ private fun SegmentedControlContent(dark: Boolean) {
                         renderer = gradientRenderer,
                     )
                     Text(stringResource(R.string.segment_selected, labels[gradientSelected]),
-                        color = colors.summary, style = MaterialTheme.typography.bodySmall)
+                        color = colors.summary, style = rememberCouiTextStyle(CouiTextKind.GroupFooter))
                 } else {
                     val failure = checkNotNull(gradientRendering.exceptionOrNull())
                     Text(stringResource(R.string.renderer_error, failure.message ?: failure.javaClass.simpleName),
-                        color = MaterialTheme.colorScheme.error)
+                        color = DemoPalette.error)
                 }
             }
         }
@@ -102,7 +104,7 @@ private fun SegmentedControlContent(dark: Boolean) {
                     commitOnRelease = onRelease,
                 )
                 Text(stringResource(R.string.segment_selected, labels[groupSelected]),
-                    color = colors.summary, style = MaterialTheme.typography.bodySmall)
+                    color = colors.summary, style = rememberCouiTextStyle(CouiTextKind.GroupFooter))
             }
         }
     }
@@ -125,11 +127,11 @@ private fun SegmentedControlContent(dark: Boolean) {
                         renderer = pageRenderer,
                     )
                     Text(stringResource(R.string.segment_selected, labels[pageSelected]),
-                        color = colors.summary, style = MaterialTheme.typography.bodySmall)
+                        color = colors.summary, style = rememberCouiTextStyle(CouiTextKind.GroupFooter))
                 } else {
                     val failure = checkNotNull(pageRendering.exceptionOrNull())
                     Text(stringResource(R.string.renderer_error, failure.message ?: failure.javaClass.simpleName),
-                        color = MaterialTheme.colorScheme.error)
+                        color = DemoPalette.error)
                 }
             }
         }

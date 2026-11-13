@@ -125,4 +125,22 @@
     <string name="chip_category_shared">Shared</string>
     <string name="chip_category_all">All</string>
     <string name="list_item_text_preview">This text preview changes with the selected size.</string>
+    <string name="catalog_layout">Group and footer</string>
+    <string name="intro_layout">Compose group titles, header actions, card content and footers.</string>
+    <string name="layout_group_footer">This footer is assembled by the Group above.</string>
+    <string name="layout_header_title">Header action</string>
+    <string name="layout_item_disabled">Disabled row</string>
+    <string name="layout_standalone_footer">Footer also works on its own, outside a group.</string>
+    <string name="effect_gradient_title">Progressive blur</string>
+    <string name="intro_effect_gradient">Blur only the background, fading out from the top edge.</string>
+    <string name="effect_gradient_overlay">Blurred background</string>
+    <string name="effect_gradient_fade">Fade height</string>
+    <string name="effect_lighting_title">Touch light</string>
+    <string name="intro_effect_lighting">Press and hold the surface to move the light with your finger.</string>
+    <string name="effect_lighting_press">Presses: %1$d</string>
+    <string name="effect_motion_title">Press and touch motion</string>
+    <string name="intro_effect_motion">Hold to scale, drag sideways to reshape, release to spring back.</string>
+    <string name="effect_floating_title">Floating surface</string>
+    <string name="intro_effect_floating">Assemble sampling, material, shadow and content for a custom floating surface.</string>
+    <string name="effect_floating_content">Floating surface</string>
 </resources>

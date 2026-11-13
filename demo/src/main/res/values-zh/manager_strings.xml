@@ -1,0 +1,19 @@
+<resources>
+    <string name="manager_title">手机管家</string>
+    <string name="manager_name">手机管家</string>
+    <string name="manager_more">更多</string>
+    <string name="manager_notice">开启手机管家通知，可及时获知设备状态，减少安全风险</string>
+    <string name="manager_ignore">忽略</string>
+    <string name="manager_enable">开启</string>
+    <string name="manager_score_unit">分</string>
+    <string name="manager_score_hint">状态良好，可继续优化</string>
+    <string name="manager_optimize">一键优化</string>
+    <string name="manager_storage_title">清理存储</string>
+    <string name="manager_storage_summary">211 GB / 256 GB</string>
+    <string name="manager_virus_title">病毒风险</string>
+    <string name="manager_virus_summary">未发现风险应用</string>
+    <string name="manager_speed_title">系统加速</string>
+    <string name="manager_speed_summary">提升系统流畅性</string>
+    <string name="manager_update_title">应用更新</string>
+    <string name="manager_update_summary">3 个应用待更新</string>
+</resources>

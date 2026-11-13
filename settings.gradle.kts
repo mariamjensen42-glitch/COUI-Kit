@@ -36,5 +36,4 @@ dependencyResolutionManagement {
 rootProject.name = "COUI"
 include(":demo")
 include(":coui")
-include(":coui-material3")
 include(":coui-icons")

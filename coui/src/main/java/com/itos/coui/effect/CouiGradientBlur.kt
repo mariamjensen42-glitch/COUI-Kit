@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.layer.CompositingStrategy
 import androidx.compose.ui.graphics.layer.GraphicsLayer
 import androidx.compose.ui.graphics.layer.drawLayer
 import androidx.compose.ui.node.ModifierNodeElement
+import androidx.compose.ui.node.invalidateDraw
 import androidx.compose.ui.node.requireGraphicsContext
 import androidx.compose.ui.platform.InspectorInfo
 import androidx.compose.ui.unit.Density
@@ -92,6 +93,9 @@ private class GradientBackdropNode(
             this.referenceBlurRadiusPx = referenceBlurRadiusPx
             this.gradientSpeed = gradientSpeed
             renderer = null
+            // 渲染器置空后必须重跑装配, 否则绘制阶段取不到实例。
+            markEffectsDirty()
+            invalidateDraw()
         }
     }
 

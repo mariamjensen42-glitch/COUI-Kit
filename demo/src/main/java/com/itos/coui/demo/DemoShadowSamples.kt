@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.height
 
 import androidx.compose.foundation.layout.width
 
-import androidx.compose.material3.MaterialTheme
-
 import androidx.compose.runtime.Composable
 
 import androidx.compose.runtime.getValue
@@ -51,6 +49,7 @@ import com.itos.coui.effect.CouiShadowOutline
 import com.itos.coui.effect.CouiShadowRenderer
 
 import com.itos.coui.effect.couiShadow
+import com.itos.coui.theme.CouiTheme
 
 @RequiresApi(34)
 @Composable
@@ -62,7 +61,7 @@ internal fun ShadowSamples(dark: Boolean) {
     val renderer = rendering.getOrNull()
     if (renderer == null) {
         val failure = checkNotNull(rendering.exceptionOrNull())
-        EffectText(stringResource(R.string.renderer_error, failure.message ?: failure.javaClass.simpleName), color = MaterialTheme.colorScheme.error)
+        EffectText(stringResource(R.string.renderer_error, failure.message ?: failure.javaClass.simpleName), color = DemoPalette.error)
         return
     }
     DemoSliderPreference(title = stringResource(R.string.shadow_elevation),
@@ -82,7 +81,7 @@ internal fun ShadowSamples(dark: Boolean) {
     Box(Modifier.fillMaxWidth().height(160.dp), contentAlignment = Alignment.Center) {
         Box(Modifier.width(160.dp).height(56.dp).then(shadow).background(if (dark) androidx.compose.ui.graphics.Color(0xFF353535) else androidx.compose.ui.graphics.Color(0xFFE4E6E8), shape),
             contentAlignment = Alignment.Center) {
-            EffectText(stringResource(R.string.shadow_subject), color = MaterialTheme.colorScheme.onPrimaryContainer)
+            EffectText(stringResource(R.string.shadow_subject), color = CouiTheme.colorScheme.onSurface)
         }
     }
 }

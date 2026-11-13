@@ -1,0 +1,8 @@
+<resources>
+    <string name="textfield_title">输入框</string>
+    <string name="intro_textfield">受控输入，带标题、错误与禁用态</string>
+    <string name="textfield_label">名称</string>
+    <string name="textfield_error">错误示例</string>
+    <string name="textfield_disabled">禁用</string>
+    <string name="textfield_error_hint">此项不能为空</string>
+</resources>

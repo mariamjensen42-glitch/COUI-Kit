@@ -1,0 +1,11 @@
+<resources>
+    <string name="emptystate_title">Empty state</string>
+    <string name="intro_emptystate">Centered icon, title, description and action for empty pages</string>
+    <string name="emptystate_basic">Title only</string>
+    <string name="emptystate_with_action">With icon and action</string>
+    <string name="emptystate_text_only">With description</string>
+    <string name="emptystate_description">Nothing here yet. New items will show up in this list.</string>
+    <string name="emptystate_action">Refresh</string>
+    <string name="emptystate_custom_action">Custom action slot</string>
+    <string name="emptystate_retry">Retry</string>
+</resources>

@@ -12,9 +12,8 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import com.itos.coui.scroll.couiVerticalScroll
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Icon
+import com.itos.coui.demo.ui.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
@@ -43,6 +42,9 @@ import com.itos.coui.layout.Scaffold
 import com.itos.coui.topappbar.CollapsingTopAppBar
 import com.itos.coui.topappbar.CouiTopAppBarDefaults
 import com.itos.coui.topappbar.LargeTopAppBar
+import com.itos.coui.text.CouiTextKind
+import com.itos.coui.text.rememberCouiTextStyle
+import com.itos.coui.theme.CouiTheme
 
 @RequiresApi(34)
 private class DemoRenderers {
@@ -71,7 +73,7 @@ internal fun DemoApp(dark: Boolean, preferences: DemoPreferences, onToggleTheme:
     LaunchedEffect(query) { componentSearchScroll.scrollTo(0) }
     val headers = List(3) { index -> CouiTopAppBarDefaults.exitUntilCollapsedScrollBehavior(
         canScroll = { scrolls[index].maxValue > 0 }) }
-    val colors = MaterialTheme.colorScheme
+    val colors = CouiTheme.colorScheme
     val background = CouiPageDefaults.themeColors(dark).background
     val color = CouiFabDefaults.containerColor(CouiFabColor.Notes, dark)
     // 源 Activity 在窗口转场中仍可见，导航不拆掉结果行及其按压退场；返回时保留查询。
@@ -128,7 +130,7 @@ internal fun DemoApp(dark: Boolean, preferences: DemoPreferences, onToggleTheme:
                     .padding(bottom = 16.dp)) {
                     rendering?.exceptionOrNull()?.let { failure ->
                         Text(stringResource(R.string.renderer_error, failure.message ?: failure.javaClass.simpleName),
-                            Modifier.padding(32.dp), color = colors.error)
+                            Modifier.padding(32.dp), color = DemoPalette.error)
                     }
                     when (page) {
                         0 -> DemoCatalog(DemoComponentGroups, open, query = query)
@@ -146,7 +148,7 @@ internal fun DemoApp(dark: Boolean, preferences: DemoPreferences, onToggleTheme:
 @Composable
 private fun PlainDemoBottomBar(titles: List<String>, icons: List<ImageVector>, selectedIcons: List<ImageVector>, page: Int,
     select: (Int) -> Unit, dark: Boolean) {
-    Row(Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surface)
+    Row(Modifier.fillMaxWidth().background(CouiTheme.colorScheme.surface)
         .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Bottom)).height(64.dp).selectableGroup(),
         verticalAlignment = Alignment.CenterVertically) {
         titles.forEachIndexed { index, title ->
@@ -154,9 +156,9 @@ private fun PlainDemoBottomBar(titles: List<String>, icons: List<ImageVector>, s
             Column(Modifier.weight(1f).clip(DemoShapes.couiCapsule).couiNavigationFeedback(dark, source)
                 .selectable(index == page, source, null, true, Role.Tab, onClick = { select(index) }).padding(vertical = 8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                val color = if (index == page) com.itos.coui.theme.CouiTheme.colorScheme.accent else MaterialTheme.colorScheme.onSurfaceVariant
+                val color = if (index == page) CouiTheme.colorScheme.accent else CouiTheme.colorScheme.onSurfaceVariant
                 Icon(if (index == page) selectedIcons[index] else icons[index], null, Modifier.size(24.dp), tint = color)
-                Text(title, style = MaterialTheme.typography.labelMedium, color = color)
+                Text(title, style = rememberCouiTextStyle(CouiTextKind.GroupTitle), color = color)
             }
         }
     }

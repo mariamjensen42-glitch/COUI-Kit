@@ -1,6 +1,6 @@
 # 外观与预设
 
-组件可省略有默认值的外观参数，也可显式传入颜色、Style、Shape、材质和阴影。未初始化时使用原生 COUI 预设；可选 `coui-material3` 模块让默认值跟随宿主的 Material 3 主题。
+组件可省略有默认值的外观参数，也可显式传入颜色、Style、Shape、材质和阴影。不配置主题时使用原生 COUI 预设；需要接入宿主配色时，用 `CouiTheme` 建立局部外观。
 
 ## 不配置主题
 
@@ -12,13 +12,9 @@ Switch(checked = checked, onCheckedChange = onCheckedChange)
 
 底层 Effect 不要求主题。原生主题使用中性表面、文字与 Theme.COUI 的蓝色强调色，不读取动态色。
 
-## 接入 Material 3
-
-依赖、启动初始化和深浅模式配置见 [README：接入 Material 3](../../README.md#接入-material-3)。下文说明接入后的局部覆盖、字体、染色和内容作用域。
-
 ## 局部原生或自定义外观
 
-`CouiTheme` 建立局部原生或自定义外观，退出后恢复外层策略。它同时提供自身模式。在全局使用 M3 适配时，局部主题仍桥接 M3 内容插槽。
+`CouiTheme` 建立局部原生或自定义外观，退出后恢复外层策略，并同时提供自身模式。
 
 ~~~kotlin
 val colors = (if (dark) CouiPresets.Dark else CouiPresets.Light)
@@ -28,25 +24,21 @@ CouiTheme(darkTheme = dark, colorScheme = colors) {
 }
 ~~~
 
-显式组件配置始终优先。存在局部 `CouiTheme` 时，模式匹配则使用它；不匹配则直接使用该模式的 native 预设与透明 tint，不再尝试全局策略。没有局部 `CouiTheme` 时，模式匹配则使用初始化策略，不匹配则回退到对应 native 预设与透明 tint。不会套用另一模式的宿主色板。完整显式 Style、颜色、Shape、材质和阴影由调用方负责匹配。
+显式组件配置始终优先。存在局部 `CouiTheme` 时，模式匹配则使用它；不匹配则直接使用该模式的 native 预设与透明 tint，不再尝试外层策略。没有局部 `CouiTheme` 时，模式匹配则使用已选的默认样式，不匹配则回退到对应 native 预设与透明 tint。不会套用另一模式的色板。完整显式 Style、颜色、Shape、材质和阴影由调用方负责匹配。
 
-`CouiTypography` 管普通内容、标签、菜单项及可选字体族。Shape 仍由各组件 Defaults 提供，适配器不把 COUI 几何改成 M3。
+`CouiPresets` 提供 `Light` / `Dark` 两组蓝色强调色预设，以及 `GreenLight` / `GreenDark` 两组绿色强调色预设。绿色预设只替换强调色与强调内容色，中性表面、卡片和页面底色沿用对应深浅模式的原生值，`CouiPresets.green(dark)` 按模式直接取值：
+
+~~~kotlin
+CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
+    content()
+}
+~~~
+
+绿色是页面主色，不表示原厂存在名为 Green 的主题；需要其他强调色时仍按上面 `copy(accent = …)` 的方式自定义。
+
+`CouiTypography` 管普通内容、标签、菜单项及可选字体族。Shape 仍由各组件 Defaults 提供。
 
 `CouiColorScheme.background` 是页面底色，`surface` 是组件表面，`container` 是通用容器底色，`card` 是列表分组卡片色。原生深色卡片使用 `couiColorCardBackground` 的半透明白色，叠加页面背景；菜单等顶层容器使用独立颜色。自定义色板省略 `background` 时沿用 `surface`，省略 `card` 时沿用 `container`。`CouiPageDefaults.themeColors()` 分别读取 `background` 和 `card`，宿主将页面底色传给自己的页面容器。`CouiPageDefaults.colors(accent, dark)` 从对应的原生浅色或深色预设生成 `CouiPageColors`，再应用显式强调色；它不会读取或创建主题作用域。
-
-## Material 颜色与字体角色
-
-| COUI 用途 | M3 来源 |
-| --- | --- |
-| 强调色 / 强调色上的内容 | `primary` / `onPrimary` |
-| 菜单 selected | `primary` |
-| 普通与菜单 checkbox | 浅色 `primary`，深色 `inversePrimary` |
-| 表面、文字、次要文字、分隔线 | `surface`、`onSurface`、`onSurfaceVariant`、`outlineVariant` |
-| 页面背景 / 分组卡片 | `background` / `surfaceBright` |
-| 菜单模糊补底 / 无 Backdrop 的容器 | `surface` / `surfaceBright` |
-| 普通内容 / 菜单项 / 菜单头部标签 | `bodyLarge` / `labelLarge` / `bodySmall` |
-
-Chip 从 `labelLarge` 取字体族。Dialog 从 `titleLarge`、`bodyMedium`、`labelLarge`、`bodyLarge`、`labelSmall` 分别取得标题、正文、按钮、输入与计数字体族。两者的字号、字重和排版由组件控制；未启用 M3 适配时使用系统字体策略。
 
 `com.itos.coui.text.Text` 提供固定 COUI 排版角色，`kind` 必填。文字颜色依次取显式 `color`、已提供的 `LocalCouiContentColor`、当前 `CouiTheme.colorScheme.onSurface`。省略颜色即可在独立布局中跟随主题，详见[Item](../components/item.md#配色与文字)。菜单项则读取 `CouiTheme.typography.menuItem` 的字号、字重与字体族。
 
@@ -54,7 +46,7 @@ Chip 从 `labelLarge` 取字体族。Dialog 从 `titleLarge`、`bodyMedium`、`l
 
 ## 菜单、底栏、搜索栏与 FAB 的染色
 
-原生默认 `materialTint` 透明。M3 策略使用宿主 `surface` 为菜单、底栏和 API 34 及以上的常驻搜索栏染色，保留材质亮度。关闭染色后，背景采样仍会包含页面颜色。
+原生默认 `materialTint` 透明。宿主提供 `materialTint` 时，用它为菜单、底栏和 API 34 及以上的常驻搜索栏染色，保留材质亮度。关闭染色后，背景采样仍会包含页面颜色。
 
 关闭染色时，菜单使用 `CouiMenuDefaults.style().copy(themeTint = Color.Transparent)`，底栏显式传 `themeTint = Color.Transparent`。自定义局部 `CouiTheme` 也可提供自己的 `materialTint`；透明表示关闭。显式材质始终优先。
 
@@ -62,15 +54,13 @@ Chip 从 `labelLarge` 取字体族。Dialog 从 `titleLarge`、`bodyMedium`、`l
 
 ## 内容插槽与最小交互尺寸
 
-启用 M3 策略后，顶栏按钮、搜索表面、Chip 和 FAB 的内容插槽提供对应的 M3 内容 Local，普通 M3 `Text`、`Icon` 可直接继承。组件部分 TextStyle 按 M3 `ProvideTextStyle` 顺序与宿主 ambient 合并；`CouiTheme` 的完整基线替换外层样式。子 Text 的显式颜色/样式、Icon tint 和内层 Local 优先。
+顶栏按钮、搜索表面、Chip 和 FAB 的内容插槽提供 `LocalCouiContentColor` 与 `LocalCouiTextStyle`，插槽中的内容可直接继承组件样式。组件部分 TextStyle 与已有基线合并；`CouiTheme` 的完整基线替换外层样式。子内容的显式颜色与样式、Icon tint 和内层 Local 优先。
 
 仅转发的顶栏 title、buttonGroup、Chip leadingAction 和 Dialog 自定义正文不会被强设新样式。NavigationBar 自有文字继承宿主 ambient 字体属性，同时保留自己的字号、行高与字重。`com.itos.coui.theme` 包中的 `CouiText`、`CouiIcon` 和 `ProvideCouiTextStyle` 是内部实现；普通文字组件使用公开的 `com.itos.coui.text.Text`。
 
-顶栏按钮的 M3 路径使用 `minimumInteractiveComponentSize()`，遵守宿主尺寸 Local 与 alignment lines；原生策略使用组件的最小布局尺寸。搜索按钮使用固定容器，不受该 Local 控制。
+顶栏按钮使用组件自己的最小布局尺寸，搜索按钮使用固定容器。宿主内容自带的最小交互尺寸语义不会被组件改写。
 
 独立复选框的外层点击容器应隐藏涟漪，并保留点击和无障碍语义，装配方式见[只放一个复选框](../components/checkbox.md#只放一个复选框)。
-
-未启用适配器而在纯 native 核心插槽中使用 M3 内容时，仍需自行桥接其内容 Local；更常见的做法是接入可选模块。
 
 ## Shape 与效果开关
 

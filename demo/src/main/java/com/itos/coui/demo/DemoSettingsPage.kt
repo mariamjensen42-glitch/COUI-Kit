@@ -17,7 +17,7 @@ import androidx.compose.foundation.rememberScrollState
 import com.itos.coui.scroll.couiVerticalScroll
 import com.itos.coui.scroll.CouiOverscrollEffect
 import com.itos.coui.scroll.rememberCouiOverscrollEffect
-import androidx.compose.material3.Icon
+import com.itos.coui.demo.ui.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -95,7 +95,7 @@ internal fun DemoSettingsPage(
             val barColors = CouiTopAppBarDefaults.colors(backgroundColor = LocalDemoTopBarGradient.current,
                 titleColor = colors.title, dark = dark)
             LargeTopAppBar(title = {
-                androidx.compose.material3.Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                com.itos.coui.demo.ui.Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis)
             }, navigationIcon = navigation, actions = { actions() },
                 scrollBehavior = behavior, dark = dark, colors = barColors)
     }) { innerPadding ->

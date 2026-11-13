@@ -8,10 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
+import com.itos.coui.demo.ui.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -29,12 +26,13 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.itos.coui.theme.CouiTheme
 import kotlin.math.asin
 
 @Composable
 internal fun DemoRecordDeleteIcon(modifier: Modifier = Modifier, confirmation: Boolean, committed: Boolean, color: Color) {
     Box(modifier) {
-        if (confirmation) Icon(Icons.Default.Check, contentDescription = null,
+        if (confirmation) Icon(DemoIcons.Check, contentDescription = null,
             modifier = Modifier.fillMaxSize(), tint = color)
         else RecordTrashCanIcon(Modifier.fillMaxSize(), open = committed, color = color)
     }
@@ -78,7 +76,7 @@ private fun RecordTrashCanIcon(modifier: Modifier = Modifier, open: Boolean, col
 @Composable
 internal fun DemoRecordLastViewedIndicator(modifier: Modifier = Modifier) {
     val description = stringResource(R.string.record_last_viewed)
-    val color = MaterialTheme.colorScheme.primary
+    val color = CouiTheme.colorScheme.accent
     Box(modifier.width(4.dp).height(14.dp).drawWithCache {
         val strokeWidth = 3.dp.toPx()
         val halfSpan = ((size.height - strokeWidth) * 0.5f).coerceAtLeast(0f)

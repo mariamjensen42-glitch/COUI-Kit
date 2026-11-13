@@ -1,0 +1,11 @@
+<resources>
+    <string name="badge_title">Badge &amp; Tooltip</string>
+    <string name="intro_badge">Unread badge, dot and controlled tooltip</string>
+    <string name="badge_count">Count</string>
+    <string name="badge_examples">Badge</string>
+    <string name="tooltip_examples">Tooltip</string>
+    <string name="tooltip_hint">Long press the icon to show the tooltip</string>
+    <string name="tooltip_text">Explains what this control does</string>
+    <string name="tooltip_show">Show tooltip</string>
+    <string name="tooltip_hide">Hide tooltip</string>
+</resources>

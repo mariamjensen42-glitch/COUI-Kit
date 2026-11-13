@@ -123,4 +123,22 @@
     <string name="chip_category_shared">共享</string>
     <string name="chip_category_all">全部</string>
     <string name="list_item_text_preview">这是可调节字号的文字预览。</string>
+    <string name="catalog_layout">分组与说明</string>
+    <string name="intro_layout">组合分组标题、头部操作、卡片内容与说明文字。</string>
+    <string name="layout_group_footer">这条说明由上方分组自动装配。</string>
+    <string name="layout_header_title">头部操作</string>
+    <string name="layout_item_disabled">禁用行</string>
+    <string name="layout_standalone_footer">说明文字也可以脱离分组单独使用。</string>
+    <string name="effect_gradient_title">渐进模糊</string>
+    <string name="intro_effect_gradient">只模糊背景，并从顶边向下逐渐淡出。</string>
+    <string name="effect_gradient_overlay">已模糊的背景</string>
+    <string name="effect_gradient_fade">渐隐高度</string>
+    <string name="effect_lighting_title">跟手光</string>
+    <string name="intro_effect_lighting">按住表面，光效会跟随手指移动。</string>
+    <string name="effect_lighting_press">按压次数：%1$d</string>
+    <string name="effect_motion_title">按压与触摸形变</string>
+    <string name="intro_effect_motion">按住缩放，横向拖动改变形状，松手回弹。</string>
+    <string name="effect_floating_title">浮动表面</string>
+    <string name="intro_effect_floating">自行组合采样、材质、投影与内容，绘制自定义浮动表面。</string>
+    <string name="effect_floating_content">浮动表面</string>
 </resources>

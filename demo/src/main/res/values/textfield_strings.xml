@@ -1,0 +1,8 @@
+<resources>
+    <string name="textfield_title">Text field</string>
+    <string name="intro_textfield">Controlled input with title, error and disabled states</string>
+    <string name="textfield_label">Label</string>
+    <string name="textfield_error">Error</string>
+    <string name="textfield_disabled">Disabled</string>
+    <string name="textfield_error_hint">This field cannot be empty</string>
+</resources>

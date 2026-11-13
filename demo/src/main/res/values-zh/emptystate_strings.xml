@@ -1,0 +1,11 @@
+<resources>
+    <string name="emptystate_title">空状态</string>
+    <string name="intro_emptystate">整页空状态：图标、标题、说明与操作的居中排列</string>
+    <string name="emptystate_basic">仅标题</string>
+    <string name="emptystate_with_action">图标与操作</string>
+    <string name="emptystate_text_only">带说明</string>
+    <string name="emptystate_description">暂无内容，新增条目会显示在这里。</string>
+    <string name="emptystate_action">刷新</string>
+    <string name="emptystate_custom_action">自定义操作槽</string>
+    <string name="emptystate_retry">重试</string>
+</resources>

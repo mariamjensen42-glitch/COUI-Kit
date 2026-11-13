@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -32,22 +31,23 @@ import com.itos.coui.backdrop.rememberCouiBackdrop
 import com.itos.coui.effect.rememberCouiMaterialEffect
 import com.itos.coui.layout.Divider
 import com.itos.coui.topappbar.CouiTopAppBarButtonDefaults
+import com.itos.coui.theme.CouiTheme
 import kotlin.math.ceil
 
 @Composable
 private fun BackdropStage(phase: Float, content: @Composable BoxScope.(CouiBackdrop) -> Unit) {
     val backdrop = rememberCouiBackdrop()
-    val colors = MaterialTheme.colorScheme
+    val colors = CouiTheme.colorScheme
+    val palette = DemoPalette.illustration
     Box(Modifier.fillMaxWidth().height(200.dp).clip(DemoShapes.item)) {
         // 独立采样源只包含图案, 其上的效果面板不能录入该源。
         Canvas(Modifier.fillMaxSize().couiBackdrop(backdrop)) {
-            drawRect(colors.surfaceBright)
-            val palette = listOf(colors.primaryContainer, colors.secondaryContainer, colors.tertiaryContainer)
+            drawRect(colors.container)
             repeat(9) { index ->
                 drawRect(palette[index % palette.size], Offset((index - 1 + phase) * size.width / 7f, 0f),
                     Size(size.width / 14f, size.height))
             }
-            drawCircle(colors.primary, radius = size.height * 0.22f,
+            drawCircle(colors.accent, radius = size.height * 0.22f,
                 center = Offset(size.width * (0.2f + phase * 0.5f), size.height * 0.45f))
         }
         content(backdrop)

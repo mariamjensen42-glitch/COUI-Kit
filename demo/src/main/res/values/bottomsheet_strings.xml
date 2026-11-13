@@ -1,0 +1,9 @@
+<resources>
+    <string name="bottomsheet_title">Bottom sheet</string>
+    <string name="intro_bottomsheet">A panel rises from the bottom edge. Tap the scrim or press back to dismiss.</string>
+    <string name="bottomsheet_open">Open bottom sheet</string>
+    <string name="bottomsheet_header">Choose an action</string>
+    <string name="bottomsheet_option_first">First option</string>
+    <string name="bottomsheet_option_second">Second option</string>
+    <string name="bottomsheet_option_third">Third option</string>
+</resources>

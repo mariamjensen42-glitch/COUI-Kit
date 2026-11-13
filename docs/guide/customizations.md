@@ -54,9 +54,9 @@ Demo 二级页统一使用 `LargeTopAppBar`。参考的原厂设置二级页使�
 
 ### 文字排版
 
-菜单项和头部标签按 Metric 的菜单排版调整，分别采用 `labelLarge` 与 `bodySmall` 的角色基准。原生主题的菜单排版使用同一基准；接入 Material 3 后读取宿主的对应文字角色。
+菜单项和头部标签按 Metric 的菜单排版调整，分别采用 `labelLarge` 与 `bodySmall` 的角色基准。原生主题的菜单排版使用同一基准。
 
-这项定制只针对菜单，不将 Dialog 等组件的文字同步替换。调用见[菜单](../components/menu.md)，角色依据见[可选 Material 3 策略](../../.agents/notes/implemented/architecture/2026-10-31-optional-material3-style.md)。
+这项定制只针对菜单，不将 Dialog 等组件的文字同步替换。调用见[菜单](../components/menu.md)，角色依据见[菜单排版依据](../../.agents/notes/implemented/architecture/2026-10-31-optional-material3-style.md)。
 
 ## 其他组件
 
@@ -70,3 +70,7 @@ Demo 二级页统一使用 `LargeTopAppBar`。参考的原厂设置二级页使�
 | `Switch` | 触摸取消时不提交候选值，恢复宿主提供的 `checked`。 | 参考实现的 `CompoundButton` 在 CANCEL 后可能吸附并改变值；本库采用受控状态约定。见[开关依据](../../.agents/notes/implemented/feature/2026-10-27-coui-switch.md)。 |
 | `CalendarPicker` | 新选中日期的数字与选中圆同步放大，文字不额外淡入淡出。 | Calendar 17.3.70 的参考绘制仅改变圆半径和透明度，数字字号固定。见[月历依据](../../.agents/notes/implemented/feature/2026-11-01-coui-pickers.md)。 |
 | `NavigationBar` | 透明附件使用减弱后的投影强度。 | 只针对底栏透明附件，不扩展到独立 FAB。见 [NavigationBar](../../coui/src/main/java/com/itos/coui/navigation/NavigationBar.kt)与[投影依据](../../.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)。 |
+| [按钮](../components/button.md) | 主、次外观的几何、排版、配色与反馈链沿用原厂 `Widget.COUI.Button.Large`；文字外观由本库新增，加载态按原厂 `coui_loading_btn_circle_*` 的三圆点实现。 | 原厂 COUIButton 只有主、次两个分支，也没有为三圆点提供独立动画资源，脉冲节奏沿用同一套加载字形的 800ms。见[按钮依据](../../.agents/notes/implemented/feature/2026-11-12-button-progress-toast-badge.md)。 |
+| [进度与占位](../components/progress.md) | 环形尺寸、描边与配色沿用 `Widget.COUI.COUICircularProgressBar`；不确定态的 800ms 周期与 270° 弧长按同一套加载字形 `coui_icon_loading` 推演。 | 原厂环形进度只有确定态，不确定态分支是按加载字形推演的。见[进度依据](../../.agents/notes/implemented/feature/2026-11-12-button-progress-toast-badge.md)。 |
+| [轻提示](../components/toast.md) | 几何与配色沿用 `coui_snack_bar_*`（12.67dp 标准圆角、16/10dp 留白、14dp 文字），并绘制九宫格烘焙的内阴影；带图标时上下留白从原厂 16dp 收到 10dp，避免单行容器撑到 62dp 后出现大片空白；投影按九宫格实测的外扩与峰值推演为 26dp 跨度 + 5% 黑色。 | COUI 没有独立 Toast，短暂反馈由 SnackBar 承担；原厂阴影烘焙在九宫格图片内，没有 elevation 资源。见[轻提示依据](../../.agents/notes/implemented/feature/2026-11-12-button-progress-toast-badge.md)。 |
+| [角标与气泡](../components/badge-tooltip.md) | 角标与气泡的尺寸、留白、圆角沿用 `COUIHintRedDot` 与 `COUIToolTips`；`BadgedBox` 的叠放位置与气泡定位、夹紧规则由本库定义。 | 原厂没有对应的叠放容器与受控气泡协议。见[角标依据](../../.agents/notes/implemented/feature/2026-11-12-button-progress-toast-badge.md)。 |

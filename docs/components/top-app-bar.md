@@ -59,7 +59,7 @@ fun PageToolbar(
 }
 ~~~
 
-把顶栏放入 Scaffold 的 `topBar`，并将正文应用 Scaffold 返回的 Padding。直接叠放时，由页面预留顶栏的实际高度。此例显式使用按钮 `style`；也可以省略它以使用默认样式。示例假定宿主已接入可选 M3 适配，Material3 `Text` 自动继承组件内容色与文字样式，项目仍需声明 Material3 依赖。
+把顶栏放入 Scaffold 的 `topBar`，并将正文应用 Scaffold 返回的 Padding。直接叠放时，由页面预留顶栏的实际高度。此例显式使用按钮 `style`；也可以省略它以使用默认样式。插槽内容自动继承组件内容色与文字样式。
 
 `navigationIcon` 放置返回等导航操作，`actions` 是 RowScope 槽位。`CouiTopAppBarDefaults.colors()` 分别配置背景遮罩、标题、导航和操作颜色。背景遮罩默认在浅色模式使用白色、深色模式使用黑色，并向下渐隐；其余颜色读取当前主题。传入 `backgroundColor = Color.Transparent` 可关闭遮罩。标题字体由顶栏提供。纯 Compose 标题使用 `BasicText(title, style = LocalCouiTextStyle.current)`，其中 `BasicText` 来自 `androidx.compose.foundation.text`，`LocalCouiTextStyle` 来自 `com.itos.coui.theme`。
 
@@ -115,7 +115,7 @@ TopAppBarButton(onClick = onReset, text = true, enabled = canReset, style = styl
 }
 ~~~
 
-`enabled = false` 会禁用按钮，但不会隐藏它。可选 M3 适配为内容插槽提供 M3 Local；子内容显式颜色或内层 Local 优先。未接入适配的纯 native 核心需自行桥接 M3 插槽，见[外观指南](../guide/appearance.md#内容插槽与最小交互尺寸)。Material 图标、`Icon` 和 `Text` 需要由应用声明相应依赖。
+`enabled = false` 会禁用按钮，但不会隐藏它。内容插槽提供内容色与文字样式 Local；子内容显式颜色或内层 Local 优先，见[外观指南](../guide/appearance.md#内容插槽与最小交互尺寸)。图标和文字由宿主提供。
 
 ## 显示和隐藏操作
 
@@ -141,7 +141,7 @@ TopAppBarButtonGroup {
 
 每个按钮默认创建独立的 renderer。需要处理创建失败时，可以先创建 `CouiFloatingRenderer.standalone()`，再通过 `renderer` 传入。
 
-M3 模式的 `TopAppBarButton` 使用 `minimumInteractiveComponentSize()`，遵守宿主最小交互尺寸设置。SearchButton 使用固定容器。完整顶栏提供标题字体；自定义 Surface 中的 title 与 buttonGroup 沿用内容自身的文字样式。
+`TopAppBarButton` 使用组件自己的最小交互尺寸，不受外部尺寸 Local 影响。SearchButton 使用固定容器。完整顶栏提供标题字体；自定义 Surface 中的 title 与 buttonGroup 沿用内容自身的文字样式。
 
 `TopAppBar` 和 `LargeTopAppBar` 默认处理顶部及横向系统安全区，可通过 `windowInsets` 调整。父级已消费的 inset 不重复添加。使用 `TopAppBarSurface` 自定义顶栏时，由内容处理安全区。
 

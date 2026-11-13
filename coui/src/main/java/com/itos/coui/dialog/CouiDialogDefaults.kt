@@ -121,7 +121,7 @@ object CouiDialogDefaults {
         blendMode = if (dark) CouiMaterialBlendMode.Overlay else CouiMaterialBlendMode.ColorDodge,
     )
 
-    /** 主操作主题色由宿主提供，不读取宿主 MaterialTheme。 */
+    /** 主操作主题色由宿主提供，组件不自行读取宿主主题。 */
     fun primaryActionColors(accent: Color): CouiDialogActionColors = DialogButtonDefaults.primaryColors(accent)
 
     /** 项目材质的 API 门槛；调用方仍须提供窗口源。 */

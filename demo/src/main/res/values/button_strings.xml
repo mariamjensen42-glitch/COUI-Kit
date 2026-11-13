@@ -1,0 +1,14 @@
+<resources>
+    <string name="button_title">Button</string>
+    <string name="intro_button">COUIButton primary and secondary actions with touch deformation, follow light and a loading state</string>
+    <string name="button_variants">Styles</string>
+    <string name="button_primary">Primary</string>
+    <string name="button_secondary">Secondary</string>
+    <string name="button_text">Text</string>
+    <string name="button_content">Custom content</string>
+    <string name="button_with_icon">Create</string>
+    <string name="button_disabled">Disabled</string>
+    <string name="button_enable">Enable buttons</string>
+    <string name="button_loading">Loading state</string>
+    <string name="button_clicks">Clicks</string>
+</resources>

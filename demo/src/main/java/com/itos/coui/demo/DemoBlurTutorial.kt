@@ -2,9 +2,8 @@ package com.itos.coui.demo
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.itos.coui.demo.ui.Icon
+import com.itos.coui.demo.ui.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -20,6 +19,7 @@ import com.itos.coui.backdrop.rememberCouiBackdrop
 import com.itos.coui.layout.*
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.rememberCouiTextStyle
+import com.itos.coui.theme.CouiTheme
 import kotlin.math.roundToInt
 
 /** 左右对照原图与模糊结果，右侧采样自己的原图内容。 */
@@ -34,11 +34,11 @@ internal fun BlurTutorial(dark: Boolean) {
                 Box(Modifier.weight(1f).fillMaxWidth().clip(DemoShapes.card)) {
                     Column(Modifier.fillMaxSize()
                         .then(if (backdrop != null) Modifier.couiBackdrop(backdrop) else Modifier)
-                        .background(MaterialTheme.colorScheme.surfaceBright)
+                        .background(CouiTheme.colorScheme.container)
                         .padding(12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                         Text(stringResource(R.string.controls), style = rememberCouiTextStyle(CouiTextKind.ItemTitle))
                         listOf(DemoIcons.Switch, DemoIcons.Tune, DemoIcons.Date, DemoIcons.Dialogs).forEachIndexed { index, icon ->
-                            Row(Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainerHighest, DemoShapes.item)
+                            Row(Modifier.fillMaxWidth().background(CouiTheme.colorScheme.container, DemoShapes.item)
                                 .padding(horizontal = 8.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
                                 Icon(icon, null, Modifier.size(16.dp), tint = Color(listOf(0xFF34B978, 0xFF1A8CFF, 0xFFA884E7, 0xFFFF9B35)[index]))
                                 Spacer(Modifier.width(8.dp))
@@ -52,7 +52,7 @@ internal fun BlurTutorial(dark: Boolean) {
                 }
                 Text(stringResource(if (blurred) R.string.illustration_blurred else R.string.illustration_original),
                     Modifier.padding(top = 8.dp), style = rememberCouiTextStyle(CouiTextKind.GroupTitle),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    color = CouiTheme.colorScheme.onSurfaceVariant)
             }
         }
     }

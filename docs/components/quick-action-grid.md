@@ -67,4 +67,4 @@ QuickActionGrid(
 
 ## 完整示例与 API
 
-两列示例见 [DemoLayoutSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoLayoutSamples.kt)，库入口见 [QuickActionGrid](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/QuickActionGrid.kt)。
+两列示例见 [DemoLayoutSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoLayoutSamples.kt)，库入口见 [QuickActionGrid](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/QuickActionGrid.kt)。

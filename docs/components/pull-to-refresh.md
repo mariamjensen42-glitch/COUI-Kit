@@ -36,4 +36,4 @@ PullToRefresh(
 
 组件用 `nestedScroll` 的 `onPostScroll` 判断「已到顶且仍有向下位移」，不会抢走列表自身的滚动。如果外层还有别的 `nestedScroll` 消费者（折叠顶栏），把它们挂在更外层即可，顺序不影响下拉判定。
 
-源码见 [PullToRefresh](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/pulltorefresh/PullToRefresh.kt)。
+源码见 [PullToRefresh](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/pulltorefresh/PullToRefresh.kt)。

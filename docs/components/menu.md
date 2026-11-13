@@ -134,7 +134,7 @@ ProvideCouiMenuBackdrop(isolateContent = false) { source ->
 
 库在菜单进入、显示和退出期间保持源及其父窗口源的离屏隔离。材质弹窗按实际存活期持有背景；最后一个消费者释放后，源恢复所选的空闲策略。普通菜单、子菜单和嵌套窗口共用这套管理，宿主不要按 `expanded` 手动切换背景策略。
 
-`Auto` 仍可能使用离屏缓冲，内容的目标混合需要自行隔离。透明窗口、移动的 BottomSheet、缩放或分数位移容器应使用默认隔离模式。完整要求见[背景源的离屏策略](../effects/backdrop.md#菜单窗口的离屏策略)，公开声明见 [ProvideCouiMenuBackdrop](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBackdrop.kt)。
+`Auto` 仍可能使用离屏缓冲，内容的目标混合需要自行隔离。透明窗口、移动的 BottomSheet、缩放或分数位移容器应使用默认隔离模式。完整要求见[背景源的离屏策略](../effects/backdrop.md#菜单窗口的离屏策略)，公开声明见 [ProvideCouiMenuBackdrop](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBackdrop.kt)。
 
 ## 菜单样式
 
@@ -195,4 +195,4 @@ fun rememberMenuStyle(
 
 API 33 以下的菜单模糊效果与较新系统不同，见[兼容要求](../guide/compatibility.md)。
 
-源码见 [Menu / CouiMenuItem](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/Menu.kt)、[样式](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuStyle.kt)、[触点锚点](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuAnchor.kt)，选中、勾选、子菜单和限高示例见 [DemoSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)。
+源码见 [Menu / CouiMenuItem](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/Menu.kt)、[样式](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuStyle.kt)、[触点锚点](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuAnchor.kt)，选中、勾选、子菜单和限高示例见 [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)。

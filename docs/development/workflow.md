@@ -62,7 +62,7 @@
 
 设备验收使用同一原厂基准，并对齐尺寸、density、深浅色、字体和输入序列。覆盖受影响的静止、按压、拖动、反向、取消、隐藏/恢复、RTL、键盘及无障碍；视觉检查包含动画中段，性能结论需要可复现的设备数据。执行权限按 AGENTS，不因验收要求自行运行构建或设备操作。
 
-PR 按[模板](https://github.com/ItosEO/COUI-Kit/blob/main/.github/pull_request_template.md)列出原厂依据、主要路径对照、已处理差异、真实检查结果和待验收项。结构检查通过、数值收敛和参数一致都不能单独证明原厂等价。
+PR 按[模板](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.github/pull_request_template.md)列出原厂依据、主要路径对照、已处理差异、真实检查结果和待验收项。结构检查通过、数值收敛和参数一致都不能单独证明原厂等价。
 
 ## 同步使用文档
 
@@ -72,7 +72,7 @@ PR 按[模板](https://github.com/ItosEO/COUI-Kit/blob/main/.github/pull_request
 
 ## 决定记录
 
-使用仓库内的 [write-notes-like-deepseek Skill](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/skills/write-notes-like-deepseek/SKILL.md)。不依赖某位开发者的全局安装。行为、架构、跨文件契约、开发流程、验证策略或数据格式改变时必须写或更新 Note；纯格式、无歧义重命名和不改行为的局部机械修改不新建 Note。
+使用仓库内的 [write-notes-like-deepseek Skill](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/skills/write-notes-like-deepseek/SKILL.md)。不依赖某位开发者的全局安装。行为、架构、跨文件契约、开发流程、验证策略或数据格式改变时必须写或更新 Note；纯格式、无歧义重命名和不改行为的局部机械修改不新建 Note。
 
 动手前搜索活跃决定：
 
@@ -88,8 +88,8 @@ Note 与实现同一个 PR。正文说明问题、当前决定、真实备选、
 
 ## 提交 PR
 
-开发使用功能分支，自动代理默认使用 codex/ 前缀。按[贡献指南](https://github.com/ItosEO/COUI-Kit/blob/main/CONTRIBUTING.md)和 [PR 模板](https://github.com/ItosEO/COUI-Kit/blob/main/.github/pull_request_template.md)交付；Git 操作与设备操作遵守 [AGENTS.md](https://github.com/ItosEO/COUI-Kit/blob/main/AGENTS.md) 的授权范围。
+开发使用功能分支，自动代理默认使用 codex/ 前缀。按[贡献指南](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/CONTRIBUTING.md)和 [PR 模板](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.github/pull_request_template.md)交付；Git 操作与设备操作遵守 [AGENTS.md](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/AGENTS.md) 的授权范围。
 
 PR 说明最终行为、原厂目标与主要路径对照、已处理差异、公开 API 和迁移影响、使用文档、Note、真实检查结果与待验收项。只改变流程或文档时，说明原厂对照不适用的原因。
 
-历史流程取舍见[开发与 PR 决定](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/process/2026-10-23-developer-guide-and-pr-notes.md)。
+历史流程取舍见[开发与 PR 决定](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/process/2026-10-23-developer-guide-and-pr-notes.md)。

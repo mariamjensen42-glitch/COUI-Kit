@@ -64,4 +64,4 @@ LevelSlider(value = brightness, onValueChange = { brightness = it },
 
 原厂磁贴还有长按进入设置、二级页展开、状态副标题、不可用态与跨页轮播；档位条还有自动亮度/静音的点按切换图标。这些属于 SystemUI 的交互外壳，不在组件范围内。真机叠加、浅色模式与 RTL 尚未验收。
 
-源码见 [QuickSettingTile](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/QuickSettingTile.kt) 与 [LevelSlider](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/LevelSlider.kt)。
+源码见 [QuickSettingTile](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/QuickSettingTile.kt) 与 [LevelSlider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/LevelSlider.kt)。

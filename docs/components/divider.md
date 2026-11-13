@@ -22,4 +22,4 @@ Divider(startIndent = startIndent)
 
 这里的 `contentPadding`、`iconSize` 和 `icon` 是传给 Item 的实际参数。分隔线不会自动读取相邻行的尺寸。
 
-[公开布局与 Defaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt)
+[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt)

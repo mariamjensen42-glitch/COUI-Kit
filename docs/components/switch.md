@@ -97,4 +97,4 @@ Switch(
 
 ## Demo 示例
 
-普通、加载和禁用示例见 [DemoSettingsSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsSamples.kt)，库入口和配色见 [Switch / CouiSwitchDefaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/switch/Switch.kt)。
+普通、加载和禁用示例见 [DemoSettingsSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsSamples.kt)，库入口和配色见 [Switch / CouiSwitchDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/switch/Switch.kt)。

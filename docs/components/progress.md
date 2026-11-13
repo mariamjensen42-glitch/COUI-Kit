@@ -129,4 +129,4 @@ Skeleton(Modifier.size(48.dp), shape = CircleShape)
 
 ## Demo 示例
 
-环形、大号读数环、线性、分段与占位示例见 [DemoProgressSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoProgressSamples.kt)，库入口见 [CircularProgress](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/CircularProgress.kt)、[LinearProgress](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/LinearProgress.kt) 与 [Skeleton](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/Skeleton.kt)。
+环形、大号读数环、线性、分段与占位示例见 [DemoProgressSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoProgressSamples.kt)，库入口见 [CircularProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/CircularProgress.kt)、[LinearProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/LinearProgress.kt) 与 [Skeleton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/Skeleton.kt)。

@@ -49,7 +49,7 @@ SearchBar(
 
 同一个 state 可同时传给 [CollapsingTopAppBar](collapsing-app-bar.md) 和搜索组件。`contentAlpha` 控制原页面透明度，`resultsAlpha` 控制结果透明度；`active` 包含展开及退场过程。
 
-使用独立结果层时，保留被覆盖的正文以保存滚动位置，同时禁用其滚动、点击和焦点，并将其移出无障碍遍历。上层结果以 `search.expanded` 控制输入，以 `active` 保留退场绘制。完整装配见[折叠顶栏](collapsing-app-bar.md)。如果直接筛选原列表，列表可以保持可见和可操作，不需要使用页面及结果透明度；参见[首页 Demo](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)。
+使用独立结果层时，保留被覆盖的正文以保存滚动位置，同时禁用其滚动、点击和焦点，并将其移出无障碍遍历。上层结果以 `search.expanded` 控制输入，以 `active` 保留退场绘制。完整装配见[折叠顶栏](collapsing-app-bar.md)。如果直接筛选原列表，列表可以保持可见和可操作，不需要使用页面及结果透明度；参见[首页 Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)。
 
 动画随 state 的组合释放。只移除搜索框时，可以保留 state，让标题和结果继续读取动画进度。
 
@@ -71,4 +71,4 @@ API 34+ 在组件内部创建模糊材质；创建失败时抛出异常。
 
 在顶栏效果作用域（例如 `TopAppBarSurface`）中，搜索优先读取顶栏处理后的渐进背景；独立使用时读取显式 `backdrop` 或当前默认源。COUI Scaffold 只在顶栏、底栏和 FAB 槽位提供默认源，不向正文提供自身源。源不能包含搜索自身。双主体绘制复用[浮动表面](../effects/floating-surfaces.md)，每个搜索实例分别持有 renderer 和内容层。
 
-[组件](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/search/SearchBar.kt) · [状态](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/search/CouiSearchBarState.kt) · [Defaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/search/CouiSearchBarDefaults.kt) · [首页 Demo](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)
+[组件](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/search/SearchBar.kt) · [状态](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/search/CouiSearchBarState.kt) · [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/search/CouiSearchBarDefaults.kt) · [首页 Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)

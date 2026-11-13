@@ -28,4 +28,4 @@ BarChart(
 
 高度、柱间距、圆角与刻度间距在 `CouiChartDefaults`。柱宽由可用宽度和柱数均分，柱数很多时柱宽会收窄；需要横向滚动时由宿主外层容器负责。
 
-源码见 [BarChart](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chart/BarChart.kt)。
+源码见 [BarChart](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chart/BarChart.kt)。

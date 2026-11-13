@@ -83,4 +83,4 @@ Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 
 ## Demo 示例
 
-标题、说明与操作槽的组合见 [DemoEmptyStateSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoEmptyStateSamples.kt)，库入口见 [EmptyState](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/emptystate/EmptyState.kt)。
+标题、说明与操作槽的组合见 [DemoEmptyStateSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoEmptyStateSamples.kt)，库入口见 [EmptyState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/emptystate/EmptyState.kt)。

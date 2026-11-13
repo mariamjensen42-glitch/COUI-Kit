@@ -112,4 +112,4 @@ Slider(
 
 `value` 和范围端点必须是有限值，范围不能反向；`steps` 不能是负数或 `Int.MAX_VALUE`。参数不符合要求时会抛出异常。
 
-滑条不需要背景源。更多示例见 [DemoSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)，公开参数见 [Slider](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/Slider.kt) 和 [Defaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/CouiSliderDefaults.kt)。
+滑条不需要背景源。更多示例见 [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)，公开参数见 [Slider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/Slider.kt) 和 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/CouiSliderDefaults.kt)。

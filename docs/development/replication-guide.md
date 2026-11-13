@@ -10,7 +10,7 @@
 |-------------------|----------------------------------------------------------------------------------------------------------|
 | 在宿主中使用现有组件        | [接入指南](../guide/getting-started.md)、[架构](architecture.md)及 Demo 的同族示例                                    |
 | 确认模块职责、开发要求和已批准差异 | [Developer 指南](README.md)、[组件装配](../components/README.md)及对应 Note                                        |
-| 研究菜单背景、材质或厂商 SDK  | 本文第 2、3 节及[菜单输入与合成记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md) |
+| 研究菜单背景、材质或厂商 SDK  | 本文第 2、3 节及[菜单输入与合成记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md) |
 | 查某次选型、修复原因和验证范围   | 本文末尾的专题导航，继续进入对应决策记录                                                                                     |
 | 恢复原厂分析            | 对应记录中的 APK、资源、源码导出和二进制证据                                                                                 |
 
@@ -32,7 +32,7 @@
 
 **先确认应用实际装配，再分析库默认值。** 同一 APK 内可以同时包含独立 FAB、附件 FAB、旧版控件和未使用实现。某个类或资源存在，不表示目标页面使用它。不同 APK 带有同名类，也不表示版本及默认分支相同。
 
-有设备授权时，可用 `adb shell pm path <包名>` 确认输入，再只读提取。不要猜系统 APK 路径；本项目的设备操作权限仍按 [AGENTS.md](https://github.com/ItosEO/COUI-Kit/blob/main/AGENTS.md) 执行。
+有设备授权时，可用 `adb shell pm path <包名>` 确认输入，再只读提取。不要猜系统 APK 路径；本项目的设备操作权限仍按 [AGENTS.md](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/AGENTS.md) 执行。
 
 ### 2.2 定点分析 Java、资源与状态
 
@@ -81,11 +81,11 @@
 
 ONextBox 可用于定位反射调用链，但它不是官方算法证据。复制参数类或打包系统 so，也不会自动取得内部 Skia、HWUI、RenderEngine 对象与私有 ABI。
 
-当前路线是：保留已确认的原厂算法、资源和状态语义，用公开 Android/Compose API 承载；不要按截图另造近似公式，也不要为保持厂商类结构而搬入未使用的框架。**改变承载方式仍有代价，必须登记，不能称为整条 native 管线等价。** 实现边界见 [Developer 指南](README.md)与[模块分层记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)。
+当前路线是：保留已确认的原厂算法、资源和状态语义，用公开 Android/Compose API 承载；不要按截图另造近似公式，也不要为保持厂商类结构而搬入未使用的框架。**改变承载方式仍有代价，必须登记，不能称为整条 native 管线等价。** 实现边界见 [Developer 指南](README.md)与[模块分层记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)。
 
 ## 3. 典型研究链与当前移植入口
 
-本节链接包含库内部实现，供分析和维护时阅读；宿主接入使用[组件与效果入口](https://github.com/ItosEO/COUI-Kit/blob/main/README.md)。Demo 是公开接口的消费者，不直接装配内部状态。
+本节链接包含库内部实现，供分析和维护时阅读；宿主接入使用[组件与效果入口](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/README.md)。Demo 是公开接口的消费者，不直接装配内部状态。
 
 ### 3.1 菜单：背景与前景不是同一阶段
 
@@ -99,17 +99,17 @@ COUIPopupListWindow / COUIPopupWindow
   → 系统合成端的模糊与材质消费者
 ```
 
-原厂采样窗口后景，本库采样应用内内容；对照时需区分这两种来源。链路证据见[菜单记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)。
+原厂采样窗口后景，本库采样应用内内容；对照时需区分这两种来源。链路证据见[菜单记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)。
 
 当前移植入口：
 
-- [CouiMenuBlur](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBlur.kt)：Fast Kawase 的采样核、各轮网格及边界。
-- [CouiMenuMaterial](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuMaterial.kt)：采样、材质与前景装配。
-- [CouiEdge](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiEdge.kt)：当前菜单组合使用的通知描边与菜单内晕。
-- [CouiSpotlight](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiSpotlight.kt)：点触光、跟手及预设。
-- [CouiMenuSubMenu](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuSubMenu.kt)：主子面板及连续输入。
+- [CouiMenuBlur](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBlur.kt)：Fast Kawase 的采样核、各轮网格及边界。
+- [CouiMenuMaterial](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuMaterial.kt)：采样、材质与前景装配。
+- [CouiEdge](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiEdge.kt)：当前菜单组合使用的通知描边与菜单内晕。
+- [CouiSpotlight](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiSpotlight.kt)：点触光、跟手及预设。
+- [CouiMenuSubMenu](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuSubMenu.kt)：主子面板及连续输入。
 
-菜单使用通知描边、菜单内晕与主题染色的项目组合；对照原厂时，将这些特化与算法差异分开。范围见[菜单记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)。
+菜单使用通知描边、菜单内晕与主题染色的项目组合；对照原厂时，将这些特化与算法差异分开。范围见[菜单记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)。
 
 ### 3.2 底栏与 FAB：先分主体，再分效果
 
@@ -125,9 +125,9 @@ COUIPopupListWindow / COUIPopupWindow
   → 使用同一融合覆盖率及最终 alpha 合成
 ```
 
-[CouiFloatingShader](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingShader.kt) 的轮廓使用融合距离场。轮廓分离时，先检查这条链路。
+[CouiFloatingShader](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingShader.kt) 的轮廓使用融合距离场。轮廓分离时，先检查这条链路。
 
-[CouiFloatingSurfaces](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt) 承接采样、普通投影、caustic、材质和内容的分层。独立 FAB 走单主体入口，不填充假附件，也不共享底栏的收放状态。当前保留附件式底栏和独立 FAB，没有实现普通底栏绑定外部 FAB 的协议，当前装配见[独立 FAB](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/Fab.kt)与[底栏](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/NavigationBar.kt)。
+[CouiFloatingSurfaces](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt) 承接采样、普通投影、caustic、材质和内容的分层。独立 FAB 走单主体入口，不填充假附件，也不共享底栏的收放状态。当前保留附件式底栏和独立 FAB，没有实现普通底栏绑定外部 FAB 的协议，当前装配见[独立 FAB](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/Fab.kt)与[底栏](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/NavigationBar.kt)。
 
 **普通投影与有色外光晕分开研究：**
 
@@ -135,37 +135,37 @@ COUIPopupListWindow / COUIPopupWindow
 - caustic 外光晕：独立 Shader、颜色和背景参考，不等于上述 spot 投影。
 - 轮廓与内晕：材质距离场内的另一条计算，不用普通投影模拟。
 
-[CouiShadowRenderer](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiShadowRenderer.kt) 保留平台承载分支：支持公开 Shader 裁剪的平台让正常 fast 胶囊继续查原 A8 纹理；旧平台保留每路滤镜节点。真正三角化失败的 blur 分支另行保留。不能把“减少滤镜层”写成“合成两路后裁剪一次”，详见[阴影移植](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)中的公开裁剪与缓存决定。
+[CouiShadowRenderer](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiShadowRenderer.kt) 保留平台承载分支：支持公开 Shader 裁剪的平台让正常 fast 胶囊继续查原 A8 纹理；旧平台保留每路滤镜节点。真正三角化失败的 blur 分支另行保留。不能把“减少滤镜层”写成“合成两路后裁剪一次”，详见[阴影移植](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)中的公开裁剪与缓存决定。
 
 ### 3.3 顶栏与搜索：复刻目标包含合成位置
 
-顶栏渐进模糊沿 `AppBarBlurHelper` → `OplusRenderEffect.createGradientBlurEffect` → native 渐进 Gaussian 消费者追踪。目标分支先横后纵执行位置可变卷积，不是菜单 Fast Kawase，也不是均匀模糊后与原图混合。当前 [CouiGradientBlur](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiGradientBlur.kt) 保留核与两遍顺序，强度曲线、噪声和颜色装配有项目适配，见[渐进模糊决策](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-topbar-gradient-blur.md)。
+顶栏渐进模糊沿 `AppBarBlurHelper` → `OplusRenderEffect.createGradientBlurEffect` → native 渐进 Gaussian 消费者追踪。目标分支先横后纵执行位置可变卷积，不是菜单 Fast Kawase，也不是均匀模糊后与原图混合。当前 [CouiGradientBlur](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiGradientBlur.kt) 保留核与两遍顺序，强度曲线、噪声和颜色装配有项目适配，见[渐进模糊决策](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-topbar-gradient-blur.md)。
 
 顶栏从 `ToolbarMaterialEffectDelegate` 继续追到状态 Drawable、点触光及形变消费者；不能直接复用 FAB 整套预设。
 
-便签搜索从 `COUISearchBar.showInToolBar/hideInToolBar` 追到宽度裁剪、位移、内容透明度和中段模糊。当前 [TopAppBarSearch](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarSearch.kt) 只模糊透明内容层，材质、轮廓、光晕和投影保持清晰；不是将整个按钮等比放大并模糊。
+便签搜索从 `COUISearchBar.showInToolBar/hideInToolBar` 追到宽度裁剪、位移、内容透明度和中段模糊。当前 [TopAppBarSearch](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarSearch.kt) 只模糊透明内容层，材质、轮廓、光晕和投影保持清晰；不是将整个按钮等比放大并模糊。
 
-当前搜索支持常驻与退场操作，Demo 展示两种装配。常驻操作移动和收起避让包含已批准的适配，不能将全部收起参数视为原厂默认；宿主自行决定动作内容。研究与修复依据见[搜索转场边界](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md)。
+当前搜索支持常驻与退场操作，Demo 展示两种装配。常驻操作移动和收起避让包含已批准的适配，不能将全部收起参数视为原厂默认；宿主自行决定动作内容。研究与修复依据见[搜索转场边界](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md)。
 
 ### 3.4 滑条与通知融合：复用已确认的分支
 
 字体设置页的研究从 `FontSettingsFragment` 分别进入 `COUISeekBar` 和 `COUISectionSeekBar`，再查核心交互、Section 动画、纹理绘制、跟手和反馈。隐藏点位不等于没有内部步进；预览节流也不是滑块步长。
 
-当前 [Slider](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/Slider.kt) 分离逻辑值与视觉位置，业务范围及保存仍由宿主负责。宿主选择的 G2 轨道是外观适配，不是提取版本的原厂默认；专用马达波形及完整物理引擎没有跨平台等价保证。见[滑条决策](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-21-coui-slider.md)。
+当前 [Slider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/Slider.kt) 分离逻辑值与视觉位置，业务范围及保存仍由宿主负责。宿主选择的 G2 轨道是外观适配，不是提取版本的原厂默认；专用马达波形及完整物理引擎没有跨平台等价保证。见[滑条决策](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-21-coui-slider.md)。
 
-[CouiMetaballRenderer](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiMetaballRenderer.kt) 实现通知侧滑的同色横向双主体 CONIC 场。[Demo 融合示例](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordMetaball.kt)中的背景与内容遮罩使用相同算法、分别持有 renderer。它不提供背景采样或输入，也不替代底栏的多主体分层材质。
+[CouiMetaballRenderer](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiMetaballRenderer.kt) 实现通知侧滑的同色横向双主体 CONIC 场。[Demo 融合示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordMetaball.kt)中的背景与内容遮罩使用相同算法、分别持有 renderer。它不提供背景采样或输入，也不替代底栏的多主体分层材质。
 
 ### 3.5 ChipTab：核对整条手势，而不只核对物理公式
 
 分类栏的惯性、回弹和选中露出并非同一条动画。物理类能收敛，不代表调用它的手势总能完成收尾；复用通用按压入口，也不代表已经保留原厂的取消时机。
 
-原厂入口包括便签与录音的 `COUIChip`、`COUIHorizontalScrollView` 和 `SpringOverScroller`。材料版本及哈希见[输入中断记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-24-chip-scroll-interruption.md)，组件装配见[ChipTab 记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-24-chip-tab.md)。用以下输入检查中断路径：
+原厂入口包括便签与录音的 `COUIChip`、`COUIHorizontalScrollView` 和 `SpringOverScroller`。材料版本及哈希见[输入中断记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-24-chip-scroll-interruption.md)，组件装配见[ChipTab 记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-24-chip-tab.md)。用以下输入检查中断路径：
 
 | 反例与检查方法                            | 需要核对的行为                         | 原厂依据与当前入口                                                                                                                                                                                                |
 |------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 越界回弹中按下，不达到拖动阈值就抬手；从 DOWN 追到每个提前返回 | DOWN 停止回弹后，UP/CANCEL 能否恢复边界收尾    | 原厂分发及触摸路径在 UP/CANCEL 调用 `springBack`，未进入拖动的 UP 也有处理；当前 [ChipTabRow](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/ChipTabRow.kt) 将阈值等待纳入同一收尾范围                                                     |
+| 越界回弹中按下，不达到拖动阈值就抬手；从 DOWN 追到每个提前返回 | DOWN 停止回弹后，UP/CANCEL 能否恢复边界收尾    | 原厂分发及触摸路径在 UP/CANCEL 调用 `springBack`，未进入拖动的 UP 也有处理；当前 [ChipTabRow](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/ChipTabRow.kt) 将阈值等待纳入同一收尾范围                                                     |
 | 按住分类项后横向拖动，让父容器接管；分别检查按压与点触光       | 点触光取消不能代替按压释放；按压还须防止本次手势中重新启动 | `COUIChip.handleActionCancel` 调用 `executeFeedbackAnimator(false)`；当前分类项显式开启公共输入的 `cancelOnConsumedMove`，其他消费者保留原行为                                                                                       |
-| 分别追直接松手、惯性触边和中断，不只比较可见位置与速度        | 将临时积分位置统一重置到边界，会改变不同入口的初始状态   | 原厂 `springBack` 经 `setCurrentValue(..., false)` 保留临时位置；`setAtRest` 同步当前位置；`notifyEdgeReached` 写入边界。当前 [CouiScrollPhysics](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/scroll/CouiScrollPhysics.kt) 分别处理 |
+| 分别追直接松手、惯性触边和中断，不只比较可见位置与速度        | 将临时积分位置统一重置到边界，会改变不同入口的初始状态   | 原厂 `springBack` 经 `setCurrentValue(..., false)` 保留临时位置；`setAtRest` 同步当前位置；`notifyEdgeReached` 写入边界。当前 [CouiScrollPhysics](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/scroll/CouiScrollPhysics.kt) 分别处理 |
 
 此外还要检查 Compose 承载：滚动后的不可见子项能否命中相邻图标按钮，点击露出与物理回弹能否在同帧竞争。Canvas 渐隐只处理绘制，不能替代输入范围限制。这些是移植装配问题，不能都归为原厂物理算法的差异。
 
@@ -193,7 +193,7 @@ COUIPopupListWindow / COUIPopupWindow
   → coui：COUI 控件、固定预设、效果、采样、几何、动效和输入
 ```
 
-公共 Defaults 由各组件族持有，原生默认主题由库持有；动态取色、HCT、应用偏好和日志归宿主。完整边界见[架构](architecture.md)及[分层决策](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)。
+公共 Defaults 由各组件族持有，原生默认主题由库持有；动态取色、HCT、应用偏好和日志归宿主。完整边界见[架构](architecture.md)及[分层决策](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)。
 
 ### 4.3 为一条绘制链核对这些输入
 
@@ -213,42 +213,42 @@ COUIPopupListWindow / COUIPopupWindow
 
 | 症状 / 错误前提                      | 实际检查点与经验                                                                               | 依据                                                                                                     |
 |--------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| 同名 Overlay 就是同一算法              | 背景材质模式、Paint 混合、通知 EdgeType 属于不同消费者，不能按名字互换                                            | [菜单合成记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)            |
-| 顶栏点触光过强，先减 intensity           | 原参数相同也可能因混合目标不同而变强。透明前景内 Overlay 后再 SrcOver，不等于直接混合已完成的按钮表面；先核对层序                      | [点触光合成](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)                       |
-| 按下整面发灰，资源里有 press 色所以正确        | `setNativeStateEnabled` 的提取实现写入 disabled flag；顶栏也未走相应 touchEntered 通知。必须核对消费者，不能按方法名猜  | [顶栏状态反馈](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiStateFeedback.kt)                           |
-| 相邻按钮出现矩形截断，扩大 Canvas           | 完整 destination patch 用 Src 回填时会擦掉先绘制的兄弟投影。扩大 patch 反而扩大擦除。顶栏改用透明前景表达，但真正重叠的光区仍有采样顺序差异  | [兄弟投影合成](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md) |
-| 浅色有色 FAB 底下不明显，全部当成 caustic 调整 | 先分普通 ambient/spot、caustic、轮廓和内晕。阴影颜色 alpha 不是最终像素强度；还受光源、节点/Outline alpha、全局乘数、截断和裁剪影响 | [阴影移植](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)                       |
-| 关闭轮廓后仍有淡色影，所以保留弱 caustic       | 提取分支中的残留色影来自普通投影。关闭光效应停止对应 patch 和采样前缀贡献，不能只将 caustic 调淡                               | [外光晕门控](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt)                         |
-| 全部叫 G2，所以强制一条 Path             | 材质 SDF、投影 conic、Capsule Path、Window blur 的几何及覆盖率不自动等价。遮色窄带也无法补回缺失模糊；先保留各链路真实边界         | [阴影移植](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)                       |
+| 同名 Overlay 就是同一算法              | 背景材质模式、Paint 混合、通知 EdgeType 属于不同消费者，不能按名字互换                                            | [菜单合成记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)            |
+| 顶栏点触光过强，先减 intensity           | 原参数相同也可能因混合目标不同而变强。透明前景内 Overlay 后再 SrcOver，不等于直接混合已完成的按钮表面；先核对层序                      | [点触光合成](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)                       |
+| 按下整面发灰，资源里有 press 色所以正确        | `setNativeStateEnabled` 的提取实现写入 disabled flag；顶栏也未走相应 touchEntered 通知。必须核对消费者，不能按方法名猜  | [顶栏状态反馈](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiStateFeedback.kt)                           |
+| 相邻按钮出现矩形截断，扩大 Canvas           | 完整 destination patch 用 Src 回填时会擦掉先绘制的兄弟投影。扩大 patch 反而扩大擦除。顶栏改用透明前景表达，但真正重叠的光区仍有采样顺序差异  | [兄弟投影合成](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md) |
+| 浅色有色 FAB 底下不明显，全部当成 caustic 调整 | 先分普通 ambient/spot、caustic、轮廓和内晕。阴影颜色 alpha 不是最终像素强度；还受光源、节点/Outline alpha、全局乘数、截断和裁剪影响 | [阴影移植](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)                       |
+| 关闭轮廓后仍有淡色影，所以保留弱 caustic       | 提取分支中的残留色影来自普通投影。关闭光效应停止对应 patch 和采样前缀贡献，不能只将 caustic 调淡                               | [外光晕门控](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt)                         |
+| 全部叫 G2，所以强制一条 Path             | 材质 SDF、投影 conic、Capsule Path、Window blur 的几何及覆盖率不自动等价。遮色窄带也无法补回缺失模糊；先保留各链路真实边界         | [阴影移植](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)                       |
 
 ### 5.2 采样、坐标与资源
 
 | 症状 / 错误前提                 | 实际检查点与经验                                                                                                       | 依据                                                                                                                                                          |
 |---------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 模糊出现马赛克，直接提高半径            | 先检查源栅格化、降采样网格、滤波与逻辑边界 Clamp。不要在低分辨率目标中重新绘制文字和矢量内容                                                              | [采样与 Fast Kawase](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBlur.kt)                                                                              |
-| 菜单用 Kawase，所以顶栏也用多级降采样    | 顶栏实际渐进分支使用位置可变 Gaussian；旧多级 atlas 路线没有对应依据。也不能未查采样器就将马赛克归因为 nearest filtering                                  | [渐进模糊研究](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-topbar-gradient-blur.md)                                                                   |
-| 拖动时后景跟按钮走                 | 检查实际窗口坐标、采样原点与变换订阅。浮动 bounds 为未缩放坐标，缩放单独传入；投影网格已含缩放时不能外层再缩放                                                    | [浮动几何](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingGeometry.kt)、[绘制装配](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt) |
+| 模糊出现马赛克，直接提高半径            | 先检查源栅格化、降采样网格、滤波与逻辑边界 Clamp。不要在低分辨率目标中重新绘制文字和矢量内容                                                              | [采样与 Fast Kawase](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBlur.kt)                                                                              |
+| 菜单用 Kawase，所以顶栏也用多级降采样    | 顶栏实际渐进分支使用位置可变 Gaussian；旧多级 atlas 路线没有对应依据。也不能未查采样器就将马赛克归因为 nearest filtering                                  | [渐进模糊研究](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-topbar-gradient-blur.md)                                                                   |
+| 拖动时后景跟按钮走                 | 检查实际窗口坐标、采样原点与变换订阅。浮动 bounds 为未缩放坐标，缩放单独传入；投影网格已含缩放时不能外层再缩放                                                    | [浮动几何](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingGeometry.kt)、[绘制装配](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt) |
 | 背景停在旧帧或主题切换无效             | 背景源不能永久缓存；已有 RenderEffect 保存的是 uniform 快照。几何、主题、开关或目标坐标变化后需正确失效；跨窗口还要核对源 View                                  | [背景契约](../effects/backdrop.md)                                                                                                                              |
-| 后台返回投影变淡，点一下恢复            | 系统可丢弃内部 RenderNode 的 DisplayList；检查录制是否失效，并在失效时重录。不能只用颜色是否变化判断缓存有效性                  | [阴影缓存与验证](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)                                                                         |
-| 录制投影触发 StackOverflowError | 当前 Compose 的作用域 record 可将调用方 Density 写回自身 DrawContext。纯投影使用显式独立 Density 的成员入口；含 drawContent 的前景仍需原绘制上下文，不能批量替换 | [当前分层录制](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt)                                                                             |
+| 后台返回投影变淡，点一下恢复            | 系统可丢弃内部 RenderNode 的 DisplayList；检查录制是否失效，并在失效时重录。不能只用颜色是否变化判断缓存有效性                  | [阴影缓存与验证](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)                                                                         |
+| 录制投影触发 StackOverflowError | 当前 Compose 的作用域 record 可将调用方 Density 写回自身 DrawContext。纯投影使用显式独立 Density 的成员入口；含 drawContent 的前景仍需原绘制上下文，不能批量替换 | [当前分层录制](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt)                                                                             |
 | Shader 构造不报错，因此空白就是透明度问题  | 构造成功不证明目标 GPU 能执行所用 SkSL。先区分未执行与正常透明输出，不能给未知后端写虚假成功路径                                                          | [兼容要求](../guide/compatibility.md)                                                                                                                           |
 
 ### 5.3 布局、动画与输入
 
 | 症状 / 错误前提                 | 实际检查点与经验                                                                        | 依据                                                                                                     |
 |---------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| 静止正常，淡入淡出时阴影被裁            | `clip=false` 不能解除祖先 alpha 离屏纹理边界。逐层核对动画 outsets，不用布局 padding 改测量、命中和菜单锚点        | [动画绘制边界](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButtonGroup.kt)                 |
-| 将每个按钮单独提升到 overlay 就能保留动画 | 可能丢失内部祖先淡化。当前提升完整槽位、保留原位输入与锚点；局部 overlay 仍受页面/Pager 外层变换约束                      | [槽位与背景](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md)  |
-| 聚焦搜索时突然翻页，必然是 overlay 跨页  | 先追焦点 → BringIntoView → Pager。关闭用户滑动不等于禁止焦点滚动；固定顶栏应约束向祖先传递的可见范围，不延迟焦点或强制跳回页面掩盖原因 | [搜索转场边界](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md) |
+| 静止正常，淡入淡出时阴影被裁            | `clip=false` 不能解除祖先 alpha 离屏纹理边界。逐层核对动画 outsets，不用布局 padding 改测量、命中和菜单锚点        | [动画绘制边界](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButtonGroup.kt)                 |
+| 将每个按钮单独提升到 overlay 就能保留动画 | 可能丢失内部祖先淡化。当前提升完整槽位、保留原位输入与锚点；局部 overlay 仍受页面/Pager 外层变换约束                      | [槽位与背景](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md)  |
+| 聚焦搜索时突然翻页，必然是 overlay 跨页  | 先追焦点 → BringIntoView → Pager。关闭用户滑动不等于禁止焦点滚动；固定顶栏应约束向祖先传递的可见范围，不延迟焦点或强制跳回页面掩盖原因 | [搜索转场边界](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md) |
 | 搜索起点跳一下、收起偶发横移            | 点击时捕获实际中心，真实放置时换算；转场端点保持稳定，宽度与位移使用同帧进度。不能等待全局坐标后修正首帧，也不能由操作区恢复重定向收起路径           | 同上                                                                                                     |
 | 隐藏搜索时操作区向右下缩，搜索先收再消失      | UI 隐藏不等于结束业务搜索。纯淡化须保留实际测量及预布局尺寸；查询、展收目标、可见性和焦点分别处理                              | 同上                                                                                                     |
 | 收起尾部偶发方形亮块                | 排查残留透明点击区继承的 Material indication，而不是只检查 COUI Shader 裁剪                          | 同上                                                                                                     |
-| FAB 展开时无法点击，等弹簧结束才恢复      | 官方把按钮启用与收放期间的形变限制分开。不能用一个 running 开关关闭点击、语义、跟手光和形变                              | [附件控制器](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/CouiFabExpansion.kt)                         |
-| 手指出界就统一 CANCEL            | 原生 DOWN 与主子面板转发的会话规则不同；销毁也不等于真实 UP。不能因此误提交点击或导航                                 | [子菜单输入](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)             |
+| FAB 展开时无法点击，等弹簧结束才恢复      | 官方把按钮启用与收放期间的形变限制分开。不能用一个 running 开关关闭点击、语义、跟手光和形变                              | [附件控制器](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/CouiFabExpansion.kt)                         |
+| 手指出界就统一 CANCEL            | 原生 DOWN 与主子面板转发的会话规则不同；销毁也不等于真实 UP。不能因此误提交点击或导航                                 | [子菜单输入](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)             |
 
 ## 6. 验证原理，不伪造验收
 
-先用已有最小入口验证单条链。核对算法与参数后，再由用户完成设备视觉、输入和性能测试。构建、设备操作等执行范围遵循 [AGENTS.md](https://github.com/ItosEO/COUI-Kit/blob/main/AGENTS.md)，不因本文新增默认动作。
+先用已有最小入口验证单条链。核对算法与参数后，再由用户完成设备视觉、输入和性能测试。构建、设备操作等执行范围遵循 [AGENTS.md](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/AGENTS.md)，不因本文新增默认动作。
 
 | 方法                      | 能说明什么                    | 不能说明什么                 |
 |-------------------------|--------------------------|------------------------|
@@ -283,19 +283,19 @@ COUIPopupListWindow / COUIPopupWindow
 5. **为什么这样选？** 真实比较过的方案、放弃原因及剩余代价。
 6. **怎么验证？** 实际执行的检查、反例、用户观察与未验收部分。
 
-不要只交接临时目录、聊天摘要或一张效果图。完整 APK/库、来源记录和必要证据应能恢复；整棵反编译副本和一次性实验脚本不必全部长期保留。不得将厂商二进制复制进源码、assets 或构建依赖来代替移植。许可证随实际移植代码维护，Skia 许可已位于 [coui-skia-LICENSE](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/resources/META-INF/coui-skia-LICENSE)。
+不要只交接临时目录、聊天摘要或一张效果图。完整 APK/库、来源记录和必要证据应能恢复；整棵反编译副本和一次性实验脚本不必全部长期保留。不得将厂商二进制复制进源码、assets 或构建依赖来代替移植。许可证随实际移植代码维护，Skia 许可已位于 [coui-skia-LICENSE](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/resources/META-INF/coui-skia-LICENSE)。
 
 ## 8. 专题导航
 
 | 专题            | 当前入口 / 理由与证据                                                                                                                                                                                                                                            |
 |---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 模块归属与预设       | [架构](architecture.md)、[分层决策](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)                                                                                                                                           |
-| 菜单采样、材质与输入    | [菜单记录](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)、[模糊实现](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBlur.kt)、[主子面板](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuSubMenu.kt)                    |
-| 底栏、独立 FAB 与配色 | [底栏](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/NavigationBar.kt)、[独立 FAB](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/Fab.kt)、[配色预设](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/CouiFabDefaults.kt)        |
-| 轮廓门控与材质分层     | [浮动表面](../effects/floating-surfaces.md)、[光效开关](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiEffectLocals.kt)、[浮动表面](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt)                                                         |
-| 普通投影          | [网格、覆盖率与缓存决定](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)、[菜单投影装配](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuShadow.kt)                                                                                         |
-| 顶栏与搜索         | [渐进模糊](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-topbar-gradient-blur.md)、[overlay 与搜索边界](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md)                                                   |
-| 滑条            | [接入与物理边界](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-21-coui-slider.md)、[公开组件](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/Slider.kt)                                                                                                        |
-| ChipTab 与横向输入 | [组件装配](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-24-chip-tab.md)、[选中项露出](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-24-chip-selection-visibility.md)、[命中与中断](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-24-chip-scroll-interruption.md) |
-| 横向双主体融合       | [算法接入](../effects/metaball.md)、[生产算法](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiMetaballRenderer.kt)、[Demo](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt)                                                                   |
-| 开发与验证流程       | [Developer 指南](README.md)、[消费者兼容要求](../guide/compatibility.md)、[执行约束](https://github.com/ItosEO/COUI-Kit/blob/main/AGENTS.md)                                                                                                                                                                  |
+| 模块归属与预设       | [架构](architecture.md)、[分层决策](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)                                                                                                                                           |
+| 菜单采样、材质与输入    | [菜单记录](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-15-coui-submenu-input-dispatch.md)、[模糊实现](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBlur.kt)、[主子面板](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuSubMenu.kt)                    |
+| 底栏、独立 FAB 与配色 | [底栏](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/NavigationBar.kt)、[独立 FAB](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/Fab.kt)、[配色预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/CouiFabDefaults.kt)        |
+| 轮廓门控与材质分层     | [浮动表面](../effects/floating-surfaces.md)、[光效开关](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiEffectLocals.kt)、[浮动表面](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiFloatingSurfaces.kt)                                                         |
+| 普通投影          | [网格、覆盖率与缓存决定](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-native-shadow.md)、[菜单投影装配](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuShadow.kt)                                                                                         |
+| 顶栏与搜索         | [渐进模糊](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-18-coui-topbar-gradient-blur.md)、[overlay 与搜索边界](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-20-topappbar-search-transition-boundaries.md)                                                   |
+| 滑条            | [接入与物理边界](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-21-coui-slider.md)、[公开组件](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/Slider.kt)                                                                                                        |
+| ChipTab 与横向输入 | [组件装配](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/feature/2026-10-24-chip-tab.md)、[选中项露出](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-24-chip-selection-visibility.md)、[命中与中断](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/bug-fix/2026-10-24-chip-scroll-interruption.md) |
+| 横向双主体融合       | [算法接入](../effects/metaball.md)、[生产算法](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiMetaballRenderer.kt)、[Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt)                                                                   |
+| 开发与验证流程       | [Developer 指南](README.md)、[消费者兼容要求](../guide/compatibility.md)、[执行约束](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/AGENTS.md)                                                                                                                                                                  |

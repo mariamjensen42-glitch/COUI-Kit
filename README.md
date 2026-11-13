@@ -68,7 +68,7 @@ CompositionLocalProvider(LocalCouiDarkTheme provides darkTheme) {
 
 ## 文档
 
-在线阅读：[itoseo.github.io/COUI-Kit](https://itoseo.github.io/COUI-Kit/)
+在线阅读：[mariamjensen42-glitch.github.io/COUI-Kit](https://mariamjensen42-glitch.github.io/COUI-Kit/)
 
 - [快速开始](docs/guide/getting-started.md)
 - [组件目录](docs/components/README.md)
@@ -96,4 +96,4 @@ ColorOS 及相关名称归 OPPO 所有；本项目与 OPPO 没有隶属、授权
 
 ---
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ItosEO/COUI-Kit&type=Date)](https://star-history.com/#ItosEO/COUI-Kit&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=mariamjensen42-glitch/COUI-Kit&type=Date)](https://star-history.com/#mariamjensen42-glitch/COUI-Kit&Date)

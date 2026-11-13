@@ -89,4 +89,4 @@ Chip 只从主题取字体族，保留自身的字号、字重和排版。显式
 
 需要自定义错误界面时，可以在调用前创建 renderer 并处理创建失败。
 
-源码见 [ChipTabRow / CouiChipTabItem](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/ChipTabRow.kt)、[ChipTab / ChipTabButton](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/ChipTab.kt)、[Defaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/CouiChipTabDefaults.kt)，分类菜单、图标动作和纯色背景见 [DemoChipSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoChipSamples.kt)。
+源码见 [ChipTabRow / CouiChipTabItem](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/ChipTabRow.kt)、[ChipTab / ChipTabButton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/ChipTab.kt)、[Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/CouiChipTabDefaults.kt)，分类菜单、图标动作和纯色背景见 [DemoChipSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoChipSamples.kt)。

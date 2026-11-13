@@ -21,4 +21,4 @@ Stepper(
 
 圆点尺寸、线宽与标签间距在 `CouiStepperDefaults`。标签超长以省略号截断，不做横向滚动；步骤多于 4 个时建议缩短文案或改用纵向流程。
 
-源码见 [Stepper](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/stepper/Stepper.kt)。
+源码见 [Stepper](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/stepper/Stepper.kt)。

@@ -38,4 +38,4 @@ sealed interface CouiLoadState {
 
 切换状态时内容会离开组合，列表滚动位置由宿主自行保存（例如用 `rememberSaveable` 的 `LazyListState`）。
 
-源码见 [StateLayout](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/statelayout/StateLayout.kt)。
+源码见 [StateLayout](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/statelayout/StateLayout.kt)。

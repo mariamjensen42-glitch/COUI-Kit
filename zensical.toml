@@ -1,12 +1,12 @@
 [project]
 site_name = "COUI-Kit"
-site_url = "https://itoseo.github.io/COUI-Kit/"
+site_url = "https://mariamjensen42-glitch.github.io/COUI-Kit/"
 site_description = "面向 Android Jetpack Compose 的 COUI 组件与视觉效果库"
 site_author = "ItosEO"
 copyright = "本项目自有源码采用 MPL 2.0；ColorOS 及相关名称归 OPPO 所有，与本项目无隶属关系"
 
-repo_url = "https://github.com/ItosEO/COUI-Kit"
-repo_name = "ItosEO/COUI-Kit"
+repo_url = "https://github.com/mariamjensen42-glitch/COUI-Kit"
+repo_name = "mariamjensen42-glitch/COUI-Kit"
 edit_uri = "edit/main/docs/"
 
 docs_dir = "docs"
@@ -104,8 +104,8 @@ nav = [
     "development/publishing.md",
     "development/testing-plan.md",
   ] },
-  { "图标检索" = "https://itoseo.github.io/COUI-Kit/icons/" },
-  { "更新记录" = "https://github.com/ItosEO/COUI-Kit/blob/main/CHANGELOG.md" },
+  { "图标检索" = "https://mariamjensen42-glitch.github.io/COUI-Kit/icons/" },
+  { "更新记录" = "https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/CHANGELOG.md" },
 ]
 
 [project.theme]
@@ -153,7 +153,7 @@ toggle.name = "跟随系统外观"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"
-link = "https://github.com/ItosEO/COUI-Kit"
+link = "https://github.com/mariamjensen42-glitch/COUI-Kit"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/telegram"

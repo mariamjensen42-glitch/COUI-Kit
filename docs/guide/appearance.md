@@ -64,7 +64,7 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 
 ## Shape 与效果开关
 
-[CouiShape](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiShape.kt)和[CouiCapsuleShape](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiCapsuleShape.kt)可被宿主 Shape 替换。材质距离场、内容 Path 和投影 Outline 有各自的几何要求，不能因圆角同名就互换。
+[CouiShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiShape.kt)和[CouiCapsuleShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiCapsuleShape.kt)可被宿主 Shape 替换。材质距离场、内容 Path 和投影 Outline 有各自的几何要求，不能因圆角同名就互换。
 
 顶栏使用 `CouiToolbarStyle`，菜单使用 `CouiMenuStyle`。菜单默认工厂使用当前主题的 `dark`；自定义 Style 应显式传入模式，省略时按 surface 亮度判断。
 

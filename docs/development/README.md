@@ -17,4 +17,4 @@
 | Maven Central、GitHub Packages 与版本映射 | [发布渠道](publishing.md)                  |
 | 自动化测试建设顺序与场景                        | [自动化测试建议](testing-plan.md)             |
 
-AI 代理的任务阅读顺序与执行权限由 [AGENTS.md](https://github.com/ItosEO/COUI-Kit/blob/main/AGENTS.md)规定。
+AI 代理的任务阅读顺序与执行权限由 [AGENTS.md](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/AGENTS.md)规定。

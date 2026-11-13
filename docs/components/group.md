@@ -24,4 +24,4 @@ Group(title = groupTitle, footer = description) {
 
 组件不安装滚动、不消费系统栏 Insets，也不创建背景采样源。页面装配见[宿主页面接入](../guide/secondary-pages.md)。
 
-[公开布局与 Defaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt) · [Demo 示例](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)
+[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt) · [Demo 示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)

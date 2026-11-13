@@ -8,7 +8,7 @@
 
 视觉与输入验收对齐目标版本、尺寸、density、深浅色、字体和操作序列，检查动画中段。受影响时覆盖反向、未拖动的 UP、CANCEL、父容器接管、隐藏恢复、RTL、键盘和无障碍。性能结论附可复现的设备条件与数据。
 
-权限由 [AGENTS.md](https://github.com/ItosEO/COUI-Kit/blob/main/AGENTS.md)持有。未执行构建或设备检查时，在 PR 中记录未执行项、原因和需要用户验收的行为。
+权限由 [AGENTS.md](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/AGENTS.md)持有。未执行构建或设备检查时，在 PR 中记录未执行项、原因和需要用户验收的行为。
 
 ## 文档与静态检查
 
@@ -43,6 +43,6 @@ node .github/scripts/verify-maven-artifacts.cjs
 
 ## 开发诊断
 
-[CouiRenderDiagnostics](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/diagnostic/CouiRenderDiagnostics.kt) 与 renderDiagnosticProbe 在主线程按需启停。诊断结果用于定位录制、缓存或绘制成本，不成为业务状态，不默认启用截图或逐帧日志。
+[CouiRenderDiagnostics](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/diagnostic/CouiRenderDiagnostics.kt) 与 renderDiagnosticProbe 在主线程按需启停。诊断结果用于定位录制、缓存或绘制成本，不成为业务状态，不默认启用截图或逐帧日志。
 
 提交前清理本任务产生的临时检查器、日志和实验入口，保留复现所需的证据及当前有效结果。实际执行的命令、输入、原库对照和待验收项写入 PR。

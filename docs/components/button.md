@@ -87,4 +87,4 @@ Button(
 
 ## Demo 示例
 
-三种外观、加载与禁用示例见 [DemoButtonSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoButtonSamples.kt)，库入口和配色见 [Button / CouiButtonDefaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/button/Button.kt)。
+三种外观、加载与禁用示例见 [DemoButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoButtonSamples.kt)，库入口和配色见 [Button / CouiButtonDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/button/Button.kt)。

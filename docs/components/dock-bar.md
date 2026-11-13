@@ -37,4 +37,4 @@ fun BottomDock(backdrop: CouiBackdrop, selected: Int, onSelect: (Int) -> Unit) {
 
 胶囊高度、凸起量、圆钮尺寸与单项宽度在 `CouiDockBarDefaults`。凸起圆钮与胶囊的按压、拖动和跟手光由各自节点持有，两条弹簧互不干扰。
 
-源码见 [DockBar](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/DockBar.kt)。
+源码见 [DockBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/DockBar.kt)。

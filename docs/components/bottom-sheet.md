@@ -73,4 +73,4 @@ BottomSheet(
 
 ## Demo 示例
 
-底部面板示例见 [DemoBottomSheetSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoBottomSheetSamples.kt)，库入口见 [BottomSheet](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/bottomsheet/BottomSheet.kt)。
+底部面板示例见 [DemoBottomSheetSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoBottomSheetSamples.kt)，库入口见 [BottomSheet](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/bottomsheet/BottomSheet.kt)。

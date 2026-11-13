@@ -1,6 +1,6 @@
 # 自动化测试建设建议
 
-为组件补充自动化测试时，优先覆盖状态、回调、生命周期和无障碍行为。[PR Android 工作流](https://github.com/ItosEO/COUI-Kit/blob/main/.github/workflows/pr-checks.yml)执行 Lint、Demo 构建与本地 Maven 发行构建；下面的行为测试和 CI 阶段是建设建议。
+为组件补充自动化测试时，优先覆盖状态、回调、生命周期和无障碍行为。[PR Android 工作流](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.github/workflows/pr-checks.yml)执行 Lint、Demo 构建与本地 Maven 发行构建；下面的行为测试和 CI 阶段是建设建议。
 
 ## 测试层次
 

@@ -143,4 +143,33 @@
     <string name="effect_floating_title">Floating surface</string>
     <string name="intro_effect_floating">Assemble sampling, material, shadow and content for a custom floating surface.</string>
     <string name="effect_floating_content">Floating surface</string>
+    <string name="catalog_floating_toolbar">Floating toolbar</string>
+    <string name="intro_floating_toolbar">Host any number of actions on one glass capsule; icons keep their own colors and can be disabled.</string>
+    <string name="floating_toolbar_enabled">Enable actions</string>
+    <string name="floating_toolbar_four_actions">Four actions</string>
+    <string name="floating_toolbar_two_actions">Two actions</string>
+    <string name="floating_toolbar_edit">AI edit</string>
+    <string name="floating_toolbar_check">Mark as done</string>
+    <string name="floating_toolbar_voice">Voice input</string>
+    <string name="floating_toolbar_add">Add</string>
+    <string name="floating_toolbar_hint">Press and drag to see the bar-wide highlight and deformation.</string>
+    <string name="floating_toolbar_last_action">Last action</string>
+    <string name="floating_toolbar_none">None</string>
+    <string name="floating_toolbar_preview_text">Text behind the capsule is blurred; text outside stays sharp.</string>
+    <string name="catalog_text_field">Text field</string>
+    <string name="intro_text_field">Type into rounded cards with a floating label, placeholder text and leading or trailing slots.</string>
+    <string name="text_field_location">Location</string>
+    <string name="text_field_message">Instant message</string>
+    <string name="text_field_note">Note</string>
+    <string name="text_field_clear">Clear message</string>
+    <string name="text_field_hint">Placeholder</string>
+    <string name="text_field_recipient">Recipient</string>
+    <string name="text_field_address">Address</string>
+    <string name="text_field_topic">Topic</string>
+    <string name="text_field_password">Password</string>
+    <string name="text_field_password_show">Show password</string>
+    <string name="text_field_password_hide">Hide password</string>
+    <string name="text_field_email">Email</string>
+    <string name="text_field_email_error">Enter a valid email address</string>
+    <string name="text_field_sample_value" translatable="false">ColorOS 17</string>
 </resources>

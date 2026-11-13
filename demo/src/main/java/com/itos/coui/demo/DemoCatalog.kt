@@ -44,7 +44,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("badge", R.string.badge_title, DemoIconTone.Red) { CouiIcons.Filled.Rings }),
     listOf(DemoCatalogEntry("pageindicator", R.string.pageindicator_title, DemoIconTone.Blue) { CouiIcons.Filled.Album },
         DemoCatalogEntry("emptystate", R.string.emptystate_title, DemoIconTone.Yellow) { CouiIcons.Filled.BookOpen },
-        DemoCatalogEntry("textfield", R.string.textfield_title, DemoIconTone.Purple) { CouiIcons.Filled.More },
+        DemoCatalogEntry("textfield", R.string.catalog_text_field, DemoIconTone.Purple) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("bottomsheet", R.string.bottomsheet_title, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterLeft }),
     listOf(DemoCatalogEntry("dialogs", R.string.dialog_title, DemoIconTone.Blue) { DemoIcons.Dialogs },
         DemoCatalogEntry("menu", R.string.menu_title, DemoIconTone.Orange) { CouiIcons.Filled.Grid }),
@@ -52,7 +52,8 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("search", R.string.catalog_search, DemoIconTone.Green) { CouiIcons.Outlined.Search },
         DemoCatalogEntry("navigation", R.string.catalog_navigation, DemoIconTone.Blue) { CouiIcons.Filled.CloudLink },
         DemoCatalogEntry("chip", R.string.chip_tab_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
-        DemoCatalogEntry("fab", R.string.catalog_fab, DemoIconTone.Red) { CouiIcons.Filled.AI }),
+        DemoCatalogEntry("fab", R.string.catalog_fab, DemoIconTone.Red) { CouiIcons.Filled.AI },
+        DemoCatalogEntry("floatingtoolbar", R.string.catalog_floating_toolbar, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterRight }),
     listOf(DemoCatalogEntry("wheel", R.string.catalog_wheel, DemoIconTone.Orange) { DemoIcons.Tune },
         DemoCatalogEntry("calendar", R.string.picker_calendar_title, DemoIconTone.Yellow) { CouiIcons.Filled.Health }),
     listOf(DemoCatalogEntry("layout", R.string.catalog_layout, DemoIconTone.Green) { CouiIcons.Outlined.LayoutSpliced },
@@ -132,7 +133,7 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "badge" -> R.string.intro_badge
     "pageindicator" -> R.string.intro_pageindicator
     "emptystate" -> R.string.intro_emptystate
-    "textfield" -> R.string.intro_textfield
+    "textfield" -> R.string.intro_text_field
     "bottomsheet" -> R.string.intro_bottomsheet
     "dialogs" -> R.string.intro_dialogs
     "menu" -> R.string.intro_menu
@@ -140,6 +141,7 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "search" -> R.string.intro_search
     "navigation" -> R.string.intro_navigation
     "fab" -> R.string.intro_fab
+    "floatingtoolbar" -> R.string.intro_floating_toolbar
     "wheel" -> R.string.intro_wheel
     "timepicker" -> R.string.intro_timepicker
     "countdownpicker" -> R.string.intro_countdownpicker

@@ -93,6 +93,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                         else EffectText(stringResource(R.string.requires_api_34))
                     }
                     "appbar", "search", "navigation" -> ChromeDetail(page, dark)
+                    "floatingtoolbar" -> FloatingToolbarSample(dark)
                     "fab" -> FabSample(preset = fabPreset, onPresetChange = { fabPreset = it },
                         rounded = roundedFab, onRoundedChange = { roundedFab = it })
                     "about" -> {

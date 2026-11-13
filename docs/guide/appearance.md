@@ -44,9 +44,9 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 
 `LocalCouiContentColor` 的缺省值为 `Color.Unspecified`，表示未提供内容色。直接读取该 Local 的宿主应在未指定时取当前主题颜色；COUI 的文字和图标已经在消费处解析。显式颜色优先，包括透明色；图标显式传入 `tint = Color.Unspecified` 时保留不染色语义。
 
-## 菜单、底栏、搜索栏与 FAB 的染色
+## 菜单、底栏、悬浮操作栏、搜索栏与 FAB 的染色
 
-原生默认 `materialTint` 透明。宿主提供 `materialTint` 时，用它为菜单、底栏和 API 34 及以上的常驻搜索栏染色，保留材质亮度。关闭染色后，背景采样仍会包含页面颜色。
+原生默认 `materialTint` 透明。宿主提供 `materialTint` 时，用它为菜单、底栏、悬浮操作栏和 API 34 及以上的常驻搜索栏染色，保留材质亮度。关闭染色后，背景采样仍会包含页面颜色。
 
 关闭染色时，菜单使用 `CouiMenuDefaults.style().copy(themeTint = Color.Transparent)`，底栏显式传 `themeTint = Color.Transparent`。自定义局部 `CouiTheme` 也可提供自己的 `materialTint`；透明表示关闭。显式材质始终优先。
 

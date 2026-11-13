@@ -1,111 +1,177 @@
-# ✏️输入框
+# 输入框
 
-`TextField` 是受控输入框，外观对应原厂 `Widget.COUI.EditText.HintAnim.Rectangle` 分支：10dp 圆角描边容器，默认不显示提示文字；传入 `placeholder` 时提示在框内浮动，聚焦或有内容后上浮为小标题。适合设置页、表单和独立输入区。
+`TextField` 是页面内的圆角输入卡片：无边框、卡片底色、标签、占位提示与前后图标槽，位于 `com.itos.coui.textfield`。它只负责把当前值、光标和焦点画出来，值、校验和提交仍由宿主持有。
 
-## 最小调用
+| 用途 | 使用 |
+| --- | --- |
+| 单行或多行文本输入 | `TextField` |
+| 纯展示的选择行（右侧当前值 + 箭头） | [Item](item.md) |
+| 输入型弹窗 | [弹窗](dialog.md) |
 
-宿主保存文本，并在回调中更新；组件不持有草稿：
+## 基本用法
 
-~~~kotlin
-var name by rememberSaveable { mutableStateOf("") }
+```kotlin
+@Composable
+fun LocationField(
+    modifier: Modifier = Modifier,
+    value: String,
+    onValueChange: (String) -> Unit,
+    colors: CouiTextFieldColors,
+) {
+    TextField(modifier = modifier.fillMaxWidth().padding(horizontal = CouiPageDefaults.horizontalMargin),
+        value = value, onValueChange = onValueChange,
+        placeholder = "地点",
+        trailing = { Icon(CouiIcons.Filled.Location, null, Modifier.size(CouiPageDefaults.iconSize), tint = colors.text) })
+}
+```
+`padding` 与 `colors` 由页面提供，`Icon` 来自宿主使用的图标库。输入框本身不加页面留白，与 [Group](group.md) 同页时按 `CouiPageDefaults.horizontalMargin` 对齐。
 
-TextField(
-    value = name,
-    onValueChange = { name = it },
-)
-~~~
+## 三种入口
 
-`value` 是唯一事实来源。输入法组合区、光标位置和选区由 `BasicTextField` 管理；需要读取或恢复选区时，自行组合 `BasicTextField`。组件不做格式校验、长度限制或去空格，这些由宿主在 `onValueChange` 中决定。
+三种重载共用同一外观和同一套参数，只在值的持有方式上不同。
 
-省略外观参数时，深浅色由可选的 `CouiTheme` 提供，未设置时跟随系统深浅色和 COUI 预设。通用规则见[外观与预设](../guide/appearance.md)。
-
-## 外观
-
-容器是 10dp 圆角的描边矩形（`coui_textinput_corner_radius`），无填充，最小高度 62dp（`coui_edit_text_height_min`）。内留白取 `Widget.COUI.EditText.HintAnim.Rectangle` 的 `paddingLeft` 16dp、`paddingRight` 10dp、`paddingBottom` 12dp，以及原厂 `getModePaddingTop()` 算出的 `rectModePaddingTop + 文字行高/2` = 20.4dp；内容在框内垂直居中。
-
-矩形模式在原厂由 `COUIEditText` 自绘：`GradientDrawable` 风格的 `setStroke(宽, 色)` 加 `setCornerRadii(四角)`，不设填充色。`drawable/coui_edittext_default_background*` 那组 9patch 是**下划线**分支用的（只有右列与底行有像素，常态 1px、聚焦 4px 粗线），不是矩形底。
-
-描边颜色与宽度随状态变化：
-
-| 状态 | 宽度 | 颜色 |
+| 入口 | 值的持有 | 适用 |
 | --- | --- | --- |
-| 常态 | 0.33dp（`coui_textinput_stroke_width`） | `couiColorDivider` |
-| 聚焦 | 1dp（`coui_textinput_focus_stroke_width`） | `couiColorPrimary`（主题强调色） |
-| 错误 | 1dp | `couiColorError` |
-| 禁用 | 0.33dp | `couiColorDisabledNeutral` |
+| `value: String` + `onValueChange` | 宿主，只有文本 | 大多数表单 |
+| `value: TextFieldValue` + `onValueChange` | 宿主，文本加选区与光标位置 | 聚焦时全选、指定初始光标 |
+| `state: TextFieldState` | `TextFieldState`，含编辑事务与撤销栈 | 富编辑、需要 `inputTransformation` / `outputTransformation` |
 
-## 浮动提示与标题
+`inputTransformation` 与 `outputTransformation` 只在状态重载上提供，直接交给 Foundation：前者限制或改写编辑事务，后者只改显示文本。两者都不参与宿主的业务校验。
 
-`placeholder` 与 `title` 都是可选的。省略 `placeholder`（或传空串）时框内不显示提示文字；传入非空文字后才绘制框内浮动标签。
+两个键盘动作入口与 Foundation 一致：`String` / `TextFieldValue` 重载使用 `KeyboardActions`，`TextFieldState` 重载使用 `onKeyboardAction`，后者只收到默认动作的调用，拿不到当前 `ImeAction`。需要在状态重载里区分搜索、发送等动作时，由宿主改用前两个重载或自行处理按键。
 
-| 参数 | 位置 | 行为 |
-| --- | --- | --- |
-| `placeholder` | 框内 | 可选浮动标签：空内容且未聚焦时与输入文字同位，聚焦或有内容后上浮到框内左上并缩到 10sp（`coui_textinput_hint_text_size`） |
-| `title` | 框外上方 | 可选固定标题，始终显示，与浮动标签互不影响 |
+## 标签与占位提示
 
-~~~kotlin
-TextField(
-    value = name,
-    onValueChange = { name = it },
-    placeholder = "请输入名称",
-    title = "设备名称",
-)
-~~~
+空态文案有两层：`label` 是字段标题，`placeholder` 是输入区提示。两者都只看内容，与焦点无关：
 
-上浮的位移与缩放由 `animateFloatAsState` 驱动，时长 200ms、`COUIMoveEaseInterpolator`（PathInterpolator 0.3, 0, 0.1, 1），取自 `COUIEditText` 的提示动画。标签位移只在绘制层更新；输入文字在标签上浮后让出 10.5dp，保证两者不重叠。颜色按同一进度在提示色与小标题色之间插值。
-
-## 错误态
-
-`error` 非空时，描边改为错误色并在框外下方显示一行说明，间距 4dp（`coui_input_edit_text_error_padding_bottom`）；输入本身不被拦截，`onValueChange` 照常回调：
-
-~~~kotlin
-TextField(
-    value = name,
-    onValueChange = { name = it },
-    error = if (name.isBlank()) "名称不能为空" else null,
-)
-~~~
-
-错误色优先于聚焦色：同时聚焦且出错时，描边仍是错误色。
-
-## 禁用
-
-`enabled = false` 时停止输入、焦点和光标，文字、标签与描边改用禁用色，框外标题同步变淡；`value` 与回调仍由宿主持有：
-
-~~~kotlin
-TextField(
-    value = name,
-    onValueChange = { name = it },
-    title = "设备名称",
-    enabled = false,
-)
-~~~
-
-## 配色与预设
-
-`CouiTextFieldDefaults.colors(dark)` 返回 `CouiTextFieldColors`，可通过 `copy` 覆盖单个颜色：
-
-~~~kotlin
-TextField(
-    value = name,
-    onValueChange = { name = it },
-    dark = dark,
-    colors = CouiTextFieldDefaults.colors(dark).copy(error = errorColor),
-)
-~~~
-
-| 颜色 | 原厂来源 | 日间 | 夜间 |
+| `label` | `placeholder` | 空值 | 有内容 |
 | --- | --- | --- | --- |
-| `text` / `title` | `couiColorPrimaryNeutral` | `#E6000000` | `#E6FFFFFF` |
-| `placeholder` | `couiColorLabelSecondary` | `#8A000000` | `#8AFFFFFF` |
-| `floatingLabel` | `couiColorSecondNeutral` | `#8A000000` | `#8AFFFFFF` |
-| `line` | `couiColorDivider` | `#1F000000` | `#33FFFFFF` |
-| `focusedLine` | `couiColorPrimary` | 主题强调色 | 主题强调色 |
-| `error` | `couiColorError` | `#DB382C` | `#FF6C61` |
-| `disabledText` / `disabledLine` | `couiColorDisabledNeutral` | `#42000000` | `#4DFFFFFF` |
+| 有 | 无 | 标签占据输入位置当提示（16sp） | 标签上浮 8dp 并缩到 12sp，输入文字同步下移 |
+| 有 | 有 | 标签停在卡片顶部（12sp），输入区显示占位提示 | 标签位置不变，占位提示消失 |
+| 有 + `useLabelAsPlaceholder` | 忽略 | 标签占据输入位置当提示 | 标签整体隐藏，不上浮 |
+| 无 | 有 | 输入区显示占位提示 | 占位提示消失 |
+| 无 | 无 | 卡片留空，只有图标槽 | — |
 
-聚焦色与光标取当前主题的强调色，原厂此处引用 `couiColorPrimary`（`Theme.COUI` 中映射为 `coui_color_primary_green`）；宿主可用 `colors` 显式传回固定值。尺寸、字号与动画集中在 `CouiTextFieldDefaults`：文字 16sp、浮动标签 10sp、圆角 10dp、最小高度 62dp。
+标签按"让位"规则落位：输入区已经有自己的提示时，标签停在顶部当小标题；没有提示时，标签落到输入位置承担这段文案，不必再传 `placeholder`。`useLabelAsPlaceholder` 让标签自己当提示，因此它和 `placeholder` 不会同时生效。
 
-## Demo 示例
+上浮只改字号与纵向偏移；占位提示与输入共用同一条偏移，二者始终同基线。卡片高度不变，空态和编辑态的轮廓一致。
 
-不带提示、带标题、错误和禁用示例见 [DemoTextFieldSamples](../../demo/src/main/java/com/itos/coui/demo/DemoTextFieldSamples.kt)，库入口与配色见 [TextField / CouiTextFieldDefaults](../../coui/src/main/java/com/itos/coui/textfield/TextField.kt)。
+聚焦不画描边、不改底色，也不改标签颜色：编辑态的唯一线索是光标，其余外观保持不变。
+
+## 状态与事件
+
+`value` 与 `onValueChange` 是受控入口：宿主持有文本，组件在每次编辑后回调完整新值，不缓存副本。需要编辑事务、撤销或异步校验时改用 `TextFieldState` 重载，由宿主创建并持有该状态，组件只读 `state.text` 判断标签与占位提示的位置。
+
+点击卡片任意位置都会聚焦并把光标落在点击处，包括文字两侧的留白；`leading` 和 `trailing` 里的可点击控件先消费事件，不会同时聚焦输入框。
+
+`enabled = false` 停止输入与聚焦，文字、标签和占位提示改用禁用色；`readOnly = true` 仍可聚焦、选择与复制，只是不能改写内容。
+
+`onTextLayout` 在文本排版变化时回调：`String` / `TextFieldValue` 重载收到 `TextLayoutResult`，`TextFieldState` 重载沿用 Foundation 的 `Density.(getResult: () -> TextLayoutResult?) -> Unit`。需要按实际行数调整外部布局时使用它，不要在组合里自己估算行数。
+
+## 单行与多行
+
+`singleLine = true` 是默认值，字段高度由 `CouiTextFieldDefaults.minHeight` 与字号决定。多行时传 `singleLine = false` 并设置 `minLines` / `maxLines`：字段在最小行数上继续增长，超过 `maxLines` 后内部滚动，图标、标签与占位提示对齐首行。单行时这两个参数不参与布局。
+
+`maxLines` 不能小于 `minLines`，两者都必须大于零；不满足时组件在组合期抛出 `IllegalArgumentException`。
+
+滚动位置默认由组件内部的 `rememberScrollState()` 持有。状态重载可以传入自己的 `scrollState`，用于恢复草稿位置或和宿主的滚动联动；`String` / `TextFieldValue` 重载沿用 Foundation，不暴露该参数。
+
+## 外观与预设
+
+| 入口 | 作用 |
+| --- | --- |
+| `colors: CouiTextFieldColors` | 卡片底色、正文、占位提示、标签、禁用文字与光标颜色 |
+| `shape` | 卡片轮廓，默认 `CouiTextFieldDefaults.shape` |
+| `contentPadding` | 卡片内留白 |
+| `textStyle` | 输入、标签与占位提示共用的排版，默认 `CouiTextFieldDefaults.textStyle()` |
+| `cursorBrush` | 光标画笔，默认取 `colors.cursor` |
+
+`CouiTextFieldDefaults.colors(dark)` 从当前主题解析六个角色：`container` 是卡片底色（与同页分组卡片同源的 `card`）、`text` 是输入文字、`placeholder` 是占位提示、`label` 是标签、`cursor` 是光标（跟随强调色）、`disabled` 是禁用态文字。强调色与主题不一致时，在该结果上 `copy(cursor = accent)`，不要另建色板。
+
+组件没有聚焦态配色：不画描边、边框或底色动画，标签颜色也不随焦点变化，输入过程中卡片外观保持稳定。
+
+标签度量在 `CouiTextFieldDefaults` 上：`labelSize` 是 `textStyle` 未指定字号时的回退（16sp），`floatingLabelSize` 是上浮后的字号（12sp），`labelShift` 是上浮距离（8dp）。默认排版为 16sp、系统无衬线常规字重，行距与列表主文字一致；需要对齐的前缀、计数器等文字可直接使用 `CouiTextFieldDefaults.textStyle()`。
+
+组件不创建局部主题作用域，也不改写槽位内容的颜色：`leading` 与 `trailing` 里的图标需要显式 `tint`，尺寸由调用方决定，常用 24dp。
+
+## 常用组合
+
+### 密码输入
+
+掩码与键盘类型都由 Foundation 提供，尾部按钮只切换 `VisualTransformation`。`ImeAction.Done` 加 `KeyboardActions(onDone = …)` 收起键盘，不承载业务提交。
+
+```kotlin
+var password by rememberSaveable { mutableStateOf("") }
+var visible by rememberSaveable { mutableStateOf(false) }
+val focus = LocalFocusManager.current
+
+TextField(
+    modifier = Modifier.fillMaxWidth(),
+    value = password,
+    onValueChange = { password = it },
+    label = "密码",
+    useLabelAsPlaceholder = true,
+    visualTransformation = if (visible) VisualTransformation.None else PasswordVisualTransformation(),
+    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Done),
+    keyboardActions = KeyboardActions(onDone = { focus.clearFocus() }),
+    trailing = {
+        // 尾部槽位里的可点击控件先消费事件，不会顺带聚焦输入框。
+        Box(Modifier.size(CouiPageDefaults.iconSize)
+            .clickable(role = Role.Button) { visible = !visible }, contentAlignment = Alignment.Center) {
+            Icon(if (visible) Icons.Outlined.VisibilityOff else Icons.Outlined.Visibility,
+                contentDescription = if (visible) "隐藏密码" else "显示密码")
+        }
+    },
+)
+```
+
+### 校验错误
+
+组件没有内置错误态。宿主在校验失败时覆盖 `label` 与 `cursor`，错误文字由页面自己排版：
+
+```kotlin
+val invalid = email.isNotEmpty() && !emailPattern.matches(email)
+
+TextField(
+    modifier = Modifier.fillMaxWidth(),
+    value = email,
+    onValueChange = { email = it },
+    label = "邮箱",
+    colors = if (invalid) colors.copy(label = errorColor, cursor = errorColor) else colors,
+    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email, imeAction = ImeAction.Done),
+    keyboardActions = KeyboardActions(onDone = { focus.clearFocus() }),
+)
+if (invalid) {
+    Text(text = "请输入有效的邮箱地址", kind = CouiTextKind.GroupFooter, color = errorColor,
+        modifier = Modifier.padding(start = CouiPageDefaults.rowPadding + 4.dp, top = 4.dp))
+}
+```
+
+错误色由宿主主题提供，不要复用 `focus` 的强调色。
+
+### 多行备注
+
+```kotlin
+val note = rememberTextFieldState()
+
+TextField(
+    modifier = Modifier.fillMaxWidth(),
+    state = note,
+    label = "备注",
+    singleLine = false,
+    minLines = 3,
+    maxLines = 5,
+)
+```
+
+多行时标签仍然按内容浮动；超过 `maxLines` 后输入区内部滚动，卡片高度不再增长。
+
+## 平台与装配
+
+输入框只依赖 Foundation 与 COUI 核心，不限制最低 API 版本，也不需要背景采样源。它不安装滚动、不消费系统栏 Insets，页面负责键盘避让；页面装配见[宿主页面接入](../guide/secondary-pages.md)。
+
+需要横向并排多个输入框时，用 `Modifier.width` 或 `weight` 限制各自宽度；字段默认占满可用宽度。输入框是独立卡片，不要放进 `Group` 的卡片内容中。
+
+## 完整示例与 API
+
+源码见 [TextField](../../coui/src/main/java/com/itos/coui/textfield/TextField.kt) 与 [Defaults](../../coui/src/main/java/com/itos/coui/textfield/CouiTextFieldDefaults.kt)。Demo 装配见 [DemoTextField](../../demo/src/main/java/com/itos/coui/demo/DemoTextField.kt)。

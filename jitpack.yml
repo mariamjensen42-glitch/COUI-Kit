@@ -1,17 +1,17 @@
 # JitPack 构建配置。
 #
 # JitPack 用 Tag 或分支名作为版本号，这里把它传给 VERSION_NAME，
-# 并把 group 覆盖成 com.github.<用户>，避免和 Maven Central 的 io.github.itoseo 撞坐标。
+# 让产出的 Maven 版本和请求的版本一致；group 不覆盖，由 JitPack 统一发布到
+# com.github.mariamjensen42-glitch.COUI-Kit 下。
 #
 # 接入方式：
 #   maven { url = uri("https://jitpack.io") }
-#   implementation("com.github.mariamjensen42-glitch:coui:<tag>")
-#   implementation("com.github.mariamjensen42-glitch:coui-icons:<tag>")
+#   implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui:<tag>")
+#   implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui-icons:<tag>")
 jdk:
   - openjdk21
 
 install:
   - ./gradlew :coui:publishToMavenLocal :coui-icons:publishToMavenLocal
-    -PGROUP=com.github.mariamjensen42-glitch
     -PVERSION_NAME=$VERSION
     --no-daemon

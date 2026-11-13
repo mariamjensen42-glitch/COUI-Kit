@@ -1,0 +1,192 @@
+[project]
+site_name = "COUI-Kit"
+site_url = "https://itoseo.github.io/COUI-Kit/"
+site_description = "面向 Android Jetpack Compose 的 COUI 组件与视觉效果库"
+site_author = "ItosEO"
+copyright = "本项目自有源码采用 MPL 2.0；ColorOS 及相关名称归 OPPO 所有，与本项目无隶属关系"
+
+repo_url = "https://github.com/ItosEO/COUI-Kit"
+repo_name = "ItosEO/COUI-Kit"
+edit_uri = "edit/main/docs/"
+
+docs_dir = "docs"
+site_dir = "site"
+
+nav = [
+  { "首页" = "index.md" },
+  { "快速开始" = "guide/getting-started.md" },
+  { "指南" = [
+    "guide/getting-started.md",
+    "guide/appearance.md",
+    "guide/compatibility.md",
+    "guide/secondary-pages.md",
+    "guide/customizations.md",
+    "guide/demo.md",
+    "guide/github-packages.md",
+  ] },
+  { "组件" = [
+    "components/README.md",
+    { "页面与导航" = [
+      "components/scaffold.md",
+      "components/top-app-bar.md",
+      "components/search.md",
+      "components/search-bar.md",
+      "components/collapsing-app-bar.md",
+      "components/navigation-bar.md",
+      "components/dock-bar.md",
+      "components/fab.md",
+    ] },
+    { "列表与内容" = [
+      "components/group.md",
+      "components/quick-action-grid.md",
+      "components/action-card.md",
+      "components/notification-card.md",
+      "components/quick-setting.md",
+      "components/choice-card.md",
+      "components/thumbnail-choice.md",
+      "components/bar-chart.md",
+      "components/accordion.md",
+      "components/avatar.md",
+      "components/stepper.md",
+      "components/state-layout.md",
+      "components/pull-to-refresh.md",
+      "components/item.md",
+      "components/divider.md",
+      "components/footer.md",
+      "components/icons.md",
+    ] },
+    { "输入与选择" = [
+      "components/slider.md",
+      "components/segmented-control.md",
+      "components/checkbox.md",
+      "components/switch.md",
+      "components/chip-tab.md",
+      "components/pickers.md",
+    ] },
+    { "弹窗与菜单" = [
+      "components/menu.md",
+      "components/dialog.md",
+    ] },
+    { "反馈与操作" = [
+      "components/button.md",
+      "components/floating-toolbar.md",
+      "components/progress.md",
+      "components/toast.md",
+      "components/badge-tooltip.md",
+      "components/page-indicator.md",
+      "components/empty-state.md",
+      "components/text-field.md",
+      "components/bottom-sheet.md",
+    ] },
+  ] },
+  { "效果" = [
+    "effects/README.md",
+    "effects/backdrop.md",
+    "effects/shadow.md",
+    "effects/blur-material.md",
+    "effects/floating-surfaces.md",
+    "effects/lighting.md",
+    "effects/motion.md",
+    "effects/metaball.md",
+    "effects/overscroll.md",
+  ] },
+  { "开发" = [
+    "development/README.md",
+    "development/workflow.md",
+    "development/replication-guide.md",
+    "development/icon-workflow.md",
+    "development/coding-style.md",
+    "development/architecture.md",
+    "development/api-design.md",
+    "development/documentation.md",
+    "development/validation.md",
+    "development/ci.md",
+    "development/publishing.md",
+    "development/testing-plan.md",
+  ] },
+  { "图标检索" = "https://itoseo.github.io/COUI-Kit/icons/" },
+  { "更新记录" = "https://github.com/ItosEO/COUI-Kit/blob/main/CHANGELOG.md" },
+]
+
+[project.theme]
+language = "zh"
+logo = "assets/coui-logo.svg"
+favicon = "assets/coui-logo.svg"
+
+features = [
+  "content.action.edit",
+  "content.code.copy",
+  "content.code.select",
+  "content.tooltips",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
+]
+
+[project.theme.font]
+text = "Noto Sans SC"
+code = "JetBrains Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "切换到浅色模式"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "切换到深色模式"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "跟随系统外观"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/ItosEO/COUI-Kit"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/telegram"
+link = "https://t.me/metric_official/2949"
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+toc.toc_depth = 3
+toc.slugify.object = "pymdownx.slugs.slugify"
+toc.slugify.kwds.case = "lower"
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.magiclink = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}

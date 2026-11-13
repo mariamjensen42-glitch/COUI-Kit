@@ -94,4 +94,4 @@ dex 复核（`com.coui.appcompat.indicator.COUIPageIndicator` 的 `$c` 内部类
 
 ## Demo 示例
 
-三点、五点、切换当前页与点击跳页示例见 [DemoPageIndicatorSamples](../../demo/src/main/java/com/itos/coui/demo/DemoPageIndicatorSamples.kt)，库入口见 [PageIndicator](../../coui/src/main/java/com/itos/coui/pageindicator/PageIndicator.kt)。
+三点、五点、切换当前页与点击跳页示例见 [DemoPageIndicatorSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoPageIndicatorSamples.kt)，库入口见 [PageIndicator](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/pageindicator/PageIndicator.kt)。

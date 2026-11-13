@@ -35,7 +35,7 @@ NotificationCard(
 )
 ~~~
 
-各参数的完整含义见[浮动表面](../effects/floating-surfaces.md)，具体装配参照 [FloatingToolbar](../../coui/src/main/java/com/itos/coui/floatingtoolbar/FloatingToolbar.kt)。这条链路需要 API 34 与页面背景采样源，低版本没有替代实现；`shape` 必须与 `couiFloatingSurface` 的 `shape` 一致，否则描边和裁剪会错位。
+各参数的完整含义见[浮动表面](../effects/floating-surfaces.md)，具体装配参照 [FloatingToolbar](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingtoolbar/FloatingToolbar.kt)。这条链路需要 API 34 与页面背景采样源，低版本没有替代实现；`shape` 必须与 `couiFloatingSurface` 的 `shape` 一致，否则描边和裁剪会错位。
 
 ## 参数
 
@@ -61,4 +61,4 @@ NotificationCard(
 
 标题与时间的字号按布局树行高反推：标题 66px ≈ 18.9dp 对应 16sp，时间 49px ≈ 14dp 对应 12sp。正文行高受两行排版影响，取 13sp 与[操作卡](action-card.md)的副标题一致，尚未用原厂资源确认。
 
-源码见 [NotificationCard](../../coui/src/main/java/com/itos/coui/notificationcard/NotificationCard.kt)。
+源码见 [NotificationCard](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/notificationcard/NotificationCard.kt)。

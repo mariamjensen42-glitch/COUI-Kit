@@ -6,12 +6,12 @@
 
 | 项目                   | 当前要求与依据                                                                                                                                                                  |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 运行系统                 | `minSdk` 以 [库配置](../../coui/build.gradle.kts) 为准；具体效果还受下表的平台门槛约束。                                                                                                        |
+| 运行系统                 | `minSdk` 以 [库配置](https://github.com/ItosEO/COUI-Kit/blob/main/coui/build.gradle.kts) 为准；具体效果还受下表的平台门槛约束。                                                                                                        |
 | 编译 SDK               | 不低于库 `aarMetadata.minCompileSdk`。该值与当前 Compose AAR 的要求一致。                                                                                                                |
 | 消费者 AGP              | 不低于库 `aarMetadata.minAgpVersion`。 |
 | Java 字节码             | 库配置使用 Java 17。Gradle 运行 JVM 按所用 AGP/Gradle 要求选择，不能把字节码目标当作运行 JVM 要求。                                                                                                     |
-| Kotlin 与 Compose 编译器 | 源码接入先对齐 [版本目录](../../gradle/libs.versions.toml) 的开发基线，并配套 Compose 编译插件。更低 Kotlin 版本的元数据消费与 Compose 编译兼容尚未确认，不声明最低版本。                                                     |
-| 本工程工具链               | [Wrapper](../../gradle/wrapper/gradle-wrapper.properties)、[Gradle JVM](../../gradle/gradle-daemon-jvm.properties) 和版本目录是开发基线。使用 AGP 内置 Kotlin；消费者不必仅因本工程配置而照搬全部 Demo 插件。 |
+| Kotlin 与 Compose 编译器 | 源码接入先对齐 [版本目录](https://github.com/ItosEO/COUI-Kit/blob/main/gradle/libs.versions.toml) 的开发基线，并配套 Compose 编译插件。更低 Kotlin 版本的元数据消费与 Compose 编译兼容尚未确认，不声明最低版本。                                                     |
+| 本工程工具链               | [Wrapper](https://github.com/ItosEO/COUI-Kit/blob/main/gradle/wrapper/gradle-wrapper.properties)、[Gradle JVM](https://github.com/ItosEO/COUI-Kit/blob/main/gradle/gradle-daemon-jvm.properties) 和版本目录是开发基线。使用 AGP 内置 Kotlin；消费者不必仅因本工程配置而照搬全部 Demo 插件。 |
 
 发行版的编译要求以对应 AAR 元数据为准。库的 `minSdk` 通过 manifest 合并检查，不要使用 `overrideLibrary` 绕过。
 
@@ -25,7 +25,7 @@
 
 `CouiIcons` 位于可选的 `coui-icons` 模块；使用时需添加该模块，并与核心使用相同版本。图标模块依赖核心读取主题，核心不依赖图标模块。
 
-预览版不保证二进制兼容。升级后重新编译使用库的模块，版本变化见 [CHANGELOG](../../CHANGELOG.md)。主题配置见[外观与预设](appearance.md)。
+预览版不保证二进制兼容。升级后重新编译使用库的模块，版本变化见 [CHANGELOG](https://github.com/ItosEO/COUI-Kit/blob/main/CHANGELOG.md)。主题配置见[外观与预设](appearance.md)。
 
 ## 效果门槛
 

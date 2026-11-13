@@ -22,7 +22,7 @@ demo 只消费公开 API，负责页面、主题和示例交互；示例不读�
 
 Group、Item、Divider、Footer 处理局部分组和行布局。Item.onClick 为空时只排列内容；选择、开关或独立尾部操作由宿主提供。普通布局和文字不创建背景源。默认外观读取现有 CouiTheme，显式配色只作用于声明的组件区域，不隐式改写任意内容槽。
 
-局部几何与交互可共享必要作用域，例如顶栏按钮的渐进背景和搜索转场；这种关系不扩大为全页依赖。当前取舍见[可选轻量页面容器](../../.agents/notes/implemented/architecture/2026-11-03-optional-coui-scaffold.md)和[宿主页面所有权](../../.agents/notes/implemented/architecture/2026-11-03-host-owned-page-layout.md)。
+局部几何与交互可共享必要作用域，例如顶栏按钮的渐进背景和搜索转场；这种关系不扩大为全页依赖。当前取舍见[可选轻量页面容器](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-11-03-optional-coui-scaffold.md)和[宿主页面所有权](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-11-03-host-owned-page-layout.md)。
 
 ## 库内职责
 
@@ -55,6 +55,6 @@ Group、Item、Divider、Footer 处理局部分组和行布局。Item.onClick �
 
 ## 依据
 
-参数以[库源码](../../coui/src/main/java/com/itos/coui/)与[构建配置](../../coui/build.gradle.kts)为准。原厂行为、公开平台适配与项目主动特化分别记录；完整使用要求由对应[组件](../components/README.md)和[效果](../effects/README.md)页面持有。
+参数以[库源码](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/)与[构建配置](https://github.com/ItosEO/COUI-Kit/blob/main/coui/build.gradle.kts)为准。原厂行为、公开平台适配与项目主动特化分别记录；完整使用要求由对应[组件](../components/README.md)和[效果](../effects/README.md)页面持有。
 
-历史取舍见[模块边界](../../.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)和[独立工程](../../.agents/notes/implemented/architecture/2026-10-23-standalone-coui-demo.md)。主题与染色的当前使用契约见[外观与预设](../guide/appearance.md)。
+历史取舍见[模块边界](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)和[独立工程](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-23-standalone-coui-demo.md)。主题与染色的当前使用契约见[外观与预设](../guide/appearance.md)。

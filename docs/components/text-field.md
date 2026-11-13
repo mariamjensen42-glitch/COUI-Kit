@@ -174,4 +174,4 @@ TextField(
 
 ## 完整示例与 API
 
-源码见 [TextField](../../coui/src/main/java/com/itos/coui/textfield/TextField.kt) 与 [Defaults](../../coui/src/main/java/com/itos/coui/textfield/CouiTextFieldDefaults.kt)。Demo 装配见 [DemoTextField](../../demo/src/main/java/com/itos/coui/demo/DemoTextField.kt)。
+源码见 [TextField](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/TextField.kt) 与 [Defaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/CouiTextFieldDefaults.kt)。Demo 装配见 [DemoTextField](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoTextField.kt)。

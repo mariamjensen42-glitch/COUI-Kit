@@ -68,6 +68,8 @@ CompositionLocalProvider(LocalCouiDarkTheme provides darkTheme) {
 
 ## 文档
 
+在线阅读：[itoseo.github.io/COUI-Kit](https://itoseo.github.io/COUI-Kit/)
+
 - [快速开始](docs/guide/getting-started.md)
 - [组件目录](docs/components/README.md)
 - [图标用法](docs/components/icons.md)

@@ -114,4 +114,4 @@ Scaffold(
 
 使用宿主已有的页面容器或自有布局时，创建源、在正文容器挂载源，再显式传给浮动组件，见[宿主页面接入](../guide/secondary-pages.md)。导航、返回、业务状态、滚动和 Snackbar 由宿主组合；设置页直接组合 `Group` 与 `Item`。菜单和材质弹窗的窗口背景源需另行配置。
 
-[公开实现](../../coui/src/main/java/com/itos/coui/layout/Scaffold.kt) · [首页 Demo](../../demo/src/main/java/com/itos/coui/demo/DemoApp.kt) · [二级页 Demo](../../demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt)
+[公开实现](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/Scaffold.kt) · [首页 Demo](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt) · [二级页 Demo](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt)

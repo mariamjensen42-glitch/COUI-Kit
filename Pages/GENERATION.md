@@ -31,6 +31,11 @@ python3 -m http.server 8080 --directory Pages
 
 ## GitHub Pages 发布
 
-`.github/workflows/coui-icons-pages.yml` 使用 `workflow_dispatch` 手动触发。工作流安装 `Pages/package-lock.json` 中锁定的依赖，生成 `Pages/data.js` 并部署静态站点。
+`.github/workflows/docs.yml` 在推送到 `main` 时构建文档站点，并把本目录合并到产物的 `/icons` 子路径后一起部署；也可在 GitHub `Actions` 页面手动运行 **部署文档站点** 工作流。
 
-首次发布前，在仓库 `Settings -> Pages -> Build and deployment` 中将 `Source` 设为 **GitHub Actions**。之后在 GitHub `Actions` 页面运行 **部署 COUI 网站** 工作流。
+站点结构：
+
+- 根路径为 Zensical 生成的文档站点，源文件在 `docs/`，配置见 `zensical.toml`。
+- `/icons/` 为图标检索页，由本目录生成。工作流安装 `Pages/package-lock.json` 中锁定的依赖并运行 `node Pages/generate.mjs`。
+
+首次发布前，在仓库 `Settings -> Pages -> Build and deployment` 中将 `Source` 设为 **GitHub Actions**。

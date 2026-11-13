@@ -55,4 +55,4 @@ Modifier.padding(16.dp).clickable(onClick = onClick) // 留白不参与点击。
 
 公开签名和 KDoc 是参数声明的来源；使用页解释当前语义和正确装配，不复制另一份默认数值。变更公开 API 时同步调用方与对应页面；迁移方式在 PR 中说明，发行时记入 CHANGELOG。
 
-公开边界的历史决定见[API 收口](../../.agents/notes/implemented/architecture/2026-10-23-public-api-boundary.md)。
+公开边界的历史决定见[API 收口](https://github.com/ItosEO/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-23-public-api-boundary.md)。

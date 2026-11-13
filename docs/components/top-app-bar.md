@@ -151,7 +151,7 @@ TopAppBarButtonGroup {
 
 COUI Scaffold 的 `topBar` 自动提供正文背景源，`TopAppBar`、`LargeTopAppBar` 和 `TopAppBarSurface` 可省略 `backdrop`，显式参数优先。第三方容器使用 `rememberCouiBackdrop()` 创建源，在现有正文容器上添加 `.couiBackdrop(backdrop)`，再将源显式传给顶栏。不需要额外的背景容器或全局初始化；源节点不能包含顶栏。完整装配与高级作用域见[背景采样](../effects/backdrop.md#顶栏接入)。
 
-源码见 [TopAppBar / LargeTopAppBar](../../coui/src/main/java/com/itos/coui/topappbar/TopAppBar.kt)、[TopAppBarSurface](../../coui/src/main/java/com/itos/coui/topappbar/TopAppBarSurface.kt)、[按钮](../../coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)、[按钮组与显隐](../../coui/src/main/java/com/itos/coui/topappbar/TopAppBarButtonGroup.kt)、[按钮预设](../../coui/src/main/java/com/itos/coui/topappbar/CouiTopAppBarButtonDefaults.kt)，完整页面见 [DemoApp](../../demo/src/main/java/com/itos/coui/demo/DemoApp.kt)。
+源码见 [TopAppBar / LargeTopAppBar](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBar.kt)、[TopAppBarSurface](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarSurface.kt)、[按钮](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)、[按钮组与显隐](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButtonGroup.kt)、[按钮预设](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/CouiTopAppBarButtonDefaults.kt)，完整页面见 [DemoApp](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)。
 
 ## 背景参数
 

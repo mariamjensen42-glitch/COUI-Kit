@@ -137,7 +137,7 @@ TopAppBarSearch(
 
 按钮按内容测量，宽度最多为可用搜索宽度的 40%，并受组件最大宽度限制；输入使用剩余宽度。RTL 下动作位于逻辑末端。`trailingIcon` 仍是输入框内部插槽，与外侧融合动作独立。
 
-完整示例见[顶栏示例](../../demo/src/main/java/com/itos/coui/demo/DemoToolbarSamples.kt)。
+完整示例见[顶栏示例](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoToolbarSamples.kt)。
 
 插槽的主题继承见[外观与预设](../guide/appearance.md)。收起时的 title 使用宿主样式。`TopAppBarSearchButton` 使用固定布局容器，不受外部最小交互尺寸 Local 控制。
 
@@ -158,4 +158,4 @@ shadow = { capsule -> CouiTopAppBarButtonDefaults.shadow(dark, capsule, density,
 
 部分设备在请求焦点后可能不会自动弹出键盘，可以手动点击输入框。
 
-搜索框会占满可用宽度，放在 Row 里用 `Modifier.weight(1f)`，再按页面需要调 `endPadding`。源码见[搜索与动作](../../coui/src/main/java/com/itos/coui/topappbar/TopAppBarSearch.kt)、[状态工厂](../../coui/src/main/java/com/itos/coui/topappbar/CouiTopAppBarSearchState.kt)，页面示例见 [DemoApp](../../demo/src/main/java/com/itos/coui/demo/DemoApp.kt)。
+搜索框会占满可用宽度，放在 Row 里用 `Modifier.weight(1f)`，再按页面需要调 `endPadding`。源码见[搜索与动作](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarSearch.kt)、[状态工厂](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/CouiTopAppBarSearchState.kt)，页面示例见 [DemoApp](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)。

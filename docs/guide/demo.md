@@ -2,7 +2,7 @@
 
 ## 运行
 
-在 Android Studio 中打开仓库根目录，完成 Gradle Sync，再选择 `demo` 运行。SDK、Java 和依赖要求以 [版本目录](../../gradle/libs.versions.toml)、[库配置](../../coui/build.gradle.kts)、[Demo 配置](../../demo/build.gradle.kts) 和 [Gradle JVM 配置](../../gradle/gradle-daemon-jvm.properties) 为准。工程使用 AGP 内置 Kotlin。
+在 Android Studio 中打开仓库根目录，完成 Gradle Sync，再选择 `demo` 运行。SDK、Java 和依赖要求以 [版本目录](https://github.com/ItosEO/COUI-Kit/blob/main/gradle/libs.versions.toml)、[库配置](https://github.com/ItosEO/COUI-Kit/blob/main/coui/build.gradle.kts)、[Demo 配置](https://github.com/ItosEO/COUI-Kit/blob/main/demo/build.gradle.kts) 和 [Gradle JVM 配置](https://github.com/ItosEO/COUI-Kit/blob/main/gradle/gradle-daemon-jvm.properties) 为准。工程使用 AGP 内置 Kotlin。
 
 需要下载 CI 构建时，见 [Demo CI 与 PR 检查](../development/ci.md)。维护者本地构建和 CI 分发的 Demo 统一使用 `itos` 签名；同一 applicationId 的覆盖安装要求证书一致。
 
@@ -10,7 +10,7 @@ Demo 的 release 启用 R8 代码压缩、优化、混淆及资源裁剪，使�
 
 ## 本地签名
 
-维护者将根目录 [signing.properties.example](../../signing.properties.example) 复制为 signing.properties，填写已有 `itos` 密钥的路径及密码，别名为 `itos`。密钥保存在仓库外，KEYSTORE_FILE 使用实际绝对路径。四个字段必须完整，debug 与 release 使用同一配置。
+维护者将根目录 [signing.properties.example](https://github.com/ItosEO/COUI-Kit/blob/main/signing.properties.example) 复制为 signing.properties，填写已有 `itos` 密钥的路径及密码，别名为 `itos`。密钥保存在仓库外，KEYSTORE_FILE 使用实际绝对路径。四个字段必须完整，debug 与 release 使用同一配置。
 
 signing.properties 与 keystore 被 Git 忽略，不加入提交。旧 Demo 若使用其他证书，需要先卸载再安装；同为 `itos` 签名的版本可按 Android 的版本要求覆盖安装。
 
@@ -71,13 +71,13 @@ Demo 不安装任何默认样式，组件直接使用 COUI 原生预设；页面
 
 | 职责 | 文件 |
 | --- | --- |
-| 首页、搜索与底栏 | [DemoApp](../../demo/src/main/java/com/itos/coui/demo/DemoApp.kt) |
-| 目录与查询 | [DemoCatalog](../../demo/src/main/java/com/itos/coui/demo/DemoCatalog.kt) |
-| Activity 导航 | [DemoSecondaryActivity](../../demo/src/main/java/com/itos/coui/demo/DemoSecondaryActivity.kt) |
-| 详情分发与页面容器 | [DemoSecondaryPage](../../demo/src/main/java/com/itos/coui/demo/DemoSecondaryPage.kt)、[DemoSettingsPage](../../demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt) |
-| 组件与设置样例 | [DemoSamples](../../demo/src/main/java/com/itos/coui/demo/DemoSamples.kt) |
-| 阴影、模糊与材质 | [DemoShadowSamples](../../demo/src/main/java/com/itos/coui/demo/DemoShadowSamples.kt)、[DemoBlurTutorial](../../demo/src/main/java/com/itos/coui/demo/DemoBlurTutorial.kt)、[DemoVisualEffects](../../demo/src/main/java/com/itos/coui/demo/DemoVisualEffects.kt) |
-| 弹窗与选择器 | [DemoDialogSamples](../../demo/src/main/java/com/itos/coui/demo/DemoDialogSamples.kt)、[DemoPickerSamples](../../demo/src/main/java/com/itos/coui/demo/DemoPickerSamples.kt) |
-| 记录侧滑 | [DemoRecordSamples](../../demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt) |
+| 首页、搜索与底栏 | [DemoApp](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt) |
+| 目录与查询 | [DemoCatalog](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoCatalog.kt) |
+| Activity 导航 | [DemoSecondaryActivity](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryActivity.kt) |
+| 详情分发与页面容器 | [DemoSecondaryPage](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryPage.kt)、[DemoSettingsPage](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt) |
+| 组件与设置样例 | [DemoSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt) |
+| 阴影、模糊与材质 | [DemoShadowSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoShadowSamples.kt)、[DemoBlurTutorial](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoBlurTutorial.kt)、[DemoVisualEffects](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoVisualEffects.kt) |
+| 弹窗与选择器 | [DemoDialogSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogSamples.kt)、[DemoPickerSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoPickerSamples.kt) |
+| 记录侧滑 | [DemoRecordSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt) |
 
 Demo 展示宿主装配，内部行包装和路由不是库 API。接入从[组件目录](../components/README.md)或[效果目录](../effects/README.md)开始。

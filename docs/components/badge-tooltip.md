@@ -77,4 +77,4 @@ Tooltip(visible = tipVisible, onDismissRequest = { tipVisible = false },
 
 ## Demo 示例
 
-角标、叠放和气泡示例见 [DemoBadgeSamples](../../demo/src/main/java/com/itos/coui/demo/DemoBadgeSamples.kt)，库入口见 [Badge / BadgedBox](../../coui/src/main/java/com/itos/coui/badge/Badge.kt) 与 [Tooltip](../../coui/src/main/java/com/itos/coui/tooltip/Tooltip.kt)。
+角标、叠放和气泡示例见 [DemoBadgeSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoBadgeSamples.kt)，库入口见 [Badge / BadgedBox](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/badge/Badge.kt) 与 [Tooltip](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/tooltip/Tooltip.kt)。

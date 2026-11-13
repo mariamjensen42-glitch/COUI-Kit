@@ -36,14 +36,14 @@ fun MetaballPair(
 
 背景与遮罩使用相同几何及融合参数，但各自持有 renderer。遮罩先在独立离屏层绘制内容，再使用 Color.White 与 BlendMode.DstIn 调用同一算法。
 
-宿主负责将背景坐标映射到内容层；收缩布局、RTL 或右侧对齐时，不能直接沿用未转换的节点坐标。完整实现见 [DemoRecordMetaball](../../demo/src/main/java/com/itos/coui/demo/DemoRecordMetaball.kt)。
+宿主负责将背景坐标映射到内容层；收缩布局、RTL 或右侧对齐时，不能直接沿用未转换的节点坐标。完整实现见 [DemoRecordMetaball](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordMetaball.kt)。
 
 ## 跟随与交互
 
 [运动与跟随回弹](motion.md)提供随距离移动与释放回弹。距离、布局、RTL、裁剪和手势由宿主装配；库不提供侧滑容器、删除确认或业务提交。
 
-侧滑驱动效果见 Demo 的融合页，操作说明见 [Demo 指南](../guide/demo.md#主要示例)。示例列表及其手势属于 Demo：[记录入口](../../demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt)、[侧滑装配](../../demo/src/main/java/com/itos/coui/demo/DemoRecordSwipeRow.kt)。
+侧滑驱动效果见 Demo 的融合页，操作说明见 [Demo 指南](../guide/demo.md#主要示例)。示例列表及其手势属于 Demo：[记录入口](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt)、[侧滑装配](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSwipeRow.kt)。
 
 ## 公开入口
 
-[CouiMetaballBody / CouiMetaballRenderer](../../coui/src/main/java/com/itos/coui/effect/CouiMetaballRenderer.kt)。构造前检查平台，失败处理见[资源规则](backdrop.md#资源与失败处理)；固定三主体的多层材质见[浮动表面](floating-surfaces.md)。
+[CouiMetaballBody / CouiMetaballRenderer](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiMetaballRenderer.kt)。构造前检查平台，失败处理见[资源规则](backdrop.md#资源与失败处理)；固定三主体的多层材质见[浮动表面](floating-surfaces.md)。

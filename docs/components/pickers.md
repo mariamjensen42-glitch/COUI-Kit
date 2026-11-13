@@ -208,8 +208,8 @@ Demo 提供数字、时间、倒计时、年月日组合及月历示例。
 
 | 组合                    | 示例                                                                                    |
 |-----------------------|---------------------------------------------------------------------------------------|
-| 时间、AM/PM、倒计时、日期顺序与范围  | [DemoWheelPresets](../../demo/src/main/java/com/itos/coui/demo/DemoWheelPresets.kt)   |
-| 标题、项目材质、确认/取消与任意选择器内容 | [DemoPickerDialog](../../demo/src/main/java/com/itos/coui/demo/DemoPickerDialog.kt)   |
-| 页面与弹窗共用内容、草稿及确认提交     | [DemoPickerSamples](../../demo/src/main/java/com/itos/coui/demo/DemoPickerSamples.kt) |
+| 时间、AM/PM、倒计时、日期顺序与范围  | [DemoWheelPresets](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoWheelPresets.kt)   |
+| 标题、项目材质、确认/取消与任意选择器内容 | [DemoPickerDialog](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoPickerDialog.kt)   |
+| 页面与弹窗共用内容、草稿及确认提交     | [DemoPickerSamples](https://github.com/ItosEO/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoPickerSamples.kt) |
 
-公开 API 见 [WheelPicker / CouiWheelColors / CouiPickerDefaults](../../coui/src/main/java/com/itos/coui/picker/WheelPicker.kt)、[CalendarPicker](../../coui/src/main/java/com/itos/coui/picker/CalendarPicker.kt)及 [CouiCalendarColors / CouiCalendarDefaults](../../coui/src/main/java/com/itos/coui/picker/CouiCalendarDefaults.kt)。
+公开 API 见 [WheelPicker / CouiWheelColors / CouiPickerDefaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/picker/WheelPicker.kt)、[CalendarPicker](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/picker/CalendarPicker.kt)及 [CouiCalendarColors / CouiCalendarDefaults](https://github.com/ItosEO/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/picker/CouiCalendarDefaults.kt)。

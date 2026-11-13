@@ -101,7 +101,7 @@ fun PageContent(
 
 ### 源码模块
 
-需要直接修改库时，可以使用源码模块。把仓库里的 `coui/` 复制到应用工程根目录，并合并[版本目录](../../gradle/libs.versions.toml)中该模块引用的库和插件别名。请同时保留资源、许可和构建配置。
+需要直接修改库时，可以使用源码模块。把仓库里的 `coui/` 复制到应用工程根目录，并合并[版本目录](https://github.com/ItosEO/COUI-Kit/blob/main/gradle/libs.versions.toml)中该模块引用的库和插件别名。请同时保留资源、许可和构建配置。
 
 在 `settings.gradle.kts` 中加入模块：
 
@@ -125,9 +125,9 @@ dependencies {
 
 需要 `CouiIcons` 时，复制 `coui-icons/`，在 settings 增加 `include(":coui-icons")`，并在调用模块依赖 `project(":coui-icons")`。该模块依赖 `coui` 读取主题；只使用核心组件时不需要它。Maven 坐标及使用方式见[图标用法](../components/icons.md)。
 
-[demo/build.gradle.kts](../../demo/build.gradle.kts) 是完整示例，但不用照抄它的签名、应用标识或 Capsule 依赖。
+[demo/build.gradle.kts](https://github.com/ItosEO/COUI-Kit/blob/main/demo/build.gradle.kts) 是完整示例，但不用照抄它的签名、应用标识或 Capsule 依赖。
 
-许可范围见 [LICENSE](../../LICENSE) 和 [NOTICE](../../NOTICE)。复制模块时把许可通知和第三方声明一并带走；如果要发行修改版或分叉版，先看[名称与标识使用政策](../../TRADEMARKS.md)。
+许可范围见 [LICENSE](https://github.com/ItosEO/COUI-Kit/blob/main/LICENSE) 和 [NOTICE](https://github.com/ItosEO/COUI-Kit/blob/main/NOTICE)。复制模块时把许可通知和第三方声明一并带走；如果要发行修改版或分叉版，先看[名称与标识使用政策](https://github.com/ItosEO/COUI-Kit/blob/main/TRADEMARKS.md)。
 
 ### GitHub Packages 预览版
 

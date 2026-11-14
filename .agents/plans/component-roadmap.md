@@ -54,7 +54,11 @@
 3. 状态清单：常态 / 按下 / 选中 / 禁用 / 加载 / 空。
 4. 截图叠加比对图。
 
-> **资源状态**：2026-11-14 已从 PKG110 / ColorOS 17.0.0.105 拉取 SystemUI、Settings、VariUIEngine、SafeCenter、Battery、NotificationCenter 等 APK 到 `references/apk/`（gitignore，不入库），并用 `apktool d -s --no-assets` 解包。A4/A5 已据此修正标签 10/14sp、关闭态 20% 白色等；其余系统应用按组件需要补拉。
+> **资源已就位（2026-11-14）**：从 PKG110 / ColorOS 17.0.0.105 拉取系统应用 APK 到 `references/apk/`（gitignore，不入库），用 `apktool d -s --no-assets` 解包。
+> - 17.x（设备上系统应用内嵌的 COUI，核对基准）：`settings`、`systemui`、`notificationcenter`、`safecenter`、`battery`、`launcher`、`weather`、`calendar`、`clock`、`filemanager`、`calculator`、`oplus-framework`、`oneplus-rro`、`systemui-overlay`；A4/A5 已据此修正标签 10/14sp、关闭态 20% 白色等。
+> - 13.8.12（旧一代独立库，只用于追旧分支）：`uiengine`（VariUIEngine）。
+> - 后六个应用本次只补了 `res/layout*` 与 `res/values*`（含 `values-night`、`values-zh-rCN`），够查控件几何与样式；整包解码产物暂存 `E:\temp\coloros-unpack\<应用>`，需要 drawable 时再取。
+> - 两代差异见[复刻指南](../development/replication-guide.md#2-从系统页面到实际消费者)。
 
 ### P2 纯布局组件（无新 effect，风险最低）
 

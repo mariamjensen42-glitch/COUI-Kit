@@ -25,8 +25,8 @@ data class CouiButtonColors(
 
 /**
  * 按钮固定参数与配色，取自 ColorOS 17 手机管家 17.3.13 内嵌的 COUI 资源：
- * `Widget.COUI.Button` / `Widget.COUI.Button.Large`、`couiTextAppearanceButtonL` 与 `coui_btn_*` 尺寸。
- * 大按钮 44dp 高、最小 132dp 宽、水平 12dp / 垂直 8dp 内留白、16sp sans-serif-medium、行距 1.2；
+ * `Widget.COUI.Button` / `Widget.COUI.Button.Large`、`couiTextAppearanceButton` 与 `coui_btn_*` 尺寸。
+ * 大按钮 44dp 高、最小 132dp 宽、四周 12dp 内留白、14sp sans-serif-medium、行距 1.2；
  * 容器取 `?couiColorContainerTheme`，内容取 `?couiColorLabelOnColor`（白色），禁用内容 0x28 白。
  * 同一组数值由 `CouiDialogDefaults` 的对话框操作按钮使用，本组件不另行调参。
  */
@@ -34,7 +34,7 @@ object CouiButtonDefaults {
     val minHeight = 44.dp
     val minWidth = 132.dp
     val horizontalPadding = 12.dp
-    val verticalPadding = 8.dp
+    val verticalPadding = 12.dp
 
     /** 图标与文字的间距，与原厂按钮内部留白一致。 */
     val iconSpacing = 4.dp

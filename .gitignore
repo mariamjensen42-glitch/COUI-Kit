@@ -38,3 +38,6 @@ site/
 
 # 真机参考截图原图（体积大，不入库；布局树 XML 保留）
 references/screenshots/**/*.png
+
+# ColorOS 系统 APK 与拆包产物（本机研究材料，不入库）
+references/apk/

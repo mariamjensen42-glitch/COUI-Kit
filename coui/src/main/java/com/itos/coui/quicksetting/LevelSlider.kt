@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,18 +25,19 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.itos.coui.layout.CouiPageColors
 import com.itos.coui.layout.CouiPageDefaults
-import com.itos.coui.shape.CouiShape
 import com.itos.coui.theme.CouiTheme
 
 /**
  * 竖排档位条的尺寸与圆角。数值取自 ColorOS 17 控制中心的真机布局树：
- * `vertical_seekbar` 为 `[656,735][873,1218]`，即 62×138dp，与 4 列磁贴同宽、两行高。
+ * `vertical_seekbar` 为 `[656,735][873,1218]`，即 62×138dp 胶囊，与 4 列磁贴同宽、两行高；
+ * 图标槽实测 126px = 36dp，距底 35px = 10dp。
  */
 object CouiLevelSliderDefaults {
     val width = 62.dp
     val height = 138.dp
-    val shape = CouiShape(20.dp, 3f)
-    val iconPadding = 16.dp
+    val shape: Shape = CircleShape
+    val iconPadding = 10.dp
+    val iconContainerSize = 36.dp
 }
 
 /**
@@ -57,10 +59,10 @@ fun LevelSlider(
     colors: CouiPageColors = CouiPageDefaults.themeColors(dark),
     containerColor: Color = colors.card,
     /**
-     * 填充色。默认取强调色，两种主题下都可见；原厂深色控制中心用白色填充，需要时显式传 [Color.White]，
-     * 但白色在浅色主题的白底轨道上不可见，浅色下不要用它。
+     * 填充色。原厂深色控制中心用白色填充，这里在深色下默认 [Color.White]；浅色下白色会与浅色轨道混在一起，
+     * 因此默认退回强调色，需要白色时由宿主显式覆盖。
      */
-    fillColor: Color = colors.accent,
+    fillColor: Color = if (dark) Color.White else colors.accent,
     shape: Shape = CouiLevelSliderDefaults.shape,
     enabled: Boolean = true,
 ) {
@@ -89,7 +91,7 @@ fun LevelSlider(
             Box(Modifier.fillMaxWidth().fillMaxHeight(level).background(fillColor))
         }
         Box(Modifier.padding(bottom = CouiLevelSliderDefaults.iconPadding)
-            .size(CouiQuickSettingDefaults.iconSize), contentAlignment = Alignment.Center) {
+            .size(CouiLevelSliderDefaults.iconContainerSize), contentAlignment = Alignment.Center) {
             icon()
         }
     }

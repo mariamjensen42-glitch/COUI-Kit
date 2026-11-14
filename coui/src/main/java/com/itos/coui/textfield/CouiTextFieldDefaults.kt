@@ -3,6 +3,7 @@ package com.itos.coui.textfield
 import android.graphics.Typeface
 import android.os.Build
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
@@ -13,7 +14,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.itos.coui.layout.CouiPageDefaults
 import com.itos.coui.text.couiTextStyle
 import com.itos.coui.theme.CouiTheme
 import kotlin.math.roundToInt
@@ -45,22 +45,22 @@ data class CouiTextFieldColors(
  */
 object CouiTextFieldDefaults {
     /** 单行输入的最小高度；字号放大或多行内容会继续撑高。 */
-    val minHeight = 52.dp
+    val minHeight = 62.dp
 
-    /** 卡片内留白；水平方向复用页面分组的行留白，保证同页文字起始边一致。 */
-    val contentPadding = PaddingValues(horizontal = CouiPageDefaults.rowPadding, vertical = 14.dp)
+    /** `Widget.COUI.EditText.HintAnim.Rectangle` 的内留白：左 16、右 10、上下 12。 */
+    val contentPadding = PaddingValues(start = 16.dp, end = 10.dp, top = 12.dp, bottom = 12.dp)
 
     /** 图标槽与输入区之间的间距。槽位内容尺寸由调用方决定。 */
-    val slotSpacing = 12.dp
+    val slotSpacing = 8.dp
 
-    /** 与 [CouiPageDefaults.shape] 同一条平滑圆角，字段和分组卡片使用一致的轮廓。 */
-    val shape: Shape = CouiPageDefaults.shape
+    /** `coui_textinput_corner_radius`：10dp 标准圆角，不是分组卡片的平滑大圆角。 */
+    val shape: Shape = RoundedCornerShape(10.dp)
 
     /** 标签常驻时的字号；只在 [textStyle] 未指定字号时回退使用。 */
     val labelSize = 16.sp
 
     /** 标签浮动到输入上方的字号。 */
-    val floatingLabelSize = 12.sp
+    val floatingLabelSize = 10.sp
 
     /** 标签浮动时上移的距离。输入文字同步下移同一距离，卡片高度不变。 */
     val labelShift = 8.dp

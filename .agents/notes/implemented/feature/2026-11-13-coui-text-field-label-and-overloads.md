@@ -10,14 +10,14 @@ Status: implemented
 
 `TextField` 在卡片内部自带标签槽，位置只由内容决定，与焦点无关：
 
-- 空态文案分两层：`label` 是标题，`placeholder` 是输入区提示，各自只看内容。只传标签时，标签在空态落到输入位置，有内容后在 8dp 内上浮并缩到 12sp；同时传 `placeholder` 时，标签直接停在顶部当小标题，输入区留给提示。标签按"输入区是否已有自己的提示"决定落位，上浮只改字号和纵向偏移，卡片高度不变。
+- 空态文案分两层：`label` 是标题，`placeholder` 是输入区提示，各自只看内容。只传标签时，标签在空态落到输入位置，有内容后在 8dp 内上浮并缩到 10sp；同时传 `placeholder` 时，标签直接停在顶部当小标题，输入区留给提示。标签按"输入区是否已有自己的提示"决定落位，上浮只改字号和纵向偏移，卡片高度不变。
 - `useLabelAsPlaceholder = true` 时标签自己当占位提示：有内容直接隐藏，不上浮，`placeholder` 不再参与。它表达的是"这段提示只服务空态"，不是另一种浮动方式。
 - 焦点既不参与标签位置判定，也不影响配色。组件不画描边、边框、底色变化或底色动画，标签色也不随焦点切换：编辑态的唯一视觉增量是光标，因此 `CouiTextFieldColors` 只有 `label`，不设 `focus` 角色。
 - 三种重载共用外观：`String`、`TextFieldValue`（宿主持有选区与光标）与 `TextFieldState`（编辑事务与撤销栈）。宿主回调统一经 `rememberUpdatedState` 转交，避免闭包每帧变化把旧 lambda 带进 Foundation。
 - `onTextLayout` 按各自分支的原生类型透传：`String` / `TextFieldValue` 收 `TextLayoutResult`，状态分支沿用 `Density.(getResult: () -> TextLayoutResult?) -> Unit`。
 - `scrollState` 只在状态重载暴露。Foundation 的 `String` / `TextFieldValue` 分支没有该参数，为它们再造一个可注入滚动状态只会多一条不可用分支。
 
-标签度量放在 `CouiTextFieldDefaults`：`labelSize`（`textStyle` 未指定字号时的回退，16sp）、`floatingLabelSize`（12sp）、`labelShift`（8dp）。颜色角色只新增 `label`（取 `onSurfaceVariant`），与占位提示同源但语义独立：标签会一直存在，占位提示只在空态出现。
+标签度量放在 `CouiTextFieldDefaults`：`labelSize`（`textStyle` 未指定字号时的回退，16sp）、`floatingLabelSize`（10sp）、`labelShift`（8dp）。颜色角色只新增 `label`（取 `onSurfaceVariant`），与占位提示同源但语义独立：标签会一直存在，占位提示只在空态出现。
 
 ## Alternatives considered
 
@@ -33,7 +33,7 @@ Status: implemented
 
 - 标签与输入共用同一个 `Box`，靠 `offset` 重叠布局，上浮距离由 `contentPadding` 的纵向留白吸收，因此不增加测量分支，也不额外撑高卡片。
 - 组件不表达聚焦态，宿主若要描边或聚焦强调色，只能在外面包一层自己绘制；组件不提供入口，避免两条并行实现。
-- 12sp 上浮字号与 8dp 位移来自参考图估算，没有取得 OEM 字段级证据。`:demo:assembleDebug` 已在本机通过并安装到设备，标签上浮、标签与占位提示同时可见、placeholder 有内容即消失三态已在真机确认；字号、字重、多行首行对齐与 RTL 仍需继续逐项验收。
+- 10sp 上浮字号取自 `coui_textinput_hint_text_size`；8dp 位移仍为参考图估算。`:demo:assembleDebug` 已在本机通过并安装到设备，标签上浮、标签与占位提示同时可见、placeholder 有内容即消失三态已在真机确认；字号、字重、多行首行对齐与 RTL 仍需继续逐项验收。
 - `TextFieldValue` 与 `String` 重载有同名参数、只有 `value` 类型不同，宿主显式传入 `TextFieldValue` 时不会与 `String` 混淆；但省略 `value` 的命名调用无法解析，属于预期行为。
 
 ## Existing-note audit

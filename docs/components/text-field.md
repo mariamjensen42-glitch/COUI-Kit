@@ -46,8 +46,8 @@ fun LocationField(
 
 | `label` | `placeholder` | 空值 | 有内容 |
 | --- | --- | --- | --- |
-| 有 | 无 | 标签占据输入位置当提示（16sp） | 标签上浮 8dp 并缩到 12sp，输入文字同步下移 |
-| 有 | 有 | 标签停在卡片顶部（12sp），输入区显示占位提示 | 标签位置不变，占位提示消失 |
+| 有 | 无 | 标签占据输入位置当提示（16sp） | 标签上浮 8dp 并缩到 10sp，输入文字同步下移 |
+| 有 | 有 | 标签停在卡片顶部（10sp），输入区显示占位提示 | 标签位置不变，占位提示消失 |
 | 有 + `useLabelAsPlaceholder` | 忽略 | 标签占据输入位置当提示 | 标签整体隐藏，不上浮 |
 | 无 | 有 | 输入区显示占位提示 | 占位提示消失 |
 | 无 | 无 | 卡片留空，只有图标槽 | — |
@@ -90,7 +90,9 @@ fun LocationField(
 
 组件没有聚焦态配色：不画描边、边框或底色动画，标签颜色也不随焦点变化，输入过程中卡片外观保持稳定。
 
-标签度量在 `CouiTextFieldDefaults` 上：`labelSize` 是 `textStyle` 未指定字号时的回退（16sp），`floatingLabelSize` 是上浮后的字号（12sp），`labelShift` 是上浮距离（8dp）。默认排版为 16sp、系统无衬线常规字重，行距与列表主文字一致；需要对齐的前缀、计数器等文字可直接使用 `CouiTextFieldDefaults.textStyle()`。
+标签度量在 `CouiTextFieldDefaults` 上：`labelSize` 是 `textStyle` 未指定字号时的回退（16sp），`floatingLabelSize` 是上浮后的字号（10sp，`coui_textinput_hint_text_size`），`labelShift` 是上浮距离（8dp）。默认排版为 16sp、系统无衬线常规字重，行距与列表主文字一致；需要对齐的前缀、计数器等文字可直接使用 `CouiTextFieldDefaults.textStyle()`。
+
+最小高度 62dp（`coui_edit_text_height_min`）、圆角 10dp（`coui_textinput_corner_radius`）、槽间距 8dp（`coui_textinput_rect_padding_middle`）、内留白 16/10/12/12dp。原厂矩形分支还有 0.66dp 描边（聚焦 1dp）；当前组件按“聚焦不画描边”的既有约定未实现，属于已知差异。
 
 组件不创建局部主题作用域，也不改写槽位内容的颜色：`leading` 与 `trailing` 里的图标需要显式 `tint`，尺寸由调用方决定，常用 24dp。
 

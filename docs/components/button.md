@@ -68,7 +68,7 @@ Button(
 
 ## 尺寸与形状
 
-高度取 `CouiButtonDefaults.minHeight`（44dp），最小宽度 132dp，内留白为水平 12dp、垂直 8dp，标签 16sp `sans-serif-medium`、行距 1.2、最多两行，超出以省略号结束。形状按原厂规则自动选择：宽高相等时画圆，其他尺寸使用平滑胶囊。`modifier` 是第一个参数，调用方的尺寸约束优先。
+高度取 `CouiButtonDefaults.minHeight`（44dp），最小宽度 132dp，四周内留白 12dp，标签 14sp `sans-serif-medium`、行距 1.2、最多两行，超出以省略号结束。形状按原厂规则自动选择：宽高相等时画圆，其他尺寸使用平滑胶囊。`modifier` 是第一个参数，调用方的尺寸约束优先。
 
 组件不额外扩到 48dp 触摸区，与原厂一致；紧凑排列需要更大触摸范围时由宿主自行留白。
 

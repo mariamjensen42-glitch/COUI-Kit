@@ -54,10 +54,7 @@
 3. 状态清单：常态 / 按下 / 选中 / 禁用 / 加载 / 空。
 4. 截图叠加比对图。
 
-> **阻塞项**：需要 ColorOS 17 系统应用的拆包资源。仓库里没有。可选两条路：
-> (a) 你已有拆包产物，给我路径；
-> (b) 我用 `adb shell pm path <包名>` + `adb pull` + `apktool d` 从手机拉取并拆包，产物放 `references/apk/`（不进 Git）。
-> 没有这一步，A1–A5 的数值只能靠截图目测，达不到项目要求的 1:1。
+> **资源状态**：2026-11-14 已从 PKG110 / ColorOS 17.0.0.105 拉取 SystemUI、Settings、VariUIEngine、SafeCenter、Battery、NotificationCenter 等 APK 到 `references/apk/`（gitignore，不入库），并用 `apktool d -s --no-assets` 解包。A4/A5 已据此修正标签 10/14sp、关闭态 20% 白色等；其余系统应用按组件需要补拉。
 
 ### P2 纯布局组件（无新 effect，风险最低）
 
@@ -116,5 +113,5 @@
 
 ## 五、下一步
 
-1. 确认拆包资源从哪来（P1 阻塞项）。
+1. 已取得拆包资源（`references/apk/`），按组件需要补拉其余系统应用。
 2. 从 P2 第 1 项 `ThumbnailChoiceCard` 开始，它是两处复用、纯新增、零 effect 依赖。

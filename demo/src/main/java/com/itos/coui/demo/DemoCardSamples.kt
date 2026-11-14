@@ -45,6 +45,7 @@ import com.itos.coui.quicksetting.QuickSettingTile
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.Text
 import com.itos.coui.theme.CouiTheme
+import com.itos.coui.theme.LocalCouiContentColor
 
 /**
  * 组件展台：用页面底色铺底，让 `colors.card` 的白色组件在 Group 的白色卡片上仍有对比。
@@ -221,37 +222,51 @@ internal fun QuickSettingSample(dark: Boolean) {
             Row(horizontalArrangement = Arrangement.spacedBy(CouiQuickSettingDefaults.gap)) {
                 QuickSettingTile(label = stringResource(R.string.quick_setting_wlan), checked = wlan,
                     onToggle = { wlan = it }, size = CouiQuickSettingSize.Large, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.CloudLink, null, Modifier.size(CouiPageDefaults.iconSize), tint = accent) })
+                    icon = { Icon(CouiIcons.Filled.CloudLink, null,
+                        Modifier.size(CouiQuickSettingDefaults.iconSize),
+                        tint = if (wlan) accent else LocalCouiContentColor.current) })
                 QuickSettingTile(label = stringResource(R.string.quick_setting_bluetooth), checked = bluetooth,
                     onToggle = { bluetooth = it }, size = CouiQuickSettingSize.Large, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.Bluetooth, null, Modifier.size(CouiPageDefaults.iconSize), tint = accent) })
+                    icon = { Icon(CouiIcons.Filled.Bluetooth, null,
+                        Modifier.size(CouiQuickSettingDefaults.iconSize),
+                        tint = if (bluetooth) accent else LocalCouiContentColor.current) })
             }
             Row(horizontalArrangement = Arrangement.spacedBy(CouiQuickSettingDefaults.gap)) {
                 // 媒体卡占位：原厂这里是 2×2 的播放卡，此处只演示档位条的并排关系。
                 Box(Modifier.width(CouiQuickSettingDefaults.largeWidth)
                     .height(CouiQuickSettingDefaults.largeWidth)
-                    .clip(CouiQuickSettingDefaults.shape)
+                    .clip(RoundedCornerShape(20.dp))
                     .background(colors.card))
                 LevelSlider(value = brightness, onValueChange = { brightness = it }, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.DarkLight, null, Modifier.size(CouiPageDefaults.iconSize),
-                        tint = Color.White) })
+                    icon = { Icon(CouiIcons.Filled.DarkLight, null,
+                        Modifier.size(CouiQuickSettingDefaults.iconSize),
+                        tint = if (dark) Color.Black else Color.White) })
                 LevelSlider(value = volume, onValueChange = { volume = it }, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.Headset, null, Modifier.size(CouiPageDefaults.iconSize),
-                        tint = Color.White) })
+                    icon = { Icon(CouiIcons.Filled.Headset, null,
+                        Modifier.size(CouiQuickSettingDefaults.iconSize),
+                        tint = if (dark) Color.Black else Color.White) })
             }
             Row(horizontalArrangement = Arrangement.spacedBy(CouiQuickSettingDefaults.gap)) {
                 QuickSettingTile(label = stringResource(R.string.quick_setting_flashlight), checked = flashlight,
                     onToggle = { flashlight = it }, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.Fan, null, Modifier.size(CouiPageDefaults.iconSize), tint = accent) })
+                    icon = { Icon(CouiIcons.Filled.Fan, null,
+                        Modifier.size(CouiQuickSettingDefaults.smallIconSize),
+                        tint = if (flashlight) accent else LocalCouiContentColor.current) })
                 QuickSettingTile(label = stringResource(R.string.quick_setting_dnd), checked = dnd,
                     onToggle = { dnd = it }, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.Bell, null, Modifier.size(CouiPageDefaults.iconSize), tint = accent) })
+                    icon = { Icon(CouiIcons.Filled.Bell, null,
+                        Modifier.size(CouiQuickSettingDefaults.smallIconSize),
+                        tint = if (dnd) accent else LocalCouiContentColor.current) })
                 QuickSettingTile(label = stringResource(R.string.quick_setting_location), checked = false,
                     onToggle = { }, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.Location, null, Modifier.size(CouiPageDefaults.iconSize), tint = accent) })
+                    icon = { Icon(CouiIcons.Filled.Location, null,
+                        Modifier.size(CouiQuickSettingDefaults.smallIconSize),
+                        tint = LocalCouiContentColor.current) })
                 QuickSettingTile(label = stringResource(R.string.quick_setting_hotspot), checked = false,
                     onToggle = { }, dark = dark,
-                    icon = { Icon(CouiIcons.Filled.Radar, null, Modifier.size(CouiPageDefaults.iconSize), tint = accent) })
+                    icon = { Icon(CouiIcons.Filled.Radar, null,
+                        Modifier.size(CouiQuickSettingDefaults.smallIconSize),
+                        tint = LocalCouiContentColor.current) })
             }
             }
         }

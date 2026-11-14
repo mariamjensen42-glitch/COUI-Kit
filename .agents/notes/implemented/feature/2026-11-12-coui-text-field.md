@@ -34,7 +34,7 @@ Status: implemented
 
 - 新实现只有布局与配色装配，不含 Shader、采样源与平台门槛，`minSdk` 26 即可。
 - 字段与页面卡片各持一份颜色角色，取值都来自 `CouiColorScheme`，不会出现色差；代价是宿主改强调色时要对两个对象分别处理。
-- 52dp 最小高度、16dp/14dp 内留白、12dp 槽间距与 24dp 图标建议取自参考图按 3x 密度估算，没有取得 OEM 字段级证据；真机字重、光标颜色、多行滚动与 RTL 仍需设备验收。
+- 最小高度 62dp（`coui_edit_text_height_min`）、内留白 16/10/12/12、槽间距 8dp（`coui_textinput_rect_padding_middle`）与 10dp 圆角（`coui_textinput_corner_radius`）取自 VariUIEngine 的 COUI 资源；24dp 图标建议仍来自页面常用值。真机字重、光标颜色、多行滚动与 RTL 仍需设备验收。
 - 本轮未运行 Android 构建与设备操作（按 AGENTS 授权范围），只做静态检查。
 
 ## Existing-note audit

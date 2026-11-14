@@ -82,7 +82,7 @@ fun Button(
         interactionSource = interactionSource,
         loadingDescription = loadingDescription,
     ) {
-        Text(text = label, kind = CouiTextKind.ItemTitle, textAlign = TextAlign.Center,
+        Text(text = label, kind = CouiTextKind.ButtonLabel, textAlign = TextAlign.Center,
             maxLines = 2, overflow = TextOverflow.Ellipsis)
     }
 }

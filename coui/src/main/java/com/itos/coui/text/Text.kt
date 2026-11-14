@@ -56,6 +56,9 @@ enum class CouiTextKind(internal val size: Float, internal val family: String, i
     /** 文字按钮的标签，对应原厂 `couiTextButtonM`：14sp medium。 */
     ButtonLabel(14f, "sans-serif-medium", 500),
 
+    /** 系统标签类小字，对应原厂 `couiTextAppearanceTag`：10sp medium。 */
+    Tag(10f, "sans-serif-medium", 500),
+
     /** 分组容器上方的标题。 */
     GroupTitle(12f, "sans-serif-medium", 500),
 

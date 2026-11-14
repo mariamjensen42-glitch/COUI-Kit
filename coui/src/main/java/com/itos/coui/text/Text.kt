@@ -123,4 +123,5 @@ private fun couiLineSpacing(kind: CouiTextKind): Float = when (kind) {
     CouiTextKind.Search -> if (Build.VERSION.SDK_INT >= 35) 1.1321f else 1.1f
     CouiTextKind.ItemValue -> if (Build.VERSION.SDK_INT >= 35) 1.2245f else 1.1f
     CouiTextKind.ButtonLabel -> if (Build.VERSION.SDK_INT >= 35) 1.2245f else 1.1f
+    CouiTextKind.Tag -> 1f
 }

@@ -57,6 +57,13 @@ Status: implemented
 
 既有约束仍然有效：`CircularProgress` 的 40dp/5dp、30dp/3dp、不确定态 800ms / 270° 弧长沿用上一轮 APK 结论（见 `2026-11-12-button-progress-toast-badge.md`），本轮只做增量参数，不改这些默认值。
 
+## Alternatives considered
+
+- 只给 `CircularProgress` 内嵌一个大号分支，不扩公开参数：缺口、光晕和环心内容会变成无法组合的硬编码分支，且原有 40dp/30dp 默认行为仍要保留。
+- 线性进度用矩形叠加再单独补圆角：轨道与进度端部会在不同宽度下出现接缝，复用一次轮廓裁剪更稳。
+- 为快捷动作网格新建独立组件：它只需要两列等分和现成的 Group 轮廓，独立组件会复制同一套卡片装配。
+- 绿色预设复制整份色板：中性色和卡片色没有变化，只替换强调色相关角色即可，复制会制造两套需要同步的色值。
+
 ## Consequences
 
 - `CircularProgress` 新增五个带默认值的参数，原有调用无需迁移；但内部由单个 `Canvas` 改为 `Box + Canvas(matchParentSize)`，调用方 `Modifier.size` 的覆盖行为不变。

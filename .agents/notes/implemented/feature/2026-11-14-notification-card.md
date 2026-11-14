@@ -27,6 +27,18 @@ Status: implemented
 
 原厂通知还有分组头（带条数角标）、折叠箭头、「点击查看更多」和长按快捷操作，本组件未覆盖：这些属于 SystemUI 的交互外壳，不是应用内的通用通知卡。真机截图叠加与浅色模式尚未验收。
 
+## Alternatives considered
+
+- 组件内建 `CouiFloatingMaterial` / `CouiFloatingShadow`：会重复 `FloatingToolbar`、`ChipTab` 已使用的材质、模糊与轮廓光链路，违反基础效果复用。
+- 提供 `backdrop: CouiBackdrop? = null` 可选参数：需要组件自己持有 `CouiFloatingRenderer` 与 `GraphicsLayer`，两者必须与绘制节点一一对应，跨节点复用会破坏资源生命周期。
+- 把通知卡并入 `ActionCard`：通知语义需要相对时间与标题/正文分层，`ActionCard` 的说明只有一段，合并会让两个场景互相牵制。
+
+## Consequences
+
+- 收益：通知卡保持纯布局，玻璃、模糊、轮廓光与阴影由既有浮动表面链路承担，不复制材质算法。
+- 代价：宿主必须自己创建 backdrop、renderer 与 layer，并保证 `shape` 与包裹处一致；默认 `colors.card` 只是无材质占位。
+- 已知上限：正文 13sp 未用原厂资源确认；分组头、折叠箭头、长按快捷操作未覆盖；真机截图叠加与浅色模式待验收。
+
 ## Existing-note audit
 
 - [页面级卡片、柱状图与中央凸起底栏](2026-11-13-card-chart-dock-components.md)：`ActionCard` 与本组件相邻但不替代，前者是「图标 + 可选标题 + 右下操作组」，后者是通知语义的标题/时间/正文；两者共享 `colors` 与 `ItemTitle`/`ItemSummary` 排版，不共享材质实现。

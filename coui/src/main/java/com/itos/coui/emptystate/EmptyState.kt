@@ -6,9 +6,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
@@ -49,6 +52,9 @@ object CouiEmptyStateDefaults {
     /** 说明距标题的间距：`coui_component_empty_view_subtitle_margin_top`。 */
     val descriptionSpacing = 2.dp
 
+    /** 标题 + 说明的可滚动上限：`coui_component_empty_text_scroll_max_height`，超出时内部滚动。 */
+    val textMaxHeight = 92.dp
+
     /** 操作槽距文字的间距：原厂 `empty_view_action` 的 8dp 上边距。 */
     val actionSpacing = 8.dp
 
@@ -77,8 +83,8 @@ object CouiEmptyStateDefaults {
  *
  * 图标由宿主以内容槽传入，组件不内置插图、不弹窗。
  * 竖向从顶部起排，与原厂根布局一致：需要整页垂直居中时，把本组件放进自带居中策略的容器。
- * 原厂把标题与说明包在最大 92dp 的滚动视图内（`coui_component_empty_text_scroll_max_height`），
- * 这里改用行数上限与省略号收敛高度，滚动由宿主页面负责。
+ * 原厂把标题与说明包在最大 92dp 的滚动视图内（`coui_component_empty_text_scroll_max_height`）：
+ * 大字号或长文案超出上限时，文字块内部滚动，图标与操作槽位置不动。
  *
  * 操作有两种入口，二者互斥：
  * - [actionLabel] 与 [onAction] 同时非空时，组件内部渲染原厂 `empty_view_action` 样式的文字按钮
@@ -111,7 +117,9 @@ fun EmptyState(
             ) { icon() }
         }
         Column(
-            modifier = Modifier.widthIn(max = CouiEmptyStateDefaults.contentWidth),
+            modifier = Modifier.widthIn(max = CouiEmptyStateDefaults.contentWidth)
+                .heightIn(max = CouiEmptyStateDefaults.textMaxHeight)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(

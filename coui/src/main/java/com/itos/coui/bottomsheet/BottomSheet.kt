@@ -89,12 +89,12 @@ data class CouiBottomSheetColors(
 /**
  * 底部面板固定参数。
  *
- * 圆角取原厂 `bg_panel_corner_radius` 与 `coui_default_panel_bg_without_shadow` 的
- * `couiRoundCornerXXXXL`；`coui_bottom_sheet_bg_top_corner_radius`（`coui_round_corner_xxxl`）
- * 是面板带阴影/跟手分支使用的另一档，本项目贴边面板按背景 drawable 取值。
+ * 圆角取 `coui_default_panel_bg_without_shadow` 的 `?couiRoundCornerXXXXL`，即
+ * `coui_round_corner_xxxxl` 32dp；`coui_bottom_sheet_bg_top_corner_radius`
+ * 是带阴影/跟手分支使用的另一档，本项目贴边面板按背景 drawable 取值。
  */
 object CouiBottomSheetDefaults {
-    /** `coui_round_corner_xxxxl`（= `bg_panel_corner_radius`）：32dp。 */
+    /** `?couiRoundCornerXXXXL` → `coui_round_corner_xxxxl`：32dp。 */
     val cornerRadius = 32.dp
 
     /** 只有顶部两角；底部由 [followHandMargin] 与屏幕留出空隙。 */
@@ -124,8 +124,8 @@ object CouiBottomSheetDefaults {
     /** `coui_panel_drag_view` 的固有高度。 */
     val handleHeight = 4.dp
 
-    /** 指示条到面板顶边的距离；原厂手柄面板的 `coui_handle_bottom_sheet_margin_top_default` 为 40dp，含标题留白，此处只取条本身的留白。 */
-    val handleTopPadding = 8.dp
+    /** 指示条到面板顶边的距离：原厂 `coui_panel_drag_view_shadow_margin_top` 4dp 加拖拽层的 `coui_panel_drag_view_padding_vertical` 8dp。 */
+    val handleTopPadding = 12.dp
 
     /** `anim/coui_bottom_dialog_enter` 的 `android:duration`。 */
     const val enterDuration = 250
@@ -155,7 +155,13 @@ object CouiBottomSheetDefaults {
     internal val settleSpec = spring<Float>(dampingRatio = 1f, stiffness = 400f)
 
     /**
-     * 面板最大高度：屏幕高度减去顶部 [marginTop] 与底部留白。
+     * 面板高度上限 `coui_panel_max_height`。原厂另有 `values-sw600dp` 的 800dp 与
+     * `coui_panel_max_height_tiny_screen` 720dp 两档，本组件按手机形态取基值。
+     */
+    val maxPanelHeight = 2000.dp
+
+    /**
+     * 面板最大高度：屏幕高度减去顶部 [marginTop] 与底部留白，再按 [maxPanelHeight] 夹紧。
      *
      * 原厂在手势导航下留 [marginBottom]，三键导航下导航栏本身占位，只再留
      * [marginBottomWithNavigationBar]。两者合计的可用区基本一致。
@@ -165,7 +171,7 @@ object CouiBottomSheetDefaults {
      */
     fun maxHeight(screenHeight: Dp, hasNavigationBar: Boolean): Dp {
         val bottom = if (hasNavigationBar) marginBottomWithNavigationBar else marginBottom
-        return (screenHeight - marginTop - bottom).coerceAtLeast(0.dp)
+        return (screenHeight - marginTop - bottom).coerceIn(0.dp, maxPanelHeight)
     }
 
     /** 深浅色预设；面板底色对应 `coui_color_surface`，遮罩对应 `coui_color_mask`。 */

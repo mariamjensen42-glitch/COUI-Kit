@@ -6,6 +6,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.itos.coui.theme.CouiTheme
 
 /** 轻提示的停留时长；退出动画另计，不计入停留。 */
@@ -28,7 +29,7 @@ data class CouiToastColors(
  *
  * COUI 没有独立的 Toast 组件，短暂的底部反馈由 SnackBar 承担：容器日间 `#FFFFFF`、夜间 `#242424`，
  * 圆角 `coui_snack_bar_background_radius` 12.67dp，内留白水平 16dp、单行垂直 10dp，
- * 文字 `coui_snack_bar_text_size` 14dp（原厂以 dp 声明，不随系统字号缩放）。
+ * 文字取 `coui_snack_bar_item.xml` 的 `couiTextAppearanceButton` 14sp（随系统字号缩放）。
  * 操作按钮、图标与多行分支按 `coui_snack_bar_item.xml` 的排布取值。
  */
 object CouiToastDefaults {
@@ -50,7 +51,7 @@ object CouiToastDefaults {
     /** `coui_snack_bar_child_margin_vertical_multi_lines_bottom`。 */
     val multiLineBottomPadding = 8.dp
 
-    /** `couiTextAppearanceButton` 的 `lineSpacingMultiplier`：`coui_spacing_multiplier_button_m` 1.1。 */
+    /** `couiTextAppearanceButton` 直接声明 `lineSpacingMultiplier` 1.1（不是 `coui_spacing_multiplier_button_m`）。 */
     val lineHeightMultiplier = 1.1f
 
     /** `coui_snack_bar_max_width`。 */
@@ -67,7 +68,7 @@ object CouiToastDefaults {
 
     /**
      * 原厂九宫格 `coui_snack_bar_background.9.png` 把阴影烘焙进图片：xxhdpi 下容器外扩约 14dp（上）、
-     * 15dp（左右）、20dp（下），峰值不透明度约 5%，`coui_snack_bar_shadow_size` 26dp 是它的总跨度。
+     * 21dp（左右）、26dp（下），峰值不透明度约 5%，`coui_snack_bar_shadow_size` 26dp 是它的总跨度。
      * 平台投影把模糊跨度与不透明度绑在同一个 elevation 上，这里按「26dp 跨度 + 5% 黑色」还原同一组观感参数。
      */
     val shadowElevation = 26.dp
@@ -75,8 +76,8 @@ object CouiToastDefaults {
     /** 与 [shadowElevation] 配套的投影色；取原厂九宫格的峰值不透明度（#0D，约 5%）。 */
     val shadowColor = Color.Black.copy(alpha = .05f)
 
-    /** `coui_snack_bar_text_size`。 */
-    val textSize = 14.dp
+    /** `coui_snack_bar_text_size` 不存在；文案字号来自 `coui_snack_bar_item.xml` 的 `@style/couiTextAppearanceButton`，14sp。 */
+    val textSize = 14.sp
 
     /** `coui_snack_bar_icon_width` / `coui_snack_bar_icon_height`；图标槽按此方框居中。 */
     val iconSize = 30.dp
@@ -94,8 +95,8 @@ object CouiToastDefaults {
     /** `coui_snack_bar_action_max_width`。 */
     val actionMaxWidth = 110.dp
 
-    /** `coui_snack_bar_action_margin_horizontal_start`，文案与操作按钮的间距。 */
-    val actionStartPadding = 12.dp
+    /** 文案与操作按钮的间距：17 的 `coui_snack_bar_item.xml` 由文案的 `coui_snack_bar_child_margin_horizontal_end` 16dp 承担。 */
+    val actionStartPadding = 16.dp
 
     /** `coui_snack_bar_action_margin_horizontal_end`，操作按钮到容器右缘。 */
     val actionEndPadding = 4.dp
@@ -112,8 +113,8 @@ object CouiToastDefaults {
     /** `coui_snack_bar_action_text_max_lines`，超出以省略号结尾。 */
     const val actionMaxLines = 2
 
-    /** `couiTextAppearanceButton` 的 14sp；与文案一致按 dp 承载，不随系统字号缩放。 */
-    val actionTextSize = 14.dp
+    /** `couiTextAppearanceButton` 的 14sp；与文案同源，随系统字号缩放。 */
+    val actionTextSize = 14.sp
 
     /** `coui_snack_bar_item.xml` 中操作按钮的 `lineSpacingMultiplier`。 */
     val actionLineHeightMultiplier = 1.15f

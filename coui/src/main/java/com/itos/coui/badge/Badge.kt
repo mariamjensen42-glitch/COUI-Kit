@@ -20,6 +20,7 @@ import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.itos.coui.shape.CouiCapsuleShape
@@ -45,8 +46,11 @@ object CouiBadgeDefaults {
     /** 数字上限；超过后显示为 `上限+`。 */
     const val maxCount = 99
 
-    val offsetX = 6.dp
-    val offsetY = 6.dp
+    /** 红点距锚点右上角的偏移：`coui_hint_red_dot_small_reddot_topend_margin` 1dp。 */
+    val dotOffset = DpOffset(1.dp, 1.dp)
+
+    /** 数字角标距锚点右上角的偏移：`coui_hint_red_dot_small_number_topend_margin_rectangle` 6dp。 */
+    val numberOffset = DpOffset(6.dp, 6.dp)
 
     /** 容器色与内容色。 */
     fun colors(dark: Boolean): Pair<Color, Color> =
@@ -99,12 +103,15 @@ fun Badge(
 
 /**
  * 把角标叠在内容右上角。内容尺寸不因角标改变，角标可以超出内容边界。
+ * 红点与数字角标离角落的距离不同，按角标形态传入 [offset]：红点用
+ * [CouiBadgeDefaults.dotOffset]，数字用默认的 [CouiBadgeDefaults.numberOffset]。
  * RTL 下角标跟随起始侧翻转。点击和语义仍由 content 自己提供。
  */
 @Composable
 fun BadgedBox(
     modifier: Modifier = Modifier,
     badge: @Composable () -> Unit,
+    offset: DpOffset = CouiBadgeDefaults.numberOffset,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
@@ -112,8 +119,8 @@ fun BadgedBox(
         content()
         Box(
             Modifier.align(Alignment.TopEnd).offset(
-                x = if (rtl) -CouiBadgeDefaults.offsetX else CouiBadgeDefaults.offsetX,
-                y = -CouiBadgeDefaults.offsetY,
+                x = if (rtl) -offset.x else offset.x,
+                y = -offset.y,
             ),
         ) { badge() }
     }

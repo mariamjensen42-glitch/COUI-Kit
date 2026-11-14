@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -33,12 +32,22 @@ import com.itos.coui.theme.CouiTheme
 object CouiNotificationCardDefaults {
     /** 通知卡的圆角比页面分组卡片略大，原厂单条通知与分组头共用同一轮廓。 */
     val shape = CouiShape(24.dp, 3f)
-    val padding = 16.dp
-    val iconSize = 24.dp
-    /** 图标到文字的间距：内容左起点 58dp = 16 + 24 + 18。 */
-    val iconSpacing = 18.dp
-    val titleBodySpacing = 2.dp
+
+    /** 卡片左右留白：图标左缘距卡片 14dp，右侧文字列同样内缩 14dp。 */
+    val horizontalPadding = 14.dp
+
+    /** 卡片上下留白：标题框顶边、正文框底边各距卡片边缘 12dp。 */
+    val verticalPadding = 12.dp
+
+    /** 图标槽：原厂 `android:id/icon` 实测 112×112px = 32dp。 */
+    val iconSize = 32.dp
+
+    /** 图标到文字的间距：内容左起点 58dp = 14 + 32 + 12。 */
+    val iconSpacing = 12.dp
+
+    /** 标题行与时间的最小间距；标题占满剩余宽度，时间因此靠右。 */
     val titleTimeSpacing = 12.dp
+
     /** 单条紧凑通知的最小高度，实测 211px ≈ 60dp。 */
     val minHeight = 60.dp
 }
@@ -69,7 +78,10 @@ fun NotificationCard(
         .defaultMinSize(minHeight = CouiNotificationCardDefaults.minHeight)
         .clip(shape)
         .background(containerColor)
-        .padding(CouiNotificationCardDefaults.padding),
+        .padding(
+            horizontal = CouiNotificationCardDefaults.horizontalPadding,
+            vertical = CouiNotificationCardDefaults.verticalPadding,
+        ),
         verticalAlignment = Alignment.Top,
     ) {
         if (icon != null) {
@@ -87,7 +99,6 @@ fun NotificationCard(
                     Text(text = time, kind = CouiTextKind.Body, color = colors.summary, maxLines = 1)
                 }
             }
-            Spacer(Modifier.height(CouiNotificationCardDefaults.titleBodySpacing))
             Text(text = body, kind = CouiTextKind.ItemSummary, color = colors.summary,
                 maxLines = bodyMaxLines, overflow = TextOverflow.Ellipsis)
         }

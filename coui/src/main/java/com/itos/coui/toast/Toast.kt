@@ -34,12 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.liveRegion
@@ -162,11 +157,6 @@ private fun ToastItem(toast: CouiToast, state: ToastHostState, colors: CouiToast
         enter = fadeIn(tween(enterMillis)) + slideInVertically(tween(enterMillis)) { it / 4 },
         exit = fadeOut(tween(exitMillis)) + slideOutVertically(tween(exitMillis)) { it / 4 },
     ) {
-        val density = LocalDensity.current
-        val textSize = with(density) { CouiToastDefaults.textSize.toSp() }
-        val actionTextSize = with(density) { CouiToastDefaults.actionTextSize.toSp() }
-        // 九宫格背景把内阴影烘焙进图片: 容器上下内缘各有一圈向内的暗部, 纯色填充会失去这层厚度。
-        val darkContainer = colors.container.luminance() < .5f
         // 原厂单行留白 10dp，多行改为上 12dp / 下 8dp；换行数由实际排版回传，纵向留白不参与宽度测量，不会形成回环。
         var lineCount by remember { mutableIntStateOf(1) }
         val multiline = lineCount > 1
@@ -181,15 +171,7 @@ private fun ToastItem(toast: CouiToast, state: ToastHostState, colors: CouiToast
                     spotColor = CouiToastDefaults.shadowColor,
                 )
                 .clip(CouiToastDefaults.shape)
-                .drawBehind {
-                    drawRect(colors.container)
-                    drawRect(Brush.verticalGradient(
-                        0f to Color.Black.copy(alpha = if (darkContainer) .30f else .05f),
-                        .10f to Color.Transparent,
-                        .90f to Color.Transparent,
-                        1f to Color.Black.copy(alpha = if (darkContainer) .22f else .04f),
-                    ))
-                }
+                .background(colors.container)
                 .semantics { liveRegion = LiveRegionMode.Polite },
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -216,8 +198,8 @@ private fun ToastItem(toast: CouiToast, state: ToastHostState, colors: CouiToast
                 ),
                 style = TextStyle(
                     color = colors.content,
-                    fontSize = textSize,
-                    lineHeight = textSize * CouiToastDefaults.lineHeightMultiplier,
+                    fontSize = CouiToastDefaults.textSize,
+                    lineHeight = CouiToastDefaults.textSize * CouiToastDefaults.lineHeightMultiplier,
                     fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Start,
                     platformStyle = PlatformTextStyle(includeFontPadding = false),
@@ -246,8 +228,8 @@ private fun ToastItem(toast: CouiToast, state: ToastHostState, colors: CouiToast
                         .widthIn(max = CouiToastDefaults.actionMaxWidth),
                     style = TextStyle(
                         color = colors.action,
-                        fontSize = actionTextSize,
-                        lineHeight = actionTextSize * CouiToastDefaults.actionLineHeightMultiplier,
+                        fontSize = CouiToastDefaults.actionTextSize,
+                        lineHeight = CouiToastDefaults.actionTextSize * CouiToastDefaults.actionLineHeightMultiplier,
                         fontWeight = FontWeight.Medium,
                         textAlign = TextAlign.Start,
                         platformStyle = PlatformTextStyle(includeFontPadding = false),

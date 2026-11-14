@@ -79,7 +79,7 @@ Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 }
 ~~~
 
-原厂把标题与说明包在最大 92dp 的滚动视图（`coui_component_empty_text_scroll_max_height`）内，本组件改用行数上限和省略号收敛高度，超出内容由宿主页面滚动。`modifier` 在根节点应用一次，默认宽度铺满可用空间，内部尺寸随后追加。
+原厂把标题与说明包在最大 92dp 的滚动视图（`coui_component_empty_text_scroll_max_height`）内，本组件同样把文字块限制在 92dp（`CouiEmptyStateDefaults.textMaxHeight`）并在内部滚动：字号放大或文案超出时，图标与操作槽的位置不动。`modifier` 在根节点应用一次，默认宽度铺满可用空间，内部尺寸随后追加。
 
 ## Demo 示例
 

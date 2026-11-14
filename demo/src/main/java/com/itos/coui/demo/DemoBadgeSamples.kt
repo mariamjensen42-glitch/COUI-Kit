@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.itos.coui.badge.Badge
 import com.itos.coui.badge.BadgedBox
+import com.itos.coui.badge.CouiBadgeDefaults
 import com.itos.coui.button.Button
 import com.itos.coui.button.CouiButtonStyle
 import com.itos.coui.demo.ui.Icon
@@ -48,7 +49,7 @@ internal fun BadgeSample(dark: Boolean) {
             BadgedBox(badge = { Badge(count = count) }) {
                 Icon(CouiIcons.Filled.Battery, null, Modifier.size(24.dp))
             }
-            BadgedBox(badge = { Badge() }) {
+            BadgedBox(badge = { Badge() }, offset = CouiBadgeDefaults.dotOffset) {
                 Icon(CouiIcons.Filled.Album, null, Modifier.size(24.dp))
             }
         }

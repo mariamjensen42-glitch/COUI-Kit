@@ -11,7 +11,7 @@ Badge(count = unread)
 Badge()                    // 红点
 ~~~
 
-几何与配色取自原厂 `Widget.COUI.COUIHintRedDot`：红点直径 6dp，数字高度 16dp，宽度按位数取 16 / 20 / 26dp，字号 10dp（原厂以 dp 声明，不随系统字号缩放），容器 `coui_color_additional_red`（日间 `#EB3B2F`、夜间 `#EB493D`），内容白色。
+几何与配色取自原厂 `Widget.COUI.COUIHintRedDot`：红点直径 6dp，数字高度 16dp，宽度按位数取 16 / 20 / 26dp，字号 10dp（原厂以 dp 声明，不随系统字号缩放），容器 `coui_color_additional_red`（日间 `#EB3B2F`、夜间 `#EB493D`），内容白色。叠在内容右上角时，红点离角落 1dp（`coui_hint_red_dot_small_reddot_topend_margin`），数字角标离角落 6dp（`coui_hint_red_dot_small_number_topend_margin_rectangle`），分别对应 `CouiBadgeDefaults.dotOffset` 与 `numberOffset`。
 
 超过 `maxCount`（默认 99）显示为 `99+`，宽度按三位数字取最宽档。颜色可显式覆盖：
 

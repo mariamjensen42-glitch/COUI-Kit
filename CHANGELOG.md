@@ -10,7 +10,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 - 新增按钮 `Button`：几何、排版、配色与反馈链取自 ColorOS 17 的 `Widget.COUI.Button.Large`（44dp 高、最小 132dp 宽、四周 12dp 内留白、14sp `sans-serif-medium`），提供主操作与次操作，加载态为原厂 `coui_loading_btn_circle_*` 的三圆点，并支持禁用。[按钮](docs/components/button.md)
 - 新增环形进度 `CircularProgress` 与占位 `Skeleton`：尺寸、描边与配色取自 `Widget.COUI.COUICircularProgressBar`（40dp / 5dp、30dp / 3dp），不确定态的 800ms 旋转与 270° 弧长沿用原厂加载字形 `coui_icon_loading`。[进度与占位](docs/components/progress.md)
-- 新增轻提示 `ToastHost` 与 `ToastHostState`：几何与配色取 `coui_snack_bar_*`（12.67dp 圆角、16/10dp 留白、14dp 文字、26dp 跨度 5% 投影），支持操作按钮、图标槽、多行留白、自动消失与最多三条堆叠。[轻提示](docs/components/toast.md)
+- 新增轻提示 `ToastHost` 与 `ToastHostState`：几何与配色取 `coui_snack_bar_*`（12.67dp 圆角、16/10dp 留白、14sp 文字、26dp 跨度 5% 投影），支持操作按钮、图标槽、多行留白、自动消失与最多三条堆叠。[轻提示](docs/components/toast.md)
 - 新增角标 `Badge`、`BadgedBox` 与受控气泡 `Tooltip`：角标取自 `Widget.COUI.COUIHintRedDot`（红点 6dp、数字宽 16/20/26dp、10dp 字号、`coui_color_additional_red`），气泡取自 `COUIToolTips`（强调色容器、13dp 留白、12dp 圆角）。[角标与气泡](docs/components/badge-tooltip.md)
 
 - 新增页码指示器 `PageIndicator`：半径按原厂 `COUIPageIndicator` 的四段距离带连续插值（`COUIEaseInterpolator` 0.33 / 0 / 0.67 / 1），最多显示 6 个点、窗口随当前页滑动，可选 `onDotClick` 点按回调。[页码指示器](docs/components/page-indicator.md)
@@ -24,7 +24,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - `CouiPresets` 新增 `GreenLight` / `GreenDark` 与 `green(dark)`：只替换强调色及强调内容色，中性表面沿用原生预设。[外观与预设](docs/guide/appearance.md)
 - `CouiTextKind` 新增 `Display`：48sp 展示型读数，用于电量百分比、健康分数等页面主数字。
 - `CouiButtonDefaults.primaryColors` 与 `colors` 新增 `onAccent` 参数，主按钮内容色默认取 `CouiColorScheme.onAccent`；原生蓝色主题仍为白色，亮色强调（如绿色预设）自动转为深色内容。[按钮](docs/components/button.md)
-- 轻提示修正三处与原厂九宫格的偏差：容器改用等半径标准圆角、补绘九宫格烘焙的内阴影、带图标时上下留白由 16dp 收到 10dp（容器高度 62dp → 50dp）。[轻提示](docs/components/toast.md)
+- 轻提示修正两处与原厂九宫格的偏差：容器改用等半径标准圆角、带图标时上下留白由 16dp 收到 10dp（容器高度 62dp → 50dp）。[轻提示](docs/components/toast.md)
 - `TopAppBarButton` 新增可选 `backdrop`：自定义顶栏（不套 `TopAppBarSurface`）可直接传入只含页面背景的采样源，按钮不再依赖顶栏作用域；省略时沿用所在顶栏的源，行为不变。[顶栏](docs/components/top-app-bar.md)
 - 新增操作卡 `ActionCard`：图标 + 可选标题 + 说明 + 右下操作组，`title` 省略时为提示卡形态，用于手机管家的通知卡与推荐优化卡。[操作卡](docs/components/action-card.md)
 - 新增通知卡 `NotificationCard`：图标 + 标题 + 相对时间 + 正文，对应通知中心的单条通知。组件只做布局，`containerColor` 默认取页面卡片色，宿主传 `Color.Transparent` 并用 `Modifier.couiFloatingSurface` 包裹即可接入凝光玻璃，材质逻辑不在此复制。[通知卡](docs/components/notification-card.md)
@@ -33,6 +33,10 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 修正 `Button` 的文字排版与内留白：原厂 `Widget.COUI.Button.Large` 继承的 `coui_btn_text_size` 与 `couiTextAppearanceButton` 都是 14sp medium，四周内留白 12dp；原实现用了 16sp 与垂直 8dp。[按钮](docs/components/button.md)
 - 修正控制中心磁贴与档位条与原厂截图不符的几何和状态：两者原先误用 20dp 卡片圆角，实际小磁贴是 62dp 正圆、大磁贴与档位条是整条胶囊；开启态改为原厂白色磁贴，大磁贴补 42dp 图标底盘与 10 / 6 / 15dp 内部留白，小磁贴图标 28dp、标签 10sp medium，大磁贴标签 14sp medium，档位条深色下填充白色。新增 `checkedContainerColor`、`iconContainerColor` 与 `CouiQuickSettingDefaults.smallIconSize`；`largePadding` 语义改为大磁贴左侧内留白。[控制中心磁贴](docs/components/quick-setting.md)
 - 修正 `ActionCard` 提示卡形态的说明字号：从 13sp 改为 15sp（`CouiTextKind.BodyLarge`），推荐卡形态保持 13sp。真机实测提示条单行墨迹 13.7dp、行距 20.3dp，对应 15sp 而非 13sp。[操作卡](docs/components/action-card.md)
+- 修正 `NotificationCard` 的图标与留白：图标 24→32dp、图标到文字 18→12dp、内留白 16dp 改为水平 14dp / 垂直 12dp、删除标题与正文之间的 2dp 间距。依据 SystemUI 通知行布局树的 `android:id/icon` 112×112px、内容列起点 58dp 与文本列 bounds；`CouiNotificationCardDefaults.padding` 拆为 `horizontalPadding` / `verticalPadding`，`titleBodySpacing` 移除。[通知卡](docs/components/notification-card.md)
+- 修正轻提示的文字单位与容器：文案与操作按钮 14dp→14sp（`coui_snack_bar_item.xml` 的 `couiTextAppearanceButton`，随系统字号缩放），操作按钮与文案间距 12→16dp（原厂由文案的 16dp 末尾留白承担），并删除容器内缘那圈无资源依据的内阴影渐变——九宫格内部是纯色填充，阴影只在外缘。[轻提示](docs/components/toast.md)
+- 修正角标的叠加偏移：红点距角落 1dp（`coui_hint_red_dot_small_reddot_topend_margin`）、数字角标 6dp（`coui_hint_red_dot_small_number_topend_margin_rectangle`），原先两者共用 6dp。`CouiBadgeDefaults.offsetX/offsetY` 改为 `dotOffset` / `numberOffset`，`BadgedBox` 新增 `offset` 参数。[角标与气泡](docs/components/badge-tooltip.md)
+- 补齐空状态与底部面板的两处原厂约束：`EmptyState` 的标题 + 说明限制在 92dp（`coui_component_empty_text_scroll_max_height`）内滚动，新增 `CouiEmptyStateDefaults.textMaxHeight`；`BottomSheet` 的面板高度增加 `coui_panel_max_height`（2000dp）上限，指示条顶距 8→12dp（`coui_panel_drag_view_shadow_margin_top` 4dp + `coui_panel_drag_view_padding_vertical` 8dp）。[空状态](docs/components/empty-state.md) · [底部面板](docs/components/bottom-sheet.md)
 - `CouiTextKind` 新增 `BodyLarge`：15sp 常规字重正文，用于没有标题、说明本身承担主文案的场景。
 - `CouiTextKind` 新增 `Tag`：10sp medium，对应原厂 `couiTextAppearanceTag`，用于控制中心小磁贴标签等系统标签场景。
 - 新增模式选择卡 `ChoiceCardGroup` 与 `CouiChoiceCard`：横向等分、图标 + 主副文字、选中态强调描边与 `RadioButton` 语义，对应电池页的模式选择。[模式选择卡](docs/components/choice-card.md)

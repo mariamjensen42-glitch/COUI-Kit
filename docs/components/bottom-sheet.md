@@ -33,9 +33,9 @@ BottomSheet(
 
 面板只有顶部两角是圆角，四周离屏幕边缘 8dp（`coui_bottom_sheet_dialog_follow_hand_margin_left` / `_right` / `_bottom`），像一张浮起的卡片而不是贴满屏幕；内容按 `ColumnScope` 纵向排列，组件不附加任何内边距，留白由内容自己给出。
 
-内容高度超过面板上限时在面板内滚动，上限取屏幕高度减去顶部 40dp 与底部留白：手势导航留 64dp，三键导航在导航栏之上只再留 8dp。键盘弹出时面板底部按 IME 与导航栏的并集避让，因此输入区不会被键盘遮挡。
+内容高度超过面板上限时在面板内滚动，上限取「屏幕高度减去顶部 40dp 与底部留白」与 `coui_panel_max_height`（2000dp）的较小值：手势导航留 64dp，三键导航在导航栏之上只再留 8dp。键盘弹出时面板底部按 IME 与导航栏的并集避让，因此输入区不会被键盘遮挡。
 
-面板顶部有一条 4dp 高的拖拽指示条，同时是拖拽的抓手。
+面板顶部有一条 4dp 高、36dp 宽的拖拽指示条，同时是拖拽的抓手；条顶距面板边 12dp（`coui_panel_drag_view_shadow_margin_top` 4dp + `coui_panel_drag_view_padding_vertical` 8dp）。
 
 ## 拖拽与滚动
 

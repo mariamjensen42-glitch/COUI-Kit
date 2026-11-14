@@ -41,7 +41,7 @@ NotificationCard(
 
 - `title` / `body`：必填，标题 16sp `ItemTitle`，正文 13sp `ItemSummary`。
 - `time`：可选，相对时间，12sp `Body`，与标题同一行、靠右。
-- `icon`：可选，24dp 槽位，库不做 tint。
+- `icon`：可选，32dp 槽位，库不做 tint。
 - `containerColor`：卡片底色，默认 `colors.card`；接材质时传 `Color.Transparent`。
 - `shape`：轮廓，默认 `CouiNotificationCardDefaults.shape`；与 `couiFloatingSurface` 的 `shape` 必须一致，否则描边和裁剪会错位。
 - `bodyMaxLines`：正文最大行数，默认 2。
@@ -54,11 +54,14 @@ NotificationCard(
 | --- | --- |
 | 卡片宽度 | 329dp（页面左右各 16dp 边距） |
 | 单条最小高度 | 60dp（实测 211px ≈ 60.3dp） |
-| 内留白 | 16dp |
-| 图标 | 24dp |
-| 图标到文字 | 18dp（内容左起点 58dp = 16 + 24 + 18） |
-| 标题到正文 | 2dp |
+| 水平留白 | 14dp（图标左缘、文字列右缘到卡片边缘） |
+| 垂直留白 | 12dp（标题框顶边、正文框底边到卡片边缘） |
+| 图标 | 32dp（`android:id/icon` 实测 112×112px） |
+| 图标到文字 | 12dp（内容左起点 58dp = 14 + 32 + 12） |
+| 标题到正文 | 0（两个文本视图直接相邻） |
 
 标题与时间的字号按布局树行高反推：标题 66px ≈ 18.9dp 对应 16sp，时间 49px ≈ 14dp 对应 12sp。正文行高受两行排版影响，取 13sp 与[操作卡](action-card.md)的副标题一致，尚未用原厂资源确认。
+
+单条通知卡（211px 高）里标题框高 57px ≈ 16.3dp、正文框高 70px ≈ 20dp，比当前 `ItemTitle` / `ItemSummary` 的行高更矮更扁；该行是「无头」推广通知（`notification_headerless_view_row`），普通通知行是否同值待补证，因此字号暂不跟随调整。
 
 源码见 [NotificationCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/notificationcard/NotificationCard.kt)。

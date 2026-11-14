@@ -32,6 +32,8 @@
 
 **先确认应用实际装配，再分析库默认值。** 同一 APK 内可以同时包含独立 FAB、附件 FAB、旧版控件和未使用实现。某个类或资源存在，不表示目标页面使用它。不同 APK 带有同名类，也不表示版本及默认分支相同。
 
+COUI 资源也要先认版本：`references/apk/uiengine`（`com.oplus.uiengine` 13.8.12）是独立的旧一代库，而 ColorOS 17 各系统应用（设置、SystemUI、手机管家、通知中心、计算器等）各自内嵌一份 17.x 的 COUI。两代在圆角、把手、留白、遮罩和动画曲线上都有差异，核对当前设备外观时以系统应用内嵌的那份为准，`uiengine` 只用于追旧版分支或两代共有的资源名。
+
 有设备授权时，可用 `adb shell pm path <包名>` 确认输入，再只读提取。不要猜系统 APK 路径；本项目的设备操作权限仍按 [AGENTS.md](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/AGENTS.md) 执行。
 
 ### 2.2 定点分析 Java、资源与状态

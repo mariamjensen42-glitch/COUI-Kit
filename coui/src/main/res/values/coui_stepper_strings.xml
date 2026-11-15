@@ -1,0 +1,4 @@
+<resources>
+    <string name="coui_stepper_decrease">Decrease</string>
+    <string name="coui_stepper_increase">Increase</string>
+</resources>

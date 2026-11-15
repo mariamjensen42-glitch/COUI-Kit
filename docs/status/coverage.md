@@ -35,7 +35,7 @@
 
 ## 未实现 / 待验收
 
-「计划」列是本轮之后的候选顺序，不代表已排期。用户指定的三个小组件与后续「下一轮」三项均已实现，并按静态双向核查（见下两节）收敛了可静态确定的偏差，结论仍为「可见行为近似，非 1:1」。本轮补齐的标签、链接文本与滚动条三项同样只做了静态对照，差异写在各自使用页；九项均未做真机验收，故仍留在本表。九项的公开入口、使用文档、Demo 与两处导航（`docs/components/README.md`、`zensical.toml`）均已登记。
+「计划」列是本轮之后的候选顺序，不代表已排期。用户指定的三个小组件与后续「下一轮」三项均已实现，并按静态双向核查（见下两节）收敛了可静态确定的偏差，结论仍为「可见行为近似，非 1:1」。本轮补齐的标签、链接文本、滚动条与数值步进器四项同样只做了静态对照，差异写在各自使用页；十项均未做真机验收，故仍留在本表。十项的公开入口、使用文档、Demo 与两处导航（`docs/components/README.md`、`zensical.toml`）均已登记。
 
 | 能力 | 原厂实现 | 现状 | 计划 | 证据 |
 | --- | --- | --- | --- | --- |
@@ -56,6 +56,7 @@
 | 标签 | `COUITagBackgroundView` / `COUITagView`（四角轮廓、可选描边、左图标 5×10dp、10dp `sans-serif-medium`） | 已实现 `coui/src/main/java/com/itos/coui/tag/Tag.kt`；几何、字号与轮廓按源码收敛，容器色默认沿用原厂 attr 组合（`couiColorContainer8` 薄填充 + 白字），实际配色由宿主传入 | 真机验收 | `.../tagview/COUITagView.java`、`COUITagBackgroundView.java`、`res/layout/coui_tag_view_layout.xml`、`res/values/dimens.xml:1019` |
 | 链接文本 | `COUIClickableSpan`（`?couiColorLink` + `#4D2660F5` 按下/选中 + 禁用态） | 已实现 `Text` 的 `AnnotatedString` 重载与 `CouiTextLinkDefaults`；Compose 的 `TextLinkStyles` 没有禁用态，需宿主改普通 span，非 1:1 | 真机验收 | `.../clickablespan/COUIClickableSpan.java`、`res/color/coui_clickable_text_color.xml`、`res/values/colors.xml:844-846` |
 | 滚动条 | `COUIScrollBar`（14dp 宽、48dp 最小高、8/16dp 留白、5.5/4dp inset、2000ms 停留后 250ms 淡出、拇指拖动） | 已实现 `coui/src/main/java/com/itos/coui/scrollbar/ScrollBar.kt`；几何、显隐与拖动换算按源码收敛，只接受 `ScrollState` 且不取消滚动容器已进行的 fling，非 1:1 | 真机验收、`LazyListState` 适配 | `.../scrollbar/COUIScrollBar.java`、`res/values/dimens.xml:1670-1675`、`res/values/colors.xml:1502` |
+| 数值步进器 | `COUIStepperView` + `IStepper` + `ObservableStep` + `LongPressProxy` | 已实现 `coui/src/main/java/com/itos/coui/stepper/Stepper.kt`（含同文件的 `CouiStepperDefaults`、`CouiStepperColors`）；范围夹紧、上下界禁用、长按 100ms 重复与每次提交触感按源码收敛，动画弹簧与点击 slop 未逐值核对，非 1:1 | 真机验收（长按节奏、按压形变与焦点描边） | `references/apk/jadx/settings/classes7/sources/com/coui/appcompat/stepper/`、`res/layout/coui_stepper_view.xml`、`res/values/styles.xml:5356-5364`、`res/values/dimens.xml:4433`；[数值步进器](../components/stepper.md) |
 
 ## 双向核查：三个用户指定优先组件
 
@@ -116,6 +117,14 @@
 1. 四个使用页、组件目录与 `zensical.toml` 已登记；四个组件的源码入口、公开签名与差异写入各自使用页的「与原厂的差异」，不把静态核查写成真机验收。
 2. 三个组件都没有新增绘制后端：`SnackbarHost` 复用轻提示的绘制节点与 `CouiSpring`，`FlowLayout` / `TabLayout` 只用公开布局与 Canvas；检查过 `ChipTab`（依赖背景源与 API 34）、`ToastHostState`（队列语义不同）与 `CouiScrollPhysics`（不是指示器动画分支），均不适合复用，理由见对应交付记录。
 3. 待真机同背景/手势对照：指示器文字色过渡与拖动中宽度插值、标签圆角与按压反馈、Snackbar 弹簧观感与触摸暂停计时、RTL、深浅色与无障碍播报。本地不执行构建与设备操作。
+
+## 双向核查：数值步进器
+
+按「原厂 → 移植、移植 → 原厂」核对 `references/apk/jadx/settings/classes7/` 与 `references/apk/settings/decoded/res/`。结论仍为静态核对；参数一致不等于 1:1 验收。
+
+- 一致：`ObservableStep` 的范围校验与夹紧（`maximum ≤ 9999`、`minimum ≥ -999`、`max ≥ min`，`setStep` 夹到区间）与「只在值变化时回调」的观察者语义；按钮可用性 `step < max` / `step > min` 且控件可用；32dp 按钮（`stepper_button_size`）、indicator 44dp 最小宽与 12dp 左右留白、18sp `sans-serif-medium`；内容色 `couiColorPrimaryNeutral`（日 `#E6000000` / 夜 `#E6FFFFFF`，与 `CouiColorScheme.onSurface` 同值）、禁用色 `couiColorDivider`（`#1F000000` / `#33FFFFFF`，与 `outlineVariant` 同值）、按钮底色 `couiColorContainer8`（`#14000000` / `#1AFFFFFF`）、焦点描边 `couiColorFocusOutline`（`#66006AFF` / `#661875F5`）；`LongPressProxy` 的单击一次、长按立即提交后每 100ms 重复、抬手/取消结束重复、重复期间离开控件不结束；每次提交前触发 `GRANULAR_SHORT_VIBRATE_SYNC=308`。
+- 差异（保留）：指示器宽度按原厂 `split("")` 的取位数语义多算一位（原厂行为，非笔误修正）；按压形变复用 `CouiPressMotion`，原厂是 `COUIPressFeedbackHelper` 的 `FILL_BUTTON_PRESS_FEEDBACK` 弹簧，响应/阻尼未逐值核对；长按超时取 `viewConfiguration.longPressTimeoutMillis`（原厂 `GestureDetector` 默认超时），点击区域以控件边界近似 `GestureDetector` 的 tap region；焦点描边画在 32dp 之外，可见性取决于父容器是否裁剪。
+- 命名：原厂 `COUIStepperView` 与项目原有 `Stepper`（横向步骤条）同名不同物，本轮把步骤条改为 `StepBar`，`Stepper` 归数值步进器。
 
 ## 逆向材料缺口
 

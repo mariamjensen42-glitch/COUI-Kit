@@ -58,7 +58,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("chart", R.string.catalog_bar_chart, DemoIconTone.Green) { CouiIcons.Filled.Battery },
         DemoCatalogEntry("accordion", R.string.catalog_accordion, DemoIconTone.Orange) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("avatar", R.string.catalog_avatar, DemoIconTone.Green) { CouiIcons.Filled.Health },
-        DemoCatalogEntry("stepper", R.string.catalog_stepper, DemoIconTone.Yellow) { CouiIcons.Filled.Album },
+        DemoCatalogEntry("stepbar", R.string.catalog_step_bar, DemoIconTone.Yellow) { CouiIcons.Filled.Album },
         DemoCatalogEntry("tag", R.string.tag_title, DemoIconTone.Orange) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("richtext", R.string.richtext_title, DemoIconTone.Blue) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("scrollbar", R.string.scrollbar_title, DemoIconTone.Purple) { CouiIcons.Filled.Grid })),
@@ -71,6 +71,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("marquee", R.string.marquee_title, DemoIconTone.Blue) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("verticalseek", R.string.vertical_seek_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
         DemoCatalogEntry("chip", R.string.chip_tab_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
+        DemoCatalogEntry("stepper", R.string.catalog_stepper, DemoIconTone.Green) { DemoIcons.Switch },
         DemoCatalogEntry("wheel", R.string.catalog_wheel, DemoIconTone.Orange) { DemoIcons.Tune },
         DemoCatalogEntry("calendar", R.string.picker_calendar_title, DemoIconTone.Yellow) { CouiIcons.Filled.Health },
         DemoCatalogEntry("searchhistory", R.string.search_history_title, DemoIconTone.Green) { CouiIcons.Outlined.Search })),
@@ -207,6 +208,7 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "accordion" -> R.string.intro_accordion
     "avatar" -> R.string.intro_avatar
     "statelayout" -> R.string.intro_state_layout
+    "stepbar" -> R.string.intro_step_bar
     "stepper" -> R.string.intro_stepper
     "iconbutton" -> R.string.intro_icon_button
     "container" -> R.string.intro_card

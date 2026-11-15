@@ -38,6 +38,7 @@ import com.itos.coui.layout.Item
 import com.itos.coui.pulltorefresh.PullToRefresh
 import com.itos.coui.statelayout.CouiLoadState
 import com.itos.coui.statelayout.StateLayout
+import com.itos.coui.stepper.StepBar
 import com.itos.coui.stepper.Stepper
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.Text
@@ -156,17 +157,31 @@ internal fun StateLayoutSample(dark: Boolean) {
 
 /** 步骤条：当前步骤由宿主推进。 */
 @Composable
-internal fun StepperSample(dark: Boolean) {
+internal fun StepBarSample(dark: Boolean) {
     var current by rememberSaveable { mutableIntStateOf(1) }
-    val steps = listOf(stringResource(R.string.stepper_step_scan),
-        stringResource(R.string.stepper_step_clean),
-        stringResource(R.string.stepper_step_done))
-    Group(title = stringResource(R.string.stepper_title)) {
+    val steps = listOf(stringResource(R.string.step_bar_step_scan),
+        stringResource(R.string.step_bar_step_clean),
+        stringResource(R.string.step_bar_step_done))
+    Group(title = stringResource(R.string.step_bar_title)) {
         Column(Modifier.fillMaxWidth().padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            Stepper(steps = steps, currentIndex = current, dark = dark)
+            StepBar(steps = steps, currentIndex = current, dark = dark)
             Button(onClick = { current = (current + 1) % steps.size },
-                label = stringResource(R.string.stepper_next), style = CouiButtonStyle.Text, dark = dark)
+                label = stringResource(R.string.step_bar_next), style = CouiButtonStyle.Text, dark = dark)
+        }
+    }
+}
+
+/** 数值步进器：数值由宿主持有，单击或长按提交夹紧后的新值。 */
+@Composable
+internal fun NumberStepperSample(dark: Boolean) {
+    var quantity by rememberSaveable { mutableIntStateOf(1) }
+    Group(title = stringResource(R.string.stepper_title)) {
+        Row(Modifier.fillMaxWidth().padding(CouiPageDefaults.rowPadding),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically) {
+            Text(text = stringResource(R.string.list_item_stepper), kind = CouiTextKind.ItemTitle)
+            Stepper(value = quantity, onValueChange = { quantity = it }, valueRange = 0..99, dark = dark)
         }
     }
 }

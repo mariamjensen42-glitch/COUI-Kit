@@ -130,7 +130,8 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "accordion" -> AccordionSample(dark)
                     "avatar" -> AvatarSample(dark)
                     "statelayout" -> StateLayoutSample(dark)
-                    "stepper" -> StepperSample(dark)
+                    "stepbar" -> StepBarSample(dark)
+                    "stepper" -> NumberStepperSample(dark)
                     "fab" -> FabSample(preset = fabPreset, onPresetChange = { fabPreset = it },
                         rounded = roundedFab, onRoundedChange = { roundedFab = it })
                     "about" -> {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 移植 Settings 17.0.0 的 ic_minus_sign, 保留原始几何; 原厂描边 ?couiColorPrimaryNeutral, 此处由 Icon 染色。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="32dp"
+    android:width="32dp"
+    android:viewportWidth="32.0"
+    android:viewportHeight="32.0">
+    <path
+        android:pathData="M9.199,16H22.799"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round" />
+</vector>

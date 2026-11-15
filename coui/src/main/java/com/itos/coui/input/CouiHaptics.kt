@@ -6,6 +6,9 @@ import android.view.View
 enum class CouiHapticFeedback(val code: Int) {
     Switch(302),
     ScrollEdge(307),
+
+    /** 数值步进器等连续加减操作的单次细微反馈。 */
+    GranularShortVibrateSync(308),
 }
 
 /** 保留 View 和系统触觉设置的门控；不支持该反馈码的 ROM 返回 false。 */

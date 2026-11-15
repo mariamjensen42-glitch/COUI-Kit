@@ -48,7 +48,7 @@ nav = [
       "components/bar-chart.md",
       "components/accordion.md",
       "components/avatar.md",
-      "components/stepper.md",
+      "components/step-bar.md",
       "components/state-layout.md",
       "components/pull-to-refresh.md",
       "components/item.md",
@@ -69,6 +69,7 @@ nav = [
       "components/pickers.md",
       "components/flow-layout.md",
       "components/search-history.md",
+      "components/stepper.md",
     ] },
     { "弹窗与菜单" = [
       "components/menu.md",

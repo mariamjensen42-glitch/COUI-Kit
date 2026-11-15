@@ -8,6 +8,9 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 ### 新增与改进
 
+- 新增数值步进器 `Stepper`、`CouiStepperColors` 与 `CouiStepperDefaults`：对应 `COUIStepperView`，受控数值、`-999..9999` 边界夹紧、上下界禁用按钮、单击一次与长按 100ms 连续加减、每次提交触发 `GRANULAR_SHORT_VIBRATE_SYNC`；32dp 圆钮与 18sp 数值的几何、容器色与内容色按原厂 style 与资源取值，加减图标移植 `ic_plus_sign` / `ic_minus_sign`。[数值步进器](docs/components/stepper.md)
+- `CouiHapticFeedback` 新增 `GranularShortVibrateSync`（308）。
+- 横向步骤条由 `Stepper` 改名为 `StepBar`，Defaults 同步为 `CouiStepBarDefaults`；`Stepper` 这一名称让给与原厂 `COUIStepperView` 同义的数值步进器。
 - 新增标签 `Tag` 与 `CouiTagDefaults`：左右图标槽、四角独立轮廓、可选描边与 10dp `sans-serif-medium` 单行文本，几何与字号取自 `COUITagView` / `COUITagBackgroundView` 与 `coui_tag_view_layout.xml`；原厂 `couiColorBackgroundWithTag` 在 `Theme.COUI` 中没有赋值，默认沿用原厂 attr 组合（`couiColorContainer8` 中性薄填充 + `coui_color_white`），实际外观由宿主显式传入。[标签](docs/components/tag.md)
 - 新增富文本入口：`Text` 增加 `AnnotatedString` 重载，新增 `CouiTextLinkDefaults` 按 `color/coui_clickable_text_color` 提供链接的常规、按下与禁用三色；Compose 的链接样式没有禁用态，链接不可用时由宿主改用普通 span。[富文本](docs/components/rich-text.md)
 - 新增滚动条 `ScrollBar` 与 `CouiScrollBarDefaults`：拇指高度按视口占比、位置按可滚范围占比，滚动后停留 2 秒再在 250 毫秒内淡出，拇指可直接拖动并贴起始侧，几何与配色取自 `COUIScrollBar` 与 `coui_scrollbar_*`；只读取 `ScrollState`，且不取消滚动容器已进行的 fling。[滚动条](docs/components/scroll-bar.md)
@@ -85,6 +88,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 ### 升级说明
 
+- 原 `Stepper`（横向步骤圆点、连线与标签）改名为 `StepBar`，`CouiStepperDefaults` 改为 `CouiStepBarDefaults`；行为与参数不变，调用方替换名称即可。`Stepper` 现在是数值步进器，继续用旧名会拿到另一个组件。
 - 原先依赖 `coui-material3` 的调用方，删除该依赖与 `Coui.initialize(defaultStyle = CouiMaterial3Style())`，改用 `CouiTheme` 提供配色，或显式传参覆盖单个组件，见[外观与预设](docs/guide/appearance.md)。
 - `CouiMaterialBlendMode` 已移除。调用 `rememberCouiMaterialEffect(mix, blend, mode)` 的地方改为传两层：原 `mix` 映射为 `CouiMaterialLayer(mix, BlendMode.LUMINOSITY)`，原 `blend` 沿用原来的 `OVERLAY` / `COLOR_DODGE`。`CouiDialogMaterial.blendMode` 的类型同步改为 `android.graphics.BlendMode`，取值不变。
 - 预览版不保证二进制兼容，升级后重新编译使用库的模块。

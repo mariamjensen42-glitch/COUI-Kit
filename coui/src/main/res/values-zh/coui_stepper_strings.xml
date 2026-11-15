@@ -1,0 +1,4 @@
+<resources>
+    <string name="coui_stepper_decrease">减少</string>
+    <string name="coui_stepper_increase">增加</string>
+</resources>

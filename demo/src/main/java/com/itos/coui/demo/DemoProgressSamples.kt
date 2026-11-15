@@ -25,8 +25,11 @@ import androidx.compose.ui.unit.dp
 import com.itos.coui.layout.Divider
 import com.itos.coui.layout.Group
 import com.itos.coui.progress.CircularProgress
+import com.itos.coui.progress.CouiInstallLoadProgressStyle
+import com.itos.coui.progress.CouiLoadProgressState
 import com.itos.coui.progress.CouiProgressDefaults
 import com.itos.coui.progress.CouiProgressSegment
+import com.itos.coui.progress.InstallLoadProgress
 import com.itos.coui.progress.LinearProgress
 import com.itos.coui.progress.SegmentedProgress
 import com.itos.coui.progress.Skeleton
@@ -46,6 +49,7 @@ private val ProgressScoreGradient = listOf(Color(0xFF00D616), Color(0xFF29CF28))
 internal fun ProgressSample(dark: Boolean) {
     var progress by rememberSaveable { mutableFloatStateOf(.35f) }
     var animated by rememberSaveable { mutableStateOf(true) }
+    var installState by rememberSaveable { mutableStateOf(CouiLoadProgressState.Idle) }
     Group {
         DemoSliderPreference(title = stringResource(R.string.progress_value), value = progress,
             onValueChange = { progress = it }, valueText = "${(progress * 100).roundToInt()}%")
@@ -134,6 +138,29 @@ internal fun ProgressSample(dark: Boolean) {
             }
         }
     }
+    Group(title = stringResource(R.string.progress_install)) {
+        Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                InstallLoadProgress(
+                    progress = installProgress(installState),
+                    state = installState,
+                    text = stringResource(R.string.progress_install_text),
+                    dark = dark,
+                    onClick = { installState = nextInstallState(installState) },
+                )
+                InstallLoadProgress(
+                    progress = installProgress(installState),
+                    state = installState,
+                    text = stringResource(R.string.progress_install_text),
+                    style = CouiInstallLoadProgressStyle.Large,
+                    dark = dark,
+                    onClick = { installState = nextInstallState(installState) },
+                )
+            }
+            Text(text = stringResource(R.string.progress_install_hint), kind = CouiTextKind.ItemSummary,
+                color = CouiTheme.colorSchemeFor(dark).onSurfaceVariant)
+        }
+    }
     Group(title = stringResource(R.string.progress_skeleton)) {
         Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Skeleton(Modifier.fillMaxWidth().height(16.dp), animated = animated)
@@ -147,4 +174,18 @@ internal fun ProgressSample(dark: Boolean) {
             }
         }
     }
+}
+
+private fun installProgress(state: CouiLoadProgressState): Int = when (state) {
+    CouiLoadProgressState.Idle -> 0
+    CouiLoadProgressState.InProgress -> 40
+    CouiLoadProgressState.Waiting -> 70
+    CouiLoadProgressState.Failed -> 100
+}
+
+private fun nextInstallState(state: CouiLoadProgressState): CouiLoadProgressState = when (state) {
+    CouiLoadProgressState.Idle -> CouiLoadProgressState.InProgress
+    CouiLoadProgressState.InProgress -> CouiLoadProgressState.Waiting
+    CouiLoadProgressState.Waiting -> CouiLoadProgressState.Failed
+    CouiLoadProgressState.Failed -> CouiLoadProgressState.Idle
 }

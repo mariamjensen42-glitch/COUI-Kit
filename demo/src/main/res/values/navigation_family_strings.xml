@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_family_title">Navigation variants</string>
+    <string name="intro_nav_family">Side navigation, tablet rail, floating bottom bar and expandable accessories.</string>
+    <string name="nav_family_side">Side navigation</string>
+    <string name="nav_family_drawer">Drawer mode</string>
+    <string name="nav_family_rail">Navigation rail</string>
+    <string name="nav_family_bar">Floating bottom bar</string>
+    <string name="nav_family_accessory">Accessories</string>
+    <string name="nav_family_expand">Expand accessories</string>
+    <string name="nav_family_content">Content area</string>
+    <string name="nav_family_home">Home</string>
+    <string name="nav_family_files">Files</string>
+    <string name="nav_family_lab">Lab</string>
+    <string name="nav_family_settings">Settings</string>
+    <string name="nav_family_ai">Assistant</string>
+</resources>

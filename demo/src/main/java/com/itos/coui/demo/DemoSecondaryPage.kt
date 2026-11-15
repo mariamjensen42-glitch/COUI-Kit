@@ -68,6 +68,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                 onBack = back, dark = dark, colors = CouiPageDefaults.themeColors(dark), floatingAction = floatingAction) {
                 when (page) {
                     "sliders", "switch", "checkbox", "dialogs", "menu" -> ComponentDetail(page, dark, toggleTheme)
+                    "dialogfamily" -> DialogFamilySample(dark)
                     "button" -> ButtonSample(dark)
                     "buttonbar" -> ButtonBarSample(dark)
                     "floatmenu" -> FloatingButtonSample(dark)
@@ -78,6 +79,8 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "toast" -> ToastSample(toastState)
                     "marquee" -> MarqueeTextSample(dark)
                     "verticalseek" -> VerticalSeekBarSample(dark)
+                    "seekbarfamily" -> SeekBarFamilySample(dark)
+                    "progressivedrag" -> ProgressiveDragSample(dark)
                     "toptips" -> TopTipsSample(dark)
                     "tablayout" -> TabLayoutSample(dark)
                     "searchhistory" -> SearchHistorySample(dark)
@@ -89,6 +92,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "pageindicator" -> PageIndicatorSample(dark)
                     "emptystate" -> EmptyStateSample(dark)
                     "textfield" -> TextFieldSample(dark)
+                    "textfields" -> TextFieldsSample(dark)
                     "bottomsheet" -> BottomSheetSample(dark)
                     "chips" -> ChipsSample(dark)
                     "chip" -> ChipTabSample(dark)
@@ -103,7 +107,8 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                         if (Build.VERSION.SDK_INT >= 33) MaterialSample(dark)
                         else EffectText(stringResource(R.string.requires_api_33))
                     }
-                    "wheel", "timepicker", "countdownpicker", "datepicker", "calendar" -> PickerSamples(page, dark)
+                    "wheel", "timepicker", "countdownpicker", "datepicker", "calendar", "lunardatepicker", "timelimitpicker" ->
+                        PickerSamples(page, dark)
                     "layout" -> LayoutSample()
                     "effect_gradient" -> Group(title = stringResource(R.string.effect_gradient_title)) {
                         if (Build.VERSION.SDK_INT >= 33) GradientBlurSample()
@@ -121,14 +126,18 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                         else EffectText(stringResource(R.string.requires_api_34))
                     }
                     "appbar", "search", "navigation" -> ChromeDetail(page, dark)
+                    "userfollow" -> UserFollowSample(dark)
                     "floatingtoolbar" -> FloatingToolbarSample(dark)
                     "cards" -> ActionCardSample(dark)
                     "choice" -> ChoiceCardSample(dark)
                     "thumbnail" -> ThumbnailChoiceSample(dark)
                     "notification" -> NotificationCardSample(dark)
                     "quicksetting" -> QuickSettingSample(dark)
+                    "quicksettingedit" -> QuickSettingEditSample(dark)
+                    "stateeffect" -> StateEffectSample(dark)
                     "chart" -> BarChartSample(dark)
                     "dockbar" -> DockBarSample(dark)
+            "navigationfamily" -> NavigationFamilySample(dark)
                     "refresh" -> PullToRefreshSample(dark)
                     "accordion" -> AccordionSample(dark)
                     "avatar" -> AvatarSample(dark)

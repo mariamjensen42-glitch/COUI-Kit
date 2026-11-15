@@ -34,14 +34,18 @@ internal val DemoWheelPickerEntries = listOf(
     DemoCatalogEntry("timepicker", R.string.picker_time_title, DemoIconTone.Blue) { CouiIcons.Filled.Radar },
     DemoCatalogEntry("countdownpicker", R.string.picker_countdown_title, DemoIconTone.Green) { CouiIcons.Filled.Battery },
     DemoCatalogEntry("datepicker", R.string.picker_date_title, DemoIconTone.Yellow) { DemoIcons.Date },
+    DemoCatalogEntry("lunardatepicker", R.string.picker_lunar_title, DemoIconTone.Purple) { DemoIcons.Date },
+    DemoCatalogEntry("timelimitpicker", R.string.picker_time_limit_title, DemoIconTone.Red) { DemoIcons.Tune },
 )
 
 internal val DemoComponentGroups = listOf(
     DemoCatalogGroup(R.string.catalog_group_navigation, listOf(
         DemoCatalogEntry("appbar", R.string.catalog_appbar, DemoIconTone.Blue) { DemoIcons.Title },
+        DemoCatalogEntry("userfollow", R.string.user_follow_title, DemoIconTone.Yellow) { CouiIcons.Filled.UserCircle },
         DemoCatalogEntry("search", R.string.catalog_search, DemoIconTone.Green) { CouiIcons.Outlined.Search },
         DemoCatalogEntry("navigation", R.string.catalog_navigation, DemoIconTone.Blue) { CouiIcons.Filled.CloudLink },
         DemoCatalogEntry("dockbar", R.string.catalog_dock_bar, DemoIconTone.Orange) { CouiIcons.Filled.PanelEnterRight },
+        DemoCatalogEntry("navigationfamily", R.string.nav_family_title, DemoIconTone.Green) { CouiIcons.Filled.Foldable },
         DemoCatalogEntry("fab", R.string.catalog_fab, DemoIconTone.Red) { CouiIcons.Filled.AI },
         DemoCatalogEntry("adaptive", R.string.catalog_adaptive, DemoIconTone.Green) { CouiIcons.Filled.Foldable },
         DemoCatalogEntry("sidepane", R.string.catalog_side_pane, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterLeft },
@@ -53,6 +57,8 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("cards", R.string.catalog_action_card, DemoIconTone.Blue) { CouiIcons.Filled.PanelEnterLeft },
         DemoCatalogEntry("notification", R.string.catalog_notification_card, DemoIconTone.Yellow) { CouiIcons.Filled.Bell },
         DemoCatalogEntry("quicksetting", R.string.catalog_quick_setting, DemoIconTone.Blue) { CouiIcons.Filled.Grid },
+        DemoCatalogEntry("quicksettingedit", R.string.qs_edit_title, DemoIconTone.Blue) { CouiIcons.Filled.GridSliders },
+        DemoCatalogEntry("stateeffect", R.string.state_effect_title, DemoIconTone.Purple) { CouiIcons.Filled.ShieldFlash },
         DemoCatalogEntry("thumbnail", R.string.catalog_thumbnail_choice, DemoIconTone.Blue) { CouiIcons.Filled.DarkLight },
         DemoCatalogEntry("choice", R.string.catalog_choice_card, DemoIconTone.Purple) { CouiIcons.Filled.GridSliders },
         DemoCatalogEntry("chart", R.string.catalog_bar_chart, DemoIconTone.Green) { CouiIcons.Filled.Battery },
@@ -68,8 +74,11 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("segment", R.string.segment_title, DemoIconTone.Purple) { CouiIcons.Filled.GridSliders },
         DemoCatalogEntry("sliders", R.string.slider_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
         DemoCatalogEntry("textfield", R.string.catalog_text_field, DemoIconTone.Purple) { CouiIcons.Filled.BookOpen },
+        DemoCatalogEntry("textfields", R.string.textfield_family_title, DemoIconTone.Purple) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("marquee", R.string.marquee_title, DemoIconTone.Blue) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("verticalseek", R.string.vertical_seek_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
+        DemoCatalogEntry("seekbarfamily", R.string.seekbar_family_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
+        DemoCatalogEntry("progressivedrag", R.string.progressive_drag_title, DemoIconTone.Blue) { CouiIcons.Filled.SliderCustom },
         DemoCatalogEntry("chips", R.string.chip_family_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("chip", R.string.chip_tab_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("stepper", R.string.catalog_stepper, DemoIconTone.Green) { DemoIcons.Switch },
@@ -78,6 +87,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("searchhistory", R.string.search_history_title, DemoIconTone.Green) { CouiIcons.Outlined.Search })),
     DemoCatalogGroup(R.string.catalog_group_overlay, listOf(
         DemoCatalogEntry("dialogs", R.string.dialog_title, DemoIconTone.Blue) { DemoIcons.Dialogs },
+        DemoCatalogEntry("dialogfamily", R.string.dialog_family_title, DemoIconTone.Blue) { DemoIcons.Dialogs },
         DemoCatalogEntry("bottomsheet", R.string.bottomsheet_title, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterLeft },
         DemoCatalogEntry("menu", R.string.menu_title, DemoIconTone.Orange) { CouiIcons.Filled.Grid })),
     DemoCatalogGroup(R.string.catalog_group_feedback, listOf(
@@ -163,6 +173,9 @@ private fun catalogSearchMatches(entry: DemoCatalogEntry, needle: String): Boole
         (entry.page == "wheel" && stringResource(R.string.picker_number_title).contains(needle, ignoreCase = true))
 
 internal fun catalogDescription(page: String): Int = when (page) {
+    "quicksettingedit" -> R.string.qs_edit_intro
+    "stateeffect" -> R.string.state_effect_intro
+    "userfollow" -> R.string.user_follow_intro
     "chips" -> R.string.intro_chip_family
     "chip" -> R.string.intro_chip
     "switch" -> R.string.intro_switch
@@ -175,7 +188,9 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "progress" -> R.string.intro_progress
     "toast" -> R.string.intro_toast
     "marquee" -> R.string.intro_marquee
-    "verticalseek" -> R.string.intro_vertical_seek
+    "verticalseek" -> R.string.intro_vertical_seek,
+    "seekbarfamily" -> R.string.intro_seekbar_family
+    "progressivedrag" -> R.string.progressive_drag_hint
     "toptips" -> R.string.intro_top_tips
     "badge" -> R.string.intro_badge
     "tag" -> R.string.intro_tag
@@ -184,8 +199,10 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "pageindicator" -> R.string.intro_pageindicator
     "emptystate" -> R.string.intro_emptystate
     "textfield" -> R.string.intro_text_field
+    "textfields" -> R.string.intro_textfield_family
     "bottomsheet" -> R.string.intro_bottomsheet
     "dialogs" -> R.string.intro_dialogs
+    "dialogfamily" -> R.string.intro_dialog_family
     "menu" -> R.string.intro_menu
     "appbar" -> R.string.intro_appbar
     "search" -> R.string.intro_search
@@ -210,6 +227,7 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "choice" -> R.string.intro_choice_card
     "chart" -> R.string.intro_bar_chart
     "dockbar" -> R.string.intro_dock_bar
+    "navigationfamily" -> R.string.intro_nav_family
     "refresh" -> R.string.intro_pull_refresh
     "accordion" -> R.string.intro_accordion
     "avatar" -> R.string.intro_avatar

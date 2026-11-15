@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="textfield_family_title">Text fields</string>
+    <string name="intro_textfield_family">Error shake, verification code cells and a multi-line card</string>
+    <string name="textfield_error_title">Error state</string>
+    <string name="textfield_error_label">Nickname</string>
+    <string name="textfield_error_message">Nickname is already taken</string>
+    <string name="textfield_error_action">Validate</string>
+    <string name="textfield_code_title">Verification code</string>
+    <string name="textfield_code_secure">Mask digits</string>
+    <string name="textfield_code_clear">Clear</string>
+    <string name="textfield_multi_title">Multi-line card</string>
+    <string name="textfield_multi_hint">Share a few words about the idea</string>
+</resources>

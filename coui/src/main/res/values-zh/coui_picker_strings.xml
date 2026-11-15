@@ -5,4 +5,10 @@
     <string name="coui_picker_calendar_year">年</string>
     <string name="coui_picker_calendar_month">月</string>
     <string name="coui_picker_calendar_day">日</string>
+    <string name="coui_picker_hour">时</string>
+    <string name="coui_picker_minute">分</string>
+    <string name="coui_picker_second">秒</string>
+    <string name="coui_picker_date">日期</string>
+    <string name="coui_picker_today">今天</string>
+    <string name="coui_picker_time_limit_am_pm">切换上午或下午</string>
 </resources>

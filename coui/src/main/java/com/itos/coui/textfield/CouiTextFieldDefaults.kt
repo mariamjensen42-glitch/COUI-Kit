@@ -2,6 +2,7 @@ package com.itos.coui.textfield
 
 import android.graphics.Typeface
 import android.os.Build
+import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -37,6 +38,8 @@ data class CouiTextFieldColors(
     val cursor: Color,
     /** 禁用时的正文、占位提示与标签。 */
     val disabled: Color,
+    /** 错误态：描边与错误文案。 */
+    val error: Color = Color(0xFFDB382C),
 )
 
 /**
@@ -65,13 +68,42 @@ object CouiTextFieldDefaults {
     /** 标签浮动时上移的距离。输入文字同步下移同一距离，卡片高度不变。 */
     val labelShift = 8.dp
 
+    /** 错误态的描边宽度。 */
+    val errorStrokeWidth = 1.dp
+
+    /** 错误文案与卡片之间的距离。 */
+    val errorTextSpacing = 4.dp
+
+    /** 进入错误态的时长：抖动 450ms、描边与文案染色 217ms，`DURATION_HINT_ANIMATOR`。 */
+    val errorEnterDurationMillis = 217
+
+    /** 退出错误态时文案淡出 283ms。 */
+    val errorExitDurationMillis = 283
+
+    /** 抖动总时长，`ShakeInterpolator` 的四段累计。 */
+    val errorShakeDurationMillis = 450
+
+    /** 抖动振幅 `coui_edit_text_shake_amplitude`。 */
+    val errorShakeAmplitude = 5.33.dp
+
+    /** `COUIEaseInterpolator`：PathInterpolator(0.42, 0, 1, 1) 的近似缓入曲线。 */
+    val errorEase = CubicBezierEasing(0.42f, 0f, 1f, 1f)
+
+    /** 错误色：日间 `coui_color_error`、夜间 `coui_color_error_dark`。 */
+    fun errorColor(dark: Boolean = CouiTheme.isDark): Color =
+        if (dark) Color(0xFFFF6C61) else Color(0xFFDB382C)
+
+    /** 错误文案：12sp，与 `couiTextCaption` 同档。 */
+    fun errorTextStyle(): TextStyle = TextStyle(fontSize = 12.sp)
+
     @Composable
     fun colors(dark: Boolean = CouiTheme.isDark): CouiTextFieldColors {
         val theme = CouiTheme.colorSchemeFor(dark)
         // 禁用强度与页面禁用文字一致，避免同一页出现两种淡化程度。
         return CouiTextFieldColors(container = theme.card, text = theme.onSurface,
             placeholder = theme.onSurfaceVariant, label = theme.onSurfaceVariant,
-            cursor = theme.accent, disabled = theme.onSurface.copy(alpha = .3f))
+            cursor = theme.accent, disabled = theme.onSurface.copy(alpha = .3f),
+            error = errorColor(dark))
     }
 
     /**

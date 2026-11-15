@@ -4,6 +4,8 @@
     <string name="picker_time_title">Time picker</string>
     <string name="picker_countdown_title">Countdown picker</string>
     <string name="picker_date_title">Date wheels</string>
+    <string name="picker_lunar_title">Lunar date wheels</string>
+    <string name="picker_time_limit_title">Limited time</string>
     <string name="picker_calendar_title">Calendar picker</string>
     <string name="picker_inline">In page</string>
     <string name="picker_dialog">Dialog</string>

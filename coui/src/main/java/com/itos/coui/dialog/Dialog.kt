@@ -19,10 +19,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
-import androidx.compose.ui.zIndex
 import com.itos.coui.backdrop.CouiBackdrop
-import com.itos.coui.buttonBar.CouiButtonBarDefaults
-import com.itos.coui.buttonBar.CouiButtonBarLayout
 import com.itos.coui.theme.CouiTheme
 
 /** 受控操作。确认后的关闭、状态变更及业务提交由 onClick 的宿主处理。 */
@@ -89,32 +86,4 @@ fun Dialog(
             }
         }
     }
-}
-
-@Composable
-private fun DialogActions(confirm: CouiDialogAction, dismiss: CouiDialogAction?, neutral: CouiDialogAction?,
-    colors: CouiDialogColors, dark: Boolean, material: Boolean, onStacked: (Boolean) -> Unit) {
-    // 项目既有特化：横排取「取消、中性、确认」，竖排取「中性、确认、取消」。
-    CouiButtonBarLayout(
-        items = listOfNotNull(neutral, confirm, dismiss),
-        modifier = Modifier.zIndex(1f),
-        horizontalItems = listOfNotNull(dismiss, neutral, confirm),
-        text = { it.text },
-        enabled = { it.enabled },
-        textStyle = rememberDialogTextStyle(DialogTextKind.Button),
-        contentVerticalPadding = CouiButtonBarDefaults.buttonVerticalPadding,
-        onStacked = onStacked,
-    ) { action, _, modifier ->
-        DialogActionButton(action, if (action === neutral) colors.copy(action = colors.destructive) else colors,
-            dark, material, modifier)
-    }
-}
-
-@Composable
-private fun DialogActionButton(action: CouiDialogAction, colors: CouiDialogColors, dark: Boolean, material: Boolean,
-    modifier: Modifier) {
-    DialogButton(modifier = modifier, text = action.text, onClick = action.onClick,
-        dark = dark, enabled = action.enabled, style = action.style, material = material,
-        colors = action.colors ?: DialogButtonDefaults.secondaryColors(dark, material).copy(
-            content = colors.action, disabledContent = colors.disabledAction))
 }

@@ -5,4 +5,10 @@
     <string name="coui_picker_calendar_year">Year</string>
     <string name="coui_picker_calendar_month">Month</string>
     <string name="coui_picker_calendar_day">Day</string>
+    <string name="coui_picker_hour">Hour</string>
+    <string name="coui_picker_minute">Minute</string>
+    <string name="coui_picker_second">Second</string>
+    <string name="coui_picker_date">Date</string>
+    <string name="coui_picker_today">Today</string>
+    <string name="coui_picker_time_limit_am_pm">Switch AM or PM</string>
 </resources>

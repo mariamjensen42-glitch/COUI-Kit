@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="progressive_drag_title">Progressive drag</string>
+    <string name="progressive_drag_row">Row %1$d</string>
+    <string name="progressive_drag_hint">Drag the panel sideways: closer rows follow faster than far ones.</string>
+</resources>

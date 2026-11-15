@@ -1,0 +1,11 @@
+<resources>
+    <string name="seekbar_family_title">Seek bar variants</string>
+    <string name="intro_seekbar_family">Sectioned track with tick marks, plus icon panels for brightness and volume.</string>
+    <string name="seekbar_section_title">Sectioned slider</string>
+    <string name="seekbar_section_value">Current section: %1$d</string>
+    <string name="seekbar_section_reset">Reset section</string>
+    <string name="seekbar_icon_title">Icon slider</string>
+    <string name="seekbar_icon_brightness">Brightness</string>
+    <string name="seekbar_icon_volume">Volume</string>
+    <string name="seekbar_icon_value">Level: %1$d</string>
+</resources>

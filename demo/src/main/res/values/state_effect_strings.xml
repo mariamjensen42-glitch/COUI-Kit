@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="state_effect_title">State effect</string>
+    <string name="state_effect_intro">Hover, focus, press masks with a focus outline and press scale on one surface.</string>
+    <string name="state_effect_item">Card %1$d</string>
+    <string name="state_effect_hint">Press a card; on a pointer device hover it, and with a keyboard focus it to see every channel.</string>
+    <string name="state_effect_outline">Focus outline</string>
+    <string name="state_effect_scale">Press scale</string>
+    <string name="state_effect_enabled">Enabled</string>
+</resources>

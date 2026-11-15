@@ -18,6 +18,9 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
+private val LunarMinDate: LocalDate = LocalDate.of(1900, 1, 31)
+private val LunarMaxDate: LocalDate = LocalDate.of(2100, 12, 31)
+
 @Composable
 internal fun PickerSamples(page: String, dark: Boolean) {
     var mode by rememberSaveable { mutableStateOf(page) }
@@ -43,14 +46,14 @@ internal fun PickerSamples(page: String, dark: Boolean) {
     val maxDate = if (restricted) monthEnd else LocalDate.of(2100, 12, 31)
     fun currentValue(kind: String): Long = when (kind) {
         "wheel" -> number.toLong()
-        "timepicker" -> timeSeconds.toLong()
+        "timepicker", "timelimitpicker" -> timeSeconds.toLong()
         "countdownpicker" -> durationSeconds.toLong()
         else -> date
     }
     fun updateValue(kind: String, next: Long) {
         when (kind) {
             "wheel" -> number = next.toInt()
-            "timepicker" -> timeSeconds = next.toInt()
+            "timepicker", "timelimitpicker" -> timeSeconds = next.toInt()
             "countdownpicker" -> durationSeconds = next.toInt()
             else -> date = next
         }
@@ -60,6 +63,7 @@ internal fun PickerSamples(page: String, dark: Boolean) {
         "wheel" -> String.format(locale, "%02d", number)
         "timepicker" -> LocalTime.ofSecondOfDay(timeSeconds.toLong()).format(
             DateTimeFormatter.ofPattern(if (is24Hour) "HH:mm" else "hh:mm a", locale))
+        "timelimitpicker" -> String.format(locale, "%02d:%02d", seconds / 3600, seconds / 60 % 60)
         "countdownpicker" -> String.format(locale, "%02d:%02d:%02d",
             durationSeconds / 3600, durationSeconds / 60 % 60, durationSeconds % 60)
         else -> LocalDate.ofEpochDay(date).format(
@@ -90,7 +94,7 @@ internal fun PickerSamples(page: String, dark: Boolean) {
             DemoSwitchPreference(title = stringResource(R.string.picker_wheel_enabled), checked = enabled,
                 onCheckedChange = { enabled = it })
         }
-        "timepicker" -> Group {
+        "timepicker", "timelimitpicker" -> Group {
             DemoSwitchPreference(title = stringResource(R.string.settings_time_24), checked = is24Hour,
                 onCheckedChange = { is24Hour = it })
         }
@@ -138,13 +142,20 @@ private fun PickerBody(page: String, value: Long, onValueChange: (Long) -> Unit,
                 valueRange = 0..12, label = stringResource(R.string.picker_wheel_label),
                 wrap = wrap, enabled = enabled, formatter = { String.format(locale, "%02d", it) })
         }
-        "timepicker" -> DemoTimePicker(value = DemoTime(seconds / 3600, seconds / 60 % 60),
+        "timepicker" -> TimePicker(value = CouiTime(seconds / 3600, seconds / 60 % 60),
             onValueChange = { onValueChange((it.hour * 3600 + it.minute * 60).toLong()) },
             hourLabel = hour, minuteLabel = minute, is24Hour = is24Hour)
+        "timelimitpicker" -> TimeLimitPicker(value = CouiTime(seconds / 3600, seconds / 60 % 60),
+            onValueChange = { onValueChange((it.hour * 3600 + it.minute * 60).toLong()) },
+            hourLabel = hour, minuteLabel = minute, is24Hour = is24Hour, maxHour = 12, maxMinute = 30)
+        "lunardatepicker" -> LunarDatePicker(value = LocalDate.ofEpochDay(value),
+            onValueChange = { onValueChange(it.toEpochDay()) },
+            yearLabel = stringResource(R.string.picker_year), monthLabel = stringResource(R.string.picker_month),
+            dayLabel = stringResource(R.string.picker_day), minDate = LunarMinDate, maxDate = LunarMaxDate)
         "countdownpicker" -> DemoCountdownPicker(value = DemoDuration(seconds / 3600, seconds / 60 % 60, seconds % 60),
             onValueChange = { onValueChange(it.totalSeconds.toLong()) }, hourLabel = hour,
             minuteLabel = minute, secondLabel = stringResource(R.string.picker_second))
-        "datepicker" -> DemoDatePicker(value = LocalDate.ofEpochDay(value), onValueChange = { onValueChange(it.toEpochDay()) },
+        "datepicker" -> DatePicker(value = LocalDate.ofEpochDay(value), onValueChange = { onValueChange(it.toEpochDay()) },
             yearLabel = stringResource(R.string.picker_year), monthLabel = stringResource(R.string.picker_month),
             dayLabel = stringResource(R.string.picker_day), minDate = minDate, maxDate = maxDate)
         "calendar" -> CalendarPicker(value = LocalDate.ofEpochDay(value), onValueChange = { onValueChange(it.toEpochDay()) },

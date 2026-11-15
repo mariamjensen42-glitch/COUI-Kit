@@ -4,39 +4,37 @@ Status: implemented
 
 ## Problem
 
-两模块已有可验证的 Maven 产物，Central 发行仍需维护者在本地签名、组装 ZIP、上传并手动发布。源码版本、上传状态和消费者实际可下载状态由人工串联，重复操作容易遗漏适配模块或误将验证完成当作发行完成。
+两模块已有可验证的 Maven 产物，公开发行最初由 Central 承担：推送发行 Tag 后签名、上传并等待 Portal 发布。该渠道要求维护者持有 Portal User Token 与 ASCII-armored GPG 私钥并完成公钥分发，凭据缺失时整条发行链路不可用；实际使用中这些凭据从未配置，Tag 推送只换来一个缺凭据的失败记录，发布动作仍由维护者在本地串联。
 
 ## Decision
 
-[Central 工作流](../../../../.github/workflows/publish-central.yml)只响应上游仓库发行 Tag。Tag 指向已合入 main 的提交，版本由 Tag 去掉首字母 v 得到并同时传给两个模块。稳定版和 alpha/beta/rc 的接受范围由[版本解析器](../../../../.github/scripts/central-release-version.cjs)维护；开发 SNAPSHOT 不进入此路径，根开发版本不随发行修改。
+2026-11-15 起下线 Central 渠道，公开发行改由 JitPack 按 Tag 构建承担：
 
-先在没有发布凭据的步骤执行库 Lint、本地发行构建与现有产物检查。随后只在签名上传步骤注入 Portal User Token 和 ASCII-armored GPG 私钥，通过 Gradle 属性启用已有 Vanniktech 插件的 Central 与签名功能。普通 PR、Demo 和 Packages 仍使用原配置，不依赖这些凭据。签名步骤关闭 configuration cache，整个发布任务关闭 Gradle 缓存。
+- 删除 `publish-central.yml` 与 `central-release-version.cjs`，PR 检查不再执行 Tag 版本解析器自检。Tag 名只由发布指南约定，不再有脚本闸门。
+- JitPack 读根目录 `jitpack.yml`，用 `-PGROUP=com.github.mariamjensen42-glitch.COUI-Kit`、`-PVERSION_NAME=<tag 去掉首字母 v>` 同时覆盖两模块，无需仓库内的任何发布凭据或签名密钥。
+- Vanniktech 插件保留：GitHub Packages 快照上传仍依赖它产出 POM、源码包与 Dokka 归档，删除插件会让快照渠道一起失效。
+- GitHub Packages 的仓库地址、POM 的 url/scm 与工作流 gate 统一指向 `mariamjensen42-glitch/COUI-Kit`；校验步骤从 `GITHUB_REPOSITORY` 小写派生主机路径，避免再次硬编码所有者。
 
-从根目录调用 `publishAndReleaseToMavenCentral`，使两个模块进入插件共享服务的同一部署。插件负责签名、打包、上传和状态轮询，不自建 API 客户端。等待 PUBLISHED 后，独立匿名下载两模块的发行文件和签名，全部成功才输出发行摘要。网络重试有界，失败保持失败；不自动重复提交部署或移动 Tag。
-
-Tag 推送本身就是该版本的发行操作，不再增加 Portal 人工点击步骤。工作流文件须先合入 main；配置完成不等于已发行。使用说明、Secrets 格式和恢复方法归[发布指南](../../../../docs/development/publishing.md)。
+代价是公开版本不可覆盖、不可撤销，且没有中央仓库的签名与索引；收益是发行链路上没有维护者私有凭据，Tag 推送后消费者即可解析坐标。使用说明归[发布指南](../../../../docs/development/publishing.md)。
 
 ## Evidence
 
-- [Vanniktech 0.37.0 Central 文档](https://github.com/vanniktech/gradle-maven-publish-plugin/blob/0.37.0/docs/central.md)定义属性、内存签名和 PUBLISHED 等待方式。
-- [共享发布服务](https://github.com/vanniktech/gradle-maven-publish-plugin/blob/0.37.0/plugin/src/main/kotlin/com/vanniktech/maven/publish/central/MavenCentralBuildService.kt)收集各项目产物并创建同一部署。
-- [Central Publisher API](https://central.sonatype.org/publish/publish-portal-api/)区分验证、发布中和已发布；读取成功不是上传请求成功的同义词。
+- [JitPack 自定义命令](https://jitpack.io/docs/BUILDING/#custom-commands)规定 `jitpack.yml` 里的 Gradle 调用即发布入口，坐标固定为 `com.github.<owner>.<repo>`。
+- [GitHub Packages 认证](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)要求仓库地址与包所有者一致，`GITHUB_TOKEN` 需 packages: write。
+- 历史实现（Central 工作流、Portal User Token 与 GPG 属性注入、`publishAndReleaseToMavenCentral` 共享部署、版本解析器自检）在 `v0.0.1-alpha13` 及以前的提交里可查，`publish-central.yml` 因 gate 只允许上游仓库而在本仓库一直 skipped。
 
 ## Existing-note audit
 
-- [GitHub Packages 预览发布](2026-10-25-github-packages-preview.md)：部分重叠，复用双模块产物检查；保留原快照渠道并互链。
-- [Demo 签名与 CI](2026-10-25-demo-signing-ci.md)：部分重叠，沿用工具链和无凭据 PR 边界；不改变 Demo 触发或签名。
-- [可选 M3 模块](../architecture/2026-10-31-optional-material3-style.md)：部分重叠，沿用两模块同版本及核心不依赖 M3 的约束。
-- 开发指南、许可和组件记录不涉及 Central 自动发行决定；未发现须拒绝或归档的同范围提案。
+- [GitHub Packages 预览发布](2026-10-25-github-packages-preview.md)：部分重叠，本改动用它继续持有快照渠道；已同步更新该篇对公开渠道的描述。
+- [Demo 签名与 CI](2026-10-25-demo-signing-ci.md)：无关，Demo 打包与签名不受影响。
+- 开发指南与快速开始属于接入说明，已在同一改动里改为 JitPack 坐标，不另立提案。
 
 ## Alternatives considered
 
-- **提交标题使用 publish 前缀。** 接近既有 Demo 操作，但需要额外解析提交消息并写 Tag；直接推送版本 Tag 能绑定源码且只需仓库读取权限。
-- **自行打包 ZIP 并调用 Portal API。** 能控制每次请求，但会重复插件已有的聚合、签名和轮询职责；继续使用项目已安装的插件。
-- **普通 main 提交自动发版。** 无需单独打 Tag，但每次合并都会产生不可覆盖的公开版本；发行意图由版本 Tag 明确表达。
+- **保留 Central 工作流，等凭据就绪再用。** 工作流存在即暗示可用，且 PR 检查要继续跑 Tag 版本自检；凭据缺失时失败记录会掩盖真实发行状态。
+- **同时保留 JitPack 与 Central 双渠道。** 同一版本号会在两处出现不同校验状态，接入文档要维护两套坐标；公开版本只需一个可解析来源。
+- **去掉 Vanniktech 插件改手写 maven-publish。** 需要自行实现 POM、源码包与 Dokka 归档，与 Packages 现有链路重复，且不改变对外坐标。
 
 ## Consequences
 
-维护者无需手动上传 ZIP，代价是首次使用仍要验证 Secret 内容、签名公钥分发和 Central 权限。Central 已发布版本不可覆盖；超时后须先检查原 deployment，不能把等待超时当作上传未发生。
-
-版本解析器内置有效版本、错误格式、SNAPSHOT 和非 Tag 输入断言，PR 执行同一自检入口。静态检查不能证明签名及上传成功；本轮不创建发行 Tag，不执行 Android 构建或实际发布，完整链路以首次授权发行的 Actions 结果为准。
+Tag 推送后必须在 JitPack 页面确认构建为 ok 并核对两个坐标可下载，不再有 Portal 的发布状态可查；构建失败就发新 Tag，不移动旧标签。GitHub Packages 仍按提交 SHA 发布快照，`io.github.itoseo` 这一 group 由 `gradle.properties` 持有，与 JitPack 的 `com.github.mariamjensen42-glitch.COUI-Kit` 并存但不混用。仓库内不再有需要轮换的发布密钥，`MAVEN_CENTRAL_*` 与 `GPG_*` Secrets 可删除。

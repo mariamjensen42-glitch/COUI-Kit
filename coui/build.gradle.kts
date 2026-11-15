@@ -45,7 +45,7 @@ mavenPublishing {
     pom {
         name.set("COUI-Kit")
         description.set("面向 Android Jetpack Compose 的 COUI 组件与视觉效果库")
-        url.set("https://github.com/ItosEO/COUI-Kit")
+        url.set("https://github.com/mariamjensen42-glitch/COUI-Kit")
         licenses {
             license {
                 name.set("Mozilla Public License 2.0")
@@ -61,9 +61,9 @@ mavenPublishing {
             }
         }
         scm {
-            url.set("https://github.com/ItosEO/COUI-Kit")
-            connection.set("scm:git:https://github.com/ItosEO/COUI-Kit.git")
-            developerConnection.set("scm:git:ssh://git@github.com/ItosEO/COUI-Kit.git")
+            url.set("https://github.com/mariamjensen42-glitch/COUI-Kit")
+            connection.set("scm:git:https://github.com/mariamjensen42-glitch/COUI-Kit.git")
+            developerConnection.set("scm:git:ssh://git@github.com/mariamjensen42-glitch/COUI-Kit.git")
         }
     }
 }
@@ -76,7 +76,7 @@ publishing {
         }
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/itoseo/COUI-Kit")
+            url = uri("https://maven.pkg.github.com/mariamjensen42-glitch/COUI-Kit")
             credentials(PasswordCredentials::class)
         }
     }

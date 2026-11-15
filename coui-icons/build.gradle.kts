@@ -37,7 +37,7 @@ mavenPublishing {
     pom {
         name.set("COUI-Kit Icons")
         description.set("COUI 组件的图标与矢量图标资源")
-        url.set("https://github.com/ItosEO/COUI-Kit")
+        url.set("https://github.com/mariamjensen42-glitch/COUI-Kit")
         licenses {
             license {
                 name.set("Mozilla Public License 2.0")
@@ -53,9 +53,9 @@ mavenPublishing {
             }
         }
         scm {
-            url.set("https://github.com/ItosEO/COUI-Kit")
-            connection.set("scm:git:https://github.com/ItosEO/COUI-Kit.git")
-            developerConnection.set("scm:git:ssh://git@github.com/ItosEO/COUI-Kit.git")
+            url.set("https://github.com/mariamjensen42-glitch/COUI-Kit")
+            connection.set("scm:git:https://github.com/mariamjensen42-glitch/COUI-Kit.git")
+            developerConnection.set("scm:git:ssh://git@github.com/mariamjensen42-glitch/COUI-Kit.git")
         }
     }
 }
@@ -68,7 +68,7 @@ publishing {
         }
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/itoseo/COUI-Kit")
+            url = uri("https://maven.pkg.github.com/mariamjensen42-glitch/COUI-Kit")
             credentials(PasswordCredentials::class)
         }
     }

@@ -5,7 +5,7 @@
 使用图标时，在调用模块中添加依赖，并与核心库使用相同版本：
 
 ```kotlin
-implementation("io.github.itoseo:coui-icons:$couiVersion")
+implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui-icons:$couiVersion")
 ```
 
 以下示例中的 `contentDescription` 由调用方根据界面语义提供。

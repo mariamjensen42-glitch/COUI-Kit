@@ -28,7 +28,7 @@ Status: implemented
 
 ## Consequences
 
-[Central Tag 自动发行](2026-11-01-central-tag-publishing.md)补充公开发行渠道；本篇继续持有 Packages 的手动快照、认证与可重复发布边界。
+公开发行渠道现由 [JitPack Tag 自动构建](2026-11-01-central-tag-publishing.md)承担，该篇同时记录 Maven Central 渠道下线的理由；本篇继续持有 Packages 的手动快照、认证与可重复发布边界。
 
 宿主可通过完整 Maven 坐标验证指定源码提交，代价是本地和跨仓库 CI 需要读取认证；公开 Maven 包也不支持匿名下载。SNAPSHOT 包可重复发布，提交 SHA 不保证产物不可变，回看一次发布还需 Actions run；私有包需要考虑存储和下载额度。
 

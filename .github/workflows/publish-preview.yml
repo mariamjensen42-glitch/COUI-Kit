@@ -13,7 +13,7 @@ concurrency:
 jobs:
   publish:
     name: 发布到 GitHub Packages
-    if: github.repository == 'ItosEO/COUI-Kit'
+    if: github.repository == 'mariamjensen42-glitch/COUI-Kit'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
@@ -86,11 +86,12 @@ jobs:
         run: |
           set -euo pipefail
           group_path=${PACKAGE_GROUP//./\/}
+          repo_path=${GITHUB_REPOSITORY,,}
           for artifact in coui coui-icons; do
             metadata="$RUNNER_TEMP/$artifact-published-metadata.xml"
             curl --fail --silent --show-error --retry 3 \
               --user "$PACKAGE_USER:$PACKAGE_TOKEN" \
-              "https://maven.pkg.github.com/itoseo/COUI-Kit/$group_path/$artifact/$PACKAGE_VERSION/maven-metadata.xml" \
+              "https://maven.pkg.github.com/$repo_path/$group_path/$artifact/$PACKAGE_VERSION/maven-metadata.xml" \
               --output "$metadata"
             grep -Fq "<version>$PACKAGE_VERSION</version>" "$metadata"
           done

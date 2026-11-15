@@ -4,15 +4,16 @@
 
 ## 引入 COUI
 
-### Maven Central
+### JitPack
 
-1. 确认项目的 `settings.gradle.kts` 包含 Maven Central：
+1. 确认项目的 `settings.gradle.kts` 声明 JitPack 仓库：
 
 ```kotlin
 dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")
     }
 }
 ```
@@ -25,7 +26,7 @@ android {
 }
 
 dependencies {
-    implementation("io.github.itoseo:coui:0.0.1-alpha13")
+    implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui:v0.0.1-alpha13")
 }
 ```
 
@@ -131,11 +132,11 @@ dependencies {
 
 ### GitHub Packages 预览版
 
-需要验证开发快照时，按 [GitHub Packages 指南](github-packages.md)配置仓库、凭据和坐标。源码模块、Maven Central 发行版和 GitHub Packages 快照选择一种即可，同一模块不要同时引入。
+需要验证开发快照时，按 [GitHub Packages 指南](github-packages.md)配置仓库、凭据和坐标。源码模块、JitPack 发行版和 GitHub Packages 快照选择一种即可，同一模块不要同时引入。
 
 ## 常见问题
 
-**依赖解析失败或 Compose 编译失败**：检查 Maven Central 和项目的 Compose 插件。使用源码模块时，还要检查模块引用的库、插件别名和 DynamicAnimation 解析版本。
+**依赖解析失败或 Compose 编译失败**：检查 JitPack 仓库地址、版本号上的 `v` 前缀和项目的 Compose 插件。使用源码模块时，还要检查模块引用的库、插件别名和 DynamicAnimation 解析版本。
 
 **组件显示了，但背景材质不对**：检查系统版本，并确认背景源覆盖不透明内容，组件位于源节点之外。材质弹窗还需要传入 `material` 和宿主窗口的背景源。
 

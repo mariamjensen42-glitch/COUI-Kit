@@ -1,6 +1,6 @@
 # 接入 GitHub Packages 预览版
 
-需要在自己的 App 中验证 COUI 开发快照时，从“发布库预览版”的成功运行摘要复制依赖坐标。先确认[兼容要求](compatibility.md)，再配置下载凭据。Maven Central 版本的接入方式见[快速开始](getting-started.md)。
+需要在自己的 App 中验证 COUI 开发快照时，从“发布库预览版”的成功运行摘要复制依赖坐标。先确认[兼容要求](compatibility.md)，再配置下载凭据。JitPack 发行版的接入方式见[快速开始](getting-started.md)。
 
 ## 准备下载凭据
 

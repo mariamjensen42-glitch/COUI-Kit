@@ -2,7 +2,7 @@
 #
 # JitPack 用 Tag 或分支名作为版本号，这里传给 VERSION_NAME；
 # group 覆盖成 com.github.<用户>.<仓库>，这是 JitPack 多模块项目的坐标约定，
-# 同时避免和 Maven Central 的 io.github.itoseo 撞车。
+# 与 GitHub Packages 快照使用的 io.github.itoseo 分开，两者不混用。
 #
 # 接入方式：
 #   maven { url = uri("https://jitpack.io") }

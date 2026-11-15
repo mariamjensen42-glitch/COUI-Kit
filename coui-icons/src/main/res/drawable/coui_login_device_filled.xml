@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="LoginDevice"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/coui_icon_tint_blue">
+    <path android:pathData="M11.953,13.336C16.374,13.336 20.104,15.807 21.26,19.183C21.55,20.031 21.695,20.455 21.357,20.928C21.02,21.4 20.47,21.4 19.372,21.4H4.533C3.435,21.4 2.885,21.4 2.548,20.928C2.21,20.455 2.355,20.031 2.645,19.183C3.801,15.807 7.531,13.336 11.953,13.336ZM11.953,1.4C14.625,1.401 16.791,3.567 16.791,6.239C16.791,8.911 14.625,11.077 11.953,11.077C9.281,11.077 7.114,8.911 7.114,6.239C7.114,3.567 9.281,1.4 11.953,1.4Z" />
+</vector>

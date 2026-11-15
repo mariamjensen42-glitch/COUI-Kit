@@ -36,6 +36,10 @@ Icon(
 
 `Filled` 覆盖常用功能图形，按用途分为几组：分享与编辑（`Share`、`Copy`、`Send`、`Upload`、`Print`、`OpenInNew`）、播放控制（`Play`、`Pause`、`Previous`、`NextTrack`、`VolumeOff`）、系统与网络（`Hotspot`、`Vpn`、`Nfc`、`Cast`、`BatteryCharging`、`SystemUpdate`、`Storage`、`DataUsage`、`Language`、`NotificationsOff`、`MicOff`、`Fingerprint`、`PrivacyShield`、`DoNotDisturb`、`Flashlight`、`Vibrate`）、内容与文件（`Document`、`Video`、`Chat`、`Person`、`Apps`、`Calendar`、`Clock`、`Keyboard`、`QrCode`、`Help`）。这一组统一为中性单色，需要功能色时由调用方传 `tint`。
 
+`Filled` 另提供一组自带功能色的清理与扫描图标，按原厂配色分为蓝（`ClearFile`、`ClearPhoto`、`ClearDoc`、`RecycleBin`、`CloudGallery`、`ClearUnusedApp`、`SdCard`、`NoNetwork`、`FindPhone`、`StartupApp`、`Usb`、`AntiFraud`、`SmartNetwork`、`PrivacyProtect`、`NotificationManage`、`NetworkAbnormal`、`DeviceAdmin`、`FingerScan`、`AppManagement`、`HighPerformance`、`CloudService`、`RiskInterception`、`AppUsage`、`SystemOpt`、`LoginDevice`）、绿（`ClearApk`、`ClearApp`、`ClearWidget`、`AddShortcut`、`ClearInApp`、`DedupFile`、`CompressApp`、`AppDownload`、`IdleApp`、`PowerSaving`、`NetAcceleration`、`SystemBoost`、`FaceUnlock`、`OneKeyOpt`、`SystemResource`、`LowStorage`、`AppClean`、`DevMode`、`Ota`）、橙（`LargeFile`、`AppPermission`、`RiskBehavior`、`AntiHarassment`、`VirusRisk`、`OverAuthorized`、`Virus`）、黄（`DuplicateFile`、`AppLock`、`UnencryptedNetwork`、`AccessibilityRisk`、`Backlight`、`RecentLock`）、红（`ClearAudio`、`ClearVideo`、`VirusUpdate`）五组。它们默认显示五组功能色，需要统一着色时传 `tint`。
+
+`Filled` 还提供中性单色的设置与系统界面操作图形：`Guarantee`、`Hearing`、`Swap`、`RestoreDefault`、`MoveTop`、`SplitScreen`，与前面两组一样可通过 `tint` 定制颜色。
+
 矢量图形保存在 VectorDrawable 资源中，传统 View 可直接引用，例如 `@drawable/coui_wifi_filled`。传统 View 根据 Android 配置选择日夜资源。
 
 `Search`、`Back`、`Next`、`Close`、`Add`、`DarkLight`、`CloudData`、`Album` 和 `WandSpark` 的可见图形均为不透明单色，默认日间黑色、夜间白色。底栏状态透明度由 `NavigationBar` 应用；独立 FAB 默认以不透明白色染色，可通过 `contentColor` 覆盖。

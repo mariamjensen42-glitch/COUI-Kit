@@ -17,7 +17,7 @@
 
 ```kotlin
 dependencies {
-    implementation("io.github.itoseo:coui:0.0.1-alpha12")
+    implementation("io.github.itoseo:coui:0.0.1-alpha13")
 }
 ```
 

@@ -47,7 +47,7 @@ QuickActionGrid(
 
 | 项 | `Card` | `Capsule` |
 | --- | --- | --- |
-| 轮廓 | `CouiPageDefaults.shape`（24dp 超椭圆） | `CouiPageDefaults.quickActionCapsuleShape`（全圆） |
+| 轮廓 | `CouiTheme.shapes.card`（24dp 超椭圆） | `CouiTheme.shapes.capsule`（全圆） |
 | 最小高度 | 56dp | 60dp |
 | 行 / 列间距 | 12dp | 8dp |
 | 图标后留白 | 12dp | 8dp |

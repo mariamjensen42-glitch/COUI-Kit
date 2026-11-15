@@ -50,7 +50,7 @@ private fun NavigationSample(dark: Boolean) {
     var right by rememberSaveable { mutableStateOf(true) }
     val titles = listOf(stringResource(R.string.controls), stringResource(R.string.effects),
         stringResource(R.string.demo_settings))
-    val rendering = if (Build.VERSION.SDK_INT >= 34) remember { runCatching { CouiFloatingRenderer() } } else null
+    val rendering = if (Build.VERSION.SDK_INT >= 33) remember { runCatching { CouiFloatingRenderer() } } else null
     val renderer = rendering?.getOrNull()
 
     Group {
@@ -62,7 +62,7 @@ private fun NavigationSample(dark: Boolean) {
     }
     Group(title = stringResource(R.string.catalog_navigation)) {
         ChromePreview(Modifier.height(224.dp)) { backdrop ->
-            if (Build.VERSION.SDK_INT >= 34 && renderer != null) {
+            if (Build.VERSION.SDK_INT >= 33 && renderer != null) {
                 NavigationBar(Modifier.align(Alignment.BottomCenter), backdrop, renderer,
                     items = listOf(
                         CouiNavigationItem(title = titles[0], icon = CouiIcons.Filled.Grid),
@@ -77,7 +77,7 @@ private fun NavigationSample(dark: Boolean) {
                     circleShape = DemoShapes.couiCircle, capsuleShape = DemoShapes.couiCapsule)
             }
         }
-        if (Build.VERSION.SDK_INT < 34) DemoPreference(title = stringResource(R.string.requires_api_34), enabled = false)
+        if (Build.VERSION.SDK_INT < 33) DemoPreference(title = stringResource(R.string.requires_api_34), enabled = false)
         rendering?.exceptionOrNull()?.let { Text(stringResource(R.string.renderer_error, it.message ?: it.javaClass.simpleName),
             color = DemoPalette.error) }
     }
@@ -109,14 +109,14 @@ internal fun FabSample(preset: CouiFabColor, onPresetChange: (CouiFabColor) -> U
             }
         }
     }
-    if (Build.VERSION.SDK_INT < 34) DemoPreference(title = stringResource(R.string.requires_api_34), enabled = false)
+    if (Build.VERSION.SDK_INT < 33) DemoPreference(title = stringResource(R.string.requires_api_34), enabled = false)
     // 固定按钮上方保留滚动余量，窄屏横向布局下末项仍能完整露出。
-    if (Build.VERSION.SDK_INT >= 34) Spacer(Modifier.height(80.dp))
+    if (Build.VERSION.SDK_INT >= 33) Spacer(Modifier.height(80.dp))
 }
 
 @Composable
 internal fun FabSampleButton(modifier: Modifier = Modifier, dark: Boolean, preset: CouiFabColor, rounded: Boolean) {
-    if (Build.VERSION.SDK_INT >= 34) {
+    if (Build.VERSION.SDK_INT >= 33) {
         val rendering = remember { runCatching { CouiFloatingRenderer.standalone() } }
         val renderer = rendering.getOrNull()
         if (renderer != null) {

@@ -51,7 +51,7 @@ import com.itos.coui.effect.CouiShadowRenderer
 import com.itos.coui.effect.couiShadow
 import com.itos.coui.theme.CouiTheme
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 internal fun ShadowSamples(dark: Boolean) {
     var elevation by rememberSaveable { mutableFloatStateOf(CouiShadowDefaults.menu(dark).elevation.value) }

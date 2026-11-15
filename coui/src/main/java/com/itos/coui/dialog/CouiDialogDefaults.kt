@@ -1,5 +1,6 @@
 package com.itos.coui.dialog
 
+import android.graphics.BlendMode
 import android.os.Build
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.runtime.Immutable
@@ -8,8 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
-import com.itos.coui.shape.CouiShape
-import com.itos.coui.effect.CouiMaterialBlendMode
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiTheme
 
 /** 普通警告窗口的位置；大屏策略由宿主决定，不探测厂商私有设备特征。 */
@@ -40,7 +40,7 @@ data class CouiDialogMaterial(
     val blend: Color,
     /** 原厂 integer/coui_dialog_blur_radius；是 Kawase 引擎等级，不是像素或 sigma。 */
     val blurRadius: Int = 200,
-    val blendMode: CouiMaterialBlendMode = CouiMaterialBlendMode.Overlay,
+    val blendMode: BlendMode = BlendMode.OVERLAY,
 ) {
     init { require(blurRadius == 0 || blurRadius >= 10) { "模糊等级必须为 0 或至少 10" } }
 }
@@ -53,7 +53,8 @@ object CouiDialogDefaults {
     internal val enterEasing = CubicBezierEasing(.3f, 0f, .1f, 1f)
     internal val exitEasing = CubicBezierEasing(.3f, 0f, 1f, 1f)
     val cornerRadius = 45.dp
-    val shape: Shape = CouiShape(cornerRadius, 3f)
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.dialog`。 */
+    val shape: Shape = CouiShapes.Default.dialog
     val maxWidth = 392.dp
     val maxHeight = 632.dp
     val landscapeMaxHeight = 306.dp
@@ -118,7 +119,7 @@ object CouiDialogDefaults {
         mix = if (dark) Color(0x8C777777) else Color(0xDC909090),
         blend = if (dark) Color(0xB2292929) else Color(0x509F9F9F),
         blurRadius = 200,
-        blendMode = if (dark) CouiMaterialBlendMode.Overlay else CouiMaterialBlendMode.ColorDodge,
+        blendMode = if (dark) BlendMode.OVERLAY else BlendMode.COLOR_DODGE,
     )
 
     /** 主操作主题色由宿主提供，组件不自行读取宿主主题。 */

@@ -142,7 +142,7 @@ internal fun MotionSample() {
 }
 
 /** 浮动表面低层入口：宿主自备采样源、材质、投影与绘制层，组件只负责合成。 */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 internal fun FloatingSurfaceSample(dark: Boolean) {
     val backdrop = rememberCouiBackdrop()

@@ -57,6 +57,7 @@ nav = [
     ] },
     { "输入与选择" = [
       "components/slider.md",
+      "components/vertical-seek-bar.md",
       "components/segmented-control.md",
       "components/checkbox.md",
       "components/switch.md",
@@ -72,6 +73,8 @@ nav = [
       "components/floating-toolbar.md",
       "components/progress.md",
       "components/toast.md",
+      "components/top-tips.md",
+      "components/marquee-text.md",
       "components/badge-tooltip.md",
       "components/page-indicator.md",
       "components/empty-state.md",
@@ -90,6 +93,7 @@ nav = [
     "effects/metaball.md",
     "effects/overscroll.md",
   ] },
+  { "对照" = ["status/coverage.md"] },
   { "开发" = [
     "development/README.md",
     "development/workflow.md",

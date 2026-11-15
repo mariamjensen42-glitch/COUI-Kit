@@ -26,7 +26,7 @@ class CouiTopAppBarSearchState internal constructor(
     internal var expandedWidth by mutableFloatStateOf(0f)
 }
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun rememberCouiTopAppBarSearchState(
     expanded: Boolean,

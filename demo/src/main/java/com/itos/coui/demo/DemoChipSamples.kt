@@ -37,11 +37,11 @@ import com.itos.coui.menu.rememberCouiMenuAnchor
 
 @Composable
 internal fun ChipTabSample(dark: Boolean) {
-    if (Build.VERSION.SDK_INT >= 34) ChipTabMaterialSample(dark)
+    if (Build.VERSION.SDK_INT >= 33) ChipTabMaterialSample(dark)
     else Text(stringResource(R.string.requires_api_34), color = CouiTheme.colorScheme.onSurfaceVariant)
 }
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 private fun ChipTabMaterialSample(dark: Boolean) {
     var selected by rememberSaveable { mutableIntStateOf(0) }

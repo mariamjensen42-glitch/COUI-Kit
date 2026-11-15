@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
-import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.Text
 import com.itos.coui.theme.CouiTheme
@@ -34,7 +34,8 @@ data class CouiTooltipColors(val container: Color, val content: Color)
 /** 气泡固定参数，取自 ColorOS 17 手机管家内嵌的 `COUIToolTips` 与 `coui_tooltips_*` 尺寸。 */
 object CouiTooltipDefaults {
     /** `couiRoundCornerM` = 12dp，与 `coui_tool_tips_background` 的 corners 一致。 */
-    val shape: Shape = CouiShape(12.dp)
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.medium`。 */
+    val shape: Shape = CouiShapes.Default.medium
     val gap = 8.dp
 
     /** 原厂四边留白均为 13dp。 */
@@ -80,8 +81,8 @@ fun Tooltip(
             ) {
                 Box(
                     Modifier.widthIn(max = CouiTooltipDefaults.maxWidth)
-                        .clip(CouiTooltipDefaults.shape)
-                        .background(colors.container, CouiTooltipDefaults.shape)
+                        .clip(CouiTheme.shapes.medium)
+                        .background(colors.container, CouiTheme.shapes.medium)
                         .padding(CouiTooltipDefaults.padding),
                 ) {
                     ProvideCouiContent(color = colors.content) {

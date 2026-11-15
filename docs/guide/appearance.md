@@ -36,7 +36,7 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 
 绿色是页面主色，不表示原厂存在名为 Green 的主题；需要其他强调色时仍按上面 `copy(accent = …)` 的方式自定义。
 
-`CouiTypography` 管普通内容、标签、菜单项及可选字体族。Shape 仍由各组件 Defaults 提供。
+`CouiTypography` 管普通内容、标签、菜单项及可选字体族，`CouiShapes` 管轮廓，两者都可由宿主整体替换，见[Shape 与效果开关](#shape-与效果开关)。
 
 `CouiColorScheme.background` 是页面底色，`surface` 是组件表面，`container` 是通用容器底色，`card` 是列表分组卡片色。原生深色卡片使用 `couiColorCardBackground` 的半透明白色，叠加页面背景；菜单等顶层容器使用独立颜色。自定义色板省略 `background` 时沿用 `surface`，省略 `card` 时沿用 `container`。`CouiPageDefaults.themeColors()` 分别读取 `background` 和 `card`，宿主将页面底色传给自己的页面容器。`CouiPageDefaults.colors(accent, dark)` 从对应的原生浅色或深色预设生成 `CouiPageColors`，再应用显式强调色；它不会读取或创建主题作用域。
 
@@ -65,6 +65,37 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 ## Shape 与效果开关
 
 [CouiShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiShape.kt)和[CouiCapsuleShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiCapsuleShape.kt)可被宿主 Shape 替换。材质距离场、内容 Path 和投影 Outline 有各自的几何要求，不能因圆角同名就互换。
+
+### 轮廓 token
+
+[CouiShapes](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiShapes.kt) 是组件默认读取的轮廓集合，通过 `CouiTheme` 提供，与深浅色无关：
+
+| 字段 | 原生值 | 典型使用者 |
+| --- | --- | --- |
+| `extraSmall` | `CouiShape(4.dp)` | 复选框 |
+| `small` | `CouiShape(8.dp)` | 占位块 |
+| `medium` | `CouiShape(12.dp)` | 气泡 |
+| `large` | `CouiShape(16.dp)` | FAB 圆角方形形态 |
+| `extraLarge` | `CouiShape(20.dp)` | 模式选择卡 |
+| `card` | `CouiShape(24.dp, 3f)` | 分组卡片、通用卡片、操作卡、通知卡、快捷动作卡 |
+| `menu` | `CouiShape(28.dp)` | 菜单及其条目 |
+| `panel` | 上两角 `32.dp` | 底部面板 |
+| `dialog` | `CouiShape(45.dp, 3f)` | 弹窗 |
+| `capsule` | `CouiCapsuleShape` | 按钮、开关、滑块、搜索栏、底栏、顶栏胶囊按钮 |
+| `circle` | `CouiShape(999.dp, 2f)` | 头像、图标按钮、圆形 FAB、顶栏圆形按钮 |
+
+宿主整体替换时不必逐组件传参：
+
+~~~kotlin
+CouiTheme(
+    darkTheme = dark,
+    shapes = CouiTheme.shapes.copy(card = CouiShape(16.dp, 3f)),
+) {
+    content()
+}
+~~~
+
+省略 `shapes` 时沿用外层 token，嵌套 `CouiTheme` 只改配色不会重置轮廓。显式传入的组件 Shape 参数始终优先；各组件 `Defaults` 保留同值基线，供文档引用和显式覆盖。输入框（10dp）、轻提示（12.67dp）、控制中心磁贴与档位条（正圆/胶囊几何）使用所属组件的私有资源，不参与 token。`LocalCouiShapes` 可在不建立主题时单独提供，缺省为原生刻度。
 
 顶栏使用 `CouiToolbarStyle`，菜单使用 `CouiMenuStyle`。菜单默认工厂使用当前主题的 `dark`；自定义 Style 应显式传入模式，省略时按 surface 亮度判断。
 

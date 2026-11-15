@@ -19,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -26,14 +27,15 @@ import androidx.compose.ui.unit.dp
 import com.itos.coui.effect.couiButtonFeedback
 import com.itos.coui.layout.CouiPageColors
 import com.itos.coui.layout.CouiPageDefaults
-import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.Text
 import com.itos.coui.theme.CouiTheme
 
 /** 选择卡的轮廓、留白与图标尺寸；三张卡等分宽度时高度取 [minHeight]。 */
 object CouiChoiceCardDefaults {
-    val shape = CouiShape(20.dp)
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.extraLarge`。 */
+    val shape: Shape = CouiShapes.Default.extraLarge
     val padding = 12.dp
     val iconSize = 24.dp
     val iconSpacing = 6.dp
@@ -87,11 +89,12 @@ private fun ChoiceCardCell(
 ) {
     val source = remember { MutableInteractionSource() }
     val contentColor = if (selected) colors.accent else colors.title
+    val shape = CouiTheme.shapes.extraLarge
     Column(modifier.defaultMinSize(minHeight = CouiChoiceCardDefaults.minHeight)
-        .clip(CouiChoiceCardDefaults.shape)
+        .clip(shape)
         .background(colors.card)
         .then(if (selected) Modifier.border(CouiChoiceCardDefaults.borderWidth, colors.accent,
-            CouiChoiceCardDefaults.shape) else Modifier)
+            shape) else Modifier)
         .couiButtonFeedback(dark, source)
         .selectable(selected = selected, interactionSource = source, indication = null,
             role = Role.RadioButton, onClick = onClick)

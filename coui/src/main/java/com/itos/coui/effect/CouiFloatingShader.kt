@@ -4,7 +4,7 @@ package com.itos.coui.effect
 internal fun couiFloatingShader(index: Int): String {
     require(index in 1..3)
     // 原片段使用 fwidth; 保留导数抗锯齿, 不改成固定像素宽度。
-    return "#version 300\nconst int MATERIAL_INDEX = $index;\n" + CouiMaterialShaderFunctions +
+    return "const int MATERIAL_INDEX = $index;\n" + CouiMaterialShaderFunctions +
         FloatingBaseUniforms + FloatingBallUniforms + FloatingLightingUniforms + FloatingShapeFunctions +
         FloatingPairFunctions + FloatingLightingFunctions + FloatingSdf + when (index) {
         1 -> FloatingIndex1
@@ -18,7 +18,7 @@ internal fun couiFloatingShader(index: Int): String {
 }
 
 // BaseShader 的非融球 cornerType=4 分支, 不声明关联主体或计算 pair。
-internal fun couiFloatingStandaloneShader(): String = "#version 300\n" + CouiMaterialShaderFunctions +
+internal fun couiFloatingStandaloneShader(): String = CouiMaterialShaderFunctions +
     FloatingBaseUniforms + "uniform float u_baseShapeCtxArray[12];\n" + FloatingLightingUniforms +
     FloatingShapeFunctions + FloatingLightingFunctions + FloatingRect + FloatingStandaloneRect +
     "return rectData;}" + FloatingStandaloneMain
@@ -470,7 +470,7 @@ blendPair(p, rp1, rp3, rc1, rc3, shapeCtx1, shapeCtx3, rawSdf1, rawSdf3, sdfInde
 blendPair(p, rp2, rp3, rc2, rc3, shapeCtx2, shapeCtx3, rawSdf2, rawSdf3, sdfIndex2, sdfIndex3, ball2InvScale, ball3InvScale, minDistance, u_preCmpArray23, range23, aaFactor);
 float mixC;
 ShapeResult sr;
-float aa = max(EPS, mix(EPS, fwidth(minDistance), aaFactor));
+float aa = max(EPS, mix(EPS, 1.0, aaFactor));
 mixC = smoothstep(aa, -aa, minDistance);
 float antiAa = ANTIALIASING+aa;
 float epsAa = aa+EPS;
@@ -517,7 +517,7 @@ float2 coords = float2(position.x, u_commonArray[10]-position.y);
 CommonDataRect rectData = getCommonDataRect(coords);
 float aaFactor = 1.0;
 float sdf = smoothSdfD(rectData.pos, shapeCtxFromArray(u_baseShapeCtxArray), aaFactor);
-float aa = max(EPS, mix(EPS, fwidth(sdf), aaFactor));
+float aa = max(EPS, mix(EPS, 1.0, aaFactor));
 float shape = smoothstep(aa, -aa, sdf);
 """ + FloatingColor
 

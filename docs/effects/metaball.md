@@ -32,6 +32,8 @@ fun MetaballPair(
 
 主体的尺寸和半径须为有限非负值，零尺寸表示收缩后的主体。secondAlpha 控制第二主体透明度，fusionEnabled 控制融合参与。算法只支持同色横向双主体，不采样背景。
 
+`blendRangePx` 是融合扩展量，与 `Modifier.couiFloatingSurface` 的 4dp 扩展同一量级；它不乘 2，预算函数内部已按两侧展开。轮廓距离场保留 10 次角点迭代，边缘退晕带与融合强度取 COUI 17 的逐对预计算模型（与浮动表面共用 `floatingPair()`），不再使用 16.99.12 的 shader 内联常量。因此主体转角、融合桥宽度与收窄节奏由同一份几何预算决定；RTL 或右侧对齐仍由宿主转换坐标，见下节。
+
 ## 内容遮罩
 
 背景与遮罩使用相同几何及融合参数，但各自持有 renderer。遮罩先在独立离屏层绘制内容，再使用 Color.White 与 BlendMode.DstIn 调用同一算法。

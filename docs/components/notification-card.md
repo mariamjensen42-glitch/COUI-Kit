@@ -43,7 +43,7 @@ NotificationCard(
 - `time`：可选，相对时间，12sp `Body`，与标题同一行、靠右。
 - `icon`：可选，32dp 槽位，库不做 tint。
 - `containerColor`：卡片底色，默认 `colors.card`；接材质时传 `Color.Transparent`。
-- `shape`：轮廓，默认 `CouiNotificationCardDefaults.shape`；与 `couiFloatingSurface` 的 `shape` 必须一致，否则描边和裁剪会错位。
+- `shape`：轮廓，默认 `CouiTheme.shapes.card`；与 `couiFloatingSurface` 的 `shape` 必须一致，否则描边和裁剪会错位。
 - `bodyMaxLines`：正文最大行数，默认 2。
 
 ## 尺寸

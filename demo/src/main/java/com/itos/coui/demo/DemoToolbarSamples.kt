@@ -58,7 +58,7 @@ internal fun ToolbarSample() {
                 ToolbarPreviewList(query)
             }
         }) { backdrop ->
-            val state = if (Build.VERSION.SDK_INT >= 34) rememberCouiTopAppBarSearchState(expanded) else null
+            val state = if (Build.VERSION.SDK_INT >= 33) rememberCouiTopAppBarSearchState(expanded) else null
             val style = CouiTopAppBarButtonDefaults.style(search = true).withDemoThemeTint()
             val title: @Composable () -> Unit = { Text(stringResource(R.string.toolbar_preview_title), maxLines = 1) }
             TopAppBar(
@@ -68,7 +68,7 @@ internal fun ToolbarSample() {
                 colors = CouiTopAppBarDefaults.colors(backgroundColor = LocalDemoTopBarGradient.current,
                     titleColor = CouiTheme.colorScheme.onSurface),
                 title = {
-                    if (Build.VERSION.SDK_INT >= 34 && state != null) {
+                    if (Build.VERSION.SDK_INT >= 33 && state != null) {
                         TopAppBarSearch(state = state, style = style,
                             query = query, onQueryChange = { query = it },
                             onSearch = { keyboard?.hide() },
@@ -80,7 +80,7 @@ internal fun ToolbarSample() {
                     } else title()
                 },
                 actions = {
-                    if (Build.VERSION.SDK_INT >= 34 && state != null) {
+                    if (Build.VERSION.SDK_INT >= 33 && state != null) {
                         TopAppBarButtonGroup {
                             TopAppBarActionVisibility(visible = showIcon) {
                                 TopAppBarSearchButton(state = state, style = style,
@@ -92,7 +92,7 @@ internal fun ToolbarSample() {
                 },
             )
         }
-        if (Build.VERSION.SDK_INT < 34) DemoPreference(title = stringResource(R.string.requires_api_34), enabled = false)
+        if (Build.VERSION.SDK_INT < 33) DemoPreference(title = stringResource(R.string.requires_api_34), enabled = false)
     }
 }
 
@@ -146,7 +146,7 @@ internal fun SearchSamples(dark: Boolean) {
                     cancelText = stringResource(R.string.catalog_search_cancel),
                     clearDescription = stringResource(R.string.catalog_search_clear),
                     dark = dark, backdrop = backdrop, enabled = persistentEnabled)
-                if (Build.VERSION.SDK_INT >= 34) {
+                if (Build.VERSION.SDK_INT >= 33) {
                     val state = rememberCouiTopAppBarSearchState(toolbarExpanded)
                     TopAppBarSurface(Modifier.fillMaxWidth(), backdrop, gradientColor = LocalDemoTopBarGradient.current) {
                         val style = CouiTopAppBarButtonDefaults.style(search = true).withDemoThemeTint()

@@ -8,6 +8,18 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 ### 新增与改进
 
+- 新增跑马灯文本 `MarqueeText`、竖向滑动条 `VerticalSeekBar`、顶部提示条 `TopTips` 与 `TopTipsContent`：分别对应 `COUIMarqueeTextView`、`COUIVerticalSeekBar`、`COUICustomTopTips`。滚动与渐隐、拖动阻尼与惯性、250ms 纵向缩放按原厂资源与默认 style 的 selector 实现，进度色跟随主题强调色；未复刻厂商物理引擎、形变与平滑圆角等私有能力，逐项差异见[覆盖状态](docs/status/coverage.md)。[跑马灯文本](docs/components/marquee-text.md) · [竖向滑动条](docs/components/vertical-seek-bar.md) · [顶部提示条](docs/components/top-tips.md)
+- 双主体融球改用 COUI 17 的逐对预计算模型：`CouiMetaballRenderer` 复用 `floatingPair()` 写入的 `pre[24]`，shader 只保留仍在求值的常量，边缘退晕、融合强度、颜色范围与弧线范围与原厂同轴；`blendRangePx` 语义不变，圆角先乘 CONIC 系数再夹到半尺寸。公开签名与文档语义不变。[横向双主体融合](docs/effects/metaball.md)
+- `TopAppBarSurface` 新增 `blurFactor`，`drawCouiGradientBackdrop` 相应支持按进度缩放卷积半径：原厂是把 start/end 两个半径同乘 `1 - fraction`，这里作为位置 ratio 之外的独立乘子；`CollapsingTopAppBar` 与 `LargeTopAppBar` 按 `1 - collapsedFraction` 接线，完全收起时不再模糊。[顶栏与按钮](docs/components/top-app-bar.md#背景参数)
+- 折叠顶栏背景 alpha 改为原厂双数据源：可见 appbar offset 优先，无折叠数据源时回退越过折叠范围后累计的内容滚动距离，30dp 阈值归入 `CouiCollapsingAppBarDefaults`；状态保存同步该余量并兼容旧存档。[折叠顶栏](docs/components/collapsing-app-bar.md#外观与采样)
+- 新增[原厂对照与覆盖状态](docs/status/coverage.md)：按「已对齐 / 有偏差 / 未实现」记录可核验的结论、证据入口与待验收项，供后续按表推进。
+- 材质混色改用 COUI 17 的两层模型：新增 `CouiMaterialLayer`（常量色 + `android.graphics.BlendMode`）、`CouiMaterialPreset`、`CouiMaterialType` 与 `CouiMaterialDefaults`。参数表取自 Settings 17.0.0 的 `COUIMaterialBlurEffect` 静态块，13 种类型各含模糊半径、两层颜色与两层混合模式，`TopBar1` 与原厂一致不区分深浅色；支持 `SRC_OVER` / `OVERLAY` / `COLOR_DODGE` / `LUMINOSITY`，其余模式在构造时拒绝。`rememberCouiMaterialEffect` 新增预设入口，`isNoEffect` 时返回 `null`；新增 `CouiMaterialDefaults.interpolate` 对应原厂按进度插值半径与颜色、混合模式取第三份参数的语义。顶栏系统按钮、分段选择器与 ChipTab 的材质改为从参数表取值，取值一致，观感不变。[模糊与材质混色](docs/effects/blur-material.md#使用-coui-17-参数表)
+- 新增轮廓 token `CouiShapes` 与 `CouiTheme.shapes`：`extraSmall` / `small` / `medium` / `large` / `extraLarge` / `card` / `menu` / `panel` / `dialog` / `capsule` / `circle` 十一档，取值来自原厂 `coui_round_corner_*` 刻度。组件参数默认读取主题 token，宿主在 `CouiTheme(shapes = …)` 里整体替换即可，不需要逐组件传 Shape；省略时沿用外层 token，嵌套主题只改配色不重置轮廓。各组件 `Defaults` 保留同值基线供显式覆盖，输入框、轻提示、控制中心磁贴与档位条使用所属组件的私有资源，不参与 token。[外观与预设](docs/guide/appearance.md#轮廓-token)
+- 新增自适应断点 `CouiAdaptiveLayout`、`CouiWindowSizeClass` 与 `LocalCouiWindowSizeClass`：按容器宽度分 `Compact`（小于 600dp）/ `Medium`（600–839dp）/ `Expanded`（840dp 及以上），量的是约束而非窗口，分屏与侧栏等局部容器会报自己的宽度；无界时回退窗口宽。容器只有宽度一维，不撑满父级。[自适应布局](docs/components/adaptive-layout.md)
+- 新增预览注解 `CouiLightDarkPreview` 与 `CouiBreakpointPreview`：一次声明浅色/深色与 361dp / 720dp / 1000dp 三档宽度，新增组件预览直接套注解，不再逐个手写 `@Preview`。注解随库编译进产物，宿主应用时不需要额外依赖；在 IDE 中看到渲染结果仍需宿主自己的 `ui-tooling`。
+- 新增图标按钮 `IconButton` 与 `CouiIconButtonDefaults`：圆形命中区三档（40 / 32 / 48dp），触摸形变、跟手光与 hover/focus/press 蒙层复用 `Button` 的反馈链，跟手光取 `OpaqueMedium2`；命中区由主题最小交互尺寸兜底到 48dp，视觉缩小不影响可点范围。原厂无独立图标按钮类，尺寸取自布局树的 `ImageButton` 命中区。[图标按钮](docs/components/icon-button.md)
+- 新增卡片容器 `Card` 与 `CouiCardDefaults`：24dp 卡片轮廓、卡片底色与 16dp 内留白，`onClick` 非空时整卡可点并复用列表行蒙层，不传时纯静态容器；不引入 elevation 与描边，内部布局由调用方决定。[卡片](docs/components/card.md)
+- 新增侧栏 `SidePane`、`CouiSidePaneSide` 与 `CouiSidePaneDefaults`：内容槽常驻、侧栏从起始边或结束边滑出，遮罩自绘并随进度淡入，面板只圆外缘两角；收起动画播完才移出组合。展开 250ms、收起 200ms，宽度 280dp 且在窄窗口下最多占 85%。[侧栏](docs/components/side-pane.md)
 - 新增按钮 `Button`：几何、排版、配色与反馈链取自 ColorOS 17 的 `Widget.COUI.Button.Large`（44dp 高、最小 132dp 宽、四周 12dp 内留白、14sp `sans-serif-medium`），提供主操作与次操作，加载态为原厂 `coui_loading_btn_circle_*` 的三圆点，并支持禁用。[按钮](docs/components/button.md)
 - 新增环形进度 `CircularProgress` 与占位 `Skeleton`：尺寸、描边与配色取自 `Widget.COUI.COUICircularProgressBar`（40dp / 5dp、30dp / 3dp），不确定态的 800ms 旋转与 270° 弧长沿用原厂加载字形 `coui_icon_loading`。[进度与占位](docs/components/progress.md)
 - 新增轻提示 `ToastHost` 与 `ToastHostState`：几何与配色取 `coui_snack_bar_*`（12.67dp 圆角、16/10dp 留白、14sp 文字、26dp 跨度 5% 投影），支持操作按钮、图标槽、多行留白、自动消失与最多三条堆叠。[轻提示](docs/components/toast.md)
@@ -19,6 +31,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 新增底部面板 `BottomSheet`：`Dialog` 承载、遮罩自绘、退场动画结束后才销毁窗口；圆角 32dp、elevation 17dp、四周 8dp 留白、上下限与遮罩取自 `coui_bottom_sheet_*`；支持拖拽跟手、按速度与位移结算、下拉关闭，并与内容滚动共存。[底部面板](docs/components/bottom-sheet.md)
 - 新增线性进度 `LinearProgress` 与分段占用 `SegmentedProgress`：8dp / 12dp 胶囊轨道，轨道与进度共用同一轮廓裁剪，分段版按占比累加、尾部保留轨道色。[进度与占位](docs/components/progress.md)
 - `CircularProgress` 新增 `size`、`gapDegrees`、`startAngleDegrees`、`glow` 与 `content`：支持大号读数环、缺口弧、外发光光晕与环心内容，原有 40dp / 30dp 默认行为不变。[进度与占位](docs/components/progress.md)
+- `CircularProgress` 新增 `arcGradient`：弧线改用竖直渐变，端点对齐环的上下外缘、换尺寸不变色。原厂分数环的弧即顶部满饱和、底部偏淡的饱和度渐变（手机管家首页 R 通道 0→41、B 通道 16→40，G 通道不变），端点随页面而异故不进默认值。[渐变弧](docs/components/progress.md#渐变弧)
 - 新增快捷动作网格 `QuickActionGrid` 与 `CouiQuickAction`：两列等分图标卡片，沿用 `Group` 的 24dp 轮廓与卡片底色，末行自动补齐。[快捷动作网格](docs/components/quick-action-grid.md)
 - `QuickActionGrid` 新增 `style` 参数与 `CouiQuickActionStyle.Capsule`：实用工具页的全圆胶囊条目，60dp 行高、8dp 间距、图标后留白 8dp、14sp 标签，数值取自真机截图测量；默认仍为 24dp 圆角卡片，调用方行为不变。[快捷动作网格](docs/components/quick-action-grid.md#外观与预设)
 - `CouiPresets` 新增 `GreenLight` / `GreenDark` 与 `green(dark)`：只替换强调色及强调内容色，中性表面沿用原生预设。[外观与预设](docs/guide/appearance.md)
@@ -63,6 +76,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 ### 升级说明
 
 - 原先依赖 `coui-material3` 的调用方，删除该依赖与 `Coui.initialize(defaultStyle = CouiMaterial3Style())`，改用 `CouiTheme` 提供配色，或显式传参覆盖单个组件，见[外观与预设](docs/guide/appearance.md)。
+- `CouiMaterialBlendMode` 已移除。调用 `rememberCouiMaterialEffect(mix, blend, mode)` 的地方改为传两层：原 `mix` 映射为 `CouiMaterialLayer(mix, BlendMode.LUMINOSITY)`，原 `blend` 沿用原来的 `OVERLAY` / `COLOR_DODGE`。`CouiDialogMaterial.blendMode` 的类型同步改为 `android.graphics.BlendMode`，取值不变。
 - 预览版不保证二进制兼容，升级后重新编译使用库的模块。
 
 ## [0.0.1-alpha11] - 2026-11-12

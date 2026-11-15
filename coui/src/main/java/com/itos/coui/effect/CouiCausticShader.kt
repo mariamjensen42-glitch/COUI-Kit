@@ -1,8 +1,7 @@
 package com.itos.coui.effect
 
 // OplusCausticShadowEffectImpl::emitCode 的 SDR 分支; 输入是该次投影前的 destination。
-internal const val CouiCausticShader = """#version 300
-uniform shader u_originShader;
+internal const val CouiCausticShader = """uniform shader u_originShader;
 uniform float u_commonArray[12];
 uniform float u_pyrolysisArray[14];
 uniform float2 u_offset;
@@ -40,7 +39,7 @@ half4 caustic(float2 position, half4 destination) {
             halfSizeOptics -= opticsSdf;
             halfSizeOptics = max(halfSizeOptics, float2(0.0));
             float conerOptics = min(recCorner, min(halfSizeOptics.x, halfSizeOptics.y));
-            uint outlineType = floatBitsToUint(u_commonArray[10]);
+            int outlineType = int(u_commonArray[10]);
             if (outlineType == 0) {
                 opticsSdf = RBox(pos_optics, halfSizeOptics, conerOptics);
             } else if (outlineType == 1) {

@@ -30,7 +30,7 @@ fun LinearProgress(
     color: Color = CouiTheme.colorSchemeFor(dark).accent,
     trackColor: Color = CouiTheme.colorSchemeFor(dark).outlineVariant,
     height: Dp = CouiProgressDefaults.linearHeight,
-    shape: Shape = CouiProgressDefaults.linearShape,
+    shape: Shape = CouiTheme.shapes.capsule,
 ) {
     val value = progress.coerceIn(0f, 1f)
     CouiProgressTrack(modifier.fillMaxWidth().height(height), shape) {
@@ -56,7 +56,7 @@ fun SegmentedProgress(
     dark: Boolean = CouiTheme.isDark,
     trackColor: Color = CouiTheme.colorSchemeFor(dark).outlineVariant,
     height: Dp = CouiProgressDefaults.linearHeight,
-    shape: Shape = CouiProgressDefaults.linearShape,
+    shape: Shape = CouiTheme.shapes.capsule,
 ) {
     CouiProgressTrack(modifier.fillMaxWidth().height(height), shape) {
         drawRect(trackColor)

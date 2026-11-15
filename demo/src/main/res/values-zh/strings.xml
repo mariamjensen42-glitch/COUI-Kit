@@ -3,7 +3,7 @@
     <string name="controls">组件</string>
     <string name="effects">效果</string>
     <string name="presets">预设</string>
-    <string name="requires_api_34">浮动按钮、底栏和阴影需要 Android 14（API 34）。</string>
+    <string name="requires_api_34">浮动按钮、底栏和阴影需要 Android 13（API 33）。</string>
     <string name="requires_api_33">此效果需要 Android 13（API 33）。</string>
     <string name="renderer_error">渲染器初始化失败：%1$s</string>
     <string name="toggle_theme">切换深浅色</string>

@@ -110,6 +110,8 @@ fun LargeTopAppBar(
         referenceBlurRadius = with(density) { CouiCollapsingAppBarDefaults.referenceBlurRadiusPx.toDp() },
         bottomExtension = CouiCollapsingAppBarDefaults.titleOnlyBlurExtension,
         gradientSpeed = 3f, gradientColor = colors.backgroundColor, dark = dark,
+        // 遮罩保持不透明; 模糊强度随折叠淡出, 与 17 的 1-fraction 模型一致。
+        blurFactor = 1f - (state?.collapsedFraction ?: 0f),
         topExtension = {
             with(density) {
                 val range = (expandedHeight.roundToPx() - collapsedHeight.roundToPx()).coerceAtLeast(0)

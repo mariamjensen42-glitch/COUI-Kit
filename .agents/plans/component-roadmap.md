@@ -89,7 +89,7 @@
 
 ### P5 现有组件对齐
 
-- `VerticalSlider`（扩 `Slider`）。
+- `VerticalSlider`（扩 `Slider`）。注：本轮核验发现 `Slider` 手势层硬编码 X 轴，控制中心 57×135dp 胶囊档位条也不是同一控件；原厂 `COUIVerticalSeekBar` 已有独立实现（`coui/src/main/java/com/itos/coui/seekbar/VerticalSeekBar.kt`，未跟踪），按[覆盖对照](../../docs/status/coverage.md)的「竖向滑动条」行验收，不扩 `Slider`。
 - 按截图逐页比对，记录偏差清单，按「影响 1:1 程度」排序修。
 
 ### P6 材质明暗解耦（C3）

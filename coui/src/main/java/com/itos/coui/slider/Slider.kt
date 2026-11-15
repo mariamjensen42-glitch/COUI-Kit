@@ -45,7 +45,6 @@ import com.itos.coui.effect.SpotlightPreset
 import com.itos.coui.effect.rememberCouiSpotlight
 import com.itos.coui.input.isCouiTouchCancelled
 import com.itos.coui.motion.CouiTouchMotion
-import com.itos.coui.shape.CouiCapsuleShape
 import com.itos.coui.theme.CouiTheme
 import kotlin.math.abs
 
@@ -60,7 +59,7 @@ fun Slider(
     onValueChange: (Float) -> Unit,
     colors: CouiSliderColors? = null,
     dark: Boolean = CouiTheme.isDark,
-    shape: Shape = CouiCapsuleShape,
+    shape: Shape = CouiTheme.shapes.capsule,
     valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
     steps: Int = 0,
     showTickMarks: Boolean = false,

@@ -28,6 +28,7 @@ import com.itos.coui.backdrop.CouiBackdrop
 import com.itos.coui.backdrop.couiBackdrop
 import com.itos.coui.backdrop.drawCouiBackdrop
 import com.itos.coui.backdrop.rememberCouiBackdrop
+import com.itos.coui.effect.CouiMaterialLayer
 import com.itos.coui.effect.rememberCouiMaterialEffect
 import com.itos.coui.layout.Divider
 import com.itos.coui.topappbar.CouiTopAppBarButtonDefaults
@@ -61,7 +62,10 @@ internal fun MaterialSample(dark: Boolean) {
     var phase by rememberSaveable { mutableFloatStateOf(0f) }
     val density = LocalDensity.current
     val material = CouiTopAppBarButtonDefaults.material(dark, capsule = true)
-    val optical = rememberCouiMaterialEffect(material.firstColor, material.secondColor)
+    val optical = rememberCouiMaterialEffect(
+        CouiMaterialLayer(material.firstColor, material.firstBlendMode),
+        CouiMaterialLayer(material.secondColor, material.secondBlendMode),
+    )
     DemoSliderPreference(title = stringResource(R.string.blur_radius),
         value = radius, onValueChange = { radius = it }, valueRange = 0f..32f, valueText = radius.toInt().toString())
     Divider()

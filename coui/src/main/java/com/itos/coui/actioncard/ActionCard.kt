@@ -13,15 +13,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 import com.itos.coui.layout.CouiPageColors
 import com.itos.coui.layout.CouiPageDefaults
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.Text
+import com.itos.coui.theme.CouiTheme
 
 /** 操作卡的内留白、图标与操作区间距。 */
 object CouiActionCardDefaults {
-    val shape = CouiPageDefaults.shape
+    /** 原生基线；卡片默认读取 `CouiTheme.shapes.card`。 */
+    val shape: Shape = CouiPageDefaults.shape
     val padding = 16.dp
     val iconSize = CouiPageDefaults.iconSize
     val iconSpacing = 12.dp
@@ -50,7 +53,7 @@ fun ActionCard(
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     val notice = title.isNullOrEmpty()
-    Column(modifier.fillMaxWidth().clip(CouiActionCardDefaults.shape).background(colors.card)
+    Column(modifier.fillMaxWidth().clip(CouiTheme.shapes.card).background(colors.card)
         .padding(CouiActionCardDefaults.padding)) {
         Row(verticalAlignment = Alignment.Top) {
             if (icon != null) {

@@ -7,13 +7,15 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import com.itos.coui.effect.CouiFloatingMaterial
 import com.itos.coui.effect.CouiFloatingShadow
-import com.itos.coui.shape.CouiShape
+import androidx.compose.ui.graphics.Shape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiColor
 
 /** 有色 FAB 的固定配色、材质与投影预设; 自定义底色仍由宿主提供。 */
 object CouiFabDefaults {
-    val circleShape = CouiShape(999.dp, cornerWeight = 2f)
-    val roundedSquareShape = CouiShape(16.dp)
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.circle`。 */
+    val circleShape: Shape = CouiShapes.Default.circle
+    val roundedSquareShape: Shape = CouiShapes.Default.large
 
     val contentColor = Color.White
 

@@ -52,7 +52,7 @@ import com.itos.coui.shape.CouiShape
  * 相邻 FAB 可启用 foregroundComposition, 在不透明 SDR 背景上只叠加自身前景, 避免背景回填擦除兄弟节点。
  * 省略 [renderer] 时创建独立的单主体绘制器。宿主可先创建绘制器并处理失败，再显式传入。
  */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun Fab(
     modifier: Modifier = Modifier,
@@ -62,7 +62,7 @@ fun Fab(
     renderer: CouiFloatingRenderer = remember { CouiFloatingRenderer.standalone() },
     onClick: () -> Unit,
     dark: Boolean = CouiTheme.isDark,
-    shape: Shape = CouiFabDefaults.circleShape,
+    shape: Shape = CouiTheme.shapes.circle,
     material: CouiFloatingMaterial? = null,
     shadow: CouiFloatingShadow? = null,
     foregroundComposition: Boolean = false,

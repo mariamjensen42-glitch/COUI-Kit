@@ -30,7 +30,6 @@ import androidx.compose.foundation.layout.tappableElementIgnoringVisibility
 import androidx.compose.foundation.layout.union
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -65,6 +64,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiTheme
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -82,6 +82,9 @@ import kotlin.math.min
 @Immutable
 data class CouiBottomSheetColors(
     val container: Color,
+
+
+
     val scrim: Color,
     val handle: Color,
 )
@@ -98,7 +101,8 @@ object CouiBottomSheetDefaults {
     val cornerRadius = 32.dp
 
     /** 只有顶部两角；底部由 [followHandMargin] 与屏幕留出空隙。 */
-    val shape: Shape = RoundedCornerShape(topStart = cornerRadius, topEnd = cornerRadius)
+    /** 原生基线；组件默认读取 CouiTheme.shapes.panel。 */
+    val shape: Shape = CouiShapes.Default.panel
 
     /** `coui_bottom_sheet_dialog_elevation`。 */
     val elevation = 17.dp
@@ -379,8 +383,8 @@ fun BottomSheet(
                     translationY = (1f - progress.value) *
                         (size.height + CouiBottomSheetDefaults.elevation.toPx()) + dragOffset
                 }
-                .shadow(CouiBottomSheetDefaults.elevation, CouiBottomSheetDefaults.shape, clip = false)
-                .clip(CouiBottomSheetDefaults.shape)
+                .shadow(CouiBottomSheetDefaults.elevation, CouiTheme.shapes.panel, clip = false)
+                .clip(CouiTheme.shapes.panel)
                 .background(colors.container)
                 // 面板只作为命中目标挡住身后的遮罩，不消费事件，子节点的点击与拖动照常生效。
                 .pointerInput(Unit) {

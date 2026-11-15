@@ -44,12 +44,19 @@ CircularProgress(
     startAngleDegrees = -55f,
     glow = true,
     color = scheme.accent,
+    arcGradient = listOf(Color(0xFF00D616), Color(0xFF29CF28)),
     trackColor = scheme.accent.copy(alpha = .18f),
     content = { Text(text = score.toString(), kind = CouiTextKind.Display) },
 )
 ~~~
 
 `startAngleDegrees` 是进度起点，默认 `-90f`（正上方）；缺口位于起点之前，不参与比例换算，`gapDegrees` 夹紧到 `CouiProgressDefaults.maxCircularGapDegrees` 以内，保证轨道至少保留一段可见弧长。`glow` 在弧外叠加同色光晕，此时环半径按 `circularGlowRingScale` 内收，`size` 表示含光晕的整体尺寸，不是环外径。`content` 在环心居中绘制，不参与环的测量，也不会被轨道或光晕裁剪。
+
+### 渐变弧
+
+`arcGradient` 非空时弧线改用竖直渐变，第一项是环顶、最后一项是环底，`color` 退为光晕与取色基线。原厂分数环的弧正是竖直渐变：顶端满饱和、底端偏淡，色相与明度基本不变，只有饱和度下降——手机管家首页 78 分环沿弧采样时 R 通道 0→41、B 通道 16→40，G 通道稳定在 208–214。端点色随页面而异（首页 `#00D616` → `#29CF28`，清理存储 `#2ACB1B` → `#58C358`），所以端点不进入默认值，由调用方按页面给出。
+
+渐变按环的上下外缘铺满描边带，换 `size` 或 `strokeWidth` 只改变长度、不改变两端颜色；端部仍是圆头，与原厂弧端收口一致。整圈（无缺口且进度为 1）直接按椭圆描边绘制，避免 `Path.arcTo` 在 360° 上退化成空路径。
 
 ### 分数环
 
@@ -68,6 +75,7 @@ Box(Modifier.size(225.dp), contentAlignment = Alignment.Center) {
         startAngleDegrees = 80f,
         glow = true,
         color = scheme.accent,
+        arcGradient = listOf(Color(0xFF00D616), Color(0xFF29CF28)),
         trackColor = scheme.accent.copy(alpha = .18f),
         content = {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {

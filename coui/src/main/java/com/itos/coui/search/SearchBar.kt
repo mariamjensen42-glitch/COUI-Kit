@@ -135,10 +135,10 @@ fun SearchBar(
     val surfaceHeight = with(density) { CouiSearchBarDefaults.surfaceHeight.roundToPx() }
     val gap = with(density) { CouiSearchBarDefaults.cancelGap.roundToPx() }
     var boundsSize by remember { mutableStateOf(IntSize.Zero) }
-    val shape = CouiSearchBarDefaults.shape
+    val shape = CouiTheme.shapes.capsule
     val bodyLayer = rememberGraphicsLayer()
     val cancelLayer = rememberGraphicsLayer()
-    val renderer = if (Build.VERSION.SDK_INT >= 34) remember { CouiFloatingRenderer.pair() } else null
+    val renderer = if (Build.VERSION.SDK_INT >= 33) remember { CouiFloatingRenderer.pair() } else null
     val bodySource = remember { MutableInteractionSource() }
     val cancelSource = remember { MutableInteractionSource() }
     val press = rememberCouiPressMotion()
@@ -200,7 +200,7 @@ fun SearchBar(
         else ((state.widthProgress - .8f) / .2f).coerceIn(0f, 1f)
     val baseShadow = CouiTopAppBarButtonDefaults.shadow(dark, true, density.density, contour, search = true, alphaScale = drop)
     val shadow = baseShadow.copy(causticColor = baseShadow.causticColor.copy(alpha = baseShadow.causticColor.alpha * drop))
-    val surfaceModifier = if (Build.VERSION.SDK_INT >= 34 && renderer != null) Modifier.couiFloatingPair(
+    val surfaceModifier = if (Build.VERSION.SDK_INT >= 33 && renderer != null) Modifier.couiFloatingPair(
         surfaceBackdrop, renderer, listOf(CouiTopAppBarButtonDefaults.systemMaterial(dark, true).copy(index = 1,
             blurRadius = CouiSearchBarDefaults.blurRadius, extension = with(density) { 4.dp.roundToPx() }, themeTint = themeTint),
             CouiTopAppBarButtonDefaults.systemMaterial(dark, true).copy(index = 2,

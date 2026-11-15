@@ -8,8 +8,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import com.itos.coui.shape.CouiCapsuleShape
-import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 
 /** 按钮外观。Primary 为强调色实心，Secondary 为中性容器，Text 为无容器文字操作。 */
 enum class CouiButtonStyle { Primary, Secondary, Text }
@@ -95,8 +94,8 @@ object CouiButtonDefaults {
 }
 
 private object CouiButtonShape : Shape {
-    private val circle = CouiShape(999.dp, 2f)
+    private val circle = CouiShapes.Default.circle
 
     override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline =
-        (if (size.width == size.height) circle else CouiCapsuleShape).createOutline(size, layoutDirection, density)
+        (if (size.width == size.height) circle else CouiShapes.Default.capsule).createOutline(size, layoutDirection, density)
 }

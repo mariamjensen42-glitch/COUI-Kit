@@ -30,8 +30,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.itos.coui.effect.couiButtonFeedback
-import com.itos.coui.shape.CouiCapsuleShape
-import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiTheme
 import com.itos.coui.theme.CouiColorScheme
 import com.itos.coui.theme.CouiPresets
@@ -53,7 +52,9 @@ object CouiPageDefaults {
     val summarySpacing = 2.dp
     val groupSpacing = 16.dp
     val categoryTopSpacing = 12.dp
-    val shape = CouiShape(24.dp, 3f)
+
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.card`，宿主可整体替换。 */
+    val shape: Shape = CouiShapes.Default.card
     val toolbarHeight = 52.dp
     val dividerHeight = 0.33.dp
 
@@ -65,7 +66,7 @@ object CouiPageDefaults {
     val quickActionIconSpacing = 12.dp
 
     /** 胶囊形态的快捷入口：对应实用工具页，行高 60dp、间距 8dp、图标后留白 8dp。 */
-    val quickActionCapsuleShape: Shape = CouiCapsuleShape
+    val quickActionCapsuleShape: Shape = CouiShapes.Default.capsule
     val quickActionCapsuleMinHeight = 60.dp
     val quickActionCapsuleSpacing = 8.dp
     val quickActionCapsuleIconSpacing = 8.dp
@@ -97,6 +98,7 @@ fun Group(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val topSpacing = if (title.isNullOrEmpty()) CouiPageDefaults.groupSpacing else CouiPageDefaults.categoryTopSpacing
+    val shape = CouiTheme.shapes.card
     Column(modifier.fillMaxWidth().padding(top = topSpacing)) {
         if (!title.isNullOrEmpty()) Row(Modifier.padding(horizontal = 32.dp, vertical = 8.dp).heightIn(min = 16.dp),
             verticalAlignment = Alignment.CenterVertically) {
@@ -105,7 +107,7 @@ fun Group(
             headerActions()
         }
         Column(Modifier.padding(horizontal = CouiPageDefaults.horizontalMargin).fillMaxWidth()
-            .clip(CouiPageDefaults.shape).background(colors.card), content = content)
+            .clip(shape).background(colors.card), content = content)
         if (!footer.isNullOrEmpty()) Footer(text = footer, color = colors.summary)
     }
 }

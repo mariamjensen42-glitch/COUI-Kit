@@ -12,6 +12,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.itos.coui.shape.CouiShapes
 
 /** 组件实际使用的色彩角色；页面染色由主题单独提供，不混入原生材质。 */
 @Immutable
@@ -95,9 +96,11 @@ data class CouiTypography(
 )
 
 private data class CouiThemeValues(val dark: Boolean, val colors: CouiColorScheme,
-    val typography: CouiTypography, val materialTint: Color)
+    val typography: CouiTypography, val materialTint: Color, val shapes: CouiShapes)
 
 private val LocalCouiTheme = staticCompositionLocalOf<CouiThemeValues?> { null }
+/** 轮廓 token；与深浅色无关，未提供主题时为原生刻度。 */
+val LocalCouiShapes = staticCompositionLocalOf { CouiShapes.Default }
 /** 宿主已知的主题模式；嵌套外观边界改变模式时也应在同一作用域提供。 */
 val LocalCouiDarkTheme = staticCompositionLocalOf<Boolean?> { null }
 /** Unspecified 表示没有提供内容色，组件在消费处读取当前主题。 */
@@ -113,6 +116,13 @@ object CouiTheme {
         @Composable get() = LocalCouiContentColor.current.takeOrElse { colorScheme.onSurface }
     val typography: CouiTypography
         @Composable get() = LocalCouiTheme.current?.typography ?: Coui.defaultStyle.themeDefaults(isDark).typography
+
+    /**
+     * 当前轮廓 token。组件参数默认读取这里，宿主整体替换时不需要逐个传入；
+     * 显式传入的 Shape 参数仍优先。
+     */
+    val shapes: CouiShapes
+        @Composable get() = LocalCouiShapes.current
 
     /** 组件覆盖深浅色时，不复用另一模式的宿主色板。 */
     @Composable
@@ -134,7 +144,9 @@ object CouiTheme {
 
 /**
  * 可选外观上下文。materialTint 默认为透明；Material 宿主可显式传入页面表面色启用项目染色。
- * 不提供主题时使用初始化策略，未初始化则使用原生预设。业务状态及资源生命周期仍由原接口管理。
+ * 不提供主题时使用初始化策略，未初始化则使用原生预设。
+ * shapes 省略时沿用外层 token，嵌套主题只改配色不会重置轮廓。
+ * 业务状态及资源生命周期仍由原接口管理。
  */
 @Composable
 fun CouiTheme(
@@ -142,11 +154,13 @@ fun CouiTheme(
     colorScheme: CouiColorScheme = if (darkTheme) CouiPresets.Dark else CouiPresets.Light,
     typography: CouiTypography = CouiTypography(),
     materialTint: Color = Color.Transparent,
+    shapes: CouiShapes = LocalCouiShapes.current,
     content: @Composable () -> Unit,
 ) {
     CompositionLocalProvider(
-        LocalCouiTheme provides CouiThemeValues(darkTheme, colorScheme, typography, materialTint),
+        LocalCouiTheme provides CouiThemeValues(darkTheme, colorScheme, typography, materialTint, shapes),
         LocalCouiDarkTheme provides darkTheme,
+        LocalCouiShapes provides shapes,
     ) { ProvideCouiContent(colorScheme.onSurface, typography.body, mergeTextStyle = false, content = content) }
 }
 

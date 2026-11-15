@@ -1,0 +1,20 @@
+<resources>
+    <string name="marquee_title">跑马灯文本</string>
+    <string name="intro_marquee">超长文本横向滚动并在两端渐隐；短文本保持静止。</string>
+    <string name="marquee_long_text">这条通知文本足够长，会超出容器宽度，因此持续横向滚动并在左右两端渐隐。</string>
+    <string name="marquee_short_text">短文本保持静止，不做滚动。</string>
+    <string name="marquee_toggle_scrolling">切换滚动</string>
+    <string name="marquee_toggle_scrolling_summary">关闭滚动后同一条文本按静态方式显示</string>
+    <string name="vertical_seek_title">竖向滑动条</string>
+    <string name="intro_vertical_seek">在竖向进度条上拖动、点击跳转并带惯性滑动。</string>
+    <string name="vertical_seek_reset">重置数值</string>
+    <string name="vertical_seek_value">当前数值：%1$d%%</string>
+    <string name="top_tips_title">顶部提示条</string>
+    <string name="intro_top_tips">显示顶部横幅，以缩放动画展开与收起。</string>
+    <string name="top_tips_content">更新已完成，重启后生效。</string>
+    <string name="top_tips_action">重启</string>
+    <string name="top_tips_close">关闭</string>
+    <string name="top_tips_show">显示顶部提示条</string>
+    <string name="top_tips_hide">隐藏顶部提示条</string>
+    <string name="top_tips_hint">横幅显示在本分组上方，250 毫秒内缩放展开或收起。</string>
+</resources>

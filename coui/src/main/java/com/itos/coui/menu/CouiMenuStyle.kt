@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.itos.coui.checkbox.CouiCheckboxColors
 import com.itos.coui.checkbox.CouiCheckboxDefaults
 import com.itos.coui.effect.SpotlightDiagnostic
-import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.shape.resolveCouiCornerRadius
 import com.itos.coui.theme.CouiTheme
 
@@ -27,8 +27,9 @@ data class CouiMenuColors(
 object CouiMenuDefaults {
     const val spotlightDiffuse: Float = 0.5f
     val radius = 28.dp
-    val shape = CouiShape(radius)
-    val itemShape = CouiShape(radius)
+    /** 原生基线；`style()` 默认读取 `CouiTheme.shapes.menu`。 */
+    val shape: Shape = CouiShapes.Default.menu
+    val itemShape: Shape = CouiShapes.Default.menu
     internal const val subMenuMergeThreshold = 0.2f
     internal val subMenuEdgeFadeWidth = 4.dp
     internal val subMenuEdgeFadeBlurRadius = 2.dp
@@ -39,8 +40,8 @@ object CouiMenuDefaults {
         return CouiMenuStyle(
             colors = CouiMenuColors(colors.menuSurface, colors.container, colors.accentOnSurface,
                 colors.onSurface, colors.onSurfaceVariant, colors.outlineVariant),
-            shape = shape, itemShape = itemShape,
-            checkboxShape = CouiCheckboxDefaults.shape, checkboxBorderShape = CouiCheckboxDefaults.borderShape,
+            shape = CouiTheme.shapes.menu, itemShape = CouiTheme.shapes.menu,
+            checkboxShape = CouiTheme.shapes.extraSmall, checkboxBorderShape = CouiCheckboxDefaults.borderShape,
             checkboxColors = CouiCheckboxDefaults.colors(colors.menuCheckboxAccent, dark),
             itemTextStyle = CouiTheme.typography.menuItem, headerTextStyle = CouiTheme.typography.label,
             themeTint = CouiTheme.materialTintFor(dark),

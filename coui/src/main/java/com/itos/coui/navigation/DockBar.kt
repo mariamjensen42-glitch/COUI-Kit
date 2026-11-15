@@ -56,7 +56,7 @@ import com.itos.coui.motion.couiPressMotion
 import com.itos.coui.motion.couiTouchMotion
 import com.itos.coui.motion.rememberCouiPressMotion
 import com.itos.coui.motion.rememberCouiTouchMotion
-import com.itos.coui.shape.CouiCapsuleShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiTheme
 import com.itos.coui.theme.ProvideCouiContent
 import com.itos.coui.theme.CouiIcon as Icon
@@ -72,8 +72,8 @@ object CouiDockBarDefaults {
     val itemWidth = 96.dp
     val horizontalPadding = 8.dp
     val iconSize = 24.dp
-    val shape: Shape = CouiCapsuleShape
-    val centerShape: Shape = CouiCapsuleShape
+    val shape: Shape = CouiShapes.Default.capsule
+    val centerShape: Shape = CouiShapes.Default.capsule
 
     /** 整条栏的总高度：胶囊 + 中央凸起。 */
     val height = capsuleHeight + liftHeight
@@ -89,7 +89,7 @@ object CouiDockBarDefaults {
  * [items] 至少一项，[selectedIndex] 与 [onSelection] 由宿主持有；[centerIcon] 为空时不绘制凸起。
  * 底栏不处理业务跳转，也不维护选中状态。
  */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun DockBar(
     modifier: Modifier = Modifier,
@@ -116,6 +116,8 @@ fun DockBar(
     }
     val density = LocalDensity.current
     val contour = LocalCouiContourGlowEnabled.current
+    val shape = CouiTheme.shapes.capsule
+    val centerShape = CouiTheme.shapes.capsule
     val capsuleMaterial = remember(dark, lightColor, themeTint) {
         CouiFloatingMaterial(
             firstColor = if (dark) Color(0x80666666) else Color(0xA3666666),
@@ -180,7 +182,7 @@ fun DockBar(
             .width(capsuleWidth).height(CouiDockBarDefaults.capsuleHeight)
             .onSizeChanged { capsuleSize = it }
             .couiFloatingSurface(backdrop = backdrop, renderer = renderer, material = capsuleMaterial,
-                shadow = capsuleShadow, shape = CouiDockBarDefaults.shape, contentLayer = capsuleLayer,
+                shadow = capsuleShadow, shape = shape, contentLayer = capsuleLayer,
                 contourGlowEnabled = contour, surface = ::capsuleSurface)) {
             Row(Modifier.fillMaxSize()
                 .graphicsLayer {
@@ -192,7 +194,7 @@ fun DockBar(
                 .couiTouchMotion(capsuleMotion, true, cancelOnConsumedMove = false, consumeDrag = true)
                 .couiPressMotion(capsulePress, true)
                 .drawWithContent { capsuleLayer.record { this@drawWithContent.drawContent() } }
-                .clip(CouiDockBarDefaults.shape)
+                .clip(shape)
                 .selectableGroup(),
                 verticalAlignment = Alignment.CenterVertically) {
                 items.forEachIndexed { index, item ->
@@ -225,7 +227,7 @@ fun DockBar(
             Box(Modifier.align(Alignment.TopCenter).size(CouiDockBarDefaults.centerSize)
                 .onSizeChanged { centerSizePx = it }
                 .couiFloatingSurface(backdrop = backdrop, renderer = centerRenderer, material = centerMaterial,
-                    shadow = centerShadow, shape = CouiDockBarDefaults.centerShape, contentLayer = centerLayer,
+                    shadow = centerShadow, shape = centerShape, contentLayer = centerLayer,
                     contourGlowEnabled = contour,
                     // 只叠前景: 圆钮压在胶囊之上, 不能用 Src 回填擦掉下面的胶囊玻璃。
                     foregroundComposition = true, surface = ::centerSurface)) {
@@ -239,7 +241,7 @@ fun DockBar(
                     .couiTouchMotion(centerMotion, true, cancelOnConsumedMove = false, consumeDrag = true)
                     .couiPressMotion(centerPress, true)
                     .drawWithContent { centerLayer.record { this@drawWithContent.drawContent() } }
-                    .clip(CouiDockBarDefaults.centerShape)
+                    .clip(centerShape)
                     .then(if (centerClick != null) Modifier
                         .couiNavigationFeedback(dark, interactionSource)
                         .clickable(interactionSource = interactionSource, indication = null, role = Role.Button,

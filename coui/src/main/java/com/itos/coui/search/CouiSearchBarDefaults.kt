@@ -4,8 +4,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import com.itos.coui.theme.CouiTheme
-import com.itos.coui.shape.CouiCapsuleShape
+import com.itos.coui.shape.CouiShapes
 
 @Immutable
 data class CouiSearchBarColors(
@@ -36,7 +37,8 @@ object CouiSearchBarDefaults {
     val iconSize = 20.dp
     val iconStart = 4.dp
     val textEnd = 4.dp
-    val shape = CouiCapsuleShape
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.capsule`。 */
+    val shape: Shape = CouiShapes.Default.capsule
     internal const val cancelTranslationPx = 20f
     // TYPE_FRAMEWORK_TOP_BAR_BLUR；原始像素半径，不再乘 density。
     internal const val blurRadius = 20f

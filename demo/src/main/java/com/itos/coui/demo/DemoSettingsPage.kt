@@ -76,7 +76,7 @@ internal fun DemoSettingsPage(
         floatingActionButton = floatingAction,
         topBar = {
             val navigation: @Composable () -> Unit = {
-                    if (Build.VERSION.SDK_INT >= 34) {
+                    if (Build.VERSION.SDK_INT >= 33) {
                         TopAppBarButton(onClick = onBack, style = CouiTopAppBarButtonDefaults.style(dark).copy(
                             contentColor = colors.title,
                             textStyle = rememberCouiTextStyle(CouiTextKind.TopBar), cursorColor = colors.accent,

@@ -59,7 +59,7 @@ private const val DisabledContentAlpha = 0.38f
  * 拉伸，因此同一栏内各操作共享一个指示区域，不各自叠加高光；装配方式与底栏中间胶囊一致。
  * 省略 [renderer] 时创建独立的单主体绘制器，宿主可先创建并处理失败，再显式传入。
  */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun FloatingToolbar(
     modifier: Modifier = Modifier,

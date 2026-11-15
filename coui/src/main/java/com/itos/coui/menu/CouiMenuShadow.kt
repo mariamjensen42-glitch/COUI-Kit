@@ -47,7 +47,7 @@ internal fun rememberCouiMenuShadow(
 ): CouiMenuShadow {
     val dark = LocalCouiMenuStyle.current.isDark
     val child = parentTouchMotion != null
-    if (Build.VERSION.SDK_INT < 34) {
+    if (Build.VERSION.SDK_INT < 33) {
         // shortcut: 旧平台保留局部 Compose 投影; 公开 Mesh 可用后才承接原厂 LV4。
         val shadow = Shadow(12.dp, Color.Black.copy(alpha = (if (dark) .24f else .12f) * outlineAlpha().coerceIn(0f, 1f)),
             offset = DpOffset(0.dp, 3.dp))

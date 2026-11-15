@@ -35,6 +35,13 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
         CleanupPageSample(dark = dark, onBack = back)
         return
     }
+    // 侧栏要包住整页才有意义，所以单独成页，放在滚动内容之外。
+    if (page == "sidepane") {
+        CompositionLocalProvider(LocalCouiContourGlowEnabled provides preferences.contour) {
+            SidePanePage(dark = dark, onBack = back)
+        }
+        return
+    }
     val toggleTheme = { preferences.dark(!dark) }
     var fabPreset by rememberSaveable { mutableStateOf(CouiFabColor.Notes) }
     var roundedFab by rememberSaveable { mutableStateOf(false) }
@@ -56,8 +63,14 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                 when (page) {
                     "sliders", "switch", "checkbox", "dialogs", "menu" -> ComponentDetail(page, dark, toggleTheme)
                     "button" -> ButtonSample(dark)
+                    "iconbutton" -> IconButtonSample(dark)
+                    "container" -> CardSample(dark)
+                    "adaptive" -> AdaptiveSample(dark)
                     "progress" -> ProgressSample(dark)
                     "toast" -> ToastSample(toastState)
+                    "marquee" -> MarqueeTextSample(dark)
+                    "verticalseek" -> VerticalSeekBarSample(dark)
+                    "toptips" -> TopTipsSample(dark)
                     "badge" -> BadgeSample(dark)
                     "pageindicator" -> PageIndicatorSample(dark)
                     "emptystate" -> EmptyStateSample(dark)
@@ -67,7 +80,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "segment" -> SegmentedControlSample(dark)
                     "effect_backdrop" -> BlurTutorial(dark)
                     "effect_shadow" -> Group(title = stringResource(R.string.shadow_title)) {
-                        if (Build.VERSION.SDK_INT >= 34) ShadowSamples(dark)
+                        if (Build.VERSION.SDK_INT >= 33) ShadowSamples(dark)
                         else EffectText(stringResource(R.string.requires_api_34))
                     }
                     "effect_fusion" -> RecordSwipeSamples(dark)
@@ -89,7 +102,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                         MotionSample()
                     }
                     "effect_floating" -> Group(title = stringResource(R.string.effect_floating_title)) {
-                        if (Build.VERSION.SDK_INT >= 34) FloatingSurfaceSample(dark)
+                        if (Build.VERSION.SDK_INT >= 33) FloatingSurfaceSample(dark)
                         else EffectText(stringResource(R.string.requires_api_34))
                     }
                     "appbar", "search", "navigation" -> ChromeDetail(page, dark)

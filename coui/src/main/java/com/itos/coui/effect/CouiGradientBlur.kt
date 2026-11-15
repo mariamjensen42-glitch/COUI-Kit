@@ -30,7 +30,11 @@ import kotlin.math.ceil
 private const val BlurOffsetPx = 2f
 private const val SigmaScale = 0.57735f
 
-/** 仅模糊背景；长度为 px，各节点独立持有横纵图层，Shader 在首次绘制创建。 */
+/**
+ * 仅模糊背景；长度为 px，各节点独立持有横纵图层，Shader 在首次绘制创建。
+ * [blurFactor] 是整体强度乘子, 对应原厂把 start/end 两个半径同乘 1-fraction; 只缩卷积半径,
+ * 不改渐变高度与分布。
+ */
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun Modifier.drawCouiGradientBackdrop(
@@ -38,13 +42,15 @@ fun Modifier.drawCouiGradientBackdrop(
     fadeHeightPx: Float,
     referenceBlurRadiusPx: Float,
     gradientSpeed: Float? = null,
+    blurFactor: Float = 1f,
 ): Modifier {
     require(gradientSpeed == null || gradientSpeed.isFinite() && gradientSpeed > 0f)
+    require(blurFactor.isFinite() && blurFactor in 0f..1f) { "模糊强度因子必须是 0 到 1 的有限值" }
     return graphicsLayer {
         shape = RectangleShape
         clip = true
         compositingStrategy = ComposeCompositingStrategy.Offscreen
-    }.then(GradientBackdropElement(backdrop, fadeHeightPx, referenceBlurRadiusPx, gradientSpeed))
+    }.then(GradientBackdropElement(backdrop, fadeHeightPx, referenceBlurRadiusPx, gradientSpeed, blurFactor))
 }
 
 @RequiresApi(33)
@@ -53,11 +59,13 @@ private data class GradientBackdropElement(
     val fadeHeightPx: Float,
     val referenceBlurRadiusPx: Float,
     val gradientSpeed: Float?,
+    val blurFactor: Float,
 ) : ModifierNodeElement<GradientBackdropNode>() {
-    override fun create() = GradientBackdropNode(backdrop, fadeHeightPx, referenceBlurRadiusPx, gradientSpeed)
+    override fun create() =
+        GradientBackdropNode(backdrop, fadeHeightPx, referenceBlurRadiusPx, gradientSpeed, blurFactor)
     override fun update(node: GradientBackdropNode) {
         node.backdrop = backdrop
-        node.update(fadeHeightPx, referenceBlurRadiusPx, gradientSpeed)
+        node.update(fadeHeightPx, referenceBlurRadiusPx, gradientSpeed, blurFactor)
     }
     override fun InspectorInfo.inspectableProperties() { name = "drawCouiGradientBackdrop" }
 }
@@ -68,6 +76,7 @@ private class GradientBackdropNode(
     private var fadeHeightPx: Float,
     private var referenceBlurRadiusPx: Float,
     private var gradientSpeed: Float?,
+    private var blurFactor: Float,
 ) : DrawCouiBackdropNode(backdrop) {
     private var passes = emptyList<GraphicsLayer>()
     private var renderer: CouiGradientRenderer? = null
@@ -86,7 +95,12 @@ private class GradientBackdropNode(
         super.onDetach()
     }
 
-    fun update(fadeHeightPx: Float, referenceBlurRadiusPx: Float, gradientSpeed: Float?) {
+    fun update(fadeHeightPx: Float, referenceBlurRadiusPx: Float, gradientSpeed: Float?, blurFactor: Float) {
+        // 强度不重建装配: 只改 uniform 侧的量, 否则折叠动画每帧都会重跑图层录制。
+        if (this.blurFactor != blurFactor) {
+            this.blurFactor = blurFactor
+            invalidateDraw()
+        }
         if (this.fadeHeightPx != fadeHeightPx || this.referenceBlurRadiusPx != referenceBlurRadiusPx ||
             this.gradientSpeed != gradientSpeed) {
             this.fadeHeightPx = fadeHeightPx
@@ -111,7 +125,7 @@ private class GradientBackdropNode(
     }
 
     override fun drawSource(scope: DrawScope, source: DrawScope.() -> Unit) {
-        checkNotNull(renderer).draw(scope, source)
+        checkNotNull(renderer).draw(scope, source, blurFactor)
     }
 }
 
@@ -139,6 +153,7 @@ private class CouiGradientRenderer(
     }
     private var lastSize = IntSize.Zero
     private var lastHeight = Float.NaN
+    private var lastBlurSteps = -1
     private var recordedSize = IntSize.Zero
     private var recordedLayoutDirection: LayoutDirection? = null
 
@@ -154,10 +169,10 @@ private class CouiGradientRenderer(
         }
     }
 
-    fun draw(scope: DrawScope, drawBackdrop: DrawScope.() -> Unit) {
+    fun draw(scope: DrawScope, drawBackdrop: DrawScope.() -> Unit, blurFactor: Float) {
         if (scope.size.width <= 0f || scope.size.height <= 0f) return
         val paddedSize = IntSize(scope.size.width.toInt(), scope.size.height.toInt())
-        updateEffects(paddedSize)
+        updateEffects(paddedSize, blurFactor)
         // 新 Canvas 不继承 CouiBackdrop 的 padding 平移; 独立 Density 避免 DrawScope 循环代理。
         passes[0].record(density, scope.layoutDirection, paddedSize) {
             translate(padding, padding) { drawBackdrop() }
@@ -173,19 +188,23 @@ private class CouiGradientRenderer(
         scope.translate(-padding, -padding) { drawLayer(passes[1]) }
     }
 
-    private fun updateEffects(size: IntSize) {
-        if (lastSize == size && lastHeight == height) return
+    private fun updateEffects(size: IntSize, blurFactor: Float) {
+        // 有效整数半径只受 floor(kernelRadius * factor) 影响, 按该档位重建即可, 避免逐帧分配。
+        val blurSteps = (blurFactor * kernelRadius).toInt()
+        if (lastSize == size && lastHeight == height && lastBlurSteps == blurSteps) return
         shaders.forEachIndexed { index, shader ->
             shader.setFloatUniform("inputSize", size.width.toFloat(), size.height.toFloat())
             val gradientHeight = if (gradientSpeed == null) fadeHeightPx else height
             shader.setFloatUniform("gradientTop", padding + height - gradientHeight)
             shader.setFloatUniform("gradientHeight", gradientHeight)
-            // RenderEffect 保存 uniform 快照; 仅几何改变时更新, 普通滚动复用。
+            shader.setFloatUniform("u_blurFactor", blurFactor)
+            // RenderEffect 保存 uniform 快照; 几何或强度档位改变时更新, 普通滚动复用。
             passes[index].renderEffect = RenderEffect.createRuntimeShaderEffect(shader, "child")
                 .asComposeRenderEffect()
         }
         lastSize = size
         lastHeight = height
+        lastBlurSteps = blurSteps
     }
 }
 
@@ -199,6 +218,7 @@ private fun gradientGaussianShader(kernelRadius: Int, gradientSpeed: Float?): St
     uniform float gradientTop;
     uniform float gradientHeight;
     uniform half2 in_blurOffset;
+    uniform float u_blurFactor;
 
     float4 sampleChild(float2 coord) {
         return child.eval(clamp(coord, float2(0.5), inputSize - 0.5));
@@ -221,7 +241,8 @@ private fun gradientGaussianShader(kernelRadius: Int, gradientSpeed: Float?): St
         float position = clamp((coord.y - gradientTop) / gradientHeight, 0.0, 1.0);
         // 通用入口保留 smoothstep；显式原厂分支使用 1-pow(1-ratio,speed)。
         float ratio = ${if (gradientSpeed == null) "smoothstep(0.0, 1.0, 1.0 - position)" else "1.0 - pow(position, ${gradientSpeed})"};
-        int radius = int(float(in_blurRadius) * ratio);
+        // 原厂把 start/end 半径同乘 blurFactor 后再按位置插值; 这里两个乘子顺序执行, 数学同构。
+        int radius = int(float(in_blurRadius) * ratio * u_blurFactor);
         if (radius <= 1) return half4(c);
         // 卷积结果恢复中心 alpha 后恒为零; 保留清晰端直通, 不截断低但非零的覆盖率。
         if (c.a == 0.0) return half4(0.0);

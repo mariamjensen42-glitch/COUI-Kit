@@ -41,16 +41,22 @@ object CouiCollapsingAppBarDefaults {
     internal val searchBlurExtension = 14.dp
     internal const val referenceBlurRadiusPx = 27f
     internal const val snapResponse = .25f
+    /** 原厂 ALPHA_SCROLL_THRESHOLD_DP: 背景 alpha 在 30dp 滚动内线性升到 1。 */
+    internal val alphaScrollThreshold = 30.dp
     internal val titleEasing = CubicBezierEasing(.33f, 0f, .67f, 1f)
 }
 
 /** 正向先折叠顶栏；反向在内容到顶后展开。与实际滚动列表共享同一个 nestedScrollConnection。 */
 @Stable
 class CouiCollapsingAppBarState internal constructor(rangePx: Float, initialFraction: Float,
-    restoreFraction: Float = initialFraction, initialSearching: Boolean = false) {
+    restoreFraction: Float = initialFraction, initialSearching: Boolean = false,
+    initialContentScrollPx: Float = 0f) {
     internal var rangePx by mutableFloatStateOf(rangePx)
     internal var offsetPx by mutableFloatStateOf((if (initialSearching) 1f else initialFraction).coerceIn(0f, 1f) * rangePx)
     internal var contentOffsetPx by mutableFloatStateOf(offsetPx)
+        private set
+    /** 越过折叠范围后继续累计的内容滚动距离; 无折叠数据源时回退为 alpha 来源。 */
+    internal var contentScrollDistancePx by mutableFloatStateOf(initialContentScrollPx.coerceAtLeast(0f))
         private set
     private var logicalOffset = offsetPx
     internal var searchLocked = false
@@ -100,11 +106,31 @@ class CouiCollapsingAppBarState internal constructor(rangePx: Float, initialFrac
         val previous = logicalOffset
         val target = (previous - delta).coerceIn(0f, rangePx)
         // ViewOffsetHelper 在 offsetTop 未变化时直接返回；内容继续滚动不能反复重定向顶栏。
-        if (target == previous) return 0f
+        if (target == previous) {
+            // 顶栏已完全折叠且仍在向下滑, 记录越过折叠范围的余量, 供无可见 offset 时回退。
+            if (previous >= rangePx) {
+                contentScrollDistancePx = (contentScrollDistancePx - delta).coerceAtLeast(0f)
+            }
+            return 0f
+        }
+        // 顶栏重新可动后余量作废, 否则展开到顶时会带着旧值把背景点亮。
+        contentScrollDistancePx = 0f
         // 原厂分别持有滚动目标与实际 spring offset，消费量不能由滞后的可见位置计算。
         animateOffset(target, if (delta < 0f) .2f else .1f)
         return previous - logicalOffset
     }
+
+    /**
+     * 背景 alpha 的滚动进度: 可见 appbar offset 优先, 无折叠数据源时回退越过折叠范围的内容滚动。
+     * 与原厂 AppBarBlurOverlayBehavior.resolveScrollDistancePx 同序, 阈值 30dp。
+     */
+    internal fun scrollAlphaFraction(density: Density): Float {
+        val threshold = with(density) { CouiCollapsingAppBarDefaults.alphaScrollThreshold.toPx() }
+        return (resolveScrollDistancePx() / threshold).coerceIn(0f, 1f)
+    }
+
+    private fun resolveScrollDistancePx(): Float =
+        if (rangePx > 0f && offsetPx > 0f) offsetPx else contentScrollDistancePx
 
     private fun settle() {
         val target = if (logicalOffset < rangePx * .5f) 0f else rangePx
@@ -170,7 +196,8 @@ class CouiCollapsingAppBarState internal constructor(rangePx: Float, initialFrac
         contentOffsetPx = offsetPx
         restoreOffset = restore * range
     }
-    internal fun saveState() = listOf(logicalOffset / rangePx, restoreOffset / rangePx, if (searching) 1f else 0f)
+    internal fun saveState() = listOf(logicalOffset / rangePx, restoreOffset / rangePx,
+        if (searching) 1f else 0f, contentScrollDistancePx)
     internal fun dispose() { snap?.cancel(); snap = null; contentSnap?.cancel(); contentSnap = null }
 }
 
@@ -179,7 +206,7 @@ fun rememberCouiCollapsingAppBarState(canScroll: () -> Boolean = { true }): Coui
     val density = LocalDensity.current
     val range = with(density) { CouiCollapsingAppBarDefaults.titleHeight.roundToPx().toFloat() }
     val saver = listSaver<CouiCollapsingAppBarState, Float>(save = { it.saveState() },
-        restore = { CouiCollapsingAppBarState(range, it[0], it[1], it[2] > 0f) })
+        restore = { CouiCollapsingAppBarState(range, it[0], it[1], it[2] > 0f, it.getOrNull(3) ?: 0f) })
     val state = rememberSaveable(saver = saver) { CouiCollapsingAppBarState(range, 0f) }
     SideEffect { state.updateRange(density); state.canScroll = canScroll }
     DisposableEffect(state) { onDispose { state.dispose() } }

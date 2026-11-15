@@ -49,7 +49,7 @@ import com.itos.coui.motion.couiTouchMotion
 import com.itos.coui.motion.rememberCouiPressMotion
 import com.itos.coui.motion.rememberCouiTouchMotion
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun TopAppBarButton(
     modifier: Modifier = Modifier,

@@ -47,7 +47,7 @@ internal fun GlassIconButton(
 ) {
     // 采样源是否可用、系统版本都在页面生命周期内恒定, 分支不会在组合中反复切换。
     val source = remember { MutableInteractionSource() }
-    if (Build.VERSION.SDK_INT >= 34 && backdrop != null) {
+    if (Build.VERSION.SDK_INT >= 33 && backdrop != null) {
         val density = LocalDensity.current.density
         val contour = LocalCouiContourGlowEnabled.current
         TopAppBarButton(

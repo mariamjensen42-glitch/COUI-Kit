@@ -6,6 +6,7 @@ import com.itos.coui.effect.CouiContour
 import com.itos.coui.effect.CouiContourStyle
 
 import android.content.res.Configuration
+import android.graphics.BlendMode
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.view.Gravity
@@ -81,11 +82,13 @@ import androidx.compose.ui.window.DialogWindowProvider
 import com.itos.coui.R
 import com.itos.coui.backdrop.CouiBackdrop
 import com.itos.coui.effect.LocalCouiContourGlowEnabled
+import com.itos.coui.effect.CouiMaterialLayer
 import com.itos.coui.effect.rememberCouiMaterialEffect
 import com.itos.coui.menu.LocalCouiMenuBackdrop
 import com.itos.coui.menu.rememberCouiKawaseBlur
 import com.itos.coui.shape.CouiShape
 import com.itos.coui.shape.resolveCouiCornerRadius
+import com.itos.coui.theme.CouiTheme
 
 /** 输入预设只声明窗口策略，实际写入由窗口 owner 排在 Compose 参数更新之后。 */
 internal val LocalCouiDialogSoftInputMode = staticCompositionLocalOf<Int?> { null }
@@ -104,7 +107,7 @@ internal fun CouiDialogWindow(
     colors: CouiDialogColors,
     dark: Boolean,
     placement: CouiDialogPlacement = CouiDialogPlacement.Bottom,
-    shape: Shape = CouiDialogDefaults.shape,
+    shape: Shape = CouiTheme.shapes.dialog,
     cornerRadius: Dp = Dp.Unspecified,
     properties: DialogProperties = DialogProperties(usePlatformDefaultWidth = false),
     material: CouiDialogMaterial? = null,
@@ -322,7 +325,10 @@ private fun DialogCard(
 ) {
     val blur = if (material != null) rememberCouiKawaseBlur(checkNotNull(backdrop), colors.surface, material.blurRadius) else null
     val materialEffect = if (Build.VERSION.SDK_INT >= 33 && material != null)
-        rememberCouiMaterialEffect(material.mix, material.blend, material.blendMode) else null
+        rememberCouiMaterialEffect(
+            CouiMaterialLayer(material.mix, BlendMode.LUMINOSITY),
+            CouiMaterialLayer(material.blend, material.blendMode),
+        ) else null
     val layer = rememberGraphicsLayer()
     val recordingDensity = LocalDensity.current
     val layoutDirection = LocalLayoutDirection.current

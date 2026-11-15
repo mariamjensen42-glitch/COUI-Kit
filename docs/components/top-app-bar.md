@@ -161,4 +161,6 @@ COUI Scaffold 的 `topBar` 自动提供正文背景源，`TopAppBar`、`LargeTop
 
 API 33 起，`gradientSpeed = null` 使用固定长度渐隐，正值选择全高幂曲线。`referenceBlurRadius` 按 dp 解释；需要固定引擎像素半径时，在消费处按当前 density 换算。API 31–32 的平台分层路径仍使用自身固定模糊参数。
 
+`blurFactor` 是 0 到 1 的整体强度乘子，只缩放卷积半径，不改变渐隐高度、背景延伸量与渐变分布；它与 `backgroundAlpha` 分工不同——前者让画面变清晰，后者让整层变透明。折叠顶栏按 `1 - 折叠进度` 传入该值，普通顶栏保持 1。
+
 需要大标题与常驻搜索联动时，使用[折叠顶栏](collapsing-app-bar.md)。

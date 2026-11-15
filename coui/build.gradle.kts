@@ -103,4 +103,7 @@ dependencies {
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.dynamicanimation)
     implementation(libs.androidx.core.ktx)
+    // `@Preview` 注解随库源码编译，宿主不需要它；渲染器只在本地预览构建里存在。
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }

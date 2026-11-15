@@ -30,7 +30,7 @@ float2 main(const Varyings v, out float4 color) {
 }
 """
 
-internal fun shadowClipShader(oval: Boolean, image: Boolean): String = "#version 300\n" +
+internal fun shadowClipShader(oval: Boolean, image: Boolean): String =
     "uniform float4 u_rect;\n" + (if (image) "uniform shader image;\n" else "") +
     (if (oval) OvalShadowClip else CapsuleShadowClip) +
     if (image) "half4 main(float2 p) { return image.eval(p) * clipAlpha(p); }"
@@ -80,10 +80,33 @@ float clipAlpha(float2 p) {
     float wy = smoothstep(r - max(60.0 * scale, 1e-3), r, q.y);
     float x = mix(xHard, xSoft, clamp(wx * wy, 0.0, 1.0));
     float d = length(float2(x, q.y)) - r;
-    float aa = fwidth(d);
+    float aa = 1.0;
     float aaFactor = smoothstep(-transitionPixels - 2.0, -transitionPixels * 0.2, zoneCap);
     float currentAA = mix(1e-4, aa, aaFactor);
     float fillAlpha = 1.0 - smoothstep(-currentAA, currentAA, d);
     return 1.0 - half(fillAlpha);
+}
+"""
+
+/**
+ * API 33 阴影后端的后处理：用 A8 表的 exp(-4t²)-0.018 曲线做非线性衰减，
+ * 并对主体矩形做 inverse clip。只用 RuntimeShader / RenderEffect（API 33），不依赖 Mesh。
+ */
+internal fun legacyShadowFalloffShader(oval: Boolean): String = """
+uniform shader image;
+uniform float4 u_rect;
+uniform float u_invRange;
+uniform float u_clipEnabled;
+""" + (if (oval) OvalShadowClip else CapsuleShadowClip) + """
+half4 main(float2 p) {
+    half4 c = image.eval(p);
+    float2 center = (u_rect.xy + u_rect.zw) * 0.5;
+    float2 halfSize = (u_rect.zw - u_rect.xy) * 0.5;
+    float2 q = abs(p - center) - halfSize;
+    float d = length(max(q, float2(0.0, 0.0))) + min(max(q.x, q.y), 0.0);
+    float t = clamp(d * u_invRange, 0.0, 1.0);
+    float factor = max(exp(-4.0 * t * t) - 0.018, 0.0);
+    float clip = mix(1.0, float(clipAlpha(p)), u_clipEnabled);
+    return c * (factor * clip);
 }
 """

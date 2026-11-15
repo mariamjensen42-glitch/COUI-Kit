@@ -6,27 +6,29 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.takeOrElse
 import com.itos.coui.effect.CouiFloatingMaterial
 import com.itos.coui.effect.CouiFloatingShadow
+import com.itos.coui.effect.CouiMaterialDefaults
+import com.itos.coui.effect.CouiMaterialType
 import com.itos.coui.effect.LocalCouiContourGlowEnabled
-import com.itos.coui.shape.CouiShape
-import com.itos.coui.shape.CouiCapsuleShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiTheme
-import androidx.compose.ui.unit.dp
 
 internal val LocalCouiToolbarContentColor = staticCompositionLocalOf { Color.Unspecified }
 
 /** 沿用 ToolbarMaterialEffectDelegate 的光效几何及底栏混色方案, 略增强底色权重以改善可读性, 普通投影适当减弱。 */
 object CouiTopAppBarButtonDefaults {
-    val circleShape = CouiShape(999.dp, cornerWeight = 2f)
+    /** 原生基线；顶栏与导航栏默认读取 CouiTheme.shapes.circle。 */
+    val circleShape: Shape = CouiShapes.Default.circle
 
     @Composable
     fun style(dark: Boolean = CouiTheme.isDark, search: Boolean = false): CouiToolbarStyle {
         val density = LocalDensity.current.density
         val contour = LocalCouiContourGlowEnabled.current
         val colors = CouiTheme.colorSchemeFor(dark)
-        return CouiToolbarStyle(dark, circleShape, CouiCapsuleShape,
+        return CouiToolbarStyle(dark, CouiTheme.shapes.circle, CouiTheme.shapes.capsule,
             material = { capsule -> material(dark, capsule, search) },
             shadow = { capsule -> shadow(dark, capsule, density, contour, search) },
             contentColor = LocalCouiToolbarContentColor.current.takeOrElse { colors.onSurface },
@@ -34,17 +36,23 @@ object CouiTopAppBarButtonDefaults {
             cursorColor = colors.accent, contourGlowEnabled = contour)
     }
 
-    /** ToolbarMaterialEffectResolver 的 TOP_BAR 与 CAPSULE_1/CIRCLE_1；不含项目原有加深特化。 */
-    fun systemMaterial(dark: Boolean, capsule: Boolean): CouiFloatingMaterial = CouiFloatingMaterial(
-        firstColor = Color(if (dark) 0xCC262626 else 0x66333333),
-        firstBlendMode = if (dark) BlendMode.SRC_OVER else BlendMode.COLOR_DODGE,
-        secondColor = Color(if (dark) 0xB37F7F7F else 0x99F5F5F5),
-        secondBlendMode = if (dark) BlendMode.OVERLAY else BlendMode.LUMINOSITY,
-        blurRadius = 0f, strokeType = if (capsule) 1 else 2,
-        edgeAlpha = if (dark) .6f else .2f, edgeWidthDp = if (capsule) 2.2f else 1.9f,
-        innerGlowAlpha = if (capsule) { if (dark) .01f else .1f } else { if (dark) .1f else .15f },
-        innerGlowScale = if (capsule && !dark) 1.15f else 1f,
-    )
+    /**
+     * `ToolbarMaterialEffectResolver` 的 TOP_BAR 与 CAPSULE_1/CIRCLE_1；不含项目原有加深特化。
+     * 颜色、模式与半径取自 [CouiMaterialDefaults] 的 [CouiMaterialType.TopBar]（COUI 17 参数表）。
+     */
+    fun systemMaterial(dark: Boolean, capsule: Boolean): CouiFloatingMaterial {
+        val preset = CouiMaterialDefaults.of(CouiMaterialType.TopBar, dark)
+        return CouiFloatingMaterial(
+            firstColor = preset.first.color,
+            firstBlendMode = preset.first.blendMode,
+            secondColor = preset.second.color,
+            secondBlendMode = preset.second.blendMode,
+            blurRadius = preset.blurRadiusPx, strokeType = if (capsule) 1 else 2,
+            edgeAlpha = if (dark) .6f else .2f, edgeWidthDp = if (capsule) 2.2f else 1.9f,
+            innerGlowAlpha = if (capsule) { if (dark) .01f else .1f } else { if (dark) .1f else .15f },
+            innerGlowScale = if (capsule && !dark) 1.15f else 1f,
+        )
+    }
 
     fun material(dark: Boolean, capsule: Boolean, search: Boolean = false): CouiFloatingMaterial = CouiFloatingMaterial(
         firstColor = Color(if (dark) 0x80666666 else 0xA3666666),

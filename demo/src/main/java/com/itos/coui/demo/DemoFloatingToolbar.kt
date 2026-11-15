@@ -40,12 +40,12 @@ private class ToolbarAction(val icon: ImageVector, val label: String, val tint: 
 
 @Composable
 internal fun FloatingToolbarSample(dark: Boolean) {
-    if (Build.VERSION.SDK_INT >= 34) FloatingToolbarContent(dark)
+    if (Build.VERSION.SDK_INT >= 33) FloatingToolbarContent(dark)
     else Text(text = stringResource(R.string.requires_api_34), kind = CouiTextKind.Body,
         color = CouiTheme.colorScheme.onSurfaceVariant)
 }
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 private fun FloatingToolbarContent(dark: Boolean) {
     var enabled by rememberSaveable { mutableStateOf(true) }
@@ -80,7 +80,7 @@ private fun FloatingToolbarContent(dark: Boolean) {
     }
 }
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 private fun ToolbarPreview(
     actions: List<ToolbarAction>,

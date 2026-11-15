@@ -66,6 +66,7 @@ private val FadeColors = LongArray(FadeStopCount) { index ->
  * gradientSpeed 为 null 时保留项目固定渐隐；正值选择全高原厂幂曲线。
  * gradientColor 未指定时使用浅色白色、深色黑色渐变；Transparent 关闭遮罩，显式 alpha 与预设透明度相乘。
  * topExtension 在测量时读取，背景向上延伸并平移，不改变内容占位或触摸范围。
+ * blurFactor 只缩卷积半径（原厂折叠进度模型）；整层可见度仍由 backgroundAlpha 控制。
  */
 @Composable
 fun TopAppBarSurface(
@@ -81,6 +82,7 @@ fun TopAppBarSurface(
     gradientColor: Color = Color.Unspecified,
     dark: Boolean = CouiTheme.isDark,
     topExtension: () -> androidx.compose.ui.unit.Dp = { 0.dp },
+    blurFactor: Float = 1f,
     content: @Composable () -> Unit,
 ) {
     val density = LocalDensity.current.density
@@ -91,6 +93,7 @@ fun TopAppBarSurface(
             fadeHeightPx = fadeHeight.value * density,
             referenceBlurRadiusPx = referenceBlurRadius.value * density,
             gradientSpeed = gradientSpeed,
+            blurFactor = blurFactor,
         )
     } else {
         val blurEffects = remember(density) {

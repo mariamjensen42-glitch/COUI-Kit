@@ -20,7 +20,7 @@ import kotlin.math.abs
 @Composable
 fun Skeleton(
     modifier: Modifier = Modifier,
-    shape: Shape = CouiProgressDefaults.skeletonShape,
+    shape: Shape = CouiTheme.shapes.small,
     color: Color = CouiTheme.colorScheme.onSurface.copy(alpha = CouiProgressDefaults.skeletonAlpha),
     animated: Boolean = true,
 ) {

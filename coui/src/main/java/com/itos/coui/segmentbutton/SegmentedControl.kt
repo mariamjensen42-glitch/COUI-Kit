@@ -95,7 +95,6 @@ import com.itos.coui.input.isCouiTouchCancelled
 import com.itos.coui.motion.CouiVelocityTracker
 import com.itos.coui.motion.rememberCouiPressMotion
 import com.itos.coui.motion.rememberCouiTouchMotion
-import com.itos.coui.shape.CouiCapsuleShape
 import com.itos.coui.shape.CouiShape
 import com.itos.coui.theme.CouiTheme
 import kotlin.math.abs
@@ -111,7 +110,7 @@ import kotlin.math.roundToInt
  * Modifier 可覆盖尺寸，指示器、采样和输入均使用实际约束。取消不新增提交，已即时提交的选择由宿主保留。
  * 从选中项或移动中的指示器起拖，越过横向阈值后持续持有手势；此前的纵向拖动可由页面接管。
  */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun SegmentedControl(
     modifier: Modifier = Modifier,
@@ -146,6 +145,7 @@ fun SegmentedControl(
     val contourEnabled = backdrop != null && LocalCouiContourGlowEnabled.current
     val contour = remember(contourEnabled) { if (contourEnabled) CouiContour(style = CouiContourStyle.Button) else null }
     val edgePaint = remember { Paint(Paint.ANTI_ALIAS_FLAG) }
+    // 指示器必须是 CouiShape 才能复用原厂轮廓绘制；它是段内私有几何，不随主题 token 替换。
     val indicatorShape = remember { CouiShape(999.dp, 2f) }
     val indicatorDrawing = remember(density, rtl) { SegmentIndicatorDrawing() }
     val contentLayer = if (backdrop != null) rememberGraphicsLayer() else null
@@ -196,7 +196,7 @@ fun SegmentedControl(
         LaunchedEffect(session.preview, geometry) { motion.select(session.preview, geometry, density.density) }
         var bounds by remember { mutableStateOf(IntSize.Zero) }
         val surface = if (backdrop != null) {
-            Modifier.couiFloatingSurface(backdrop, checkNotNull(renderer), material, shadow, CouiCapsuleShape,
+            Modifier.couiFloatingSurface(backdrop, checkNotNull(renderer), material, shadow, CouiTheme.shapes.capsule,
                 checkNotNull(contentLayer), contourEnabled, foregroundComposition = true, beforeContent = { clip ->
                     withTransform({
                         translate(touch.translationX.value, touch.translationY.value)
@@ -248,7 +248,7 @@ fun SegmentedControl(
                 scaleX = touch.scaleX.value + press.scale.value - 1f
                 scaleY = touch.scaleY.value + press.scale.value - 1f
             }.onGloballyPositioned { lightCoordinates = it }
-                .then(content).clip(if (backdrop != null) CouiCapsuleShape else indicatorShape)) {
+                .then(content).clip(if (backdrop != null) CouiTheme.shapes.capsule else indicatorShape)) {
                 Row(Modifier.fillMaxSize().padding(horizontal = with(density) { padding.toDp() })
                     .onGloballyPositioned { inputCoordinates = it }
                     .pointerInput(geometry, labels, enabled, commitOnRelease) {

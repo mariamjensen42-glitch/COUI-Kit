@@ -90,8 +90,8 @@ fun CollapsingTopAppBar(
             else CouiCollapsingAppBarDefaults.titleOnlyBlurExtension,
         gradientSpeed = 3f, gradientColor = backgroundColor, dark = dark,
         // 正文直接跟随已接受的滚动，标题保留弹簧跟随；模糊不能等标题追上后才补亮。
-        backgroundAlpha = if (!hasSearchBar || searchActive) 1f else
-            (state.contentOffsetPx / (30 * density.density)).coerceIn(0f, 1f),
+        backgroundAlpha = if (!hasSearchBar || searchActive) 1f else state.scrollAlphaFraction(density),
+        blurFactor = 1f - state.collapsedFraction,
         topExtension = { with(density) { offset.toDp() } }) {
         Layout(modifier = Modifier.statusBarsPadding(), content = {
             BasicText(title, Modifier.semantics { heading() }.graphicsLayer {

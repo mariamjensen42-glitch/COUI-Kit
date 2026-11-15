@@ -43,9 +43,12 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("navigation", R.string.catalog_navigation, DemoIconTone.Blue) { CouiIcons.Filled.CloudLink },
         DemoCatalogEntry("dockbar", R.string.catalog_dock_bar, DemoIconTone.Orange) { CouiIcons.Filled.PanelEnterRight },
         DemoCatalogEntry("fab", R.string.catalog_fab, DemoIconTone.Red) { CouiIcons.Filled.AI },
+        DemoCatalogEntry("adaptive", R.string.catalog_adaptive, DemoIconTone.Green) { CouiIcons.Filled.Foldable },
+        DemoCatalogEntry("sidepane", R.string.catalog_side_pane, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterLeft },
         DemoCatalogEntry("floatingtoolbar", R.string.catalog_floating_toolbar, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterRight })),
     DemoCatalogGroup(R.string.catalog_group_content, listOf(
         DemoCatalogEntry("layout", R.string.catalog_layout, DemoIconTone.Green) { CouiIcons.Outlined.LayoutSpliced },
+        DemoCatalogEntry("container", R.string.catalog_card, DemoIconTone.Blue) { CouiIcons.Filled.SafeBox },
         DemoCatalogEntry("cards", R.string.catalog_action_card, DemoIconTone.Blue) { CouiIcons.Filled.PanelEnterLeft },
         DemoCatalogEntry("notification", R.string.catalog_notification_card, DemoIconTone.Yellow) { CouiIcons.Filled.Bell },
         DemoCatalogEntry("quicksetting", R.string.catalog_quick_setting, DemoIconTone.Blue) { CouiIcons.Filled.Grid },
@@ -61,6 +64,8 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("segment", R.string.segment_title, DemoIconTone.Purple) { CouiIcons.Filled.GridSliders },
         DemoCatalogEntry("sliders", R.string.slider_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
         DemoCatalogEntry("textfield", R.string.catalog_text_field, DemoIconTone.Purple) { CouiIcons.Filled.BookOpen },
+        DemoCatalogEntry("marquee", R.string.marquee_title, DemoIconTone.Blue) { CouiIcons.Filled.CloudData },
+        DemoCatalogEntry("verticalseek", R.string.vertical_seek_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
         DemoCatalogEntry("chip", R.string.chip_tab_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("wheel", R.string.catalog_wheel, DemoIconTone.Orange) { DemoIcons.Tune },
         DemoCatalogEntry("calendar", R.string.picker_calendar_title, DemoIconTone.Yellow) { CouiIcons.Filled.Health })),
@@ -70,13 +75,15 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("menu", R.string.menu_title, DemoIconTone.Orange) { CouiIcons.Filled.Grid })),
     DemoCatalogGroup(R.string.catalog_group_feedback, listOf(
         DemoCatalogEntry("button", R.string.button_title, DemoIconTone.Blue) { CouiIcons.Filled.Add },
+        DemoCatalogEntry("iconbutton", R.string.catalog_icon_button, DemoIconTone.Purple) { CouiIcons.Filled.More },
         DemoCatalogEntry("progress", R.string.progress_title, DemoIconTone.Green) { CouiIcons.Filled.Fan },
         DemoCatalogEntry("toast", R.string.toast_title, DemoIconTone.Orange) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("badge", R.string.badge_title, DemoIconTone.Red) { CouiIcons.Filled.Rings },
         DemoCatalogEntry("pageindicator", R.string.pageindicator_title, DemoIconTone.Blue) { CouiIcons.Filled.Album },
         DemoCatalogEntry("emptystate", R.string.emptystate_title, DemoIconTone.Yellow) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("statelayout", R.string.catalog_state_layout, DemoIconTone.Purple) { CouiIcons.Filled.Fan },
-        DemoCatalogEntry("refresh", R.string.catalog_pull_refresh, DemoIconTone.Blue) { CouiIcons.Filled.CloudData })),
+        DemoCatalogEntry("refresh", R.string.catalog_pull_refresh, DemoIconTone.Blue) { CouiIcons.Filled.CloudData },
+        DemoCatalogEntry("toptips", R.string.top_tips_title, DemoIconTone.Yellow) { CouiIcons.Filled.Bell })),
     DemoCatalogGroup(R.string.catalog_group_pages, listOf(
         DemoCatalogEntry("manager", R.string.manager_title, DemoIconTone.Green) { CouiIcons.Filled.Health },
         DemoCatalogEntry("cleanup", R.string.cleanup_title, DemoIconTone.Green) { CouiIcons.Filled.Fan })),
@@ -154,6 +161,9 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "button" -> R.string.intro_button
     "progress" -> R.string.intro_progress
     "toast" -> R.string.intro_toast
+    "marquee" -> R.string.intro_marquee
+    "verticalseek" -> R.string.intro_vertical_seek
+    "toptips" -> R.string.intro_top_tips
     "badge" -> R.string.intro_badge
     "pageindicator" -> R.string.intro_pageindicator
     "emptystate" -> R.string.intro_emptystate
@@ -189,5 +199,9 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "avatar" -> R.string.intro_avatar
     "statelayout" -> R.string.intro_state_layout
     "stepper" -> R.string.intro_stepper
+    "iconbutton" -> R.string.intro_icon_button
+    "container" -> R.string.intro_card
+    "adaptive" -> R.string.intro_adaptive
+    "sidepane" -> R.string.intro_side_pane
     else -> R.string.intro_settings
 }

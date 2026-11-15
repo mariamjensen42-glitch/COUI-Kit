@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.itos.coui.layout.CouiPageColors
 import com.itos.coui.layout.CouiPageDefaults
-import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.Text
 import com.itos.coui.theme.CouiTheme
@@ -30,8 +30,8 @@ import com.itos.coui.theme.CouiTheme
  * （一加 Ace 5，1264×2780 @560dpi，3.5px/dp）。
  */
 object CouiNotificationCardDefaults {
-    /** 通知卡的圆角比页面分组卡片略大，原厂单条通知与分组头共用同一轮廓。 */
-    val shape = CouiShape(24.dp, 3f)
+    /** 通知卡的圆角比页面分组卡片略大，原厂单条通知与分组头共用同一轮廓。原生基线；组件默认读取 `CouiTheme.shapes.card`。 */
+    val shape: Shape = CouiShapes.Default.card
 
     /** 卡片左右留白：图标左缘距卡片 14dp，右侧文字列同样内缩 14dp。 */
     val horizontalPadding = 14.dp
@@ -71,7 +71,7 @@ fun NotificationCard(
     dark: Boolean = CouiTheme.isDark,
     colors: CouiPageColors = CouiPageDefaults.themeColors(dark),
     containerColor: Color = colors.card,
-    shape: Shape = CouiNotificationCardDefaults.shape,
+    shape: Shape = CouiTheme.shapes.card,
     bodyMaxLines: Int = 2,
 ) {
     Row(modifier.fillMaxWidth()

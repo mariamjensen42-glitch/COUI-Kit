@@ -10,6 +10,7 @@
 - 纯 COUI 页面可组合 `CouiTheme` 与可选的 [Scaffold](components/scaffold.md)，统一栏位测量和安全区。
 - 支持接入 App 的配色、文字样式和形状，并提供常用外观预设。
 - 内置原生主题与组件默认值，配色、字体和 Shape 可由宿主逐项覆盖，见[外观与预设](guide/appearance.md)。
+- 按容器宽度提供 `Compact` / `Medium` / `Expanded` 三档断点，见[自适应布局](components/adaptive-layout.md)。
 - 基于 Android、Compose 和 AndroidX 的公开 API，不依赖厂商 SDK 或私有 SO。
 
 ## 引入依赖

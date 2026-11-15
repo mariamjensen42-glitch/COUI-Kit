@@ -49,7 +49,7 @@ import kotlin.math.roundToInt
 private enum class SearchPairSlot { Input, Action }
 
 /** 搜索与动作共享双主体材质；slot 只提供内容，点击、几何和反馈由本节点负责。 */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 internal fun TopAppBarSearchPair(
     modifier: Modifier = Modifier,

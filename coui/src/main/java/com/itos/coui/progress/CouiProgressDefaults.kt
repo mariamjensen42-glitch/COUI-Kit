@@ -2,8 +2,7 @@ package com.itos.coui.progress
 
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
-import com.itos.coui.shape.CouiCapsuleShape
-import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 
 /** 进度与占位的固定参数；环形尺寸取自 ColorOS 17 手机管家内嵌的 COUI 资源。 */
 object CouiProgressDefaults {
@@ -39,8 +38,8 @@ object CouiProgressDefaults {
     val linearHeight = 8.dp
     val linearLargeHeight = 12.dp
 
-    /** 线性进度沿用库内胶囊族形状，轨道与进度共用同一轮廓。 */
-    val linearShape: Shape = CouiCapsuleShape
+    /** 线性进度沿用库内胶囊族形状，轨道与进度共用同一轮廓。原生基线；组件默认读取 `CouiTheme.shapes.capsule`。 */
+    val linearShape: Shape = CouiShapes.Default.capsule
 
     /**
      * 环形进度的缺口上限。原厂环形进度没有缺口分支，这里限制在 350° 以内，
@@ -58,7 +57,8 @@ object CouiProgressDefaults {
     const val circularGlowSpread = .8f
     const val circularGlowAlpha = .22f
 
-    val skeletonShape: Shape = CouiShape(8.dp)
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.small`。 */
+    val skeletonShape: Shape = CouiShapes.Default.small
     val skeletonMinHeight = 16.dp
 
     /** 占位底色相对内容色的透明度，动画在此基础上按 [skeletonMinFactor] 到 1 波动。 */

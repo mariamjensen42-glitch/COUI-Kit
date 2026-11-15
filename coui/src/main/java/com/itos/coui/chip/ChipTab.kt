@@ -64,7 +64,7 @@ import kotlin.math.PI
  * 受控单选分类项。重复点击仍回调，由宿主决定选中值；组件不自行取消选中。
  * backdrop 必须来自不透明的兄弟源。每个节点独立持有 renderer，创建失败向上传播。
  */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun ChipTab(
     modifier: Modifier = Modifier,
@@ -99,7 +99,7 @@ fun ChipTab(
 }
 
 /** 分类栏的独立图标标签；不参与单选组，图标和动作由宿主提供。 */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun ChipTabButton(
     modifier: Modifier = Modifier,
@@ -129,7 +129,7 @@ fun ChipTabButton(
     }
 }
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 private fun ChipSurface(
     modifier: Modifier,

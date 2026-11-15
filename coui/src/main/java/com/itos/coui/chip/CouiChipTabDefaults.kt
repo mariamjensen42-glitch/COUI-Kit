@@ -1,10 +1,7 @@
 package com.itos.coui.chip
 
-import android.animation.ArgbEvaluator
-import android.graphics.BlendMode
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -12,12 +9,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.itos.coui.effect.CouiFloatingMaterial
 import com.itos.coui.effect.CouiFloatingShadow
+import com.itos.coui.effect.CouiMaterialDefaults
+import com.itos.coui.effect.CouiMaterialType
 import com.itos.coui.topappbar.CouiTopAppBarButtonDefaults
 import com.itos.coui.theme.CouiTheme
 
 /** COUIChipTab 的 TYPE_DEFAULT 材质及库内按钮阴影；模糊半径使用像素，其余尺寸按 dp 换算。 */
 object CouiChipTabDefaults {
-    private val colorEvaluator = ArgbEvaluator()
     fun contentColor(dark: Boolean, enabled: Boolean = true): Color =
         Color(if (enabled) { if (dark) 0xE6FFFFFF else 0xE6000000 }
             else { if (dark) 0x4DFFFFFF else 0x42000000 })
@@ -35,15 +33,17 @@ object CouiChipTabDefaults {
     fun material(dark: Boolean, checkedFraction: Float): CouiFloatingMaterial {
         require(checkedFraction.isFinite()) { "选中进度必须为有限值" }
         val fraction = checkedFraction.coerceIn(0f, 1f)
-        fun color(start: Long, end: Long): Color = Color(
-            colorEvaluator.evaluate(fraction, Color(start).toArgb(), Color(end).toArgb()) as Int,
+        // 未选中与选中两档来自 COUI 17 参数表，混合模式取选中档（原厂 blendModeParams）。
+        val selected = CouiMaterialDefaults.of(CouiMaterialType.ChipTabSelected, dark)
+        val preset = CouiMaterialDefaults.interpolate(
+            CouiMaterialDefaults.of(CouiMaterialType.ChipTab, dark), selected, selected, fraction,
         )
         return CouiFloatingMaterial(
-            firstColor = if (dark) color(0x33B2B2B2, 0xA6505050) else color(0x144E4E4E, 0x66A3A1A1),
-            firstBlendMode = if (dark) BlendMode.LUMINOSITY else BlendMode.COLOR_DODGE,
-            secondColor = if (dark) color(0x33303030, 0x4CA7A7A7) else color(0x14606060, 0x99F5F5F5),
-            secondBlendMode = if (dark) BlendMode.OVERLAY else BlendMode.LUMINOSITY,
-            blurRadius = 40f,
+            firstColor = preset.first.color,
+            firstBlendMode = preset.first.blendMode,
+            secondColor = preset.second.color,
+            secondBlendMode = preset.second.blendMode,
+            blurRadius = preset.blurRadiusPx,
             strokeType = 1,
             edgeAlpha = (if (dark) 0.6f else 0.2f) * fraction,
             edgeWidthDp = 2f * fraction,

@@ -85,10 +85,12 @@ private fun QuickActionCell(
     val source = remember { MutableInteractionSource() }
     val contentColor = if (action.enabled) colors.title else colors.disabled
     val capsule = style == CouiQuickActionStyle.Capsule
+    val cardShape = CouiTheme.shapes.card
+    val capsuleShape = CouiTheme.shapes.capsule
     Row(
         modifier.defaultMinSize(minHeight = if (capsule) CouiPageDefaults.quickActionCapsuleMinHeight
             else CouiPageDefaults.quickActionMinHeight)
-            .clip(if (capsule) CouiPageDefaults.quickActionCapsuleShape else CouiPageDefaults.shape)
+            .clip(if (capsule) capsuleShape else cardShape)
             .background(colors.card)
             .couiButtonFeedback(dark, source, action.enabled, list = true)
             .clickable(source, null, action.enabled, role = Role.Button, onClick = action.onClick)

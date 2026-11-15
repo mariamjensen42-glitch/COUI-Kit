@@ -3,7 +3,7 @@
     <string name="controls">Controls</string>
     <string name="effects">Effects</string>
     <string name="presets">Presets</string>
-    <string name="requires_api_34">Floating buttons, the bottom bar and shadows require Android 14 (API 34).</string>
+    <string name="requires_api_34">Floating buttons, the bottom bar and shadows require Android 13 (API 33).</string>
     <string name="requires_api_33">This effect requires Android 13 (API 33).</string>
     <string name="renderer_error">Renderer initialization failed: %1$s</string>
     <string name="toggle_theme">Switch light / dark theme</string>

@@ -46,7 +46,7 @@ import com.itos.coui.text.CouiTextKind
 import com.itos.coui.text.rememberCouiTextStyle
 import com.itos.coui.theme.CouiTheme
 
-@RequiresApi(34)
+@RequiresApi(33)
 private class DemoRenderers {
     val bottom = CouiFloatingRenderer()
 }
@@ -59,7 +59,7 @@ internal fun DemoApp(dark: Boolean, preferences: DemoPreferences, onToggleTheme:
     var rightAccessory by rememberSaveable { mutableStateOf(true) }
     var query by rememberSaveable { mutableStateOf("") }
     var searching by rememberSaveable { mutableStateOf(false) }
-    val rendering = remember { if (Build.VERSION.SDK_INT >= 34) runCatching { DemoRenderers() } else null }
+    val rendering = remember { if (Build.VERSION.SDK_INT >= 33) runCatching { DemoRenderers() } else null }
     val renderers = rendering?.getOrNull()
     val titles = listOf(stringResource(R.string.controls), stringResource(R.string.effects), stringResource(R.string.demo_settings))
     val navigation = listOf(CouiIcons.Filled.Grid, DemoIcons.Effects, DemoIcons.Settings)
@@ -105,7 +105,7 @@ internal fun DemoApp(dark: Boolean, preferences: DemoPreferences, onToggleTheme:
                     colors = CouiTopAppBarDefaults.colors(backgroundColor = LocalDemoTopBarGradient.current,
                         titleColor = colors.onSurface, dark = dark))
             }, bottomBar = {
-                if (Build.VERSION.SDK_INT >= 34 && renderers != null) {
+                if (Build.VERSION.SDK_INT >= 33 && renderers != null) {
                     Box(Modifier.fillMaxWidth()) {
                         NavigationBar(
                             modifier = Modifier.align(Alignment.BottomCenter),

@@ -23,7 +23,7 @@ Avatar(size = CouiAvatarDefaults.largeSize) {
 ## 参数
 
 - `size`：默认 40dp，常用尺寸见 `CouiAvatarDefaults`（32dp / 40dp / 56dp）。
-- `shape`：默认圆形；需要圆角方形时传 `CouiShape(12.dp)`。
+- `shape`：默认 `CouiTheme.shapes.circle`；需要圆角方形时传 `CouiTheme.shapes.medium`（12dp）。
 - `containerColor`：底色，默认取主题 `container`；按联系人色板着色时直接覆盖。
 - `content`：`BoxScope` 内容，居中摆放。
 

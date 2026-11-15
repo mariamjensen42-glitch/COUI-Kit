@@ -26,12 +26,12 @@ import com.itos.coui.theme.CouiTheme
 
 @Composable
 internal fun DockBarSample(dark: Boolean) {
-    if (Build.VERSION.SDK_INT >= 34) DockBarContent(dark)
+    if (Build.VERSION.SDK_INT >= 33) DockBarContent(dark)
     else Text(text = stringResource(R.string.requires_api_34), kind = CouiTextKind.Body,
         color = CouiTheme.colorScheme.onSurfaceVariant)
 }
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 private fun DockBarContent(dark: Boolean) {
     var selected by rememberSaveable { mutableIntStateOf(0) }

@@ -37,11 +37,11 @@ import com.itos.coui.theme.CouiTheme
 
 @Composable
 internal fun SegmentedControlSample(dark: Boolean) {
-    if (Build.VERSION.SDK_INT >= 34) SegmentedControlContent(dark)
+    if (Build.VERSION.SDK_INT >= 33) SegmentedControlContent(dark)
     else Text(stringResource(R.string.requires_api_34), color = CouiTheme.colorScheme.onSurfaceVariant)
 }
 
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 private fun SegmentedControlContent(dark: Boolean) {
     var gradientSelected by rememberSaveable { mutableIntStateOf(0) }

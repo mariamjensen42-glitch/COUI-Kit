@@ -12,6 +12,7 @@
 | 模块、包职责与状态归属                         | [架构](architecture.md)                  |
 | 公开入口、单位、资源与 API 变更                  | [API 设计](api-design.md)                |
 | 新增或修改 component / effect 文档         | [文档维护](documentation.md)               |
+| 原厂对齐、偏差与未实现清单                    | [覆盖对照](../status/coverage.md)            |
 | 对照、检查、设备验收与诊断                       | [验证与评审](validation.md)                 |
 | Demo 打包、固定签名、PR 检查与失败诊断             | [CI 与 PR 检查](ci.md)                    |
 | Maven Central、GitHub Packages 与版本映射 | [发布渠道](publishing.md)                  |

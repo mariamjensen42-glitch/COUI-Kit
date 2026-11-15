@@ -1,6 +1,5 @@
 package com.itos.coui.segmentbutton
 
-import android.graphics.BlendMode
 import android.graphics.Typeface
 import android.os.Build
 import androidx.compose.runtime.Composable
@@ -12,6 +11,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.itos.coui.effect.CouiFloatingMaterial
+import com.itos.coui.effect.CouiMaterialDefaults
+import com.itos.coui.effect.CouiMaterialType
 import com.itos.coui.text.couiAdaptFontSize
 import com.itos.coui.text.couiTextStyle
 import kotlin.math.roundToInt
@@ -34,17 +35,20 @@ object CouiSegmentedControlDefaults {
     internal fun spotlightNoise(dark: Boolean): Float = if (dark) .1f else .3f
     internal fun spotlightDither(dark: Boolean): Float = if (dark) 0f else 1f
 
-    /** TYPE_CONTENT_SEGMENT_BUTTON 与 CAPSULE_6；不包含选中指示器。 */
-    fun material(dark: Boolean) = CouiFloatingMaterial(
-        firstColor = Color(if (dark) 0x7F7F7F7F else 0x7F333333),
-        firstBlendMode = if (dark) BlendMode.OVERLAY else BlendMode.COLOR_DODGE,
-        secondColor = Color(if (dark) 0x99262626 else 0x99EFEFEF),
-        secondBlendMode = BlendMode.LUMINOSITY,
-        blurRadius = 25f, strokeType = 1,
-        edgeAlpha = if (dark) .8f else .6f,
-        innerGlowAlpha = if (dark) .05f else .15f,
-        innerGlowScale = if (dark) 1f else 1.15f,
-    )
+    /** `TYPE_CONTENT_SEGMENT_BUTTON` 与 CAPSULE_6；不包含选中指示器。 */
+    fun material(dark: Boolean): CouiFloatingMaterial {
+        val preset = CouiMaterialDefaults.of(CouiMaterialType.SegmentButton, dark)
+        return CouiFloatingMaterial(
+            firstColor = preset.first.color,
+            firstBlendMode = preset.first.blendMode,
+            secondColor = preset.second.color,
+            secondBlendMode = preset.second.blendMode,
+            blurRadius = preset.blurRadiusPx, strokeType = 1,
+            edgeAlpha = if (dark) .8f else .6f,
+            innerGlowAlpha = if (dark) .05f else .15f,
+            innerGlowScale = if (dark) 1f else 1.15f,
+        )
+    }
 
     /** 原厂 couiTextButtonM，不借用通用按钮或警告弹窗的字号。 */
     @Composable

@@ -49,7 +49,7 @@ fun Checkbox(
     modifier: Modifier = Modifier,
     checked: Boolean,
     enabled: Boolean = true,
-    shape: Shape = CouiCheckboxDefaults.shape,
+    shape: Shape = CouiTheme.shapes.extraSmall,
     borderShape: Shape = CouiCheckboxDefaults.borderShape,
     colors: CouiCheckboxColors = CouiCheckboxDefaults.colors(CouiTheme.colorScheme.checkboxAccent, CouiTheme.isDark),
 ) {

@@ -88,7 +88,7 @@ FAB 会向内容槽提供内容色，图标可省略 `tint`。要覆盖整个内
 
 ## 圆角方形
 
-`Fab` 默认使用 `CouiFabDefaults.circleShape`。需要圆角方形时，在原调用中传入形状预设：
+`Fab` 默认使用 `CouiTheme.shapes.circle`。需要圆角方形时，在原调用中传入形状预设：
 
 ~~~kotlin
 Fab(
@@ -99,7 +99,7 @@ Fab(
 )
 ~~~
 
-这段代码位于 API 34 及以上的宿主 Composable 中，各参数沿用最小调用的来源。用 `CouiShape(20.dp)` 可自定义圆角；用 `Modifier.size(width, height)` 可改为圆角矩形。
+这段代码位于 API 34 及以上的宿主 Composable 中，各参数沿用最小调用的来源。用 `CouiTheme.shapes.large` 可改用 16dp 圆角，或传任意 `CouiShape` 自定义圆角；用 `Modifier.size(width, height)` 可改为圆角矩形。
 
 `CouiShape` 的半径和权重同时用于内容裁剪、材质与轮廓光。半径按实际短边的一半限制，普通投影使用同半径的 RoundRect caster。该投影沿用不透明主体的绘制方式，不裁掉主体内部的阴影；自定义半透明材质会透出内部阴影。其他 Shape 只控制内容裁剪，材质仍使用圆形或胶囊几何。
 

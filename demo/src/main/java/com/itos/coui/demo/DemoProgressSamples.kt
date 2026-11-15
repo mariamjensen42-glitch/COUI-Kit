@@ -36,6 +36,12 @@ import com.itos.coui.theme.CouiPresets
 import com.itos.coui.theme.CouiTheme
 import kotlin.math.roundToInt
 
+/**
+ * 分数环弧线的渐变端点，取手机管家首页 78 分环的沿弧采样结果：顶端 `#00D616`、底端 `#29CF28`。
+ * 原厂只有饱和度沿竖直方向下降，色相与明度基本不变；端点随页面而异，故不放进库的默认值。
+ */
+private val ProgressScoreGradient = listOf(Color(0xFF00D616), Color(0xFF29CF28))
+
 @Composable
 internal fun ProgressSample(dark: Boolean) {
     var progress by rememberSaveable { mutableFloatStateOf(.35f) }
@@ -85,6 +91,8 @@ internal fun ProgressSample(dark: Boolean) {
                     startAngleDegrees = 80f,
                     glow = true,
                     color = scheme.accent,
+                    // 沿弧的竖直渐变：顶端满饱和、底端偏淡，取手机管家首页 78 分环的实测端点。
+                    arcGradient = ProgressScoreGradient,
                     trackColor = scheme.accent.copy(alpha = .18f),
                     content = {
                         Text(text = "${(progress * 100).roundToInt()}", kind = CouiTextKind.Display,
@@ -112,6 +120,7 @@ internal fun ProgressSample(dark: Boolean) {
                         startAngleDegrees = 80f,
                         glow = true,
                         color = scheme.accent,
+                        arcGradient = ProgressScoreGradient,
                         trackColor = scheme.accent.copy(alpha = .18f),
                     )
                     Box(Modifier.size(141.dp).clip(CircleShape).background(Color.White))

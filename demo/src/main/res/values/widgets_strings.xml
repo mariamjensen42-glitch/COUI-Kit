@@ -1,0 +1,20 @@
+<resources>
+    <string name="marquee_title">Marquee text</string>
+    <string name="intro_marquee">Scroll long text horizontally with faded edges; short text stays static.</string>
+    <string name="marquee_long_text">This notification text is long enough to exceed the container width, so it scrolls continuously and fades out at both edges.</string>
+    <string name="marquee_short_text">Short text stays static without scrolling.</string>
+    <string name="marquee_toggle_scrolling">Toggle scrolling</string>
+    <string name="marquee_toggle_scrolling_summary">Turn scrolling off to render the same text statically</string>
+    <string name="vertical_seek_title">Vertical seek bar</string>
+    <string name="intro_vertical_seek">Drag, tap to jump and release with inertia on a vertical progress bar.</string>
+    <string name="vertical_seek_reset">Reset value</string>
+    <string name="vertical_seek_value">Current value: %1$d%%</string>
+    <string name="top_tips_title">Top tips</string>
+    <string name="intro_top_tips">Show a top banner that expands and collapses with a scale animation.</string>
+    <string name="top_tips_content">The update finished successfully and will take effect after the next restart.</string>
+    <string name="top_tips_action">Restart</string>
+    <string name="top_tips_close">Close</string>
+    <string name="top_tips_show">Show top tips</string>
+    <string name="top_tips_hide">Hide top tips</string>
+    <string name="top_tips_hint">The banner appears above this group and scales in or out over 250 ms.</string>
+</resources>

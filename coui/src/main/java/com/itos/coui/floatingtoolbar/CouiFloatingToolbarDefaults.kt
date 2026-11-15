@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.itos.coui.effect.CouiFloatingMaterial
 import com.itos.coui.effect.CouiFloatingShadow
 import com.itos.coui.effect.LocalCouiContourGlowEnabled
-import com.itos.coui.shape.CouiCapsuleShape
+import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiTheme
 import com.itos.coui.topappbar.CouiTopAppBarButtonDefaults
 
@@ -57,7 +57,8 @@ object CouiFloatingToolbarDefaults {
     private const val FloatingToolbarBlurRadius = 20f
 
     /** 与底栏中间胶囊、搜索胶囊共用的胶囊轮廓。 */
-    val capsuleShape: Shape = CouiCapsuleShape
+    /** 原生基线；style() 默认读取 CouiTheme.shapes.capsule。 */
+    val capsuleShape: Shape = CouiShapes.Default.capsule
 
     @RequiresApi(29)
     @Composable
@@ -70,7 +71,7 @@ object CouiFloatingToolbarDefaults {
         val colors = CouiTheme.colorSchemeFor(dark)
         return CouiFloatingToolbarStyle(
             dark = dark,
-            shape = capsuleShape,
+            shape = CouiTheme.shapes.capsule,
             // CAPSULE_1 系统胶囊材质与阴影；不叠加顶栏按钮的加深特化，只补上浮在正文上所需的背景模糊。
             material = CouiTopAppBarButtonDefaults.systemMaterial(dark, capsule = true)
                 .copy(themeTint = themeTint, blurRadius = FloatingToolbarBlurRadius),

@@ -153,7 +153,9 @@ LazyColumn 使用补偿后的 `contentPadding`，但 `consumeWindowInsets` 仍�
 
 `color` 默认按实际 `dark` 解析，显式颜色优先，其 alpha 与标题动画相乘。`dark` 只控制顶栏自身；需要搜索采用同一模式时，显式传入相同 `dark`，或将二者放入同一个局部 `CouiTheme`。
 
-`backgroundColor` 省略或传入 `Color.Unspecified` 时，背景遮罩在浅色模式使用白色、深色模式使用黑色，并向下渐隐。显式颜色覆盖默认遮罩；`Color.Transparent` 关闭遮罩并保留模糊。模糊背景使用固定的下沿延伸，并随折叠向上平移；完整背景高度不随当前栏高缩放。普通大标题保持不透明；带常驻搜索时，背景淡入跟随正文实际位置，搜索活动期间保持显示。这些绘制范围不改变布局或命中高度。
+`backgroundColor` 省略或传入 `Color.Unspecified` 时，背景遮罩在浅色模式使用白色、深色模式使用黑色，并向下渐隐。显式颜色覆盖默认遮罩；`Color.Transparent` 关闭遮罩并保留模糊。模糊背景使用固定的下沿延伸，并随折叠向上平移；完整背景高度不随当前栏高缩放。
+
+背景有两套独立的进度：模糊强度按 `1 - 折叠进度` 缩放卷积半径，完全收起时不再模糊；背景 alpha 在前 30dp 滚动内线性升到 1，滚动距离优先取可见 appbar offset，无折叠数据源时回退越过折叠范围后累计的内容滚动距离（原厂 `AppBarBlurOverlayBehavior` 的双数据源）。普通大标题页的遮罩保持不透明、模糊随折叠淡出；带常驻搜索且搜索处于活动态时背景 alpha 固定为 1。这些绘制范围不改变布局或命中高度。
 
 COUI Scaffold 自动录制正文与结果，不包含顶栏或其浮动消费者；`LargeTopAppBar` 和 `CollapsingTopAppBar` 放在 `topBar` 时可省略 `backdrop`，显式参数优先。上面的示例显式创建源，是为了让结果层与顶栏共享同一份正文采样；改用 Scaffold 默认源时可省略这些参数。图层由库管理，无需全局初始化，见[背景采样](../effects/backdrop.md#顶栏接入)。自定义背景容器 `TopAppBarSurface` 的参数见[顶栏与按钮](top-app-bar.md#背景参数)。
 

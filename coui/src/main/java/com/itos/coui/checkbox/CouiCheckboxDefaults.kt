@@ -1,11 +1,14 @@
 package com.itos.coui.checkbox
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 import com.itos.coui.shape.CouiShape
+import com.itos.coui.shape.CouiShapes
 
 object CouiCheckboxDefaults {
-    val shape = CouiShape(4.dp)
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.extraSmall`。 */
+    val shape: Shape = CouiShapes.Default.extraSmall
     val borderShape = CouiShape(3.2.dp)
     fun colors(checked: Color, dark: Boolean): CouiCheckboxColors = CouiCheckboxColors(
         checked = checked,

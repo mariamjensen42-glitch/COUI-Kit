@@ -134,6 +134,8 @@ private fun ManagerScoreRing(title: Color, summary: Color, accent: Color) {
             startAngleDegrees = 79f,
             glow = true,
             color = accent,
+            // 原厂分数环的弧是沿竖直方向的饱和度渐变，端点取首页 78 分环实测值。
+            arcGradient = listOf(Color(0xFF00D616), Color(0xFF29CF28)),
             trackColor = accent.copy(alpha = .12f),
             content = {
                 Box(Modifier.size(124.dp).clip(CircleShape).background(Color.White), contentAlignment = Alignment.Center) {

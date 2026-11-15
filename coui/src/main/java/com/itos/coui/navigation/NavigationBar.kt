@@ -96,8 +96,6 @@ import com.itos.coui.motion.rememberCouiPressMotion
 import com.itos.coui.motion.rememberCouiTouchMotion
 import com.itos.coui.theme.CouiTheme
 import com.itos.coui.theme.ProvideCouiContent
-import com.itos.coui.topappbar.CouiTopAppBarButtonDefaults
-import com.itos.coui.shape.CouiCapsuleShape
 
 /** [selectedIcon] 用于选中和拖动预选，省略时两种状态共用 [icon]。 */
 data class CouiNavigationItem(val title: String, val icon: ImageVector, val selectedIcon: ImageVector = icon)
@@ -107,7 +105,7 @@ data class CouiNavigationItem(val title: String, val icon: ImageVector, val sele
  * 附件点击回调为空时只显示图标并保留拖拽，不创建点击或 Button 语义。
  * 省略 [renderer] 时创建独立的三主体绘制器。宿主可先创建绘制器并处理失败，再显式传入。
  */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun NavigationBar(
     modifier: Modifier = Modifier,
@@ -129,8 +127,8 @@ fun NavigationBar(
     dark: Boolean = CouiTheme.isDark,
     lightColor: Color = Color.White,
     themeTint: Color = CouiTheme.materialTintFor(dark),
-    circleShape: Shape = CouiTopAppBarButtonDefaults.circleShape,
-    capsuleShape: Shape = CouiCapsuleShape,
+    circleShape: Shape = CouiTheme.shapes.circle,
+    capsuleShape: Shape = CouiTheme.shapes.capsule,
     selectedColor: Color = (if (dark) Color.White else Color.Black).copy(alpha = 230f / 255f),
     unselectedColor: Color = (if (dark) Color.White else Color.Black).copy(alpha = 184f / 255f),
     onSelection: (Int) -> Unit,

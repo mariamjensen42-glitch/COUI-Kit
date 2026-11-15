@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.asAndroidPath
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
@@ -48,6 +49,7 @@ import androidx.core.graphics.ColorUtils
 import com.itos.coui.effect.couiSwitchFeedback
 import com.itos.coui.effect.couiSwitchFocusOutline
 import com.itos.coui.shape.CouiCapsuleShape
+import com.itos.coui.shape.CouiShapes
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.semantics.liveRegion
@@ -67,7 +69,8 @@ object CouiSwitchDefaults {
     val height = 24.dp
     val thumbSize = 18.dp
     val thumbPadding = 3.dp
-    val shape = CouiCapsuleShape
+    /** 原生基线；组件默认读取 `CouiTheme.shapes.capsule`。 */
+    val shape: Shape = CouiShapes.Default.capsule
     internal const val transformVelocityPx = 1000f
     internal const val transformDistancePx = 4f
     // SpringData 的构造顺序是 bounce、response、velocity；COUISwitch 读取 getter 后交给 Force。
@@ -114,6 +117,8 @@ fun Switch(
     val paddingPx = with(density) { CouiSwitchDefaults.thumbPadding.roundToPx() }.toFloat()
     val travel = (widthPx - paddingPx * 2f - thumbPx).coerceAtLeast(1f)
     val state = remember(travel, rtl) { CouiSwitchMotion(checked, travel, rtl) }
+    // 轨道轮廓读主题 token；滑块轮廓固定为胶囊，与原厂一致。
+    val shape = CouiTheme.shapes.capsule
     val currentChecked by rememberUpdatedState(checked)
     val callback by rememberUpdatedState(onCheckedChange)
     val dragCallback by rememberUpdatedState(onDragCheckedChange)
@@ -217,8 +222,8 @@ fun Switch(
     }.onGloballyPositioned { coordinates = it }
         .wrapContentSize(Alignment.Center).requiredSize(CouiSwitchDefaults.width, CouiSwitchDefaults.height)
         // 焦点位于轨道外侧，必须在轨道自身的裁剪层之外绘制。
-        .couiSwitchFocusOutline(source, enabled, colors.focusOutline, CouiSwitchDefaults.shape)
-        .clip(CouiSwitchDefaults.shape).drawBehind {
+        .couiSwitchFocusOutline(source, enabled, colors.focusOutline, shape)
+        .clip(shape).drawBehind {
             // 与滑块在绘制阶段读取同一帧，避免颜色先经重组、位置直接绘制造成错帧。
             val track = if (enabled) Color(ColorUtils.blendARGB(
                 colors.uncheckedTrack.toArgb(), colors.checkedTrack.toArgb(), state.fraction))

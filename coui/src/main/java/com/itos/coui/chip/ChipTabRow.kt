@@ -112,7 +112,7 @@ data class CouiChipTabItem(
  * 需要退出过渡时保留 leadingAction 内容，只切换 leadingActionVisible。
  * renderers 与项目按顺序对应，不得跨节点复用。
  */
-@RequiresApi(34)
+@RequiresApi(33)
 @Composable
 fun ChipTabRow(
     modifier: Modifier = Modifier,

@@ -8,7 +8,7 @@ Status: implemented
 
 ## Decision
 
-在原组件上增加默认参数，建立可选 CouiTheme、原生色板、文字和 Shape 预设。显式参数优先；未指定颜色时按最终深浅色读取匹配主题，否则使用对应原生预设。Effect、Backdrop 与 Renderer 不以主题为前提，不改变资源和失败契约。
+在原组件上增加默认参数，建立可选 CouiTheme、原生色板、文字和 Shape 预设。显式参数优先；未指定颜色时按最终深浅色读取匹配主题，否则使用对应原生预设。Effect、Backdrop 与 Renderer 不以主题为前提，不改变资源和失败契约。轮廓预设随后集中为 `CouiTheme.shapes` 的 `CouiShapes` token，组件默认读主题、`Defaults` 保留同值基线，见[轮廓 token](2026-11-14-coui-shapes-token.md)。
 
 原生主题保留灰白表面、黑白文字和 Theme.COUI 的蓝色强调色。菜单与底栏的额外页面色相染色仅在宿主适配明确提供 tint 时启用；有色 FAB 预设是另一条原厂能力，保留显式颜色和材质/投影的一致性。FAB 默认材质使用主题强调色，默认投影使用 material.firstColor，不自动叠加菜单式染色。Material 映射由 Demo 与使用示例承载，核心不引用 M3 类型。
 

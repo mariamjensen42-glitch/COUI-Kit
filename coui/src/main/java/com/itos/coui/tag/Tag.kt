@@ -102,7 +102,8 @@ fun Tag(
     Row(bordered.padding(horizontal = contentPadding), verticalAlignment = Alignment.CenterVertically) {
         if (leftIcon != null) {
             Box(
-                Modifier.padding(vertical = CouiTagDefaults.leftIconVerticalPadding,
+                Modifier.padding(top = CouiTagDefaults.leftIconVerticalPadding,
+                    bottom = CouiTagDefaults.leftIconVerticalPadding,
                     end = CouiTagDefaults.leftIconSpacing)
                     .size(CouiTagDefaults.leftIconWidth, CouiTagDefaults.leftIconHeight)) { leftIcon() }
         }

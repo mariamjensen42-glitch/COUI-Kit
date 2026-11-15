@@ -34,9 +34,9 @@ internal fun RichTextSample(dark: Boolean) {
         append(suffix)
     }
     Group(title = stringResource(R.string.richtext_examples)) {
-        CouiText(text, kind = CouiTextKind.Body, modifier = Modifier.fillMaxWidth().padding(16.dp))
+        CouiText(Modifier.fillMaxWidth().padding(16.dp), text = text, kind = CouiTextKind.Body)
         Divider()
-        CouiText(text, kind = CouiTextKind.ItemSummary, modifier = Modifier.fillMaxWidth().padding(16.dp))
+        CouiText(Modifier.fillMaxWidth().padding(16.dp), text = text, kind = CouiTextKind.ItemSummary)
         Divider()
         Text(stringResource(R.string.richtext_clicks, clicks), Modifier.padding(16.dp),
             color = CouiTheme.colorSchemeFor(dark).onSurfaceVariant)

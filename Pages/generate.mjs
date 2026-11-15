@@ -345,6 +345,14 @@ function parsePathNode(node, resources, context) {
   }
   const fill = parseBrush(node, 'fillColor', resources, context);
   const stroke = parseBrush(node, 'strokeColor', resources, context);
+  if (!fill && !stroke) {
+    throw new Error(`Path has neither android:fillColor nor android:strokeColor in ${context}`);
+  }
+  const fillPaints = fill && (fill.type !== 'solid' || fill.rawAlpha > 0);
+  const strokePaints = stroke && (stroke.type !== 'solid' || stroke.rawAlpha > 0);
+  if (!fillPaints && !strokePaints) {
+    throw new Error(`Path paints nothing: transparent fill without a visible stroke in ${context}`);
+  }
   const fillAlpha = getAndroidAttr(node, 'fillAlpha') === undefined ? 1 : parseNumber(getAndroidAttr(node, 'fillAlpha'), `${context} fillAlpha`);
   const strokeAlpha = getAndroidAttr(node, 'strokeAlpha') === undefined ? 1 : parseNumber(getAndroidAttr(node, 'strokeAlpha'), `${context} strokeAlpha`);
   const strokeLineWidth = getAndroidAttr(node, 'strokeWidth') === undefined ? 0 : parseNumber(getAndroidAttr(node, 'strokeWidth'), `${context} strokeWidth`);

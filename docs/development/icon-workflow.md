@@ -13,6 +13,7 @@
 ## 处理资源与颜色
 
 - 对矢量资源，保留可用的 Android VectorDrawable XML 及必要的颜色资源。XML 需要完整的命名空间、宽高、viewport 和路径；资源表、未解析的主题或资源引用不能直接当作完整图标。预览异常时先检查实际资源类型和依赖，不要只改文件名。
+- 每条 `<path>` 必须显式给出 `android:fillColor` 或 `android:strokeColor`。两者都缺的路径在框架与预览中完全透明，图标会部分或整块不显示；`android:tint` 只改变已着色内容的颜色，不能替代颜色属性。`android:fillColor="#00000000"` 的占位路径必须同时带可见的 `android:strokeColor`，否则整条路径不绘制。
 - PNG 或 WebP 可保留原图接入位图入口。通用资源放入 `drawable-nodpi`，夜间原图放入 `drawable-night-nodpi` 并使用相同文件名。
 - 单色图标保留各路径的 alpha，再按已确认的日夜色值使用 [CouiColor](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/theme/CouiColor.kt)。多条路径只是透明度不同，仍可使用同一颜色；不能把未证实的颜色近似归入现有色板。需要新色时，先确认日夜值，再补充对应角色。
 - 多色和渐变图标保留各路径颜色及渐变，不使用整体单色 tint。若只有部分图层可换色，应分别处理：`AppUpdate` 只更改背景，白色前景保持不变。

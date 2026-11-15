@@ -1,37 +1,29 @@
 package com.itos.coui.dialog
 
-import com.itos.coui.theme.CouiTheme
-
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.text.rememberTextMeasurer
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.zIndex
 import com.itos.coui.backdrop.CouiBackdrop
+import com.itos.coui.buttonBar.CouiButtonBarDefaults
+import com.itos.coui.buttonBar.CouiButtonBarLayout
+import com.itos.coui.theme.CouiTheme
 
 /** 受控操作。确认后的关闭、状态变更及业务提交由 onClick 的宿主处理。 */
 data class CouiDialogAction(val text: String, val onClick: () -> Unit, val enabled: Boolean = true,
@@ -102,82 +94,26 @@ fun Dialog(
 @Composable
 private fun DialogActions(confirm: CouiDialogAction, dismiss: CouiDialogAction?, neutral: CouiDialogAction?,
     colors: CouiDialogColors, dark: Boolean, material: Boolean, onStacked: (Boolean) -> Unit) {
-    val horizontal = listOfNotNull(dismiss, neutral, confirm)
-    val vertical = listOfNotNull(neutral, confirm, dismiss)
-    val density = LocalDensity.current
-    val textStyle = rememberDialogTextStyle(DialogTextKind.Button)
-    val measurer = rememberTextMeasurer()
-    val scroll = rememberScrollState()
-    // 文字视口只裁剪自己的内容；按钮运动绘制在文字之上。
-    BoxWithConstraints(Modifier.fillMaxWidth().zIndex(1f)) {
-        val parentWidth = maxWidth
-        // COUIButtonBarLayout.getHorizontalButtonContentWidth：先均分父宽，再减按钮和父容器留白。
-        val cellWidth = with(density) { parentWidth.roundToPx() } / horizontal.size
-        val available = cellWidth - with(density) {
-            (CouiDialogDefaults.buttonHorizontalPadding * 2 + CouiDialogDefaults.buttonEdgePadding +
-                CouiDialogDefaults.buttonInsidePadding).toPx()
-        }
-        val textWidths = horizontal.associateWith {
-            measurer.measure(it.text, textStyle, softWrap = false).multiParagraph.maxIntrinsicWidth
-        }
-        val stacked = horizontal.size != 2 || textWidths.values.any { it > available }
-        SideEffect { onStacked(stacked) }
-        val verticalAvailable = with(density) {
-            parentWidth.roundToPx() - CouiDialogDefaults.buttonEdgePadding.roundToPx() * 2 -
-                CouiDialogDefaults.buttonHorizontalPadding.roundToPx() * 2
-        }.coerceAtLeast(0)
-        fun buttonHeight(action: CouiDialogAction, width: Int, multiline: Boolean): Int {
-            val textHeight = measurer.measure(action.text, textStyle, maxLines = 2, overflow = TextOverflow.Ellipsis,
-                constraints = Constraints(maxWidth = width.coerceAtLeast(0))).size.height
-            return with(density) {
-                maxOf(textHeight + 4.dp.roundToPx() * 2,
-                    (if (multiline) CouiDialogDefaults.multilineButtonHeight else CouiDialogDefaults.buttonHeight).roundToPx())
-            }
-        }
-        val naturalHeight = with(density) {
-            if (stacked) vertical.sumOf { action ->
-                buttonHeight(action, verticalAvailable, textWidths.getValue(action) > verticalAvailable) +
-                    CouiDialogDefaults.buttonTopPadding.roundToPx() * 2
-            } + CouiDialogDefaults.buttonBottomPadding.roundToPx() - CouiDialogDefaults.buttonTopPadding.roundToPx()
-            else horizontal.maxOf { action -> buttonHeight(action,
-                cellWidth - CouiDialogDefaults.buttonEdgePadding.roundToPx() - CouiDialogDefaults.buttonInsidePadding.roundToPx() -
-                    CouiDialogDefaults.buttonHorizontalPadding.roundToPx() * 2, false)
-            } + CouiDialogDefaults.buttonTopPadding.roundToPx() + CouiDialogDefaults.buttonBottomPadding.roundToPx()
-        }
-        // verticalScroll 即使无法滚动也会裁剪，只有实际超高时才需要这个视口。
-        Box(if (naturalHeight > constraints.maxHeight) Modifier.verticalScroll(scroll) else Modifier) {
-            if (stacked) {
-                Column {
-                    vertical.forEachIndexed { index, action ->
-                        Box(Modifier.padding(start = CouiDialogDefaults.buttonEdgePadding,
-                            end = CouiDialogDefaults.buttonEdgePadding, top = CouiDialogDefaults.buttonTopPadding,
-                            bottom = if (index == vertical.lastIndex) CouiDialogDefaults.buttonBottomPadding
-                                else CouiDialogDefaults.buttonTopPadding)) {
-                            DialogActionButton(action, if (action === neutral) colors.copy(action = colors.destructive) else colors,
-                                dark, material, Modifier.fillMaxWidth(), textWidths.getValue(action) > verticalAvailable)
-                        }
-                    }
-                }
-            } else Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) {
-                horizontal.forEachIndexed { index, action ->
-                    Box(Modifier.weight(1f).padding(
-                        start = if (index == 0) CouiDialogDefaults.buttonEdgePadding else CouiDialogDefaults.buttonInsidePadding,
-                        end = if (index == horizontal.lastIndex) CouiDialogDefaults.buttonEdgePadding else CouiDialogDefaults.buttonInsidePadding,
-                        top = CouiDialogDefaults.buttonTopPadding, bottom = CouiDialogDefaults.buttonBottomPadding)) {
-                        DialogActionButton(action, if (action === neutral) colors.copy(action = colors.destructive) else colors,
-                            dark, material, Modifier.fillMaxWidth())
-                    }
-                }
-            }
-        }
+    // 项目既有特化：横排取「取消、中性、确认」，竖排取「中性、确认、取消」。
+    CouiButtonBarLayout(
+        items = listOfNotNull(neutral, confirm, dismiss),
+        modifier = Modifier.zIndex(1f),
+        horizontalItems = listOfNotNull(dismiss, neutral, confirm),
+        text = { it.text },
+        enabled = { it.enabled },
+        textStyle = rememberDialogTextStyle(DialogTextKind.Button),
+        contentVerticalPadding = CouiButtonBarDefaults.buttonVerticalPadding,
+        onStacked = onStacked,
+    ) { action, _, modifier ->
+        DialogActionButton(action, if (action === neutral) colors.copy(action = colors.destructive) else colors,
+            dark, material, modifier)
     }
 }
 
 @Composable
 private fun DialogActionButton(action: CouiDialogAction, colors: CouiDialogColors, dark: Boolean, material: Boolean,
-    modifier: Modifier, multiline: Boolean = false) {
-    DialogButton(modifier = modifier.heightIn(min = if (multiline) CouiDialogDefaults.multilineButtonHeight
-        else CouiDialogDefaults.buttonHeight), text = action.text, onClick = action.onClick,
+    modifier: Modifier) {
+    DialogButton(modifier = modifier, text = action.text, onClick = action.onClick,
         dark = dark, enabled = action.enabled, style = action.style, material = material,
         colors = action.colors ?: DialogButtonDefaults.secondaryColors(dark, material).copy(
             content = colors.action, disabledContent = colors.disabledAction))

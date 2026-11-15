@@ -69,6 +69,8 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                 when (page) {
                     "sliders", "switch", "checkbox", "dialogs", "menu" -> ComponentDetail(page, dark, toggleTheme)
                     "button" -> ButtonSample(dark)
+                    "buttonbar" -> ButtonBarSample(dark)
+                    "floatmenu" -> FloatingButtonSample(dark)
                     "iconbutton" -> IconButtonSample(dark)
                     "container" -> CardSample(dark)
                     "adaptive" -> AdaptiveSample(dark)

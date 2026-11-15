@@ -103,6 +103,35 @@ Fab(
 
 `CouiShape` 的半径和权重同时用于内容裁剪、材质与轮廓光。半径按实际短边的一半限制，普通投影使用同半径的 RoundRect caster。该投影沿用不透明主体的绘制方式，不裁掉主体内部的阴影；自定义半透明材质会透出内部阴影。其他 Shape 只控制内容裁剪，材质仍使用圆形或胶囊几何。
 
+## 展开式悬浮按钮
+
+需要从一个按钮向上展开多个带标签的操作时使用 `FloatingButton`，对应原厂的 `COUIFloatingButton`：
+
+~~~kotlin
+FloatingButton(
+    item = CouiFloatingButtonItem(icon = CouiIcons.Filled.Add, contentDescription = expandLabel),
+    items = listOf(
+        CouiFloatingButtonItem(icon = CouiIcons.Filled.Add, label = createLabel, location = 0),
+        CouiFloatingButtonItem(icon = CouiIcons.Filled.More, label = shareLabel, location = 1),
+    ),
+    onItemClick = { item -> onAction(item.location) },
+)
+~~~
+
+主按钮 56dp，条目自下而上排布，首项与主按钮间距 32dp、其余 16dp；每个条目是「标签卡 + 56dp 圆形按钮」，标签卡 12sp、宽上限 220dp、最多两行。条目最多 `CouiFloatingButtonDefaults.maxItems`（6）个，超出抛出异常。
+
+展开：条目位移用 stiffness 500 / damping 0.8 的弹簧，同时 0.6→1 缩放与 0→1 透明度，`0.6`→`1` 用 300ms、标签卡透明度 350ms，逐项错开 50ms；主按钮图标旋转 45°。收起反向，位移与缩放 150ms、标签卡淡出 200ms。展开态 5s 内无操作自动收起（`autoCollapseMillis`）。
+
+点击：收起态点主按钮展开；展开态再点主按钮交给 `onMainActionSelected`，它返回 `true` 表示宿主已接管、菜单保持展开，否则收起。点条目先调 `onItemClick` 再收起。
+
+按压：圆形按钮 1.0→0.9 用 200ms，抬手 340ms 回 1.0，插值器为 `CouiFloatingButtonDefaults.easing`（`PathInterpolator(0.3, 0, 0.1, 1)`，即 `COUIMoveEaseInterpolator`）；触摸形变与位移复用 `couiTouchMotion`。
+
+标签卡默认透明，与原厂 `fabLabelBackgroundColor` 未设置时一致；需要胶囊底色时传 `labelBackgroundColor`，此时按 `support_shadow_size_level_three`（12dp）投影。
+
+`expanded` 省略时由组件持有状态，传入时由宿主控制；`onExpandedChange` 同步展开状态。
+
+与原厂的差异：`OplusViewSeamless` 转场、`IMeltBallView` 熔球融合、`CoordinatorLayout.Behavior` 自动隐藏、线性马达与 caustic 参数表未复刻；条目与主按钮只绘制普通投影，不参与浮动材质。单个按钮（无需展开）仍用上面的 `Fab`。
+
 ## 版本和绘制空间
 
 每个 FAB 默认创建独立的单主体绘制器。宿主需要处理 Shader 初始化失败时，可以先用 `CouiFloatingRenderer.standalone()` 创建绘制器，成功后通过 `renderer` 传入 FAB。每个 FAB 各用一个实例。
@@ -111,4 +140,4 @@ Fab(
 
 COUI Scaffold 自动将 FAB 放在正文源之外。第三方容器的 `backdrop` 应覆盖不透明的页面内容，FAB 放在源节点之外。背景源的创建方式见[背景采样](../effects/backdrop.md)。
 
-源码见 [Fab](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/Fab.kt)、[配色](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/CouiFabColor.kt)、[Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/CouiFabDefaults.kt)。Demo 的固定位置装配见 [DemoSettingsPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt) 和 [DemoSecondaryPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryPage.kt)。
+源码见 [Fab](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/Fab.kt)、[FloatingButton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/FloatingButton.kt)、[配色](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/CouiFabColor.kt)、[Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingactionbutton/CouiFabDefaults.kt)。Demo 的固定位置装配见 [DemoSettingsPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt)、[DemoSecondaryPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryPage.kt) 与 [DemoFloatingButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoFloatingButtonSamples.kt)。

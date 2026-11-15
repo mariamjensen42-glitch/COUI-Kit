@@ -59,6 +59,34 @@ Box(
 
 跟随预设使用 `CouiSwipeRevealDefaults`，宿主无需复制固定参数。
 
+### 按压参数
+
+`rememberCouiPressMotion(params)` 接受 `CouiPressFeedbackParams`：按下与抬手的 response、bounce，以及按压形变的最小可见变化量，对应原厂 `IPressParams` / `PressParams` 的五个字段。目标缩放仍由触控面积与宽高比决定，参数只影响弹簧路径。
+
+| 预置 | 按下 | 抬手 | 来源 |
+| --- | --- | --- | --- |
+| `CouiPressFeedbackDefaults.oliveLink`（默认） | response 0.25 / bounce 0 | response 0.5 / bounce 0.6 | `touchanimation.param.olivelink.PressParams` 的 jelly 弹簧对 |
+| `CouiPressFeedbackDefaults.pressParams` | response 0.15 / bounce 0 | response 0.4 / bounce 0.5 | `pressfeedback.PressParams` |
+
+两组都取 `minimumVisibleChange = 0.001`。原厂 olivelink 的 candy 分支另有 response 0.3 的按下弹簧与 0.0001 的抬手最小变化，移植将其并入同一组参数，因此宽高比很大的按压会比原厂稍慢一档。
+
+### 水波纹
+
+`Modifier.couiPressRipple` 对应 `COUIPressRippleDrawable` 的波纹分支：按下时从触点扩散圆形波纹，抬手或取消时淡出，绘制范围按 `shape` 裁剪（原厂把 `COUIPressMaskDrawable` 当遮罩）。
+
+~~~kotlin
+Box(
+    Modifier
+        .clip(CouiTheme.shapes.capsule)
+        .couiPressRipple(interactionSource, padded = true)
+        .clickable(interactionSource = interactionSource, indication = null, onClick = onClick),
+)
+~~~
+
+颜色取 `coui_color_ripple_press_background`（浅色 #99B4B4B4、深色 #80FFFFFF），可用 `color` 覆盖；`padded = true` 对应原厂 `initPadding` 的 12dp / 4dp 外扩，绘制会超出节点边界，需要父容器允许越界。
+
+原厂直接使用平台 `RippleDrawable`，毫秒值由系统常量决定；移植按平台节奏取 20ms 进入延迟、75ms 淡入、150ms 淡出、200–400ms 随距离线性扩散，属于近似而非 1:1。水波纹与 `couiStateMask`（普通表面）、`couiButtonFeedback`（按钮与列表）的蒙层是两条分支，同时使用会叠出两份按压反馈。
+
 ## 入口与示例
 
-[跟随](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiMetaballFollowing.kt)、[输入工厂和 Modifier](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiTouchInput.kt)、[TouchMotion](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiTouchMotion.kt)、[PressMotion](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiPressMotion.kt)、[预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/swipereveal/CouiSwipeRevealDefaults.kt)。跟随装配见 [DemoRecordSwipeRow](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSwipeRow.kt)。
+[跟随](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiMetaballFollowing.kt)、[输入工厂和 Modifier](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiTouchInput.kt)、[TouchMotion](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiTouchMotion.kt)、[PressMotion](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/motion/CouiPressMotion.kt)、[水波纹](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiPressRipple.kt)、[预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/swipereveal/CouiSwipeRevealDefaults.kt)。跟随装配见 [DemoRecordSwipeRow](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSwipeRow.kt)。

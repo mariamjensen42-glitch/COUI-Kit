@@ -81,6 +81,8 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("menu", R.string.menu_title, DemoIconTone.Orange) { CouiIcons.Filled.Grid })),
     DemoCatalogGroup(R.string.catalog_group_feedback, listOf(
         DemoCatalogEntry("button", R.string.button_title, DemoIconTone.Blue) { CouiIcons.Filled.Add },
+        DemoCatalogEntry("buttonbar", R.string.buttonbar_title, DemoIconTone.Orange) { DemoIcons.Dialogs },
+        DemoCatalogEntry("floatmenu", R.string.catalog_floatmenu, DemoIconTone.Green) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("iconbutton", R.string.catalog_icon_button, DemoIconTone.Purple) { CouiIcons.Filled.More },
         DemoCatalogEntry("progress", R.string.progress_title, DemoIconTone.Green) { CouiIcons.Filled.Fan },
         DemoCatalogEntry("toast", R.string.toast_title, DemoIconTone.Orange) { CouiIcons.Filled.CloudData },
@@ -166,6 +168,8 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "segment" -> R.string.intro_segment
     "checkbox" -> R.string.intro_checkbox
     "button" -> R.string.intro_button
+    "buttonbar" -> R.string.intro_buttonbar
+    "floatmenu" -> R.string.intro_floatmenu
     "progress" -> R.string.intro_progress
     "toast" -> R.string.intro_toast
     "marquee" -> R.string.intro_marquee

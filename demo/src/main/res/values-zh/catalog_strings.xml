@@ -10,6 +10,15 @@
     <string name="intro_search">分别体验常驻搜索和顶栏按钮展开式搜索。</string>
     <string name="intro_navigation">切换选中项，控制左右附件的出现与退场。</string>
     <string name="intro_fab">选择配色预设，观察浮动按钮的反馈。</string>
+    <string name="intro_floatmenu">从一个悬浮按钮向上展开最多六个带标签的操作。</string>
+    <string name="catalog_floatmenu">悬浮按钮菜单</string>
+    <string name="fab_menu_title">可展开操作</string>
+    <string name="fab_menu_create">新建笔记</string>
+    <string name="fab_menu_share">分享</string>
+    <string name="fab_menu_upload">上传到云端</string>
+    <string name="fab_menu_clicks">已选操作</string>
+    <string name="fab_menu_hint">点击主按钮展开；5 秒无操作或再次点击后收起</string>
+    <string name="fab_menu_expand">展开操作</string>
     <string name="intro_settings">组合分组标题、辅助文案、行内图标、尾部内容与点击状态。</string>
     <string name="intro_timepicker">将整数滚轮组合为 12/24 小时时间选择。</string>
     <string name="intro_countdownpicker">使用大数字滚轮选择时、分和秒。</string>

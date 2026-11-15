@@ -36,6 +36,40 @@ Button(onClick = onClick, label = label,
     colors = CouiButtonDefaults.primaryColors(CouiTheme.colorScheme.accent))
 ~~~
 
+## 两行文案
+
+需要一条主文案加一行说明时传入 `description`（对应原厂 `DescButtonTextSpan`）：
+
+~~~kotlin
+Button(
+    onClick = onSync,
+    label = syncLabel,
+    description = batteryHint,
+    style = CouiButtonStyle.Primary,
+)
+~~~
+
+主文案 16sp、描述 10sp（`coui_btn_desc_text_size` / `coui_btn_desc_sub_text_size`），两者都是 `sans-serif-medium`，行距 0dp（`coui_btn_desc_top_margin`），各自单行居中、超出以省略号结束，按钮宽度取两者较大者。字号沿用 `COUIChangeTextUtil.getSuitableFontSize(…, 2)` 的 1.15 倍封顶，系统字体放大不会把两行文案顶出按钮。
+
+与原厂的差异：原厂在 `ReplacementSpan.draw` 里用 `canvas.drawText` 组合两组 `FontMetricsInt` 基线，因此可以和同一段文字内联拼接；这里由 Compose 文本排版承担，只能作为按钮内容整体使用。
+
+## 按钮组
+
+一到两个同级操作使用 `ButtonGroup`，对应 `SimpleButtonGroupCtrl` 加 `COUIButtonLayout`：
+
+~~~kotlin
+ButtonGroup(
+    items = listOf(
+        CouiButtonGroupItem(label = cancelLabel, onClick = onCancel),
+        CouiButtonGroupItem(label = confirmLabel, onClick = onConfirm, style = CouiButtonStyle.Primary),
+    ),
+)
+~~~
+
+横排按钮宽 `CouiButtonGroupDefaults.mediumButtonWidth`（152dp，`coui_medium_btn_width`），内侧各留 4dp，视觉间隔 8dp；父容器左右留白 16dp（`coui_horizontal_btn_margin`）。任一按钮文案放不下时整体转竖排：按钮宽 174dp（`coui_larger_btn_width`）、父容器留白 32dp（`coui_horizontal_single_btn_margin`）、相邻按钮间距 16dp（`coui_vertical_btn_margin_top`），第一项排在下方，与原厂 `addView` 顺序一致。窗口宽小于 600dp（`WindowWidthSizeClass.Compact`）时横排按钮均分父宽。
+
+双行文案按钮恒按单行判定，不参与换排比较。竖排时的按钮高度下限取 56dp。
+
 ## 图标与自定义内容
 
 需要图标或自定义排版时使用内容槽版本，槽内内容继承按钮的内容色：
@@ -87,4 +121,4 @@ Button(
 
 ## Demo 示例
 
-三种外观、加载与禁用示例见 [DemoButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoButtonSamples.kt)，库入口和配色见 [Button / CouiButtonDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/button/Button.kt)。
+三种外观、加载、禁用与两行文案示例见 [DemoButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoButtonSamples.kt)，库入口和配色见 [Button / CouiButtonDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/button/Button.kt)。按钮组见同文件的 `ButtonSample` 与 `ButtonGroup`。

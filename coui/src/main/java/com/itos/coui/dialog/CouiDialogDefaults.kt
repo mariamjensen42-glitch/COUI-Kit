@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
+import com.itos.coui.buttonBar.CouiButtonBarDefaults
 import com.itos.coui.shape.CouiShapes
 import com.itos.coui.theme.CouiTheme
 
@@ -83,13 +84,13 @@ object CouiDialogDefaults {
     val messageBottom = 16.dp
     val messageTopWithoutTitle = 22.dp
     val messageBottomWithoutTitle = 4.dp
-    val buttonHeight = 44.dp
-    val multilineButtonHeight = 56.dp
-    val buttonHorizontalPadding = 12.dp
-    val buttonEdgePadding = 16.dp
-    val buttonInsidePadding = 4.dp
-    val buttonTopPadding = 4.dp
-    val buttonBottomPadding = 16.dp
+    val buttonHeight = CouiButtonBarDefaults.buttonMinHeight
+    val multilineButtonHeight = CouiButtonBarDefaults.multilineButtonMinHeight
+    val buttonHorizontalPadding = CouiButtonBarDefaults.buttonHorizontalPadding
+    val buttonEdgePadding = CouiButtonBarDefaults.edgePadding
+    val buttonInsidePadding = CouiButtonBarDefaults.insidePadding
+    val buttonTopPadding = CouiButtonBarDefaults.parentVerticalPadding
+    val buttonBottomPadding = CouiButtonBarDefaults.parentBottomPadding
 
     /** ShadowEdge 的 weight_16_1_large, 同时用于描边与内晕距离场。 */
     internal const val edgeWeight = 3f

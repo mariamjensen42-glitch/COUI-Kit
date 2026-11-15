@@ -11,4 +11,16 @@
     <string name="button_enable">Enable buttons</string>
     <string name="button_loading">Loading state</string>
     <string name="button_clicks">Clicks</string>
+    <string name="button_desc_title">Two-line label</string>
+    <string name="button_desc_label">Sync now</string>
+    <string name="button_desc_text">Uses 12% battery</string>
+    <string name="button_group_title">Button group</string>
+    <string name="button_group_cancel">Cancel</string>
+    <string name="button_group_confirm">Confirm</string>
+    <string name="buttonbar_title">Button bar</string>
+    <string name="intro_buttonbar">COUIButtonBarLayout geometry: two short actions share the width, long labels stack</string>
+    <string name="buttonbar_two">Two actions</string>
+    <string name="buttonbar_stack">Long labels</string>
+    <string name="buttonbar_long_label">Restore all default settings</string>
+    <string name="buttonbar_longer_label">Clear every cached file on this device</string>
 </resources>

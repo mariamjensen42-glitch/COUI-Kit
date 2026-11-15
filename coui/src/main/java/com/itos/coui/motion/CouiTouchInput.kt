@@ -31,10 +31,12 @@ fun rememberCouiTouchMotion(expanded: Boolean): CouiTouchMotion {
 
 /** 普通按压随节点释放；保留构造函数供显式 CoroutineScope 生命周期使用。 */
 @Composable
-fun rememberCouiPressMotion(): CouiPressMotion {
+fun rememberCouiPressMotion(
+    params: CouiPressFeedbackParams = CouiPressFeedbackDefaults.oliveLink,
+): CouiPressMotion {
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current.density
-    val press = remember(scope, density) { CouiPressMotion(scope, density) }
+    val press = remember(scope, density, params) { CouiPressMotion(scope, density, params) }
     DisposableEffect(press) { onDispose { press.dispose() } }
     return press
 }

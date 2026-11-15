@@ -11,4 +11,16 @@
     <string name="button_enable">启用按钮</string>
     <string name="button_loading">加载状态</string>
     <string name="button_clicks">点击次数</string>
+    <string name="button_desc_title">两行文案</string>
+    <string name="button_desc_label">立即同步</string>
+    <string name="button_desc_text">将消耗 12% 电量</string>
+    <string name="button_group_title">按钮组</string>
+    <string name="button_group_cancel">取消</string>
+    <string name="button_group_confirm">确定</string>
+    <string name="buttonbar_title">按钮条</string>
+    <string name="intro_buttonbar">COUIButtonBarLayout 的几何：两个短操作均分宽度，长文案自动竖排</string>
+    <string name="buttonbar_two">两个操作</string>
+    <string name="buttonbar_stack">长文案</string>
+    <string name="buttonbar_long_label">恢复全部默认设置</string>
+    <string name="buttonbar_longer_label">清除本机全部缓存文件</string>
 </resources>

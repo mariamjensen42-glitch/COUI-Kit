@@ -57,6 +57,12 @@ enum class CouiTextKind(internal val size: Float, internal val family: String, i
     /** 文字按钮的标签，对应原厂 `couiTextButtonM`：14sp medium。 */
     ButtonLabel(14f, "sans-serif-medium", 500),
 
+    /** `DescButtonTextSpan` 的主文案：`coui_btn_desc_text_size` 16sp medium。 */
+    ButtonDescLabel(16f, "sans-serif-medium", 500),
+
+    /** `DescButtonTextSpan` 的描述：`coui_btn_desc_sub_text_size` 10sp medium。 */
+    ButtonDescSubLabel(10f, "sans-serif-medium", 500),
+
     /** 系统标签类小字，对应原厂 `couiTextAppearanceTag`：10sp medium。 */
     Tag(10f, "sans-serif-medium", 500),
 
@@ -144,5 +150,7 @@ private fun couiLineSpacing(kind: CouiTextKind): Float = when (kind) {
     CouiTextKind.Search -> if (Build.VERSION.SDK_INT >= 35) 1.1321f else 1.1f
     CouiTextKind.ItemValue -> if (Build.VERSION.SDK_INT >= 35) 1.2245f else 1.1f
     CouiTextKind.ButtonLabel -> if (Build.VERSION.SDK_INT >= 35) 1.2245f else 1.1f
+    // 原厂两条基线由 canvas.drawText 直接给出，不存在行距倍数。
+    CouiTextKind.ButtonDescLabel, CouiTextKind.ButtonDescSubLabel -> 1f
     CouiTextKind.Tag -> 1f
 }

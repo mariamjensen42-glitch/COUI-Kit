@@ -38,6 +38,18 @@ object CouiButtonDefaults {
     /** 图标与文字的间距，与原厂按钮内部留白一致。 */
     val iconSpacing = 4.dp
 
+    /** `coui_btn_desc_top_margin`：双行文案的上下间距。 */
+    val descTextMargin = 0.dp
+
+    /** `COUIChangeTextUtil.getSuitableFontSize(size, fontScale, 2)` 的字号缩放上限。 */
+    const val descMaxFontScale = 1.15f
+
+    /**
+     * `coui_btn_desc_height_min`：双行文案按钮的最小高度。
+     * 原厂由 `DescButtonTextSpan` 自行报告高度，`SimpleButtonGroupCtrl` 只把它当作两行分支的下限。
+     */
+    val descMinHeight = 44.dp
+
     /** `coui_loading_btn_circle_radius`：加载态三圆点的半径。 */
     val loadingDotRadius = 1.dp
 

@@ -8,6 +8,11 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 ### 新增与改进
 
+- 新增按钮组 `ButtonGroup`、`CouiButtonGroupItem` 与 `CouiButtonGroupDefaults`：按 `SimpleButtonGroupCtrl` + `COUIButtonLayout` 测量文案与列宽决定横排或竖排（竖排反转顺序），152dp / 174dp 宽度、16dp 与 32dp 容器留白、小屏（<600dp）均分父宽。[按钮](docs/components/button.md#按钮组)
+- `Button(label, …)` 新增 `description`：对应原厂 `DescButtonTextSpan` 的两行文案，主文案 16sp、描述 10sp、间距 0dp、各自单行省略，字号沿用 1.15 倍缩放封顶；Compose 排版不能与同一段文字内联拼接。
+- 新增按钮条 `ButtonBar`、`CouiButtonBarItem` 与 `CouiButtonBarDefaults`：按 `COUIButtonBarLayout` 的横竖排判定与 44/56dp 高度下限排布 1–3 个操作，内容超高时独立滚动；`Dialog` 的操作区改为复用同一布局，`CouiDialogDefaults` 的按钮尺寸改为引用同一来源。[按钮条](docs/components/button-bar.md)
+- 新增展开式悬浮按钮 `FloatingButton`、`FloatingButtonLabel`、`CouiFloatingButtonItem` 与 `CouiFloatingButtonDefaults`：主按钮 56dp、条目自下而上展开（首项 32dp、其余 16dp）、弹簧 500/0.8 与 50ms 错开、主按钮 45° 旋转、5s 自动收起，按压 200/340ms。`OplusViewSeamless` 转场与熔球融合未复刻。[FAB](docs/components/fab.md#展开式悬浮按钮)
+- 新增按压参数 `CouiPressFeedbackParams` 与 `CouiPressFeedbackDefaults`，`rememberCouiPressMotion(params)` 可切换原厂两套弹簧（olivelink 与 `pressfeedback`）；新增 `Modifier.couiPressRipple` 承载 `COUIPressRippleDrawable` 的水波纹分支，颜色与 12dp/4dp 外扩按原厂资源，平台波纹节奏为近似实现。[运动与跟随回弹](docs/effects/motion.md#按压参数)
 - 新增数值步进器 `Stepper`、`CouiStepperColors` 与 `CouiStepperDefaults`：对应 `COUIStepperView`，受控数值、`-999..9999` 边界夹紧、上下界禁用按钮、单击一次与长按 100ms 连续加减、每次提交触发 `GRANULAR_SHORT_VIBRATE_SYNC`；32dp 圆钮与 18sp 数值的几何、容器色与内容色按原厂 style 与资源取值，加减图标移植 `ic_plus_sign` / `ic_minus_sign`。[数值步进器](docs/components/stepper.md)
 - `CouiHapticFeedback` 新增 `GranularShortVibrateSync`（308）。
 - 横向步骤条由 `Stepper` 改名为 `StepBar`，Defaults 同步为 `CouiStepBarDefaults`；`Stepper` 这一名称让给与原厂 `COUIStepperView` 同义的数值步进器。

@@ -10,6 +10,15 @@
     <string name="intro_search">Try persistent search and expandable toolbar search.</string>
     <string name="intro_navigation">Change the selected item and show or hide side actions.</string>
     <string name="intro_fab">Choose a color preset for the floating button.</string>
+    <string name="intro_floatmenu">Expand up to six labeled actions from one floating button.</string>
+    <string name="catalog_floatmenu">Floating button menu</string>
+    <string name="fab_menu_title">Expandable actions</string>
+    <string name="fab_menu_create">Create note</string>
+    <string name="fab_menu_share">Share</string>
+    <string name="fab_menu_upload">Upload to cloud</string>
+    <string name="fab_menu_clicks">Selected actions</string>
+    <string name="fab_menu_hint">Tap the main button to expand; it collapses after 5 s or on another tap</string>
+    <string name="fab_menu_expand">Expand actions</string>
     <string name="intro_settings">Compose section headers, summaries, icons, trailing content and row actions.</string>
     <string name="intro_timepicker">Combine integer wheels into 12-hour and 24-hour time pickers.</string>
     <string name="intro_countdownpicker">Use large number wheels to set hours, minutes and seconds.</string>

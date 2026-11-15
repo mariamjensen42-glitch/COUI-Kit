@@ -17,7 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.itos.coui.button.Button
+import com.itos.coui.button.ButtonGroup
+import com.itos.coui.button.CouiButtonGroupItem
 import com.itos.coui.button.CouiButtonStyle
+import com.itos.coui.buttonBar.ButtonBar
+import com.itos.coui.buttonBar.CouiButtonBarItem
 import com.itos.coui.demo.ui.Icon
 import com.itos.coui.demo.ui.Text
 import com.itos.coui.icons.CouiIcons
@@ -62,6 +66,53 @@ internal fun ButtonSample(dark: Boolean) {
                 Text(stringResource(R.string.button_with_icon))
             }
         }
+    }
+    Group(title = stringResource(R.string.button_desc_title)) {
+        ButtonRow {
+            Button(onClick = { clicks++ }, label = stringResource(R.string.button_desc_label),
+                description = stringResource(R.string.button_desc_text), dark = dark, enabled = enabled)
+        }
+    }
+    Group(title = stringResource(R.string.button_group_title)) {
+        ButtonGroup(
+            modifier = Modifier.padding(vertical = 8.dp),
+            items = listOf(
+                CouiButtonGroupItem(label = stringResource(R.string.button_group_cancel), onClick = { clicks++ }),
+                CouiButtonGroupItem(label = stringResource(R.string.button_group_confirm), onClick = { clicks++ },
+                    style = CouiButtonStyle.Primary),
+            ),
+            dark = dark,
+        )
+    }
+}
+
+/** 按钮条：两个短按钮横排，长文案自动转竖排。 */
+@Composable
+internal fun ButtonBarSample(dark: Boolean) {
+    var clicks by rememberSaveable { mutableIntStateOf(0) }
+    Group(title = stringResource(R.string.buttonbar_two)) {
+        ButtonBar(
+            modifier = Modifier.padding(vertical = 8.dp),
+            items = listOf(
+                CouiButtonBarItem(text = stringResource(R.string.button_group_cancel), onClick = { clicks-- }),
+                CouiButtonBarItem(text = stringResource(R.string.button_group_confirm), onClick = { clicks++ }),
+            ),
+            dark = dark,
+        )
+    }
+    Group(title = stringResource(R.string.buttonbar_stack)) {
+        ButtonBar(
+            modifier = Modifier.padding(vertical = 8.dp),
+            items = listOf(
+                CouiButtonBarItem(text = stringResource(R.string.buttonbar_long_label), onClick = { clicks++ }),
+                CouiButtonBarItem(text = stringResource(R.string.buttonbar_longer_label), onClick = { clicks++ },
+                    style = CouiButtonStyle.Primary),
+            ),
+            dark = dark,
+        )
+    }
+    Group {
+        DemoPreference(title = stringResource(R.string.button_clicks), value = clicks.toString())
     }
 }
 

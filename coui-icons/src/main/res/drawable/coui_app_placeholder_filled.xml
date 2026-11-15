@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="AppPlaceholder"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+    <group android:name="group">
+        <path android:pathData="M 36.5 24 C 50.031 24 61 34.969 61 48.5 L 61 51 L 12 51 L 12 48.5 C 12 34.969 22.969 24 36.5 24 Z" android:strokeColor="#5ebc5e" android:strokeWidth="4" android:name="path_width" />
+        <path android:pathData="M 28 36 C 27.205 36 26.441 36.316 25.879 36.879 C 25.316 37.441 25 38.205 25 39 C 25 39.795 25.316 40.559 25.879 41.121 C 26.441 41.684 27.205 42 28 42 C 28.795 42 29.559 41.684 30.121 41.121 C 30.684 40.559 31 39.795 31 39 C 31 38.205 30.684 37.441 30.121 36.879 C 29.559 36.316 28.795 36 28 36 Z M 45 36 C 44.205 36 43.441 36.316 42.879 36.879 C 42.316 37.441 42 38.205 42 39 C 42 39.795 42.316 40.559 42.879 41.121 C 43.441 41.684 44.205 42 45 42 C 45.795 42 46.559 41.684 47.121 41.121 C 47.684 40.559 48 39.795 48 39 C 48 38.205 47.684 37.441 47.121 36.879 C 46.559 36.316 45.795 36 45 36 Z" android:fillColor="#5ebc5e" android:strokeWidth="1" android:name="path" />
+        <path android:pathData="M 10.5 20.5 L 20.5 30.5 M 52.5 30.5 L 62.5 20.5" android:strokeColor="#5ebc5e" android:strokeWidth="4" android:name="path_width" />
+    </group>
+</vector>

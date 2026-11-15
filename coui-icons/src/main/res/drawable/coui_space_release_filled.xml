@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="SpaceRelease"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+    <group android:name="group">
+        <path android:pathData="M 36.868 11.861 L 58.129 22.099 C 58.626 22.339 58.836 22.936 58.596 23.434 C 58.498 23.638 58.333 23.803 58.129 23.901 L 36.868 34.139 C 36.319 34.403 35.681 34.403 35.132 34.139 L 13.871 23.901 C 13.374 23.661 13.164 23.064 13.404 22.566 C 13.502 22.362 13.667 22.197 13.871 22.099 L 35.132 11.861 C 35.681 11.597 36.319 11.597 36.868 11.861 Z M 60 36 L 36.927 48.071 C 36.346 48.375 35.654 48.375 35.073 48.071 L 12 36 M 60 49 L 36.927 61.071 C 36.346 61.375 35.654 61.375 35.073 61.071 L 12 49" android:strokeColor="#007aff" android:strokeWidth="4" android:name="path_width" />
+    </group>
+</vector>

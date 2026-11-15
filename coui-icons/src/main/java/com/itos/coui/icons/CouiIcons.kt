@@ -682,6 +682,158 @@ object CouiIcons {
         /** com.android.systemui:drawable/split_screen_full_icon。 */
         val SplitScreen: ImageVector
             @Composable get() = couiIconResource(R.drawable.coui_split_screen_filled)
+
+        /** com.coloros.phonemanager:drawable/main_scan_result_cloud_space_update。 */
+        val CloudSpaceUpdate: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_cloud_space_update_filled)
+
+        /** com.coloros.phonemanager:drawable/main_scan_result_log。 */
+        val ScanLog: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_scan_log_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_clear_cloud_space_not_enough。 */
+        val CloudSpaceLow: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_cloud_space_low_filled)
+
+        /** com.coloros.phonemanager:drawable/recommend_opt_app_manager。 */
+        val AppManager: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_app_manager_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_phone_call_intercept。 */
+        val CallIntercept: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_call_intercept_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_recycler_file_encryption。 */
+        val FileEncryption: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_file_encryption_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_recycler_message。 */
+        val RecycleMessage: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_recycle_message_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_sms_intercept。 */
+        val SmsIntercept: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_sms_intercept_filled)
+
+        /** com.coloros.phonemanager:drawable/main_scan_result_widgets_clean。 */
+        val WidgetClean: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_widget_clean_filled)
+
+        /** com.coloros.phonemanager:drawable/tool_block_mms。 */
+        val BlockMms: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_block_mms_filled)
+
+        /** com.android.systemui:drawable/capsule_stat_highlight_call。 */
+        val CallHighlight: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_call_highlight_filled)
+
+        /** com.android.systemui:drawable/stat_high_light_payment_safe。 */
+        val PaymentSafe: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_payment_safe_filled)
+
+        /** com.android.settings:drawable/phone_anti_theft_alarm。 */
+        val AntiTheft: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_anti_theft_filled)
+
+        /** com.coloros.phonemanager:drawable/main_scan_result_screen_insurance。 */
+        val ScreenInsurance: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_screen_insurance_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_recycler_note。 */
+        val RecycleNote: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_recycle_note_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_recycler_file_manager。 */
+        val RecycleFileManager: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_recycle_file_manager_filled)
+
+        /** com.coloros.phonemanager:drawable/ic_recycler_gallery。 */
+        val RecycleGallery: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_recycle_gallery_filled)
+
+        /** com.android.systemui:drawable/magic_key_dnd_on_icon。 */
+        val DndKey: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_dnd_key_filled)
+
+        /** com.android.systemui:drawable/status_bar_qs_brightness_icon_auto。 */
+        val BrightnessAuto: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_brightness_auto_filled)
+
+        /** com.android.systemui:drawable/contextual_edu_all_apps。 */
+        val GestureAllApps: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_gesture_all_apps_filled)
+
+        /** com.android.systemui:drawable/contextual_edu_swipe_back。 */
+        val GestureSwipeBack: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_gesture_swipe_back_filled)
+
+        /** com.android.systemui:drawable/contextual_edu_swipe_up。 */
+        val GestureSwipeUp: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_gesture_swipe_up_filled)
+
+        /** com.android.settings:drawable/bluetooth_warning_icon。 */
+        val BluetoothWarning: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_bluetooth_warning_filled)
+
+        /** com.android.systemui:drawable/ic_floating_landscape。 */
+        val FloatingWindow: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_floating_window_filled)
+
+        /** com.android.settings:drawable/ic_gesture_play_button。 */
+        val GesturePlay: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_gesture_play_filled)
+
+        /** com.android.settings:drawable/settings_palm_password_ic。 */
+        val PalmUnlock: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_palm_unlock_filled)
+
+        /** com.android.settings:drawable/settings_smart_lock_icon。 */
+        val SmartLock: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_smart_lock_filled)
+
+        /** com.coloros.phonemanager:drawable/icon_app_clean_warning。 */
+        val AppCleanWarning: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_app_clean_warning_filled)
+
+        /** com.android.settings:drawable/verify_name_icon_error。 */
+        val VerifyError: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_verify_error_filled)
+
+        /** com.coloros.phonemanager:drawable/notify_tag_clear。 */
+        val TagClear: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_tag_clear_filled)
+
+        /** com.coloros.phonemanager:drawable/notify_tag_virus。 */
+        val TagVirus: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_tag_virus_filled)
+
+        /** com.android.systemui:drawable/ic_corp_badge_off。 */
+        val CorpBadgeOff: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_corp_badge_off_filled)
+
+        /** com.android.systemui:drawable/ic_emergency_star。 */
+        val EmergencyStar: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_emergency_star_filled)
+
+        /** com.android.systemui:drawable/ic_finder_active。 */
+        val Finder: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_finder_filled)
+
+        /** com.android.systemui:drawable/tile_edit_add_icon。 */
+        val TileEditAdd: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_tile_edit_add_filled)
+
+        /** com.coloros.phonemanager:drawable/main_scan_result_network_quality_scan。 */
+        val NetworkQuality: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_network_quality_filled)
+
+        /** com.coloros.phonemanager:drawable/space_release。 */
+        val SpaceRelease: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_space_release_filled)
+
+        /** com.coloros.phonemanager:drawable/vd_app_icon。 */
+        val AppPlaceholder: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_app_placeholder_filled)
     }
 
     object Outlined {

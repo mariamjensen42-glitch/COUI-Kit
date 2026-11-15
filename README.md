@@ -34,7 +34,7 @@ COUI-Kit 参考 ColorOS 17 的「凝光视效」，提供背景模糊、材质�
 
 ```kotlin
 dependencies {
-    implementation("io.github.itoseo:coui:0.0.1-alpha11")
+    implementation("io.github.itoseo:coui:0.0.1-alpha12")
 }
 ```
 

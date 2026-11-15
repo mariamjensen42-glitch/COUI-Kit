@@ -176,6 +176,74 @@ LoadingDialog(
 
 `isWorking` 由宿主的任务状态提供，`loadingMessage` 是宿主的提示文案。提示过长时以省略号收尾。默认屏蔽外点关闭。传入 `onDismissRequest` 后，返回键可请求宿主关闭。需要让点击外部也请求关闭时，同时设置 `dismissOnClickOutside = true`。宿主处理任务和关闭请求，通过 `visible` 控制窗口显隐。
 
+## 多页引导
+
+`GuideDialog` 用横向分页展示多张引导页，底部主按钮在末页换成「知道了」。每页由标题、可选描述和可组合的图片区组成，图片按 `imageHeight` 裁切。
+
+~~~kotlin
+GuideDialog(
+    pages = listOf(
+        CouiGuidePage(title = firstTitle, description = firstDescription, image = { Image(first, null) }),
+        CouiGuidePage(title = secondTitle, image = { Image(second, null) }),
+    ),
+    onFinish = onClose,
+    onDismissRequest = onClose,
+    onSkip = onClose,
+)
+~~~
+
+翻页进度同时驱动底部按钮：主按钮从半宽长到整行，次级按钮同步淡出后隐藏；进度取自原厂的 0.15 响应弹簧。`onPageChange` 在翻页停稳后回调。单页时只显示一个整行按钮，文案取 `finishLabel`；不传 `onSkip` 时不显示跳过按钮。
+
+图片区高度默认 328dp，紧凑样式改用 `CouiGuideDialogDefaults.compactImageHeight`。页码指示器最多显示 6 个点，规则同[页码指示器](page-indicator.md)。
+
+## 安全弹窗
+
+`SecurityDialog` 在正文下加一段可带链接的说明文案和一个「不再提示」勾选框，默认从底部弹出。
+
+~~~kotlin
+SecurityDialog(
+    onDismissRequest = onClose,
+    confirmAction = CouiDialogAction(agreeLabel, onAgree, style = CouiDialogActionStyle.Primary,
+        colors = CouiDialogDefaults.primaryActionColors(accent)),
+    title = title,
+    message = message,
+    statement = buildAnnotatedString {
+        append(template)
+        addLink(LinkAnnotation.Clickable("privacy", TextLinkStyles(SpanStyle(color = accent))) { onPrivacy() },
+            start, end)
+    },
+    checked = checked,
+    onCheckedChange = { checked = it },
+)
+~~~
+
+`statement` 自己携带链接标注，点击由文本的链接处理器接管；传 `null` 时整段说明省略。`checked` 受控，传 `onCheckedChange = null` 时勾选框只显示不可操作。返回键关闭交给 `onDismissRequest`。
+
+## 列表弹窗
+
+`ListDialog` 提供纯文本操作列表、单选列表和多选列表三种形态，默认从底部弹出。
+
+~~~kotlin
+ListDialog(
+    items = items,
+    onDismissRequest = onClose,
+    title = title,
+    onItemClick = { index -> onSelect(index) },
+)
+~~~
+
+`selection = CouiListSelection.Single` 时传入 `checkedIndex` 与 `onCheckedIndexChange`；`CouiListSelection.Multi` 时传入 `checkedIndices` 与 `onCheckedIndicesChange`。多选可用 `maxChecked` 限制数量，达到上限后继续勾选只回调 `onMaxChecked`，不改变选择。
+
+每项可带 `summary` 次要说明，`enabled = false` 的项不响应点击。列表超长时在卡片内滚动，需要固定操作时传入 `confirmAction`。
+
+## 与原厂的差异
+
+- 引导页的翻页手势沿用 Compose 分页的默认行为，原厂自定义的甩动速度阈值、最大/最小甩动时长与衰减系数没有复刻；程序化翻页用 650ms 缓动近似原厂的弹簧插值。
+- 引导弹窗的卡片取弹窗最大高度，图片高度只有 328dp 与紧凑 240dp 两档，没有原厂的模糊背景注册回调；材质走公共 `material` + `backdrop` 入口。
+- 安全弹窗的勾选框间距使用公共 Checkbox 的度量，原厂 `COUICheckBox` 内部文字与方框间距没有逐像素移植。
+- 列表弹窗的分隔线按 1 物理像素绘制（原厂为 0.33dp），项与勾选区的按压反馈使用公共状态蒙层，不是原厂 `coui_alert_dialog_item_background` 波纹；项内图标位没有开放。
+- 原厂 `COUIRotatingDialogBuilder`（旋转加载弹窗）、推荐按钮和 Tiny 样式没有移植。
+
 ## 使用背景材质
 
 要让背景模糊随弹窗一起移动，在 API 33 及以上提供窗口背景源，并把显隐状态传给 `visible`。下面的 `page` 是原有宿主页，可以包含 COUI `Scaffold`。把背景修饰符挂到页面容器上，弹窗留在该容器之外。
@@ -243,6 +311,8 @@ Dialog(
 
 Demo 的“组件 → 弹窗”分组包含底部、居中、长内容、多个操作、输入和加载弹窗示例。加载示例会在模拟任务结束后自动关闭。
 
+同分组的“Dialog variants”页面演示多页引导、安全弹窗的说明文案与勾选框，以及文本、单选、多选三种列表弹窗。
+
 支持的设备可以通过“弹窗背景材质”开关比较模糊材质和不透明表面。
 
-Demo 源码见 [DemoDialogSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogSamples.kt) 与[输入型示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogInputSample.kt)。公开参数见 [Dialog / CouiDialogAction](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/Dialog.kt)、[CouiDialogActionStyle / CouiDialogActionColors](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/CouiDialogButton.kt)、[InputDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/InputDialog.kt)、[LoadingDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/LoadingDialog.kt) 与 [CouiDialogDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/CouiDialogDefaults.kt)。
+Demo 源码见 [DemoDialogSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogSamples.kt)、[输入型示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogInputSample.kt) 与[引导、安全、列表示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogFamilySamples.kt)。公开参数见 [Dialog / CouiDialogAction](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/Dialog.kt)、[CouiDialogActionStyle / CouiDialogActionColors](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/CouiDialogButton.kt)、[InputDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/InputDialog.kt)、[LoadingDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/LoadingDialog.kt)、[GuideDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/GuideDialog.kt)、[SecurityDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/SecurityDialog.kt)、[ListDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/ListDialog.kt) 与 [CouiDialogDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/CouiDialogDefaults.kt)。

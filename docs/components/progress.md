@@ -129,6 +129,44 @@ Skeleton(Modifier.size(48.dp), shape = CircleShape)
 
 默认是 8dp 圆角、16dp 最小高度。底色取 `color` 自身的透明度，动画只在其上按 `CouiProgressDefaults.skeletonMinFactor` 到 1 波动，因此宿主调整底色时对比度仍按比例保持。`animated = false` 时保持静止，适合列表整体滚动或截图场景。
 
+## 安装进度按钮
+
+`InstallLoadProgress` 对应原厂 `COUIInstallLoadProgress`：底色上叠一段进度、文字居中，
+进度覆盖到的文字换成另一种颜色，按下时整体内缩、变暗、文字缩小：
+
+~~~kotlin
+var state by remember { mutableStateOf(CouiLoadProgressState.InProgress) }
+
+InstallLoadProgress(
+    progress = downloaded,
+    state = state,
+    text = stringResource(R.string.download),
+    onClick = { state = CouiLoadProgressState.Waiting },
+)
+~~~
+
+- 状态对应原厂 `couiState`：`Idle`（`DEFAULT_UP_OR_DOWN`）只画底色与文字，
+  `InProgress` / `Waiting` 画进度填充，`Failed` 用强调色铺满整颗按钮。
+- 小号 52×28dp、圆角 13.5dp；大号 220×44dp、圆角 21.5dp；文字 14sp、左右内距 6dp，
+  取自 `coui_install_download_progress_*` 与 `Widget.COUI.COUILoadProgress`。
+  非中文环境的小号按钮再宽 30dp，对应 `coui_install_download_progress_width_in_foreign_language`。
+- 进度弹簧 response 1.0、bounce 0，对应原厂 `COUISpringForce`。
+- 按下时亮度乘 0.8、四周内缩 5%、文字缩到 0.92 倍，200ms 进入、340ms 回弹，
+  曲线为 `PathInterpolator(0.3, 0, 0.1, 1)`（原厂 `COUIMoveEaseInterpolator`）。
+- 配色由 `CouiInstallLoadProgressDefaults.colors(dark)` 给出：底色 `couiColorSecondary`、
+  填充与文字 `couiColorPrimary`、进度覆盖到的那部分文字为白色（`coui_install_load_progress_text_color_in_progress`）。
+
+### 与原厂的差异
+
+- 原厂 `LOAD_STYLE_CIRCLE`（33dp 圆形按钮，加载 / 暂停 / 重试三张位图加内外淡入淡出）未移植：
+  位图来自手机管家，项目没有对应资源，也不引入新的图片依赖。需要圆形按钮时用 `IconButton` 组合。
+- 原厂 `INSTALL_HAVE_GIFT` 状态与 `couiInstallGiftBg` 礼包背景未移植。
+- 原厂按 `couiInstallTextview` 超长时截断并补省略号（`addApostrophe`），这里交给调用方传入的 `text`，
+  组件只做单行测量；字号缩放跟随 `fontScale` 由 Compose 处理，不做原厂的 2 档字体上限。
+- 原厂 `couiButtonDrawable` 自绘按钮图标未开放，进度只用文字。
+- `COUILottieLoadingView` 依赖厂商动画引擎 `com.oplus.anim.EffectiveAnimationView` 与内嵌的
+  `coui_lottie_loading_large_json` 资源，项目只依赖 AndroidX，无法移植；整页加载请用 `CircularProgress`。
+
 ## 动画与资源
 
 两处动画都由 `withFrameNanos` 按帧推进相位，不创建 `rememberInfiniteTransition`，也不引入额外动画依赖。相位只在绘制阶段读取，不产生逐帧重组；组件离开组合后协程随 `LaunchedEffect` 取消，不残留计时。
@@ -137,4 +175,4 @@ Skeleton(Modifier.size(48.dp), shape = CircleShape)
 
 ## Demo 示例
 
-环形、大号读数环、线性、分段与占位示例见 [DemoProgressSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoProgressSamples.kt)，库入口见 [CircularProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/CircularProgress.kt)、[LinearProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/LinearProgress.kt) 与 [Skeleton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/Skeleton.kt)。
+环形、大号读数环、线性、分段、安装进度按钮与占位示例见 [DemoProgressSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoProgressSamples.kt)，库入口见 [CircularProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/CircularProgress.kt)、[LinearProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/LinearProgress.kt) 、[Skeleton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/Skeleton.kt) 与 [InstallLoadProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/progress/InstallLoadProgress.kt)。

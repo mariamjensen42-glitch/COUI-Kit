@@ -8,6 +8,12 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 ### 新增与改进
 
+- 新增标签 `Tag` 与 `CouiTagDefaults`：左右图标槽、四角独立轮廓、可选描边与 10dp `sans-serif-medium` 单行文本，几何与字号取自 `COUITagView` / `COUITagBackgroundView` 与 `coui_tag_view_layout.xml`；原厂 `couiColorBackgroundWithTag` 在 `Theme.COUI` 中没有赋值，默认沿用原厂 attr 组合（`couiColorContainer8` 中性薄填充 + `coui_color_white`），实际外观由宿主显式传入。[标签](docs/components/tag.md)
+- 新增富文本入口：`Text` 增加 `AnnotatedString` 重载，新增 `CouiTextLinkDefaults` 按 `color/coui_clickable_text_color` 提供链接的常规、按下与禁用三色；Compose 的链接样式没有禁用态，链接不可用时由宿主改用普通 span。[富文本](docs/components/rich-text.md)
+- 新增滚动条 `ScrollBar` 与 `CouiScrollBarDefaults`：拇指高度按视口占比、位置按可滚范围占比，滚动后停留 2 秒再在 250 毫秒内淡出，拇指可直接拖动并贴起始侧，几何与配色取自 `COUIScrollBar` 与 `coui_scrollbar_*`；只读取 `ScrollState`，且不取消滚动容器已进行的 fling。[滚动条](docs/components/scroll-bar.md)
+- 新增页签条 `TabLayout` 与 `CouiTabItem`、`CouiTabLayoutMode`：文字页签配底部滑动指示器，宽度跟随文字且不小于 32dp，切换时长按原厂 `min(300, 距离 × 50 + 150)`，固定模式等分、滚动模式把选中项滚向中间；自定义视图、图标、红点与 Mediator 联动未移植。[页签条](docs/components/tab-layout.md)
+- 新增换行布局 `FlowLayout` 与搜索历史 `SearchHistory`：按测量宽度逐行装填、可折叠到指定行数，展开/折叠的 250/100/400/300ms 淡入淡出与清空时 300ms 整块淡出取自 `COUIFlowLayout`、`COUISearchHistoryView`；搜索历史装配 `FlowLayout`，不复制换行逻辑，chip 按压反馈与字号适配未移植。[换行布局](docs/components/flow-layout.md) · [搜索历史](docs/components/search-history.md)
+- 新增 `SnackbarHost` 与 `CouiSnackbarState`：单实例互斥、任意停留时长（`0` 不自动消失）、触摸暂停后按完整时长重新计时、response 0.3/0.25 的弹簧缩放与淡入淡出；容器几何与配色复用轻提示的 `coui_snack_bar_*` 绘制节点，公开轻提示行为不变。父容器位置由宿主的 `Box` 决定，通知样式与拖动消失未移植。[Snackbar](docs/components/snackbar.md)
 - 新增跑马灯文本 `MarqueeText`、竖向滑动条 `VerticalSeekBar`、顶部提示条 `TopTips` 与 `TopTipsContent`：分别对应 `COUIMarqueeTextView`、`COUIVerticalSeekBar`、`COUICustomTopTips`。滚动与渐隐、拖动阻尼与惯性、250ms 纵向缩放按原厂资源与默认 style 的 selector 实现，进度色跟随主题强调色；未复刻厂商物理引擎、形变与平滑圆角等私有能力，逐项差异见[覆盖状态](docs/status/coverage.md)。[跑马灯文本](docs/components/marquee-text.md) · [竖向滑动条](docs/components/vertical-seek-bar.md) · [顶部提示条](docs/components/top-tips.md)
 - 双主体融球改用 COUI 17 的逐对预计算模型：`CouiMetaballRenderer` 复用 `floatingPair()` 写入的 `pre[24]`，shader 只保留仍在求值的常量，边缘退晕、融合强度、颜色范围与弧线范围与原厂同轴；`blendRangePx` 语义不变，圆角先乘 CONIC 系数再夹到半尺寸。公开签名与文档语义不变。[横向双主体融合](docs/effects/metaball.md)
 - `TopAppBarSurface` 新增 `blurFactor`，`drawCouiGradientBackdrop` 相应支持按进度缩放卷积半径：原厂是把 start/end 两个半径同乘 `1 - fraction`，这里作为位置 ratio 之外的独立乘子；`CollapsingTopAppBar` 与 `LargeTopAppBar` 按 `1 - collapsedFraction` 接线，完全收起时不再模糊。[顶栏与按钮](docs/components/top-app-bar.md#背景参数)
@@ -24,6 +30,8 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 新增环形进度 `CircularProgress` 与占位 `Skeleton`：尺寸、描边与配色取自 `Widget.COUI.COUICircularProgressBar`（40dp / 5dp、30dp / 3dp），不确定态的 800ms 旋转与 270° 弧长沿用原厂加载字形 `coui_icon_loading`。[进度与占位](docs/components/progress.md)
 - 新增轻提示 `ToastHost` 与 `ToastHostState`：几何与配色取 `coui_snack_bar_*`（12.67dp 圆角、16/10dp 留白、14sp 文字、26dp 跨度 5% 投影），支持操作按钮、图标槽、多行留白、自动消失与最多三条堆叠。[轻提示](docs/components/toast.md)
 - 新增角标 `Badge`、`BadgedBox` 与受控气泡 `Tooltip`：角标取自 `Widget.COUI.COUIHintRedDot`（红点 6dp、数字宽 16/20/26dp、10dp 字号、`coui_color_additional_red`），气泡取自 `COUIToolTips`（强调色容器、13dp 留白、12dp 圆角）。[角标与气泡](docs/components/badge-tooltip.md)
+- 普通阴影 `CouiShadowStyle` 新增可选 `blurRadius`：`null` 时维持原派生模糊（与原厂 `blur_r=0` 交给平台原生投影的观感不同），传入后显式控制模糊半径以更接近原生；`CouiShadowDefaults.menu()` 保持 `null` 以与原厂 LV4 菜单 1:1。效果页示例初值收到 6dp 投影 / 12dp 模糊（滑块仍可拉回 `menu()` 原厂值），并新增模糊滑块。[普通阴影](docs/effects/shadow.md)
+- 新增共享状态蒙层 `couiStateMask` 与焦点描边 `couiFocusOutline`，配套 `CouiMaskType` / `CouiStrokeType` / `CouiMaskColors` / `CouiMaskDefaults`：悬停、焦点（含选中）与按压三条独立弹簧通道按该顺序叠加，`HoverPress` 关掉焦点通道；描边沿用原厂 3dp 半径按像素取整后乘二的笔宽与 `Outer` 差集裁剪，可见半笔宽。`couiButtonFeedback` 与开关的焦点描边改为复用这两个入口，调用签名不变；原厂 `Processor` 族、Drawable 图层广播与自定义路径涟漪未移植。[光效](docs/effects/lighting.md#状态蒙层与焦点描边)
 
 - 新增页码指示器 `PageIndicator`：半径按原厂 `COUIPageIndicator` 的四段距离带连续插值（`COUIEaseInterpolator` 0.33 / 0 / 0.67 / 1），最多显示 6 个点、窗口随当前页滑动，可选 `onDotClick` 点按回调。[页码指示器](docs/components/page-indicator.md)
 - 新增空状态 `EmptyState`：布局按 `coui_component_empty_state.xml` 复刻（图标槽 120×100dp、文字列 280dp、标题 2 行 / 说明 3 行），说明 12sp、操作按钮 14sp medium，新增 `actionLabel` + `onAction` 入口。[空状态](docs/components/empty-state.md)
@@ -60,11 +68,13 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 新增下拉刷新 `PullToRefresh`：列表到顶后继续下拉累积位移，松手超过阈值触发刷新，指示器收到下拉进度并可替换。[下拉刷新](docs/components/pull-to-refresh.md)
 - 新增折叠面板 `Accordion`：受控展开态、展开/收起动画与自绘旋转箭头，用于设置页的按需展开分组。[折叠面板](docs/components/accordion.md)
 - 新增头像容器 `Avatar` 与 `CouiAvatarDefaults`：固定尺寸、可裁剪、底色可覆盖，内容由宿主提供。[头像](docs/components/avatar.md)
-- 新增三态容器 `StateLayout` 与 `CouiLoadState`：加载、空、失败与就绪的统一分发，文案与重试入口由宿主提供。[三态容器](docs/components/state-layout.md)
+- 新增三态容器 `StateLayout` 与 `CouiLoadState`：加载、空、失败与就绪的统一分发，文案与重试入口由宿主提供；空态与失败态按原厂 `COUIEmptyStateView` 摆位——顶部留白为 (容器高 − 槽高) × 0.45，按高 200dp / 宽 320dp / 高 480dp 判三档尺寸类型、`Small` 跳过插图，容器高未被固定时收拢到内容高度，`emptyPageSize` 可强制档位。[三态容器](docs/components/state-layout.md)
 - 新增步骤条 `Stepper`：横向圆点、连接线与标签，当前步骤由宿主持有。[步骤条](docs/components/stepper.md)
 - Demo 新增「手机管家」与「清理存储」两个页面级复刻，演示绿色渐变底、页内大标题、通知卡、白心分数环、2×2 入口卡、多色存储构成条，以及锚定在圆底更多按钮上的毛玻璃菜单。
 
 按钮、环形进度、角标、气泡、页码、空状态、输入框、底部面板与轻提示均对齐 ColorOS 17 应用内嵌的 COUI 资源；原厂没有对应分支的细节（按钮加载的三点动画、不确定态弧长、占位脉冲、轻提示投影）按同族资源的数值与节奏推演。
+
+- Demo 的二级页导航从「每页一个 Activity」换成 Navigation 3：新增 `DemoRoute` 导航键与 `rememberDemoBackStack()`（`listSaver` 保存页面栈，不引入序列化插件），`MainActivity` 用 `NavDisplay` 分发首页与详情页并处理系统返回；移除 `DemoSecondaryActivity` 及其 manifest 声明。库 API 不变。[Demo 指南](docs/guide/demo.md)
 
 ### 移除
 

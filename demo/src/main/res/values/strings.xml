@@ -62,6 +62,7 @@
     <string name="backdrop_position">Move the background</string>
     <string name="shadow_elevation">Shadow elevation</string>
     <string name="low_level_shadow">Use the low-level Canvas renderer</string>
+    <string name="shadow_blur">Shadow blur</string>
     <string name="chip_tab_title">ChipTab</string>
     <string name="chip_category_number">Category %1$d</string>
     <string name="chip_enable">Enable ChipTab</string>

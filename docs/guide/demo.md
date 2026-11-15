@@ -28,7 +28,7 @@ CI 可通过 KEYSTORE_FILE、KEYSTORE_PASSWORD、KEYSTORE_ALIAS、KEYSTORE_ALIAS
 | 效果 | 平滑胶囊阴影、记录侧滑融合、背景模糊和材质 |
 | 设置 | 主题设置、底栏设置，以及同一无标题组中的关于此示例和还原示例选项 |
 
-底栏切换页面。左附件切换深浅色，右附件打开 FAB 示例；API 34 以下使用普通底部导航。主题和轮廓选项在 Activity 之间共享。
+底栏切换页面。左附件切换深浅色，右附件打开 FAB 示例；API 34 以下使用普通底部导航。主题和轮廓选项在首页与详情页之间共享。
 
 ### 搜索与返回
 
@@ -52,6 +52,9 @@ CI 可通过 KEYSTORE_FILE、KEYSTORE_PASSWORD、KEYSTORE_ALIAS、KEYSTORE_ALIAS
 - FAB 页可切换圆形、圆角方形及配色预设；按钮固定在页面右下角，滚动正文时保持原位。
 - 融合页使用本地记录样例：可侧滑展开删除区、二次点击确认，或继续长拉后松手删除。图标淡出后收缩整行；点击记录打开预览并更新最近查看标记，全部删除后可恢复。
 - 分组与说明页展示 `Group` 的标题、头部操作与 `footer` 自动装配，以及脱离分组独立使用的 `Footer`。
+- 页签条页同时展示固定等分与横向滚动两种排布，共用一个受控下标，指示器随文字宽度滑动。
+- 搜索历史页展示标题、清空淡出、折叠/展开，以及脱离搜索历史单独使用的换行布局；历史词清空后可恢复。
+- Snackbar 页展示短/长/不自动消失三种时长、操作按钮与单实例互斥；多余请求由页面排队，在当前提示退场后提交。
 - 渐进模糊页只模糊装饰背景，可调渐隐高度与参考模糊半径。
 - 跟手光页提供不透明表面，按住并移动手指可观察光效跟随。
 - 按压与触摸形变页展示按住缩放、横向拖动变形与松手回弹。
@@ -65,7 +68,7 @@ Demo 不安装任何默认样式，组件直接使用 COUI 原生预设；页面
 
 首页和详情页使用公开的 [Scaffold](../components/scaffold.md)。容器测量栏位并处理横向安全区，Demo 在容器外处理 IME；正文应用测量所得 Padding。容器自动向顶栏、底栏和 FAB 槽位提供正文背景源，正文内的 ChipTab 和模糊演示保留独立源。Activity 根部的窗口源供菜单与弹窗使用，不由 Scaffold 安装。源和消费者的分层见[宿主页面接入](secondary-pages.md)。
 
-页面通过标准 Intent 启动、`finish()` 退出，使用当前 ROM 向普通应用提供的 Activity 转场。Demo 不实现系统设置的特权窗口或双栏协议。
+详情页由 Navigation 3 的 `NavDisplay` 承载，页面栈由 Demo 持有：`DemoRoute.Home` 与 `DemoRoute.Detail(page)` 两个键，系统返回经 `onBack` 弹出栈顶，转场使用 `NavDisplay` 默认动画。Demo 不实现系统设置的特权窗口或双栏协议。
 
 ## 源码导航
 
@@ -73,9 +76,10 @@ Demo 不安装任何默认样式，组件直接使用 COUI 原生预设；页面
 | --- | --- |
 | 首页、搜索与底栏 | [DemoApp](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt) |
 | 目录与查询 | [DemoCatalog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoCatalog.kt) |
-| Activity 导航 | [DemoSecondaryActivity](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryActivity.kt) |
+| 导航与页面栈 | [DemoNavigation](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNavigation.kt)、[MainActivity](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/MainActivity.kt) |
 | 详情分发与页面容器 | [DemoSecondaryPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryPage.kt)、[DemoSettingsPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt) |
 | 组件与设置样例 | [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt) |
+| 页签条、搜索历史与 Snackbar | [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNextComponents.kt) |
 | 阴影、模糊与材质 | [DemoShadowSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoShadowSamples.kt)、[DemoBlurTutorial](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoBlurTutorial.kt)、[DemoVisualEffects](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoVisualEffects.kt) |
 | 弹窗与选择器 | [DemoDialogSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogSamples.kt)、[DemoPickerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoPickerSamples.kt) |
 | 记录侧滑 | [DemoRecordSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt) |

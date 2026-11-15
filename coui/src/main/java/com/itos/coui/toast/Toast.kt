@@ -157,87 +157,113 @@ private fun ToastItem(toast: CouiToast, state: ToastHostState, colors: CouiToast
         enter = fadeIn(tween(enterMillis)) + slideInVertically(tween(enterMillis)) { it / 4 },
         exit = fadeOut(tween(exitMillis)) + slideOutVertically(tween(exitMillis)) { it / 4 },
     ) {
-        // 原厂单行留白 10dp，多行改为上 12dp / 下 8dp；换行数由实际排版回传，纵向留白不参与宽度测量，不会形成回环。
-        var lineCount by remember { mutableIntStateOf(1) }
-        val multiline = lineCount > 1
         val action = toast.actionLabel?.takeIf { toast.onAction != null }
-        Row(
-            Modifier.widthIn(max = CouiToastDefaults.maxWidth)
-                .shadow(
-                    elevation = CouiToastDefaults.shadowElevation,
-                    shape = CouiToastDefaults.shape,
-                    clip = false,
-                    ambientColor = CouiToastDefaults.shadowColor,
-                    spotColor = CouiToastDefaults.shadowColor,
-                )
-                .clip(CouiToastDefaults.shape)
-                .background(colors.container)
-                .semantics { liveRegion = LiveRegionMode.Polite },
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            toast.icon?.let { icon ->
-                Box(
-                    Modifier.padding(
-                        start = CouiToastDefaults.iconStartPadding,
-                        top = CouiToastDefaults.iconVerticalPadding,
-                        bottom = CouiToastDefaults.iconVerticalPadding,
-                    ).size(CouiToastDefaults.iconSize).clipToBounds(),
-                    contentAlignment = Alignment.Center,
-                ) { icon() }
-            }
+        CouiToastSurface(
+            message = toast.message,
+            actionLabel = action,
+            icon = toast.icon,
+            colors = colors,
+            onAction = {
+                // 退出动画期间仍可点击，用已处理标记保证回调只触发一次。
+                if (!actionTaken) {
+                    toast.onAction?.invoke()
+                    actionTaken = true
+                }
+            },
+        )
+    }
+}
+
+/**
+ * 单条提示的容器：几何、排布、配色与语义都来自轻提示族，队列与计时由外层宿主决定。
+ *
+ * 轻提示与 Snackbar 共用这一个绘制节点，避免复制 `coui_snack_bar_*` 的排布与投影。
+ * 操作按钮的回调只转发点击，重复点击与退场由调用方处理。
+ */
+@Composable
+internal fun CouiToastSurface(
+    message: String,
+    actionLabel: String?,
+    icon: (@Composable () -> Unit)?,
+    colors: CouiToastColors,
+    modifier: Modifier = Modifier,
+    onAction: () -> Unit = {},
+) {
+    // 原厂单行留白 10dp，多行改为上 12dp / 下 8dp；换行数由实际排版回传，纵向留白不参与宽度测量，不会形成回环。
+    var lineCount by remember { mutableIntStateOf(1) }
+    val multiline = lineCount > 1
+    Row(
+        modifier.widthIn(max = CouiToastDefaults.maxWidth)
+            .shadow(
+                elevation = CouiToastDefaults.shadowElevation,
+                shape = CouiToastDefaults.shape,
+                clip = false,
+                ambientColor = CouiToastDefaults.shadowColor,
+                spotColor = CouiToastDefaults.shadowColor,
+            )
+            .clip(CouiToastDefaults.shape)
+            .background(colors.container)
+            .semantics { liveRegion = LiveRegionMode.Polite },
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        icon?.let { content ->
+            Box(
+                Modifier.padding(
+                    start = CouiToastDefaults.iconStartPadding,
+                    top = CouiToastDefaults.iconVerticalPadding,
+                    bottom = CouiToastDefaults.iconVerticalPadding,
+                ).size(CouiToastDefaults.iconSize).clipToBounds(),
+                contentAlignment = Alignment.Center,
+            ) { content() }
+        }
+        BasicText(
+            text = message,
+            modifier = Modifier.weight(1f, fill = false).padding(
+                start = CouiToastDefaults.horizontalPadding,
+                // 有操作按钮时由它的起始留白承担间距，避免两端各留一次。
+                end = if (actionLabel == null) CouiToastDefaults.horizontalPadding else 0.dp,
+                top = if (multiline) CouiToastDefaults.multiLineTopPadding
+                else CouiToastDefaults.verticalPadding,
+                bottom = if (multiline) CouiToastDefaults.multiLineBottomPadding
+                else CouiToastDefaults.verticalPadding,
+            ),
+            style = TextStyle(
+                color = colors.content,
+                fontSize = CouiToastDefaults.textSize,
+                lineHeight = CouiToastDefaults.textSize * CouiToastDefaults.lineHeightMultiplier,
+                fontWeight = FontWeight.Medium,
+                textAlign = TextAlign.Start,
+                platformStyle = PlatformTextStyle(includeFontPadding = false),
+            ),
+            onTextLayout = { layout -> if (layout.lineCount != lineCount) lineCount = layout.lineCount },
+        )
+        if (actionLabel != null) {
+            val interaction = remember { MutableInteractionSource() }
             BasicText(
-                text = toast.message,
-                modifier = Modifier.weight(1f, fill = false).padding(
-                    start = CouiToastDefaults.horizontalPadding,
-                    // 有操作按钮时由它的起始留白承担间距，避免两端各留一次。
-                    end = if (action == null) CouiToastDefaults.horizontalPadding else 0.dp,
-                    top = if (multiline) CouiToastDefaults.multiLineTopPadding
-                    else CouiToastDefaults.verticalPadding,
-                    bottom = if (multiline) CouiToastDefaults.multiLineBottomPadding
-                    else CouiToastDefaults.verticalPadding,
-                ),
+                text = actionLabel,
+                modifier = Modifier.padding(start = CouiToastDefaults.actionStartPadding)
+                    .clickable(interactionSource = interaction, indication = null, role = Role.Button) {
+                        onAction()
+                    }
+                    .padding(
+                        end = CouiToastDefaults.actionEndPadding,
+                        top = if (multiline) CouiToastDefaults.actionMultiLineTopPadding
+                        else CouiToastDefaults.actionVerticalPadding,
+                        bottom = if (multiline) CouiToastDefaults.actionMultiLineBottomPadding
+                        else CouiToastDefaults.actionVerticalPadding,
+                    )
+                    .widthIn(max = CouiToastDefaults.actionMaxWidth),
                 style = TextStyle(
-                    color = colors.content,
-                    fontSize = CouiToastDefaults.textSize,
-                    lineHeight = CouiToastDefaults.textSize * CouiToastDefaults.lineHeightMultiplier,
+                    color = colors.action,
+                    fontSize = CouiToastDefaults.actionTextSize,
+                    lineHeight = CouiToastDefaults.actionTextSize * CouiToastDefaults.actionLineHeightMultiplier,
                     fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Start,
                     platformStyle = PlatformTextStyle(includeFontPadding = false),
                 ),
-                onTextLayout = { layout -> if (layout.lineCount != lineCount) lineCount = layout.lineCount },
+                maxLines = CouiToastDefaults.actionMaxLines,
+                overflow = TextOverflow.Ellipsis,
             )
-            if (action != null) {
-                val interaction = remember { MutableInteractionSource() }
-                BasicText(
-                    text = action,
-                    modifier = Modifier.padding(start = CouiToastDefaults.actionStartPadding)
-                        .clickable(interactionSource = interaction, indication = null, role = Role.Button) {
-                            // 退出动画期间仍可点击，用已处理标记保证回调只触发一次。
-                            if (!actionTaken) {
-                                toast.onAction?.invoke()
-                                actionTaken = true
-                            }
-                        }
-                        .padding(
-                            end = CouiToastDefaults.actionEndPadding,
-                            top = if (multiline) CouiToastDefaults.actionMultiLineTopPadding
-                            else CouiToastDefaults.actionVerticalPadding,
-                            bottom = if (multiline) CouiToastDefaults.actionMultiLineBottomPadding
-                            else CouiToastDefaults.actionVerticalPadding,
-                        )
-                        .widthIn(max = CouiToastDefaults.actionMaxWidth),
-                    style = TextStyle(
-                        color = colors.action,
-                        fontSize = CouiToastDefaults.actionTextSize,
-                        lineHeight = CouiToastDefaults.actionTextSize * CouiToastDefaults.actionLineHeightMultiplier,
-                        fontWeight = FontWeight.Medium,
-                        textAlign = TextAlign.Start,
-                        platformStyle = PlatformTextStyle(includeFontPadding = false),
-                    ),
-                    maxLines = CouiToastDefaults.actionMaxLines,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
         }
     }
 }

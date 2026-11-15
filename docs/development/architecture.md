@@ -51,7 +51,7 @@ Group、Item、Divider、Footer 处理局部分组和行布局。Item.onClick �
 
 展示范围见 [Demo 指南](../guide/demo.md)。Demo 独立维护页面语义、卡片层级和 G2 形状；设置开关、单选与复选分别使用相应语义，整行交互时子控件不重复点击。数值滑条使用 Slider。Demo 只用公开 API 与 COUI 自身主题，不引入外部设计体系。
 
-首页使用底部导航，API 34 以下使用普通底栏。目录搜索负责筛选可导航条目，详情由独立 Activity 展示；切页和搜索期间保留相应页面状态。
+首页使用底部导航，API 34 以下使用普通底栏。目录搜索负责筛选可导航条目，详情由 Navigation 3 的 `NavDisplay` 在单 Activity 内展示；切页和搜索期间保留相应页面状态。
 
 ## 依据
 

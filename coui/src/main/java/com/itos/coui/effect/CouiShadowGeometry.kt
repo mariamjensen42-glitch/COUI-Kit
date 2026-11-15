@@ -18,12 +18,14 @@ internal data class ShadowProjection(
 internal fun floatingShadowGeometry(width: Float, height: Float, sx: Float, sy: Float,
     tx: Float, ty: Float, elevation: Float, lightY: Float, lightZ: Float, lightRadius: Float,
     transparent: Boolean, oval: Boolean, spot: Boolean,
-    radius: Float = min(width, height) * 0.5f, clockwise: Boolean = false): ShadowProjection {
+    radius: Float = min(width, height) * 0.5f, clockwise: Boolean = false,
+    overrideBlur: Float? = null): ShadowProjection {
     val lightX = tx + sx * width * 0.5f
     val deviceLightY = ty + sy * lightY
     val ratio = (elevation / (lightZ - elevation)).coerceIn(0f, 0.95f)
     val scale = (lightZ / (lightZ - elevation)).coerceIn(1f, 1.95f)
-    val blur = if (spot) lightRadius * ratio else min(elevation * 0.5f, 150f)
+    // 原厂 blur_r 为 0, 交给平台原生投影; 为空时退化到派生模糊 (偏软偏大), 传入则显式控制。
+    val blur = overrideBlur ?: if (spot) lightRadius * ratio else min(elevation * 0.5f, 150f)
     val reciprocal = 1f + max(elevation / 128f, 0f)
     val fast = isFastShadowGeometry(width, height, sx, sy, oval)
     if (fast) {

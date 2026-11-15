@@ -92,4 +92,4 @@ ProvideCouiMenuBackdrop { windowSource ->
 
 搜索展开或有未保存变更时，由宿主安装局部返回处理器，状态关闭后释放拦截。切页时，把持续存在的底栏、renderer 和反馈节点留在稳定组合位置，只替换页面内容。
 
-Demo 使用普通 Activity 导航。完整装配见 [MainActivity](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/MainActivity.kt)、[DemoSecondaryActivity](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryActivity.kt)和 [DemoSettingsPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt)。这些路由和行包装属于 Demo，库使用者直接消费公开组件。
+Demo 使用 Navigation 3 的 `NavDisplay` 与自持页面栈。完整装配见 [DemoNavigation](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNavigation.kt)、[MainActivity](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/MainActivity.kt)和 [DemoSettingsPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt)。这些路由和行包装属于 Demo，库使用者直接消费公开组件。

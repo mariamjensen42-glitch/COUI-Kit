@@ -70,7 +70,8 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
     fun draw(canvas: Canvas, slot: Int, width: Float, height: Float, sx: Float, sy: Float,
         windowX: Float, windowY: Float, alpha: Float, color: Int, elevation: Float,
         lightY: Float, lightZ: Float, lightRadius: Float, outline: CouiShadowOutline,
-        radius: Float = min(width, height) * 0.5f, clipping: Boolean = true) {
+        radius: Float = min(width, height) * 0.5f, clipping: Boolean = true,
+        blurRadius: Float? = null) {
         if (alpha <= 0f || width <= 0f || height <= 0f || sx <= 0f || sy <= 0f || elevation <= 0f) return
         require(!clipping || outline != CouiShadowOutline.RoundRect) { "普通圆角投影尚未提供 inverse clip" }
         val fast = isFastShadowGeometry(width, height, sx, sy, outline == CouiShadowOutline.Oval)
@@ -85,9 +86,9 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
             val key = ShadowKey(width, height, sx, sy,
                 if (localOrigin) 0f else windowX, if (localOrigin) 0f else windowY, alpha < 1f,
                 elevation, lightY, lightZ, lightRadius, outline,
-                radius.coerceIn(0f, min(width, height) * 0.5f), clipping)
+                radius.coerceIn(0f, min(width, height) * 0.5f), clipping, blurRadius)
             if (!meshAvailable) {
-                drawLegacy(canvas, slot, index, key, index == 1, argb)
+                drawLegacy(canvas, slot, index, key, index == 1, argb, blurRadius)
                 continue
             }
             val draw = slots[slot][index]?.takeIf { it.key == key } ?: makeDraw(key, index == 1).also {
@@ -111,11 +112,11 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
      * 不提供原厂 inverse clip，投影只做形状与模糊。
      */
     private fun drawLegacy(canvas: Canvas, slot: Int, index: Int, key: ShadowKey,
-        spot: Boolean, argb: Int) {
+        spot: Boolean, argb: Int, blurRadius: Float? = null) {
         val oval = key.outline == CouiShadowOutline.Oval
         val ratio = (key.elevation / (key.lightZ - key.elevation)).coerceIn(0f, 0.95f)
         val scale = (key.lightZ / (key.lightZ - key.elevation)).coerceIn(1f, 1.95f)
-        val blurPx = if (spot) key.lightRadius * ratio else min(key.elevation * 0.5f, 150f)
+        val blurPx = blurRadius ?: if (spot) key.lightRadius * ratio else min(key.elevation * 0.5f, 150f)
         val sigma = if (blurPx > 0f) blurPx * 0.57735f + 0.5f else 0f
         val rect = RectF(0f, 0f, key.width * key.sx, key.height * key.sy)
         val source = RectF(rect)
@@ -180,7 +181,7 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
         val oval = key.outline == CouiShadowOutline.Oval
         val projection = floatingShadowGeometry(key.width, key.height, key.sx, key.sy, key.x, key.y,
             key.elevation, key.lightY, key.lightZ, key.lightRadius, key.transparent, oval, spot,
-            key.radius, key.outline == CouiShadowOutline.RoundRect)
+            key.radius, key.outline == CouiShadowOutline.RoundRect, overrideBlur = key.blurRadius)
         val rect = RectF(-projection.offset.x, -projection.offset.y,
             key.width * key.sx - projection.offset.x, key.height * key.sy - projection.offset.y)
         val data = projection.data
@@ -287,7 +288,7 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
     private data class ShadowKey(val width: Float, val height: Float, val sx: Float, val sy: Float,
         val x: Float, val y: Float, val transparent: Boolean, val elevation: Float,
         val lightY: Float, val lightZ: Float, val lightRadius: Float, val outline: CouiShadowOutline,
-        val radius: Float, val clipping: Boolean)
+        val radius: Float, val clipping: Boolean, val blurRadius: Float?)
 
     private class ProjectionDraw(val key: ShadowKey, val projection: ShadowProjection, val paint: Paint,
         val mesh: Mesh? = null, val node: RenderNode? = null, val path: Path? = null,

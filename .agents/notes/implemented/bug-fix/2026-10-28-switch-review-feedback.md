@@ -4,6 +4,8 @@ Status: implemented
 
 ## Problem
 
+焦点外描边的共享入口与 `state` 包整体映射见[状态蒙层映射](../architecture/2026-11-15-state-package-compose-mapping.md)，本篇的触摸会话、配色契约与外侧裁剪理由保持。
+
 PR #7 审查指出：开关在 Initial 消费拖动 MOVE 后，Foundation toggleable 会取消点击按压 Interaction；旧反馈只观察该 Interaction，导致手指未松开时蒙层已退出。键盘焦点也误用了其他控件的整块 focus 蒙层，遗漏原厂独立外描边。
 
 ## Decision

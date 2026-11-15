@@ -9,18 +9,11 @@ import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.draw.drawWithCache
-import androidx.compose.ui.graphics.ClipOp
-import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -86,14 +79,6 @@ fun Modifier.couiToolbarFeedback(
     }
 }
 
-@Composable
-private fun rememberMaskProgress(active: Boolean): State<Float> {
-    val effect = remember { CouiStateProgress() }
-    SideEffect { effect.setActive(active) }
-    DisposableEffect(effect) { onDispose { effect.dispose() } }
-    return effect.progress
-}
-
 /**
  * 普通按钮或列表的 hover、focus、press 蒙层；不创建点击或业务提交。
  * list 选择原厂列表的最低按压进度及取消规则，hoverLocked 用于 Popup 展开期间的行悬停。
@@ -103,11 +88,7 @@ private fun rememberMaskProgress(active: Boolean): State<Float> {
 @Composable
 fun Modifier.couiButtonFeedback(dark: Boolean = CouiTheme.isDark, interactionSource: MutableInteractionSource,
     enabled: Boolean = true, pressFeedback: Boolean = true, list: Boolean = false, hoverLocked: Boolean = false): Modifier {
-    val hovered by interactionSource.collectIsHoveredAsState()
-    val focused by interactionSource.collectIsFocusedAsState()
     val pressed by interactionSource.collectIsPressedAsState()
-    val hover = rememberMaskProgress(enabled && (hovered || hoverLocked))
-    val focus = rememberMaskProgress(enabled && focused)
     val listPress = if (list && pressFeedback) remember { CouiListPressMask() } else null
     if (listPress != null) {
         SideEffect { listPress.updateState(enabled, pressed) }
@@ -118,7 +99,6 @@ fun Modifier.couiButtonFeedback(dark: Boolean = CouiTheme.isDark, interactionSou
             onDispose { if (view.viewTreeObserver.isAlive) view.viewTreeObserver.removeOnWindowFocusChangeListener(listener); listPress.dispose() }
         }
     }
-    val press = if (listPress == null) rememberMaskProgress(enabled && pressed && pressFeedback) else null
     val observer = if (listPress != null && enabled) Modifier.pointerInput(listPress) {
         awaitEachGesture {
             val down = awaitFirstDown(requireUnconsumed = false, pass = PointerEventPass.Initial)
@@ -134,11 +114,15 @@ fun Modifier.couiButtonFeedback(dark: Boolean = CouiTheme.isDark, interactionSou
             } finally { listPress.touch(false) }
         }
     } else Modifier
-    return hoverable(interactionSource, enabled).then(observer).drawBehind {
-        drawRect(maskColor(hover.value, if (dark) 0x26FFFFFF else 0x14000000))
-        drawRect(maskColor(focus.value, if (dark) 0x331A8CFF else 0x1F0080FF))
-        drawRect(maskColor(listPress?.progress ?: checkNotNull(press).value, if (dark) 0x33FFFFFF else 0x1F000000))
-    }
+    return couiStateMask(
+        interactionSource = interactionSource,
+        dark = dark,
+        enabled = enabled,
+        type = CouiMaskType.Full,
+        hoverLocked = hoverLocked,
+        press = pressFeedback && listPress == null,
+        pressProgress = listPress?.let { mask -> { mask.progress } },
+    ).then(observer)
 }
 
 /** COUISwitch 的 hover/press 蒙层；触摸会话与点击识别取消分别收尾。 */
@@ -168,20 +152,7 @@ internal fun Modifier.couiSwitchFocusOutline(
     enabled: Boolean,
     color: Color,
     shape: Shape,
-): Modifier {
-    val focused by interactionSource.collectIsFocusedAsState()
-    val focus = rememberMaskProgress(enabled && focused)
-    return drawWithCache {
-        val path = (shape.createOutline(size, layoutDirection, this) as Outline.Generic).path
-        // getDimensionPixelOffset(default_focus_stroke_radius) 先取整；外半笔宽为 3dp。
-        val stroke = Stroke(3.dp.toPx().toInt() * 2f)
-        onDrawBehind {
-            if (enabled) clipPath(path, ClipOp.Difference) {
-                drawPath(path, maskColor(focus.value, color.toArgb()), style = stroke)
-            }
-        }
-    }
-}
+): Modifier = couiFocusOutline(interactionSource, shape, color, enabled, type = CouiStrokeType.Outer)
 
 /** ListSelectedItemLayout 的容器蒙层：DOWN 立即启动，短点按/CANCEL 达到 .7 再退场。 */
 private class CouiListPressMask {

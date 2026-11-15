@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -71,15 +72,35 @@ enum class CouiTextKind(internal val size: Float, internal val family: String, i
 fun Text(modifier: Modifier = Modifier, text: String, kind: CouiTextKind, color: Color = Color.Unspecified,
     onLineCount: (Int) -> Unit = {}, textAlign: TextAlign? = null,
     maxLines: Int = Int.MAX_VALUE, overflow: TextOverflow = TextOverflow.Clip) {
+    CouiTextContent(modifier, AnnotatedString(text), kind, color, onLineCount, textAlign, maxLines, overflow)
+}
+
+/**
+ * 富文本入口。链接、强调等行内样式由调用方写进 [AnnotatedString]；
+ * 链接色用 [CouiTextLinkDefaults] 的预设，或在 `LinkAnnotation` 里显式给出 `TextLinkStyles`。
+ * 部分 span 自带的颜色优先于 [color]。
+ */
+@Composable
+fun Text(modifier: Modifier = Modifier, text: AnnotatedString, kind: CouiTextKind,
+    color: Color = Color.Unspecified, onLineCount: (Int) -> Unit = {}, textAlign: TextAlign? = null,
+    maxLines: Int = Int.MAX_VALUE, overflow: TextOverflow = TextOverflow.Clip) {
+    CouiTextContent(modifier, text, kind, color, onLineCount, textAlign, maxLines, overflow)
+}
+
+@Composable
+private fun CouiTextContent(modifier: Modifier, text: AnnotatedString, kind: CouiTextKind, color: Color,
+    onLineCount: (Int) -> Unit, textAlign: TextAlign?, maxLines: Int, overflow: TextOverflow) {
     val style = rememberCouiTextStyle(kind)
     BasicText(text, modifier,
         style = style.copy(color = color.takeOrElse { CouiTheme.contentColor },
-            textAlign = textAlign ?: when (kind) {
-                CouiTextKind.ItemTitle, CouiTextKind.ItemSummary, CouiTextKind.Body, CouiTextKind.BodyLarge,
-                CouiTextKind.GroupFooter, CouiTextKind.Display -> TextAlign.Start
-                else -> TextAlign.Center
-            }),
+            textAlign = textAlign ?: couiDefaultTextAlign(kind)),
         onTextLayout = { onLineCount(it.lineCount) }, maxLines = maxLines, overflow = overflow)
+}
+
+private fun couiDefaultTextAlign(kind: CouiTextKind): TextAlign = when (kind) {
+    CouiTextKind.ItemTitle, CouiTextKind.ItemSummary, CouiTextKind.Body, CouiTextKind.BodyLarge,
+    CouiTextKind.GroupFooter, CouiTextKind.Display -> TextAlign.Start
+    else -> TextAlign.Center
 }
 
 @Composable

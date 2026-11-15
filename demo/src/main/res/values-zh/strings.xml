@@ -62,6 +62,7 @@
     <string name="backdrop_position">移动背景</string>
     <string name="shadow_elevation">投影高度</string>
     <string name="low_level_shadow">使用底层 Canvas 渲染接口</string>
+    <string name="shadow_blur">阴影模糊</string>
     <string name="chip_tab_title">ChipTab</string>
     <string name="chip_category_number">分类 %1$d</string>
     <string name="chip_enable">启用 ChipTab</string>

@@ -23,12 +23,15 @@ data class CouiShadowStyle(
     val lightY: Dp,
     val lightZ: Dp,
     val lightRadius: Dp,
+    /** 显式模糊半径; 为空时由 elevation / lightRadius 派生。原厂 blur_r 恒为 0, 由平台原生投影处理。 */
+    val blurRadius: Dp? = null,
 ) {
     init {
         require(elevation.value.isFinite() && elevation.value >= 0f) { "投影高度必须是有限的非负值" }
         require(lightY.value.isFinite()) { "光源 Y 必须是有限值" }
         require(lightZ.value.isFinite() && lightZ > elevation) { "光源 Z 必须是有限值且大于投影高度" }
         require(lightRadius.value.isFinite() && lightRadius.value >= 0f) { "光源半径必须是有限的非负值" }
+        require(blurRadius == null || (blurRadius.value.isFinite() && blurRadius.value >= 0f)) { "模糊半径必须是有限的非负值" }
     }
 }
 
@@ -40,6 +43,8 @@ object CouiShadowDefaults {
         lightY = if (dark) (-1500).dp else (-200).dp,
         lightZ = 10000.dp,
         lightRadius = if (dark) 12000.dp else 2000.dp,
+        // 保持原厂派生模糊, 与原厂 LV4 菜单 1:1; 收紧模糊请用显式 blurRadius。
+        blurRadius = null,
     )
 }
 
@@ -56,10 +61,11 @@ fun Modifier.couiShadow(
     outline: CouiShadowOutline = CouiShadowOutline.RoundRect,
     radius: Dp? = null,
     clipping: Boolean = outline != CouiShadowOutline.RoundRect,
+    blurRadius: Dp? = null,
 ): Modifier {
     require(radius == null || (radius.value.isFinite() && radius.value >= 0f)) { "投影圆角必须是有限的非负值" }
     require(!clipping || outline != CouiShadowOutline.RoundRect) { "普通圆角投影尚未提供 inverse clip" }
-    return then(ShadowElement(style, outline, radius, clipping))
+    return then(ShadowElement(style, outline, radius, clipping, blurRadius))
 }
 
 @RequiresApi(33)
@@ -68,6 +74,7 @@ private data class ShadowElement(
     val outline: CouiShadowOutline,
     val radius: Dp?,
     val clipping: Boolean,
+    val blurRadius: Dp?,
 ) : ModifierNodeElement<ShadowNode>() {
     override fun create() = ShadowNode(this)
     override fun update(node: ShadowNode) { node.parameters = this }
@@ -79,7 +86,8 @@ private class ShadowNode(var parameters: ShadowElement) : Modifier.Node(), DrawM
     private val renderer = CouiShadowRenderer()
 
     override fun ContentDrawScope.draw() {
-        val (style, outline, radius, clipping) = parameters
+        val (style, outline, radius, clipping, blurRadius) = parameters
+        val blurPx = blurRadius?.roundToPx()?.toFloat()
         drawIntoCanvas { canvas ->
             renderer.draw(
                 canvas = canvas.nativeCanvas,
@@ -99,6 +107,7 @@ private class ShadowNode(var parameters: ShadowElement) : Modifier.Node(), DrawM
                 outline = outline,
                 radius = radius?.toPx() ?: (size.minDimension * 0.5f),
                 clipping = clipping,
+                blurRadius = blurPx,
             )
         }
         drawContent()

@@ -46,17 +46,41 @@ fun LitSurface(
 | CouiEdge / CouiEdgeStyle | 原始模糊图、材质两次混色、几何与轮廓开关；取得与尺寸匹配的 RenderEffect |
 | rememberCouiSpotlight | 返回触摸 Modifier 与可空绘制回调，不接管业务点击或滚动 |
 | SpotlightPreset | 跟手光预设；半径和光源高度使用设备像素，不按 dp 再次换算 |
-| couiNavigationFeedback / couiFabFeedback / couiToolbarFeedback | 配合同一 InteractionSource 的组件状态反馈 |
+| couiStateMask | 跟随 Shape 的悬停、焦点（含选中）与按压蒙层；类型、颜色和按压驱动可覆盖 |
+| couiFocusOutline | 沿 Shape 的焦点描边，Inner 保留内侧、Outer 保留外侧 |
+| CouiMaskType / CouiStrokeType / CouiMaskColors / CouiMaskDefaults | 蒙层类型、描边类型、三层目标色与原厂固定参数 |
+| couiNavigationFeedback / couiFabFeedback / couiToolbarFeedback / couiButtonFeedback | 配合同一 InteractionSource 的组件状态反馈 |
 
 跟手光的可选覆盖项为 null 时继承预设。inputTarget 负责外部触点映射与会话，返回 null 取消；cancelOnConsumedMove 用于父容器接管后取消本次光效，不能在同次触摸中重新点亮。
 
 轮廓总开关与高级样式同步方式见[外观与预设](../guide/appearance.md)。CANCEL、点击、按压和绘制分别处理，不能把所有状态合并成一个 running 开关。
 
+## 状态蒙层与焦点描边
+
+`couiStateMask` 对应原厂 COUIMaskEffectDrawable 的三条通道：悬停、焦点与按压各自持有 0..10000 的弹簧进度，同一帧按该顺序叠加，等价于原厂 `getCompositeMaskColor` 的 press over (focus over hover)。按压从透明插值到目标色，短按在未达 0.7 时先补满再退场。
+
+`CouiMaskType.HoverPress` 关掉焦点通道，对应原厂 mMaskType 0（导航项与材质表面过滤 pressed 时使用）；`CouiMaskType.Full` 打开焦点与选中。`selected` 复用焦点通道，等同原厂 mEnableSelectedState。几何由 Shape 决定：矩形直接填充，圆角与自定义路径按轮廓 Path 绘制，等价于原厂 maskRect / maskPath 分支。
+
+`couiFocusOutline` 对应 COUIStrokeDrawable：默认 6dp 笔宽（原厂 3dp 半径按像素取整后乘二）、Outer 差集裁剪，因此可见宽度为 3dp，颜色取 couiColorFocusOutline。Inner 用于内容需要保留在描边外侧的表面。
+
+```kotlin
+val interactions = remember { MutableInteractionSource() }
+Box(
+    Modifier
+        .clip(shape)
+        .couiStateMask(interactions, dark = dark, shape = shape, selected = selected)
+        .couiFocusOutline(interactions, shape, CouiMaskDefaults.colors(dark).focus)
+        .clickable(interactions, indication = null, onClick = onClick),
+) { content() }
+```
+
+按压由列表最低进度等外部信号驱动时，传 `press = false` 与 `pressProgress`，不要把同一态再交给 `pressed` 收集，否则两层进度会叠两次。禁用时三层进度直接归零，不回弹，对应原厂 disabled 分支的 reset。
+
 ## 资源与入口
 
 轮廓和背景感知效果要求 API 33，旧平台的跟手光工厂没有等价 Shader 回调。尺寸或颜色改变时更新对应 Effect，不复用旧 uniform 快照；详见[平台要求](../guide/compatibility.md)。
 
-[轮廓](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiContour.kt)、[背景感知描边](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiEdge.kt)、[跟手光 / 预设 / 诊断](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiSpotlight.kt)、[状态反馈](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiStateFeedback.kt)。组合绘制实例见[顶栏按钮](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)。
+[轮廓](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiContour.kt)、[背景感知描边](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiEdge.kt)、[跟手光 / 预设 / 诊断](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiSpotlight.kt)、[状态蒙层](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiStateMask.kt)、[状态反馈](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiStateFeedback.kt)。组合绘制实例见[顶栏按钮](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)。
 
 ## 独立 Drawable 轮廓
 

@@ -35,16 +35,16 @@
 
 ## 未实现 / 待验收
 
-「计划」列是本轮之后的候选顺序，不代表已排期。用户指定的三个小组件优先；三项实现已完成，并按静态双向核查（见下节）收敛了可静态确定的偏差，结论仍为「可见行为近似，非 1:1」。使用文档、Demo 与两处导航（`docs/components/README.md`、`zensical.toml`）均已登记；三项均未做真机验收，故仍留在本表。
+「计划」列是本轮之后的候选顺序，不代表已排期。用户指定的三个小组件与后续「下一轮」三项均已实现，并按静态双向核查（见下两节）收敛了可静态确定的偏差，结论仍为「可见行为近似，非 1:1」。本轮补齐的标签、链接文本与滚动条三项同样只做了静态对照，差异写在各自使用页；九项均未做真机验收，故仍留在本表。九项的公开入口、使用文档、Demo 与两处导航（`docs/components/README.md`、`zensical.toml`）均已登记。
 
 | 能力 | 原厂实现 | 现状 | 计划 | 证据 |
 | --- | --- | --- | --- | --- |
 | 跑马灯文本 | `COUIMarqueeTextView`（自绘滚动、左右渐隐、按测量宽度决定是否跑） | 已实现 `coui/src/main/java/com/itos/coui/text/MarqueeText.kt`；静态双向核查见下节，已补 1000ms 起始延迟，非 1:1 | 差异处理、使用文档与真机验收 | `references/apk/jadx/settings/classes7/sources/com/coui/appcompat/tips/COUIMarqueeTextView.java`、`res/values/dimens.xml:2070-2073` 的 `coui_top_tips_*` |
 | 竖向滑动条 | `COUIVerticalSeekBar`（竖向进度、按压形变、物理速度、文字） | 已实现 `coui/src/main/java/com/itos/coui/seekbar/VerticalSeekBar.kt` + `CouiVerticalSeekBarDefaults.kt`；KDoc 声明省略厂商 `FlingBehavior`、形变与线性马达；静态双向核查见下节，滑块尺寸、按压过渡、分档震动与配色已按核查收敛，非 1:1 | 差异处理、使用文档与真机验收 | `references/apk/jadx/settings/classes7/sources/com/coui/appcompat/seekbar/COUIVerticalSeekBar.java`、`res/values/attrs.xml:1577-1607`、`res/values/styles.xml:5500-5525`、`res/values/dimens.xml:2141-2145` |
 | 顶部提示条 | `COUICustomTopTips`（卡片容器、显示/消失 250ms 动画、内容布局由子类给出） | 已实现 `coui/src/main/java/com/itos/coui/toptips/TopTips.kt` + `CouiTopTipsDefaults.kt` + `TopTipsContent.kt`（对应 `coui_default_toptips.xml` 的默认排布）；静态双向核查见下节，轮廓差异仍在，非 1:1 | 差异处理与真机验收 | `references/apk/jadx/settings/classes7/sources/com/coui/appcompat/tips/COUICustomTopTips.java`、`res/layout/coui_default_toptips.xml`、`res/layout/coui_ai_payment_toptips.xml` |
-| 页签条 | `COUITabLayout` + `COUISlidingTabStrip` | 无；ChipTab/SegmentedControl 都不带滑块指示器 | 下一轮 | `.../tablayout/` |
-| 搜索历史 | `COUISearchHistoryView` + `COUIFlowLayout` | 无 Flow 换行布局 | 下一轮 | `.../searchhistory/` |
-| Snackbar | `COUISnackBar` / `COUINotificationSnackBar` | `ToastHost` 复用几何，但队列/时长/位置语义不同 | 下一轮 | [轻提示](../components/toast.md#与原厂-snackbar-的对应) |
+| 页签条 | `COUITabLayout` + `COUISlidingTabStrip` | 已实现 `coui/src/main/java/com/itos/coui/tablayout/TabLayout.kt` + `CouiTabLayoutDefaults.kt`；指示器几何、动态时长与滚动居中按源码收敛，文字色过渡为连续插值，非 1:1 | 差异处理与真机验收 | `references/apk/jadx/settings/classes7/sources/com/coui/appcompat/tablayout/COUITabLayout.java`、`COUISlidingTabStrip.java`、`res/values/styles.xml:5412-5417`、`res/values/dimens.xml:4916-4930`；[页签条](../components/tab-layout.md) |
+| 搜索历史 | `COUISearchHistoryView` + `COUIFlowLayout` | 已实现 `.../flowlayout/FlowLayout.kt` + `.../searchhistory/SearchHistory.kt`；换行、折叠行数、展开/折叠动画与清空淡出按源码收敛，chip 按压反馈与字号适配未移植，非 1:1 | 差异处理与真机验收 | `references/apk/jadx/settings/classes/sources/com/coui/appcompat/searchhistory/COUIFlowLayout.java`、`COUISearchHistoryView.java`、`res/values/dimens.xml:937-946`；[换行布局](../components/flow-layout.md) · [搜索历史](../components/search-history.md) |
+| Snackbar | `COUISnackBar` / `COUINotificationSnackBar` | 已实现 `.../snackbar/Snackbar.kt` + `CouiSnackbarDefaults.kt`，与 `ToastHost` 共用同一绘制节点；单实例互斥、任意时长、触摸暂停后续满计时、弹簧进出场按源码收敛，通知样式与拖动消失未移植，非 1:1 | 差异处理与真机验收 | `references/apk/jadx/settings/classes7/sources/com/coui/appcompat/snackbar/COUISnackBar.java`、`res/values/dimens.xml:1871-1906`；[Snackbar](../components/snackbar.md) |
 | PIN / 图案锁 | `COUIPasswordDial`、`COUILockPatternView`、`COUINumericKeyboard` | 无 | 系统页批次 | `.../passworddial/`、`.../lockview/` |
 | 隐私声明面板 | `COUIStatementPanel` / `COUIFullPageStatement` | 无 | 系统页批次 | `.../statement/` |
 | 编辑态底栏 / 附件栏 | `COUIBottomFloatingEditToolbar`、`COUIBottomFloatingAccessoryNavigationBar` | 只有 `NavigationBar` 左右两个 icon | 系统页批次 | `.../bottomfloatingedittoolbar/`、`.../bottomfloatingaccessorynavigationbar/` |
@@ -53,6 +53,9 @@
 | 可展开列表 | `COUIExpandableListView` / `ExpandableRecyclerView` | `Accordion` 是单卡内一段 | 视需求 | `.../expandable/` |
 | 聚光引导 | `COUISpotLightEffect`（挖洞 + 引导页） | 只有 `CouiSpotlight` shader | 视需求 | `.../spotlight/` |
 | Preference 家族 | 80 个 `COUI*Preference` 顶层类 | `Item` + `Switch` / `Checkbox` 可组合替代，不逐类 1:1 | 不单独立项 | [Item](../components/item.md)、[Group](../components/group.md) |
+| 标签 | `COUITagBackgroundView` / `COUITagView`（四角轮廓、可选描边、左图标 5×10dp、10dp `sans-serif-medium`） | 已实现 `coui/src/main/java/com/itos/coui/tag/Tag.kt`；几何、字号与轮廓按源码收敛，容器色默认沿用原厂 attr 组合（`couiColorContainer8` 薄填充 + 白字），实际配色由宿主传入 | 真机验收 | `.../tagview/COUITagView.java`、`COUITagBackgroundView.java`、`res/layout/coui_tag_view_layout.xml`、`res/values/dimens.xml:1019` |
+| 链接文本 | `COUIClickableSpan`（`?couiColorLink` + `#4D2660F5` 按下/选中 + 禁用态） | 已实现 `Text` 的 `AnnotatedString` 重载与 `CouiTextLinkDefaults`；Compose 的 `TextLinkStyles` 没有禁用态，需宿主改普通 span，非 1:1 | 真机验收 | `.../clickablespan/COUIClickableSpan.java`、`res/color/coui_clickable_text_color.xml`、`res/values/colors.xml:844-846` |
+| 滚动条 | `COUIScrollBar`（14dp 宽、48dp 最小高、8/16dp 留白、5.5/4dp inset、2000ms 停留后 250ms 淡出、拇指拖动） | 已实现 `coui/src/main/java/com/itos/coui/scrollbar/ScrollBar.kt`；几何、显隐与拖动换算按源码收敛，只接受 `ScrollState` 且不取消滚动容器已进行的 fling，非 1:1 | 真机验收、`LazyListState` 适配 | `.../scrollbar/COUIScrollBar.java`、`res/values/dimens.xml:1670-1675`、`res/values/colors.xml:1502` |
 
 ## 双向核查：三个用户指定优先组件
 
@@ -85,6 +88,34 @@
 2. 三个使用页的「与原厂的差异」段已按静态核查写实：渐隐改为「机制不同、需真机同背景对照」，顶部提示条改为「轮廓、插值器不一致，且有多项原厂能力不在实现范围内」，不再做等价断言。
 3. 本轮已按源码收敛可静态确定的偏差：1000ms 起始延迟、滑块 16dp、183ms 按压过渡、5% 分档触感、selector 配色与禁用态。仍待真机同背景/手势对照的只有观感项：轮廓权重 0.99（现有 `CouiShape` 无法表达）、渐隐曲线、按压插值器、padding 收敛、文字阴影、主题强调色、厂商物理引擎回弹。
 4. 按 AGENTS.md「默认不因代码修改而更新规范或新增 Note」，本轮差异属验收结论，记入本表与交付说明，不新增 Note、不修改规范。
+
+## 双向核查：「下一轮」三项
+
+同样按[复刻指南](../development/replication-guide.md)做原厂 → 移植、移植 → 原厂的静态核查，入口为 `references/apk/jadx/settings/classes{,7}/sources/com/coui/appcompat/` 下的反编译源码与 `references/apk/settings/decoded/res/`。参数一致不等于 1:1，观感项仍须真机同背景对照。
+
+### 页签条 `TabLayout`
+
+- 一致：`DEFAULT_HEIGHT=48`、`tablayout_selected_indicator_height=2dp`、`DEFAULT_MIN_INDICATOR=32dp`、`coui_tablayout_indicator_padding=0dp`、`ANIMATION_DURATION=300`、`getIndicatorAnimTime()` 的 `min(300, |from-to|×50+150)`；`setIndicatorPosition()` 以文字宽加两侧 padding、按 32dp 下限居中；`dispatchDraw()` 把指示器画在容器底部并按可见滚动范围裁剪；`calculateScrollXForTab()` 在 `positionOffset=0` 时等价于「选中项中心 − 视口中心」；`MEDIUM_FONT` / `REGULAR_FONT` 对应选中与未选中字重。
+- 差异：原厂 `animateIndicatorToPosition()` 用 `ArgbEvaluator` 只对切换的两个页签插值文字色，移植用连续的选中进度对所有页签插值；原厂底部分隔线是 1px，移植按 1dp；原厂支持自定义视图、图标、红点角标、`COUITabLayoutMediator` 与 ViewPager 自动联动，以及 `setScrollPosition()` 带入的拖动中指示器宽度插值（`mLastSelectionOffset` 方向分支），移植只接受整数下标。
+- 结论：静止几何、切换时长与滚动终点对齐，连续拖动与扩展分支非 1:1。
+
+### 换行布局与搜索历史 `FlowLayout` / `SearchHistory`
+
+- 一致：`Line.canAdd()` 的「已用 + 间距 + 本项宽度 ≤ 可用宽度」、首项按可用宽度夹紧；`fillChildInLines()` 超过 `maxRow` 后其余项不再排版；`getFoldedStateHeight()` / `getExpandedStateHeight()` 按行数取容器高度；`ensureAndExpandButton()` 在放不下时让第 `maxRowsFolded` 行最后一个标签退位、展开时把折叠按钮放最后一行；`EXPAND_BUTTON_APPEAR_DURATION=250`、`HIDDEN_VIEWS_APPEAR_DELAY=100`、`HIDDEN_VIEWS_APPEAR_DURATION=400`、`HIDDEN_VIEWS_DISAPPEAR_DURATION=300` 与 `COUIMoveEaseInterpolator` 的 `(0.3, 0, 0.1, 1)`；`SEARCH_VIEW_DISAPPEAR_DURATION=300` 的整块 alpha 淡出；`coui_component_search_history_*` 的 8/8/8/16/16/16/32dp 留白、18dp 删除图标、7dp 标题上下留白与 `maxRowUnfolded=8`；`Widget.COUI.Chip.Suggestion` 的 28dp 高、52–300dp 宽、12dp 水平内留白。
+- 差异：原厂用 `View.measure` 与 `COUIChip`，移植在组合阶段用 `TextMeasurer` 估算宽度、由 `widthIn` 与内留白决定实际宽度；原厂标签有圆角/按压反馈/关闭图标与 `COUIChangeTextUtil.adaptFontSize`，移植没有；展开/折叠与清空标记由库自绘，原厂用 drawable 与 `COUIPressFeedbackImageView`；原厂 `drawChild()` 逐子视图裁剪，移植用 `clipToBounds()` 裁剪整列；原厂 `onDetachedFromWindow()` 取消动画，移植由 `animateFloatAsState` 随组合退出收尾。
+- 结论：换行、折叠、展开与清空的主要状态转换对齐，标签自身外观与按压反馈非 1:1。
+
+### Snackbar `SnackbarHost`
+
+- 一致：`coui_snack_bar_margin_bottom=32dp`、`max_width=328dp` 与 `coui_snack_bar_item.xml` 的容器/文案/操作/图标排布（沿用 `CouiToastSurface`，不复制第二份）；`setSnackBarProgress()` 的 0.8↔1 缩放与 0↔1 alpha；`DEFAULT_SNACKBAR_SHOW_SPRING_RESPONSE=0.3`、`DISMISS=0.25`、`BOUNCE=0`；`setDuration(0)` 不自动消失；`onTouchEvent()` 的 DOWN/MOVE 取消计时、UP/CANCEL 重新按完整时长 `postDelayed`；`setOnAction()` 点击后 `dismiss()`；`make()` 发现父容器已有可见 Snackbar 时不再 `addView`；`OnStatusChangeListener` 的 shown/dismissed 时机。
+- 差异：原厂进度放大到 `DEFAULT_SPRING_FACTOR=10000` 后积分，移植归一到 0..1（库内 `CouiSpring` 的 `response → ((2π/response)²)` 与原厂 `COUISpringForce` 同源）；原厂自行沿 View 树找父容器，Compose 由宿主用 `Box` 决定位置；`COUINotificationSnackBar` 的标题/副标题/关闭按钮与 X/Y 拖动回弹、`COUICustomSnackBar` 的 `setTouchSlidable` 与 180ms alpha 消失没有移植；原厂 `setEnabled()`、`setContentText("")` 等重启/取消计时的旁路没有对应公开入口。
+- 结论：单实例、计时与弹簧进出场对齐；位置装配、通知样式与拖动消失非 1:1。
+
+### 核查后的剩余工作
+
+1. 四个使用页、组件目录与 `zensical.toml` 已登记；四个组件的源码入口、公开签名与差异写入各自使用页的「与原厂的差异」，不把静态核查写成真机验收。
+2. 三个组件都没有新增绘制后端：`SnackbarHost` 复用轻提示的绘制节点与 `CouiSpring`，`FlowLayout` / `TabLayout` 只用公开布局与 Canvas；检查过 `ChipTab`（依赖背景源与 API 34）、`ToastHostState`（队列语义不同）与 `CouiScrollPhysics`（不是指示器动画分支），均不适合复用，理由见对应交付记录。
+3. 待真机同背景/手势对照：指示器文字色过渡与拖动中宽度插值、标签圆角与按压反馈、Snackbar 弹簧观感与触摸暂停计时、RTL、深浅色与无障碍播报。本地不执行构建与设备操作。
 
 ## 逆向材料缺口
 

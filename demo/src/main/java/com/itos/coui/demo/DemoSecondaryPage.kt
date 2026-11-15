@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -20,6 +21,8 @@ import com.itos.coui.floatingactionbutton.CouiFabColor
 import com.itos.coui.layout.CouiPageDefaults
 import com.itos.coui.layout.Divider
 import com.itos.coui.layout.Group
+import com.itos.coui.snackbar.SnackbarHost
+import com.itos.coui.snackbar.rememberCouiSnackbarState
 import com.itos.coui.toast.ToastHost
 import com.itos.coui.toast.rememberToastHostState
 
@@ -46,6 +49,8 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
     var fabPreset by rememberSaveable { mutableStateOf(CouiFabColor.Notes) }
     var roundedFab by rememberSaveable { mutableStateOf(false) }
     val toastState = rememberToastHostState()
+    val snackbarState = rememberCouiSnackbarState()
+    var queuedSnackbars by rememberSaveable { mutableIntStateOf(0) }
     val catalogPage = if (DemoWheelPickerEntries.any { it.page == page }) "wheel" else page
     val entry = (DemoComponentGroups + DemoEffectGroups).flatMap { it.entries }.firstOrNull { it.page == catalogPage }
     val title = entry?.title ?: R.string.settings_about
@@ -56,8 +61,9 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
         }
     } else null
     CompositionLocalProvider(LocalCouiContourGlowEnabled provides preferences.contour) {
-        // 轻提示覆盖在页面之上，自身不占位也不拦截输入。
+        // 轻提示与 Snackbar 都覆盖在整页之上，自身不占位也不拦截输入。
         Box(Modifier.fillMaxSize()) {
+            val snackbarMessage = stringResource(R.string.snackbar_message)
             DemoSettingsPage(title = stringResource(title), backDescription = stringResource(R.string.settings_back),
                 onBack = back, dark = dark, colors = CouiPageDefaults.themeColors(dark), floatingAction = floatingAction) {
                 when (page) {
@@ -71,7 +77,13 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "marquee" -> MarqueeTextSample(dark)
                     "verticalseek" -> VerticalSeekBarSample(dark)
                     "toptips" -> TopTipsSample(dark)
+                    "tablayout" -> TabLayoutSample(dark)
+                    "searchhistory" -> SearchHistorySample(dark)
+                    "snackbar" -> SnackbarSample(dark, snackbarState) { queuedSnackbars++ }
                     "badge" -> BadgeSample(dark)
+                    "tag" -> TagSample(dark)
+                    "richtext" -> RichTextSample(dark)
+                    "scrollbar" -> ScrollBarSample(dark)
                     "pageindicator" -> PageIndicatorSample(dark)
                     "emptystate" -> EmptyStateSample(dark)
                     "textfield" -> TextFieldSample(dark)
@@ -133,6 +145,19 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
             }
             if (page == "toast") {
                 ToastHost(toastState, Modifier.align(Alignment.BottomCenter).padding(bottom = 32.dp))
+            }
+            if (page == "snackbar") {
+                SnackbarHost(
+                    snackbarState,
+                    Modifier.align(Alignment.BottomCenter),
+                    dark = dark,
+                    onDismissed = {
+                        if (queuedSnackbars > 0) {
+                            queuedSnackbars--
+                            snackbarState.show(snackbarMessage)
+                        }
+                    },
+                )
             }
         }
     }

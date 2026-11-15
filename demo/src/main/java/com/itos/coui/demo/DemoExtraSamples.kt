@@ -29,6 +29,7 @@ import com.itos.coui.avatar.CouiAvatarDefaults
 import com.itos.coui.button.Button
 import com.itos.coui.button.CouiButtonStyle
 import com.itos.coui.demo.ui.Icon
+import com.itos.coui.emptystate.EmptyState
 import com.itos.coui.icons.CouiIcons
 import com.itos.coui.layout.CouiPageDefaults
 import com.itos.coui.layout.Divider
@@ -120,7 +121,7 @@ internal fun AvatarSample(dark: Boolean) {
     }
 }
 
-/** 三态容器：加载 / 空 / 失败 / 就绪 四态切换。 */
+/** 三态容器：加载 / 空 / 失败 / 就绪 四态切换；空态由容器按原厂整页规则摆位。 */
 @Composable
 internal fun StateLayoutSample(dark: Boolean) {
     var index by rememberSaveable { mutableIntStateOf(0) }
@@ -128,9 +129,11 @@ internal fun StateLayoutSample(dark: Boolean) {
         CouiLoadState.Failed(stringResource(R.string.state_layout_error_message)), CouiLoadState.Ready)
     Group(title = stringResource(R.string.state_layout_title)) {
         Box(Modifier.fillMaxWidth().height(200.dp)) {
-            StateLayout(state = states[index],
-                empty = { Text(text = stringResource(R.string.state_layout_empty), kind = CouiTextKind.Body,
-                    color = CouiTheme.colorScheme.onSurfaceVariant) },
+            StateLayout(modifier = Modifier.fillMaxSize(), state = states[index],
+                empty = {
+                    EmptyState(title = stringResource(R.string.state_layout_empty), dark = dark,
+                        icon = { Icon(CouiIcons.Outlined.Search, null, Modifier.size(48.dp)) })
+                },
                 failed = { message ->
                     Column(horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(8.dp)) {

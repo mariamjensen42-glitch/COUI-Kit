@@ -54,7 +54,10 @@ import com.itos.coui.theme.CouiTheme
 @RequiresApi(33)
 @Composable
 internal fun ShadowSamples(dark: Boolean) {
-    var elevation by rememberSaveable { mutableFloatStateOf(CouiShadowDefaults.menu(dark).elevation.value) }
+    // 示例初值取紧凑投影；LV4 菜单本身（浅色 180dp / 深色 36dp）是原厂值，滑块仍可拉回，但一进页面不应盖住主体。
+    var elevation by rememberSaveable { mutableFloatStateOf(6f) }
+    // 模糊必须大于投影高度: 显式传入过小模糊会把 A8 查表压成硬边, 看起来反而更"实"。
+    var blur by rememberSaveable { mutableFloatStateOf(12f) }
     val outline = CouiShadowOutline.SmoothCapsule
     var lowLevel by rememberSaveable { mutableStateOf(false) }
     val rendering = remember { runCatching { CouiShadowRenderer() } }
@@ -66,8 +69,10 @@ internal fun ShadowSamples(dark: Boolean) {
     }
     DemoSliderPreference(title = stringResource(R.string.shadow_elevation),
         value = elevation, onValueChange = { elevation = it }, valueRange = 0f..200f, valueText = elevation.toInt().toString())
+    DemoSliderPreference(title = stringResource(R.string.shadow_blur),
+        value = blur, onValueChange = { blur = it }, valueRange = 0f..100f, valueText = blur.toInt().toString())
     DemoSwitchPreference(title = stringResource(R.string.low_level_shadow), checked = lowLevel, onCheckedChange = { lowLevel = it })
-    val style = CouiShadowDefaults.menu(dark).copy(elevation = elevation.dp)
+    val style = CouiShadowDefaults.menu(dark).copy(elevation = elevation.dp, blurRadius = blur.dp)
     val shape = DemoShapes.couiCapsule
     val shadow = if (lowLevel) Modifier.drawBehind {
         drawIntoCanvas { canvas ->
@@ -75,7 +80,8 @@ internal fun ShadowSamples(dark: Boolean) {
                 sx = 1f, sy = 1f, windowX = 0f, windowY = 0f, alpha = 1f, color = style.color.toArgb(),
                 elevation = style.elevation.roundToPx().toFloat(), lightY = style.lightY.roundToPx().toFloat(),
                 lightZ = style.lightZ.roundToPx().toFloat(), lightRadius = style.lightRadius.roundToPx().toFloat(),
-                outline = outline, radius = size.minDimension * .5f, clipping = true)
+                outline = outline, radius = size.minDimension * .5f, clipping = true,
+                blurRadius = with(density) { blur.dp.roundToPx().toFloat() })
         }
     } else Modifier.couiShadow(style, outline, radius = 28.dp)
     Box(Modifier.fillMaxWidth().height(160.dp), contentAlignment = Alignment.Center) {

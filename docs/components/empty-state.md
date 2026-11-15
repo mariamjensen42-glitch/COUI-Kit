@@ -35,7 +35,7 @@ EmptyState(
 )
 ~~~
 
-- 图标槽固定 120dp × 100dp，内容居中绘制，对应原厂 `EmptyStateAnimView` 的占位；传入 24dp 图标时四周留白不变，需要铺满时在槽内使用 `Modifier.fillMaxSize()`。
+- 图标槽固定 120dp × 100dp，内容居中绘制，对应原厂 `EmptyStateAnimView` 的占位；传入 24dp 图标时四周留白不变，需要铺满时在槽内使用 `Modifier.fillMaxSize()`。整页容器判定为 `CouiEmptyPageSize.Small` 时组件跳过图标槽，与原厂把插图区缩到 0 × 0 的处理一致。
 - 操作槽在文字下方 8dp 处，内容宽度不受 280dp 文字列限制。原厂 `empty_view_action` 是 14sp medium 的文字操作（`?couiTextButtonM` + `?couiColorPrimaryText`，`CouiTextKind.ButtonLabel`），`actionLabel` + `onAction` 就按这一规格渲染：无容器、无内边距，点击热区即文字边界。
 - `actionLabel` 与 `onAction` 需同时非空才渲染；与 `action` 槽互斥，两者同时传入时以 `action` 槽为准。需要强调（主按钮）或更大的触控目标时改用 `action` 槽，例如 `action = { Button(onClick = refresh, label = "刷新") }`。
 - 两个槽都不提供禁用、加载等状态语义，交互与状态归槽内组件和宿主。
@@ -68,16 +68,19 @@ EmptyState(
 
 ## 高度与滚动
 
-组件只负责内容布局，自身按内容高度收拢，竖向从顶部起排——与原厂根布局的 `gravity="center_horizontal"` 一致，不自行垂直居中。需要整页居中时，把组件放进自带居中策略的容器：
+组件只负责内容布局，自身按内容高度收拢，竖向从顶部起排——与原厂根布局的 `gravity="center_horizontal"` 一致，不自行垂直居中。原厂的整页摆位在 `COUIEmptyStateView` 的 `onLayout` 里：顶部留白 = (容器高 − 内容组高) × 0.45，尺寸类型为 `Small` 时改 0.5。这一层由 `StateLayout` 的空态 / 失败态槽复刻，把组件放进它的槽里就是原厂整页效果：
 
 ~~~kotlin
-Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-    EmptyState(
-        title = title,
-        description = description,
-    )
+StateLayout(
+    state = state,
+    empty = { EmptyState(title = title, description = description) },
+    failed = { message -> FailureContent(message) },
+) {
+    ContentList(items)
 }
 ~~~
+
+容器内高度固定时按剩余高度留白，高度不固定时组件收拢到内容高度、顶部留白为 0。
 
 原厂把标题与说明包在最大 92dp 的滚动视图（`coui_component_empty_text_scroll_max_height`）内，本组件同样把文字块限制在 92dp（`CouiEmptyStateDefaults.textMaxHeight`）并在内部滚动：字号放大或文案超出时，图标与操作槽的位置不动。`modifier` 在根节点应用一次，默认宽度铺满可用空间，内部尺寸随后追加。
 

@@ -45,7 +45,8 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("fab", R.string.catalog_fab, DemoIconTone.Red) { CouiIcons.Filled.AI },
         DemoCatalogEntry("adaptive", R.string.catalog_adaptive, DemoIconTone.Green) { CouiIcons.Filled.Foldable },
         DemoCatalogEntry("sidepane", R.string.catalog_side_pane, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterLeft },
-        DemoCatalogEntry("floatingtoolbar", R.string.catalog_floating_toolbar, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterRight })),
+        DemoCatalogEntry("floatingtoolbar", R.string.catalog_floating_toolbar, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterRight },
+        DemoCatalogEntry("tablayout", R.string.tab_layout_title, DemoIconTone.Blue) { CouiIcons.Filled.Album })),
     DemoCatalogGroup(R.string.catalog_group_content, listOf(
         DemoCatalogEntry("layout", R.string.catalog_layout, DemoIconTone.Green) { CouiIcons.Outlined.LayoutSpliced },
         DemoCatalogEntry("container", R.string.catalog_card, DemoIconTone.Blue) { CouiIcons.Filled.SafeBox },
@@ -57,7 +58,10 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("chart", R.string.catalog_bar_chart, DemoIconTone.Green) { CouiIcons.Filled.Battery },
         DemoCatalogEntry("accordion", R.string.catalog_accordion, DemoIconTone.Orange) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("avatar", R.string.catalog_avatar, DemoIconTone.Green) { CouiIcons.Filled.Health },
-        DemoCatalogEntry("stepper", R.string.catalog_stepper, DemoIconTone.Yellow) { CouiIcons.Filled.Album })),
+        DemoCatalogEntry("stepper", R.string.catalog_stepper, DemoIconTone.Yellow) { CouiIcons.Filled.Album },
+        DemoCatalogEntry("tag", R.string.tag_title, DemoIconTone.Orange) { CouiIcons.Filled.Lab },
+        DemoCatalogEntry("richtext", R.string.richtext_title, DemoIconTone.Blue) { CouiIcons.Filled.BookOpen },
+        DemoCatalogEntry("scrollbar", R.string.scrollbar_title, DemoIconTone.Purple) { CouiIcons.Filled.Grid })),
     DemoCatalogGroup(R.string.catalog_group_input, listOf(
         DemoCatalogEntry("switch", R.string.switch_title, DemoIconTone.Blue) { DemoIcons.Switch },
         DemoCatalogEntry("checkbox", R.string.checkbox_title, DemoIconTone.Green) { CouiIcons.Outlined.ListFilter },
@@ -68,7 +72,8 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("verticalseek", R.string.vertical_seek_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
         DemoCatalogEntry("chip", R.string.chip_tab_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("wheel", R.string.catalog_wheel, DemoIconTone.Orange) { DemoIcons.Tune },
-        DemoCatalogEntry("calendar", R.string.picker_calendar_title, DemoIconTone.Yellow) { CouiIcons.Filled.Health })),
+        DemoCatalogEntry("calendar", R.string.picker_calendar_title, DemoIconTone.Yellow) { CouiIcons.Filled.Health },
+        DemoCatalogEntry("searchhistory", R.string.search_history_title, DemoIconTone.Green) { CouiIcons.Outlined.Search })),
     DemoCatalogGroup(R.string.catalog_group_overlay, listOf(
         DemoCatalogEntry("dialogs", R.string.dialog_title, DemoIconTone.Blue) { DemoIcons.Dialogs },
         DemoCatalogEntry("bottomsheet", R.string.bottomsheet_title, DemoIconTone.Purple) { CouiIcons.Filled.PanelEnterLeft },
@@ -78,6 +83,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("iconbutton", R.string.catalog_icon_button, DemoIconTone.Purple) { CouiIcons.Filled.More },
         DemoCatalogEntry("progress", R.string.progress_title, DemoIconTone.Green) { CouiIcons.Filled.Fan },
         DemoCatalogEntry("toast", R.string.toast_title, DemoIconTone.Orange) { CouiIcons.Filled.CloudData },
+        DemoCatalogEntry("snackbar", R.string.snackbar_title, DemoIconTone.Purple) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("badge", R.string.badge_title, DemoIconTone.Red) { CouiIcons.Filled.Rings },
         DemoCatalogEntry("pageindicator", R.string.pageindicator_title, DemoIconTone.Blue) { CouiIcons.Filled.Album },
         DemoCatalogEntry("emptystate", R.string.emptystate_title, DemoIconTone.Yellow) { CouiIcons.Filled.BookOpen },
@@ -165,6 +171,9 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "verticalseek" -> R.string.intro_vertical_seek
     "toptips" -> R.string.intro_top_tips
     "badge" -> R.string.intro_badge
+    "tag" -> R.string.intro_tag
+    "richtext" -> R.string.intro_richtext
+    "scrollbar" -> R.string.intro_scrollbar
     "pageindicator" -> R.string.intro_pageindicator
     "emptystate" -> R.string.intro_emptystate
     "textfield" -> R.string.intro_text_field

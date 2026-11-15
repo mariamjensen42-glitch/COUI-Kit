@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tag_title">标签</string>
+    <string name="intro_tag">可带图标、圆角与描边的静态标签</string>
+    <string name="tag_examples">标签</string>
+    <string name="tag_beta">Beta</string>
+    <string name="tag_new">新品</string>
+    <string name="tag_recommend">推荐</string>
+    <string name="tag_corner">圆角</string>
+    <string name="tag_outlined">描边</string>
+    <string name="tag_hint">标签只表达状态，点击交互放在标签外层的宿主布局上。</string>
+
+    <string name="richtext_title">富文本</string>
+    <string name="intro_richtext">带可点击链接的富文本</string>
+    <string name="richtext_examples">行内链接</string>
+    <string name="richtext_prefix">继续即表示你同意</string>
+    <string name="richtext_link">隐私政策</string>
+    <string name="richtext_suffix">与服务条款。</string>
+    <string name="richtext_clicks">链接点击次数：%1$d</string>
+
+    <string name="scrollbar_title">滚动条</string>
+    <string name="intro_scrollbar">可拖动、自动淡出的竖向滚动条</string>
+    <string name="scrollbar_examples">长列表</string>
+    <string name="scrollbar_item">列表项 %1$d</string>
+    <string name="scrollbar_hint">滚动后停留 2 秒，250 毫秒内淡出，拇指可直接拖动。</string>
+</resources>

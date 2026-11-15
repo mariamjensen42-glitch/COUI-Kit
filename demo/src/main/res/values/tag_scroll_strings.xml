@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tag_title">Tag</string>
+    <string name="intro_tag">Static label with optional icon, corner and stroke</string>
+    <string name="tag_examples">Tags</string>
+    <string name="tag_beta">Beta</string>
+    <string name="tag_new">New</string>
+    <string name="tag_recommend">Recommended</string>
+    <string name="tag_corner">Rounded</string>
+    <string name="tag_outlined">Outlined</string>
+    <string name="tag_hint">Tags show state only. Put the click on the host layout around them.</string>
+
+    <string name="richtext_title">Rich text</string>
+    <string name="intro_richtext">Annotated text with clickable links</string>
+    <string name="richtext_examples">Inline link</string>
+    <string name="richtext_prefix">By continuing you accept the </string>
+    <string name="richtext_link">privacy policy</string>
+    <string name="richtext_suffix"> and the terms of service.</string>
+    <string name="richtext_clicks">Link clicks: %1$d</string>
+
+    <string name="scrollbar_title">Scroll bar</string>
+    <string name="intro_scrollbar">Vertical scroll indicator with drag and fade</string>
+    <string name="scrollbar_examples">Long list</string>
+    <string name="scrollbar_item">List item %1$d</string>
+    <string name="scrollbar_hint">The bar stays 2s after scrolling, fades out in 250ms, and can be dragged directly.</string>
+</resources>

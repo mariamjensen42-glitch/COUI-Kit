@@ -15,6 +15,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,6 +33,21 @@ import com.itos.coui.theme.CouiTheme
 /** 空状态的文字配色；图标槽与操作槽继续使用各自组件的颜色或当前主题。 */
 @Immutable
 data class CouiEmptyStateColors(val title: Color, val description: Color)
+
+/**
+ * 整页空状态的尺寸类型，对应原厂 `COUIEmptyStateView` 的 `EMPTY_VIEW_SIZE_TYPE_*`。
+ *
+ * 由整页容器按可用尺寸判定并向下传递：`StateLayout` 在测量后把判定结果放进
+ * [LocalCouiEmptyPageSize]。原厂在 [Small] 时把插图区缩到 0 × 0 并设为不可见，
+ * 本组件据此跳过图标槽，只留文字与操作。
+ */
+enum class CouiEmptyPageSize { Small, Medium, Large }
+
+/**
+ * 容器判定的整页尺寸类型；`null` 表示独立使用，按常规尺寸渲染（保留 120dp × 100dp 图标槽）。
+ * 只在 null 与 [CouiEmptyPageSize.Small] 之间有行为差异，其余类型图标槽尺寸一致。
+ */
+internal val LocalCouiEmptyPageSize = staticCompositionLocalOf<CouiEmptyPageSize?> { null }
 
 /**
  * 空状态的固定参数，取自 ColorOS 17 手机管家 17.3.13 内嵌的 COUI 资源
@@ -65,6 +81,24 @@ object CouiEmptyStateDefaults {
     const val descriptionMaxLines = 3
 
     /**
+     * 整页摆放的顶部留白比例：原厂 `COUIEmptyStateView.HEIGHT_RATIO_NORMAL`，
+     * 顶部留白 = (容器高 - 内容组高) × 该比例。
+     */
+    val pageMarginTopRatio = 0.45f
+
+    /** 尺寸类型为 [CouiEmptyPageSize.Small] 时的顶部留白比例：原厂 `HEIGHT_RATIO_SMALL`。 */
+    val pageMarginTopRatioSmall = 0.5f
+
+    /** 判定 [CouiEmptyPageSize.Medium] 的宽度阈值：`coui_component_width_threshold_medium`。 */
+    val pageWidthThresholdMedium = 320.dp
+
+    /** 判定 [CouiEmptyPageSize.Medium] 的高度阈值：`coui_component_height_threshold_medium`。 */
+    val pageHeightThresholdMedium = 480.dp
+
+    /** 判定 [CouiEmptyPageSize.Small] 的高度阈值：`coui_component_height_threshold_small`。 */
+    val pageHeightThresholdSmall = 200.dp
+
+    /**
      * 按深浅色取文字配色。标题对应原厂 `couiColorLabelPrimary`，说明对应 `couiColorLabelSecondary`。
      * 显式传入 [CouiEmptyStateColors] 时优先，不受本函数影响。
      */
@@ -82,7 +116,9 @@ object CouiEmptyStateDefaults {
  * 操作槽独立。
  *
  * 图标由宿主以内容槽传入，组件不内置插图、不弹窗。
- * 竖向从顶部起排，与原厂根布局一致：需要整页垂直居中时，把本组件放进自带居中策略的容器。
+ * 竖向从顶部起排，与原厂根布局一致：整页摆位由 `StateLayout` 按原厂 `COUIEmptyStateView` 的
+ * 45% / 50% 规则提供，组件自身不居中、不感知容器高度。
+ * 容器判定为 [CouiEmptyPageSize.Small] 时跳过图标槽，与原厂把插图区缩到 0 × 0 的行为一致。
  * 原厂把标题与说明包在最大 92dp 的滚动视图内（`coui_component_empty_text_scroll_max_height`）：
  * 大字号或长文案超出上限时，文字块内部滚动，图标与操作槽位置不动。
  *
@@ -110,7 +146,8 @@ fun EmptyState(
         // 竖向从顶部起排；需要垂直居中时由宿主容器提供，组件不自行居中。
         verticalArrangement = Arrangement.Top,
     ) {
-        if (icon != null) {
+        // 原厂 SMALL 尺寸下 getAnimTargetSize() 返回 0 × 0 并 setVisibility(4)：插图连占位一起消失。
+        if (icon != null && LocalCouiEmptyPageSize.current != CouiEmptyPageSize.Small) {
             Box(
                 Modifier.size(CouiEmptyStateDefaults.iconWidth, CouiEmptyStateDefaults.iconHeight),
                 contentAlignment = Alignment.Center,

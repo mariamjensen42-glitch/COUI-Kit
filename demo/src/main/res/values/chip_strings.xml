@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chip_family_title">Chip</string>
+    <string name="intro_chip_family">Selectable, closable tags plus an inline tag input</string>
+    <string name="chip_basic">Basic tags</string>
+    <string name="chip_selectable">Selectable tags</string>
+    <string name="chip_closable">Closable tags</string>
+    <string name="chip_collapsable">Collapsible group</string>
+    <string name="chip_collapse_toggle">Collapsed</string>
+    <string name="chip_input_hint">Add a tag</string>
+    <string name="chip_close_description">Remove tag</string>
+    <string name="chip_tag_value">Tag %1$d</string>
+</resources>

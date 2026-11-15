@@ -65,6 +65,7 @@ nav = [
       "components/segmented-control.md",
       "components/checkbox.md",
       "components/switch.md",
+      "components/chip.md",
       "components/chip-tab.md",
       "components/pickers.md",
       "components/flow-layout.md",

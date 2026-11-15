@@ -90,6 +90,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "emptystate" -> EmptyStateSample(dark)
                     "textfield" -> TextFieldSample(dark)
                     "bottomsheet" -> BottomSheetSample(dark)
+                    "chips" -> ChipsSample(dark)
                     "chip" -> ChipTabSample(dark)
                     "segment" -> SegmentedControlSample(dark)
                     "effect_backdrop" -> BlurTutorial(dark)

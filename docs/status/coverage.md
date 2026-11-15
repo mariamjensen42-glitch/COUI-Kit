@@ -30,7 +30,7 @@
 | 选择器 | 日期 / 时间 / 农历 / 倒计时 Picker | `WheelPicker` / `CalendarPicker` | 只有滚轮与月历，弹窗由宿主组合 | 设置页日期时间入口需宿主装配 | [选择器](../components/pickers.md) |
 | 输入框 | `COUICodeInputView`、多输入、错误气泡 | `TextField` | 只有通用输入卡片 | 验证码等页面需另写 | [输入框](../components/text-field.md) |
 | 弹窗 | 引导弹窗、多页、安全弹窗、列表底栏弹窗 | `Dialog` / `InputDialog` / `LoadingDialog` | 三个预设 | 引导页需宿主装配 | [弹窗](../components/dialog.md) |
-| Chip | `COUIChip` / `COUIChipGroup` / `COUIChipDrawable` | `ChipTab` / `ChipTabRow` | 只有分类 tab，无可关闭 chip 与标签输入组 | 标签编辑场景缺件 | [ChipTab](../components/chip-tab.md) |
+| Chip | `COUIChip` / `COUIChipGroup` / `COUIChipGroupEditText` / `COUIChipDrawable` | `Chip` / `ChipGroup` / `ChipGroupEditText` / `CouiChipDefaults` | 四套样式的尺寸、宽度公式、文字居中、关闭区与红点位置、染色与高度弹簧按原厂参数移植；单选/必选交给宿主，`smoothtyle` 平滑轮廓、`hovered`/`focused` 染色与 drawable mask 按下态未复刻 | 可见行为近似，非 1:1；标签编辑场景可用 | [Chip](../components/chip.md) |
 | GPU 抗锯齿等 | `fwidth` 覆盖率、逐次随机噪声、三维投影 | 代码里的 `shortcut:` 注释 | 13 处显式降级，按公开 API 可表达的范围实现 | 已在注释逐条声明，不算隐藏缺陷 | `coui/.../effect/`、`backdrop/CouiBackdrop.kt` |
 | 按钮组排布 | `SimpleButtonGroupCtrl` + `COUIButtonLayout`（`getButtonLineCount` 比较文案与列宽） | `ButtonGroup` | 尺寸、间距、小屏均分、竖排反转与原厂一致；高度下限用 `coui_alert_dialog_button_min_height_multiline` 56dp，未复刻 `getButtonMaxHeight` 的逐行公式 | 双行按钮高度可能相差 1–2dp | `coui/.../button/ButtonGroup.kt`、`references/apk/coui-src/com/coui/appcompat/button/SimpleButtonGroupCtrl.java` |
 | 两行按钮文案 | `DescButtonTextSpan`（`canvas.drawText` 组合两组 `FontMetricsInt` 基线） | `Button(label, description)` | 字号、间距、单行省略、居中与 1.15 倍字体缩放封顶一致；排版交给 Compose，不能与同一段 `Spanned` 内联拼接 | 只可作按钮整体内容 | `coui/.../button/Button.kt`、`.../button/DescButtonTextSpan.java` |

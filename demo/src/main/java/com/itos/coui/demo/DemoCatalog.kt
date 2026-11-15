@@ -70,6 +70,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("textfield", R.string.catalog_text_field, DemoIconTone.Purple) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("marquee", R.string.marquee_title, DemoIconTone.Blue) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("verticalseek", R.string.vertical_seek_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
+        DemoCatalogEntry("chips", R.string.chip_family_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("chip", R.string.chip_tab_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("stepper", R.string.catalog_stepper, DemoIconTone.Green) { DemoIcons.Switch },
         DemoCatalogEntry("wheel", R.string.catalog_wheel, DemoIconTone.Orange) { DemoIcons.Tune },
@@ -162,6 +163,7 @@ private fun catalogSearchMatches(entry: DemoCatalogEntry, needle: String): Boole
         (entry.page == "wheel" && stringResource(R.string.picker_number_title).contains(needle, ignoreCase = true))
 
 internal fun catalogDescription(page: String): Int = when (page) {
+    "chips" -> R.string.intro_chip_family
     "chip" -> R.string.intro_chip
     "switch" -> R.string.intro_switch
     "sliders" -> R.string.intro_sliders

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:name="Play" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24" android:tint="@color/coui_icon_tint_neutral_ff000000_ffffffff">
+    <path android:pathData="M19.3711 10.9646C20.2096 11.4248 20.2096 12.5752 19.3711 13.0354L7.88672 19.338C7.04817 19.7982 6 19.223 6 18.3026L6 5.69739C6 4.77701 7.04818 4.20178 7.88672 4.66196L19.3711 10.9646Z" android:fillColor="#FF000000" />
+</vector>

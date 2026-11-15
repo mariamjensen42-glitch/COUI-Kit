@@ -270,6 +270,154 @@ object CouiIcons {
         /** 填实云服务耳机图标的耳罩。 */
         val Headset: ImageVector
             @Composable get() = couiIconResource(R.drawable.coui_headset_filled)
+
+        /** com.android.settings:drawable/abc_ic_menu_share_mtrl_alpha。 */
+        val Share: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_share_filled)
+
+        /** com.android.settings:drawable/abc_ic_menu_copy_mtrl_am_alpha。 */
+        val Copy: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_copy_filled)
+
+        /** com.android.settings:drawable/menu_ic_send_normal。 */
+        val Send: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_send_filled)
+
+        /** com.android.settings:drawable/ic_upload。 */
+        val Upload: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_upload_filled)
+
+        /** com.android.settings:drawable/ic_settings_print。 */
+        val Print: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_print_filled)
+
+        /** com.android.systemui:drawable/ic_oplus_media_panel_action_play。 */
+        val Play: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_play_filled)
+
+        /** com.android.systemui:drawable/ic_oplus_media_panel_action_pause。 */
+        val Pause: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_pause_filled)
+
+        /** com.android.systemui:drawable/ic_oplus_media_panel_action_pre。 */
+        val Previous: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_previous_filled)
+
+        /** com.android.systemui:drawable/ic_oplus_media_panel_action_next。 */
+        val NextTrack: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_next_track_filled)
+
+        /** com.android.systemui:drawable/oplus_media_output_icon_volume_off。 */
+        val VolumeOff: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_volume_off_filled)
+
+        /** com.android.settings:drawable/ic_volume_ringer_vibrate。 */
+        val Vibrate: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_vibrate_filled)
+
+        /** com.android.settings:drawable/ic_hotspot。 */
+        val Hotspot: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_hotspot_filled)
+
+        /** com.android.settings:drawable/ic_vpn_key。 */
+        val Vpn: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_vpn_filled)
+
+        /** com.android.settings:drawable/ic_nfc。 */
+        val Nfc: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_nfc_filled)
+
+        /** com.android.settings:drawable/ic_cast_24dp。 */
+        val Cast: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_cast_filled)
+
+        /** com.android.settings:drawable/ic_battery_charging_full。 */
+        val BatteryCharging: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_battery_charging_filled)
+
+        /** com.android.settings:drawable/ic_system_update。 */
+        val SystemUpdate: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_system_update_filled)
+
+        /** com.android.settings:drawable/ic_storage。 */
+        val Storage: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_storage_filled)
+
+        /** com.android.settings:drawable/ic_settings_data_usage。 */
+        val DataUsage: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_data_usage_filled)
+
+        /** com.android.settings:drawable/ic_settings_language。 */
+        val Language: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_language_filled)
+
+        /** com.android.settings:drawable/ic_qrcode_24dp。 */
+        val QrCode: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_qr_code_filled)
+
+        /** com.android.settings:drawable/ic_clock_black_24dp。 */
+        val Clock: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_clock_filled)
+
+        /** com.android.settings:drawable/material_ic_calendar_black_24dp。 */
+        val Calendar: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_calendar_filled)
+
+        /** com.android.settings:drawable/ic_keyboard_black_24dp。 */
+        val Keyboard: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_keyboard_filled)
+
+        /** com.android.settings:drawable/ic_apps_alt。 */
+        val Apps: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_apps_filled)
+
+        /** com.android.settings:drawable/ic_person。 */
+        val Person: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_person_filled)
+
+        /** com.android.settings:drawable/ic_chat_bubble_24dp。 */
+        val Chat: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_chat_filled)
+
+        /** com.android.settings:drawable/ic_fingerprint_24dp。 */
+        val Fingerprint: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_fingerprint_filled)
+
+        /** com.android.settings:drawable/ic_privacy_shield_24dp。 */
+        val PrivacyShield: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_privacy_shield_filled)
+
+        /** com.android.settings:drawable/ic_do_not_disturb_on_24dp。 */
+        val DoNotDisturb: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_do_not_disturb_filled)
+
+        /** com.android.systemui:drawable/ic_open_in_new。 */
+        val OpenInNew: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_open_in_new_filled)
+
+        /** com.android.systemui:drawable/vd_flashlight。 */
+        val Flashlight: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_flashlight_filled)
+
+        /** com.android.settings:drawable/ic_help。 */
+        val Help: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_help_filled)
+
+        /** com.android.systemui:drawable/ic_video。 */
+        val Video: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_video_filled)
+
+        /** com.android.systemui:drawable/ic_doc_document。 */
+        val Document: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_document_filled)
+
+        /** com.android.settings:drawable/ic_notifications_off_24dp。 */
+        val NotificationsOff: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_notifications_off_filled)
+
+        /** com.android.systemui:drawable/status_bar_qs_mic_blocked。 */
+        val MicOff: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_mic_off_filled)
     }
 
     object Outlined {
@@ -423,6 +571,26 @@ object CouiIcons {
         /** com.android.settings:drawable/design_ic_visibility。 */
         val Visibility: ImageVector
             @Composable get() = couiIconResource(R.drawable.coui_visibility_outlined)
+
+        /** com.android.settings:drawable/ic_settings_gestures。 */
+        val Gesture: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_gesture_outlined)
+
+        /** com.android.systemui:drawable/ic_error_outline。 */
+        val Error: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_error_outlined)
+
+        /** com.android.systemui:drawable/ic_arrow_down_24dp。 */
+        val ArrowDown: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_arrow_down_outlined)
+
+        /** com.android.systemui:drawable/ic_baseline_expand_more_24。 */
+        val ExpandMore: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_expand_more_outlined)
+
+        /** com.android.systemui:drawable/ic_expand_less。 */
+        val ExpandLess: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_expand_less_outlined)
     }
 
     /** 位图原件按 COUI 主题选择日夜资源。 */

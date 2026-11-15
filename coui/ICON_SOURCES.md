@@ -10,4 +10,6 @@
 - `Next`：设置（`com.android.settings`）的 `coui_btn_next_normal`。
 - 设置首页线框图标（`Outlined.Wifi`、`Bluetooth`、`Bell`、`Sun`、`Volume`、`Plane`、`Location`、`ShieldUser`）：设置的 `settings_*_ic_oplus` 入口图标。
 - 通用操作图标（`Outlined.Check`、`Delete`、`Edit`、`Info`、`Warning`、`ChevronRight`、`History`、`Folder`、`Sync`、`Link`、`Download`、`Visibility`）：设置布局和 Preferences 实际引用的 `ic_*` 操作图标。
+- 常用功能图标（`Filled.Share`、`Copy`、`Send`、`Upload`、`Print`、`Hotspot`、`Vpn`、`Nfc`、`Cast`、`BatteryCharging`、`SystemUpdate`、`Storage`、`DataUsage`、`Language`、`NotificationsOff`、`Fingerprint`、`PrivacyShield`、`DoNotDisturb`、`Vibrate`、`Calendar`、`Clock`、`Keyboard`、`Apps`、`Person`、`Chat`、`QrCode`、`Help`、`Gesture`）：设置（`com.android.settings`）的 `ic_*`、`menu_ic_*` 与 Material 图标资源。
+- 播放控制与系统开关（`Filled.Play`、`Pause`、`Previous`、`NextTrack`、`VolumeOff`、`MicOff`、`OpenInNew`、`Flashlight`、`Video`、`Document`，以及 `Outlined.Error`、`ArrowDown`、`ExpandMore`、`ExpandLess`）：系统界面（`com.android.systemui`）的媒体面板、音量与状态栏资源。
 - 其余当前 `CouiIcons` 图标：设置（`com.android.settings`）

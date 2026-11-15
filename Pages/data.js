@@ -8136,6 +8136,3445 @@ window.COUI_ICON_DATA = {
       }
     },
     {
+      "name": "Share",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18,16.08c-0.76,0 -1.44,0.3 -1.96,0.77L8.91,12.7c0.05,-0.23 0.09,-0.46 0.09,-0.7s-0.04,-0.47 -0.09,-0.7l7.05,-4.11c0.54,0.5 1.25,0.81 2.04,0.81 1.66,0 3,-1.34 3,-3s-1.34,-3 -3,-3 -3,1.34 -3,3c0,0.24 0.04,0.47 0.09,0.7L8.04,9.81C7.5,9.31 6.79,9 6,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3c0.79,0 1.5,-0.31 2.04,-0.81l7.12,4.16c-0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92s-1.31,-2.92 -2.92,-2.92z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18,16.08c-0.76,0 -1.44,0.3 -1.96,0.77L8.91,12.7c0.05,-0.23 0.09,-0.46 0.09,-0.7s-0.04,-0.47 -0.09,-0.7l7.05,-4.11c0.54,0.5 1.25,0.81 2.04,0.81 1.66,0 3,-1.34 3,-3s-1.34,-3 -3,-3 -3,1.34 -3,3c0,0.24 0.04,0.47 0.09,0.7L8.04,9.81C7.5,9.31 6.79,9 6,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3c0.79,0 1.5,-0.31 2.04,-0.81l7.12,4.16c-0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92s-1.31,-2.92 -2.92,-2.92z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Share",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18,16.08c-0.76,0 -1.44,0.3 -1.96,0.77L8.91,12.7c0.05,-0.23 0.09,-0.46 0.09,-0.7s-0.04,-0.47 -0.09,-0.7l7.05,-4.11c0.54,0.5 1.25,0.81 2.04,0.81 1.66,0 3,-1.34 3,-3s-1.34,-3 -3,-3 -3,1.34 -3,3c0,0.24 0.04,0.47 0.09,0.7L8.04,9.81C7.5,9.31 6.79,9 6,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3c0.79,0 1.5,-0.31 2.04,-0.81l7.12,4.16c-0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92s-1.31,-2.92 -2.92,-2.92z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Share",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18,16.08c-0.76,0 -1.44,0.3 -1.96,0.77L8.91,12.7c0.05,-0.23 0.09,-0.46 0.09,-0.7s-0.04,-0.47 -0.09,-0.7l7.05,-4.11c0.54,0.5 1.25,0.81 2.04,0.81 1.66,0 3,-1.34 3,-3s-1.34,-3 -3,-3 -3,1.34 -3,3c0,0.24 0.04,0.47 0.09,0.7L8.04,9.81C7.5,9.31 6.79,9 6,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3c0.79,0 1.5,-0.31 2.04,-0.81l7.12,4.16c-0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92s-1.31,-2.92 -2.92,-2.92z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Copy",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M16,1L4,1c-1.1,0 -2,0.9 -2,2v14h2L4,3h12L16,1zM19,5L8,5c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h11c1.1,0 2,-0.9 2,-2L21,7c0,-1.1 -0.9,-2 -2,-2zM19,21L8,21L8,7h11v14z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M16,1L4,1c-1.1,0 -2,0.9 -2,2v14h2L4,3h12L16,1zM19,5L8,5c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h11c1.1,0 2,-0.9 2,-2L21,7c0,-1.1 -0.9,-2 -2,-2zM19,21L8,21L8,7h11v14z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Copy",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M16,1L4,1c-1.1,0 -2,0.9 -2,2v14h2L4,3h12L16,1zM19,5L8,5c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h11c1.1,0 2,-0.9 2,-2L21,7c0,-1.1 -0.9,-2 -2,-2zM19,21L8,21L8,7h11v14z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Copy",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M16,1L4,1c-1.1,0 -2,0.9 -2,2v14h2L4,3h12L16,1zM19,5L8,5c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h11c1.1,0 2,-0.9 2,-2L21,7c0,-1.1 -0.9,-2 -2,-2zM19,21L8,21L8,7h11v14z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Send",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 72 72\" fill=\"none\"><path d=\"M26.9,42.8C25.3,44.2 23.3,45 21,45c-5,0 -9,-4 -9,-9s4,-9 9,-9c2.5,0 4.7,1 6.4,2.6l12.7,-7.3C40,21.9 40,21.4 40,21c0,-5 4,-9 9,-9s9,4 9,9s-4,9 -9,9c-2.4,0 -4.5,-0.9 -6.1,-2.4L30,35.1c0,0.3 0,0.6 0,0.9c0,0.5 0,1.1 -0.1,1.6l12.6,7.3c1.6,-1.7 4,-2.8 6.6,-2.8c5,0 9,4 9,9s-4,9 -9,9s-9,-4 -9,-9c0,-0.2 0,-0.4 0,-0.6L26.9,42.8zM21,39c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S19.3,39 21,39zM49,24c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,24 49,24zM49,54c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,54 49,54z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 72 72\" fill=\"none\"><path d=\"M26.9,42.8C25.3,44.2 23.3,45 21,45c-5,0 -9,-4 -9,-9s4,-9 9,-9c2.5,0 4.7,1 6.4,2.6l12.7,-7.3C40,21.9 40,21.4 40,21c0,-5 4,-9 9,-9s9,4 9,9s-4,9 -9,9c-2.4,0 -4.5,-0.9 -6.1,-2.4L30,35.1c0,0.3 0,0.6 0,0.9c0,0.5 0,1.1 -0.1,1.6l12.6,7.3c1.6,-1.7 4,-2.8 6.6,-2.8c5,0 9,4 9,9s-4,9 -9,9s-9,-4 -9,-9c0,-0.2 0,-0.4 0,-0.6L26.9,42.8zM21,39c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S19.3,39 21,39zM49,24c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,24 49,24zM49,54c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,54 49,54z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Send",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 72,
+          "viewportHeight": 72,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M26.9,42.8C25.3,44.2 23.3,45 21,45c-5,0 -9,-4 -9,-9s4,-9 9,-9c2.5,0 4.7,1 6.4,2.6l12.7,-7.3C40,21.9 40,21.4 40,21c0,-5 4,-9 9,-9s9,4 9,9s-4,9 -9,9c-2.4,0 -4.5,-0.9 -6.1,-2.4L30,35.1c0,0.3 0,0.6 0,0.9c0,0.5 0,1.1 -0.1,1.6l12.6,7.3c1.6,-1.7 4,-2.8 6.6,-2.8c5,0 9,4 9,9s-4,9 -9,9s-9,-4 -9,-9c0,-0.2 0,-0.4 0,-0.6L26.9,42.8zM21,39c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S19.3,39 21,39zM49,24c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,24 49,24zM49,54c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,54 49,54z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Send",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 72,
+          "viewportHeight": 72,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M26.9,42.8C25.3,44.2 23.3,45 21,45c-5,0 -9,-4 -9,-9s4,-9 9,-9c2.5,0 4.7,1 6.4,2.6l12.7,-7.3C40,21.9 40,21.4 40,21c0,-5 4,-9 9,-9s9,4 9,9s-4,9 -9,9c-2.4,0 -4.5,-0.9 -6.1,-2.4L30,35.1c0,0.3 0,0.6 0,0.9c0,0.5 0,1.1 -0.1,1.6l12.6,7.3c1.6,-1.7 4,-2.8 6.6,-2.8c5,0 9,4 9,9s-4,9 -9,9s-9,-4 -9,-9c0,-0.2 0,-0.4 0,-0.6L26.9,42.8zM21,39c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S19.3,39 21,39zM49,24c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,24 49,24zM49,54c1.7,0 3,-1.3 3,-3s-1.3,-3 -3,-3s-3,1.3 -3,3S47.3,54 49,54z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Upload",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Upload",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Upload",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Print",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19,8h-1V3H6v5H5c-1.66,0 -3,1.34 -3,3v6h4v4h12v-4h4v-6C22,9.34 20.66,8 19,8zM16,19H8v-4h8V19zM16,8H8V5h8V8zM18,12.5c-0.55,0 -1,-0.45 -1,-1s0.45,-1 1,-1s1,0.45 1,1S18.55,12.5 18,12.5z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19,8h-1V3H6v5H5c-1.66,0 -3,1.34 -3,3v6h4v4h12v-4h4v-6C22,9.34 20.66,8 19,8zM16,19H8v-4h8V19zM16,8H8V5h8V8zM18,12.5c-0.55,0 -1,-0.45 -1,-1s0.45,-1 1,-1s1,0.45 1,1S18.55,12.5 18,12.5z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Print",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19,8h-1V3H6v5H5c-1.66,0 -3,1.34 -3,3v6h4v4h12v-4h4v-6C22,9.34 20.66,8 19,8zM16,19H8v-4h8V19zM16,8H8V5h8V8zM18,12.5c-0.55,0 -1,-0.45 -1,-1s0.45,-1 1,-1s1,0.45 1,1S18.55,12.5 18,12.5z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Print",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19,8h-1V3H6v5H5c-1.66,0 -3,1.34 -3,3v6h4v4h12v-4h4v-6C22,9.34 20.66,8 19,8zM16,19H8v-4h8V19zM16,8H8V5h8V8zM18,12.5c-0.55,0 -1,-0.45 -1,-1s0.45,-1 1,-1s1,0.45 1,1S18.55,12.5 18,12.5z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Play",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19.3711 10.9646C20.2096 11.4248 20.2096 12.5752 19.3711 13.0354L7.88672 19.338C7.04817 19.7982 6 19.223 6 18.3026L6 5.69739C6 4.77701 7.04818 4.20178 7.88672 4.66196L19.3711 10.9646Z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19.3711 10.9646C20.2096 11.4248 20.2096 12.5752 19.3711 13.0354L7.88672 19.338C7.04817 19.7982 6 19.223 6 18.3026L6 5.69739C6 4.77701 7.04818 4.20178 7.88672 4.66196L19.3711 10.9646Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Play",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19.3711 10.9646C20.2096 11.4248 20.2096 12.5752 19.3711 13.0354L7.88672 19.338C7.04817 19.7982 6 19.223 6 18.3026L6 5.69739C6 4.77701 7.04818 4.20178 7.88672 4.66196L19.3711 10.9646Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Play",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19.3711 10.9646C20.2096 11.4248 20.2096 12.5752 19.3711 13.0354L7.88672 19.338C7.04817 19.7982 6 19.223 6 18.3026L6 5.69739C6 4.77701 7.04818 4.20178 7.88672 4.66196L19.3711 10.9646Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Pause",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6.15 4.2002C5.79102 4.2002 5.5 4.4813 5.5 4.82806L5.5 19.1723C5.5 19.3389 5.56848 19.4986 5.69038 19.6163C5.81228 19.734 5.97761 19.8002 6.15 19.8002H9.15C9.50898 19.8002 9.8 19.5191 9.8 19.1723L9.8 4.82806C9.8 4.66154 9.73152 4.50184 9.60962 4.38409C9.48772 4.26635 9.32239 4.2002 9.15 4.2002H6.15ZM14.8502 4.2002C14.4912 4.2002 14.2002 4.48753 14.2002 4.84197L14.2002 19.1584C14.2002 19.3286 14.2687 19.4919 14.3906 19.6122C14.5125 19.7326 14.6778 19.8002 14.8502 19.8002L17.8502 19.8002C18.2092 19.8002 18.5002 19.5129 18.5002 19.1584L18.5002 4.84197C18.5002 4.67176 18.4317 4.50852 18.3098 4.38817C18.1879 4.26781 18.0226 4.2002 17.8502 4.2002H14.8502Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6.15 4.2002C5.79102 4.2002 5.5 4.4813 5.5 4.82806L5.5 19.1723C5.5 19.3389 5.56848 19.4986 5.69038 19.6163C5.81228 19.734 5.97761 19.8002 6.15 19.8002H9.15C9.50898 19.8002 9.8 19.5191 9.8 19.1723L9.8 4.82806C9.8 4.66154 9.73152 4.50184 9.60962 4.38409C9.48772 4.26635 9.32239 4.2002 9.15 4.2002H6.15ZM14.8502 4.2002C14.4912 4.2002 14.2002 4.48753 14.2002 4.84197L14.2002 19.1584C14.2002 19.3286 14.2687 19.4919 14.3906 19.6122C14.5125 19.7326 14.6778 19.8002 14.8502 19.8002L17.8502 19.8002C18.2092 19.8002 18.5002 19.5129 18.5002 19.1584L18.5002 4.84197C18.5002 4.67176 18.4317 4.50852 18.3098 4.38817C18.1879 4.26781 18.0226 4.2002 17.8502 4.2002H14.8502Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Pause",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M6.15 4.2002C5.79102 4.2002 5.5 4.4813 5.5 4.82806L5.5 19.1723C5.5 19.3389 5.56848 19.4986 5.69038 19.6163C5.81228 19.734 5.97761 19.8002 6.15 19.8002H9.15C9.50898 19.8002 9.8 19.5191 9.8 19.1723L9.8 4.82806C9.8 4.66154 9.73152 4.50184 9.60962 4.38409C9.48772 4.26635 9.32239 4.2002 9.15 4.2002H6.15ZM14.8502 4.2002C14.4912 4.2002 14.2002 4.48753 14.2002 4.84197L14.2002 19.1584C14.2002 19.3286 14.2687 19.4919 14.3906 19.6122C14.5125 19.7326 14.6778 19.8002 14.8502 19.8002L17.8502 19.8002C18.2092 19.8002 18.5002 19.5129 18.5002 19.1584L18.5002 4.84197C18.5002 4.67176 18.4317 4.50852 18.3098 4.38817C18.1879 4.26781 18.0226 4.2002 17.8502 4.2002H14.8502Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        },
+        "night": {
+          "name": "Pause",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M6.15 4.2002C5.79102 4.2002 5.5 4.4813 5.5 4.82806L5.5 19.1723C5.5 19.3389 5.56848 19.4986 5.69038 19.6163C5.81228 19.734 5.97761 19.8002 6.15 19.8002H9.15C9.50898 19.8002 9.8 19.5191 9.8 19.1723L9.8 4.82806C9.8 4.66154 9.73152 4.50184 9.60962 4.38409C9.48772 4.26635 9.32239 4.2002 9.15 4.2002H6.15ZM14.8502 4.2002C14.4912 4.2002 14.2002 4.48753 14.2002 4.84197L14.2002 19.1584C14.2002 19.3286 14.2687 19.4919 14.3906 19.6122C14.5125 19.7326 14.6778 19.8002 14.8502 19.8002L17.8502 19.8002C18.2092 19.8002 18.5002 19.5129 18.5002 19.1584L18.5002 4.84197C18.5002 4.67176 18.4317 4.50852 18.3098 4.38817C18.1879 4.26781 18.0226 4.2002 17.8502 4.2002H14.8502Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Previous",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17.6786 18.7957C18.4458 19.315 19.5 18.7843 19.5 17.8787L19.5 6.1213C19.5 5.21571 18.4458 4.68498 17.6786 5.20429L8.99374 11.083C8.33542 11.5286 8.33542 12.4714 8.99375 12.917L17.6786 18.7957Z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M4.5 18.5C4.5 18.7761 4.72386 19 5 19H6.5C6.77614 19 7 18.7761 7 18.5L7 5.5C7 5.22386 6.77614 5 6.5 5H5C4.72386 5 4.5 5.22386 4.5 5.5V18.5Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17.6786 18.7957C18.4458 19.315 19.5 18.7843 19.5 17.8787L19.5 6.1213C19.5 5.21571 18.4458 4.68498 17.6786 5.20429L8.99374 11.083C8.33542 11.5286 8.33542 12.4714 8.99375 12.917L17.6786 18.7957Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M4.5 18.5C4.5 18.7761 4.72386 19 5 19H6.5C6.77614 19 7 18.7761 7 18.5L7 5.5C7 5.22386 6.77614 5 6.5 5H5C4.72386 5 4.5 5.22386 4.5 5.5V18.5Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Previous",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17.6786 18.7957C18.4458 19.315 19.5 18.7843 19.5 17.8787L19.5 6.1213C19.5 5.21571 18.4458 4.68498 17.6786 5.20429L8.99374 11.083C8.33542 11.5286 8.33542 12.4714 8.99375 12.917L17.6786 18.7957Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M4.5 18.5C4.5 18.7761 4.72386 19 5 19H6.5C6.77614 19 7 18.7761 7 18.5L7 5.5C7 5.22386 6.77614 5 6.5 5H5C4.72386 5 4.5 5.22386 4.5 5.5V18.5Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        },
+        "night": {
+          "name": "Previous",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17.6786 18.7957C18.4458 19.315 19.5 18.7843 19.5 17.8787L19.5 6.1213C19.5 5.21571 18.4458 4.68498 17.6786 5.20429L8.99374 11.083C8.33542 11.5286 8.33542 12.4714 8.99375 12.917L17.6786 18.7957Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M4.5 18.5C4.5 18.7761 4.72386 19 5 19H6.5C6.77614 19 7 18.7761 7 18.5L7 5.5C7 5.22386 6.77614 5 6.5 5H5C4.72386 5 4.5 5.22386 4.5 5.5V18.5Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NextTrack",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19.5 5.5C19.5 5.22386 19.2761 5 19 5H17.5C17.2239 5 17 5.22386 17 5.5L17 18.5C17 18.7761 17.2239 19 17.5 19H19C19.2761 19 19.5 18.7761 19.5 18.5L19.5 5.5Z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M6.32139 5.20429C5.55418 4.68497 4.5 5.21572 4.5 6.1213V17.8787C4.5 18.7843 5.55418 19.315 6.32139 18.7957L15.0063 12.917C15.6646 12.4714 15.6646 11.5286 15.0063 11.083L6.32139 5.20429Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19.5 5.5C19.5 5.22386 19.2761 5 19 5H17.5C17.2239 5 17 5.22386 17 5.5L17 18.5C17 18.7761 17.2239 19 17.5 19H19C19.2761 19 19.5 18.7761 19.5 18.5L19.5 5.5Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M6.32139 5.20429C5.55418 4.68497 4.5 5.21572 4.5 6.1213V17.8787C4.5 18.7843 5.55418 19.315 6.32139 18.7957L15.0063 12.917C15.6646 12.4714 15.6646 11.5286 15.0063 11.083L6.32139 5.20429Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "NextTrack",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19.5 5.5C19.5 5.22386 19.2761 5 19 5H17.5C17.2239 5 17 5.22386 17 5.5L17 18.5C17 18.7761 17.2239 19 17.5 19H19C19.2761 19 19.5 18.7761 19.5 18.5L19.5 5.5Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M6.32139 5.20429C5.55418 4.68497 4.5 5.21572 4.5 6.1213V17.8787C4.5 18.7843 5.55418 19.315 6.32139 18.7957L15.0063 12.917C15.6646 12.4714 15.6646 11.5286 15.0063 11.083L6.32139 5.20429Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        },
+        "night": {
+          "name": "NextTrack",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19.5 5.5C19.5 5.22386 19.2761 5 19 5H17.5C17.2239 5 17 5.22386 17 5.5L17 18.5C17 18.7761 17.2239 19 17.5 19H19C19.2761 19 19.5 18.7761 19.5 18.5L19.5 5.5Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M6.32139 5.20429C5.55418 4.68497 4.5 5.21572 4.5 6.1213V17.8787C4.5 18.7843 5.55418 19.315 6.32139 18.7957L15.0063 12.917C15.6646 12.4714 15.6646 11.5286 15.0063 11.083L6.32139 5.20429Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "VolumeOff",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-VolumeOff-filled-day-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-VolumeOff-filled-day-clip-1)\"><path d=\"M20.51,21.487C20.287,22.467 19.413,23.199 18.366,23.199C17.152,23.199 16.166,22.214 16.166,20.999V18.736L20.51,21.487ZM2.446,1.843C4.146,0.143 6.979,0.509 8.92,2.213C8.565,2.238 8.205,2.312 7.848,2.44C6.648,2.871 5.583,3.712 4.896,4.903C4.366,5.822 4.129,6.827 4.151,7.813L5.573,8.713C5.321,7.676 5.448,6.547 6.021,5.553C6.548,4.64 7.364,3.996 8.287,3.664C8.914,3.439 9.562,3.463 10.142,3.673C10.142,3.674 10.144,3.676 10.144,3.678C10.864,3.94 11.477,4.489 11.806,5.207C12.105,5.861 12.252,6.571 12.219,7.273C12.201,7.633 12.139,7.991 12.021,8.338C11.968,8.496 11.903,8.653 11.828,8.806C11.791,8.882 11.75,8.958 11.707,9.033C11.632,9.163 11.55,9.287 11.463,9.404C10.873,10.198 10.016,10.709 9.071,10.929L11.674,12.576C11.661,12.476 11.651,12.375 11.646,12.273C11.613,11.571 11.76,10.861 12.06,10.207C12.389,9.489 13.002,8.94 13.721,8.678C13.722,8.676 13.723,8.674 13.724,8.673C14.303,8.463 14.952,8.439 15.578,8.664C16.502,8.996 17.317,9.64 17.844,10.553C18.507,11.703 18.573,13.034 18.146,14.193C17.978,14.65 17.697,15.032 17.349,15.328L17.347,15.329C17.146,15.499 16.921,15.639 16.682,15.748L17.946,16.549C18.871,16.365 19.771,15.983 20.566,15.452V18.208L23.375,19.987C23.701,20.194 23.798,20.627 23.592,20.953C23.385,21.279 22.953,21.376 22.627,21.171L1.375,7.712C1.372,7.71 1.368,7.709 1.365,7.707L0.625,7.238C0.299,7.031 0.202,6.598 0.408,6.271C0.615,5.945 1.049,5.848 1.375,6.055L1.601,6.197C1.095,4.644 1.303,2.987 2.446,1.843ZM7.7,13.375V15.999C7.7,17.214 6.715,18.199 5.5,18.199C4.285,18.199 3.3,17.214 3.3,15.999V10.589L7.7,13.375ZM14.945,7.213C16.887,5.509 19.719,5.143 21.419,6.843C23.207,8.632 22.709,11.675 20.771,13.614C20.344,14.04 19.864,14.396 19.355,14.673C19.359,14.663 19.364,14.653 19.367,14.643C19.919,13.142 19.837,11.406 18.97,9.903C18.282,8.712 17.217,7.871 16.018,7.44C15.66,7.312 15.3,7.238 14.945,7.213ZM15.072,12.259C14.531,11.321 13.688,10.795 13.189,11.082C12.692,11.37 12.727,12.364 13.269,13.301C13.81,14.238 14.653,14.764 15.151,14.477C15.649,14.19 15.613,13.196 15.072,12.259ZM10.676,6.082C10.178,5.794 9.335,6.321 8.793,7.259C8.252,8.196 8.216,9.19 8.714,9.478C9.212,9.765 10.055,9.238 10.597,8.301C11.138,7.363 11.174,6.37 10.676,6.082Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-opacity=\"0.9\"/></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-VolumeOff-filled-night-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-VolumeOff-filled-night-clip-1)\"><path d=\"M20.51,21.487C20.287,22.467 19.413,23.199 18.366,23.199C17.152,23.199 16.166,22.214 16.166,20.999V18.736L20.51,21.487ZM2.446,1.843C4.146,0.143 6.979,0.509 8.92,2.213C8.565,2.238 8.205,2.312 7.848,2.44C6.648,2.871 5.583,3.712 4.896,4.903C4.366,5.822 4.129,6.827 4.151,7.813L5.573,8.713C5.321,7.676 5.448,6.547 6.021,5.553C6.548,4.64 7.364,3.996 8.287,3.664C8.914,3.439 9.562,3.463 10.142,3.673C10.142,3.674 10.144,3.676 10.144,3.678C10.864,3.94 11.477,4.489 11.806,5.207C12.105,5.861 12.252,6.571 12.219,7.273C12.201,7.633 12.139,7.991 12.021,8.338C11.968,8.496 11.903,8.653 11.828,8.806C11.791,8.882 11.75,8.958 11.707,9.033C11.632,9.163 11.55,9.287 11.463,9.404C10.873,10.198 10.016,10.709 9.071,10.929L11.674,12.576C11.661,12.476 11.651,12.375 11.646,12.273C11.613,11.571 11.76,10.861 12.06,10.207C12.389,9.489 13.002,8.94 13.721,8.678C13.722,8.676 13.723,8.674 13.724,8.673C14.303,8.463 14.952,8.439 15.578,8.664C16.502,8.996 17.317,9.64 17.844,10.553C18.507,11.703 18.573,13.034 18.146,14.193C17.978,14.65 17.697,15.032 17.349,15.328L17.347,15.329C17.146,15.499 16.921,15.639 16.682,15.748L17.946,16.549C18.871,16.365 19.771,15.983 20.566,15.452V18.208L23.375,19.987C23.701,20.194 23.798,20.627 23.592,20.953C23.385,21.279 22.953,21.376 22.627,21.171L1.375,7.712C1.372,7.71 1.368,7.709 1.365,7.707L0.625,7.238C0.299,7.031 0.202,6.598 0.408,6.271C0.615,5.945 1.049,5.848 1.375,6.055L1.601,6.197C1.095,4.644 1.303,2.987 2.446,1.843ZM7.7,13.375V15.999C7.7,17.214 6.715,18.199 5.5,18.199C4.285,18.199 3.3,17.214 3.3,15.999V10.589L7.7,13.375ZM14.945,7.213C16.887,5.509 19.719,5.143 21.419,6.843C23.207,8.632 22.709,11.675 20.771,13.614C20.344,14.04 19.864,14.396 19.355,14.673C19.359,14.663 19.364,14.653 19.367,14.643C19.919,13.142 19.837,11.406 18.97,9.903C18.282,8.712 17.217,7.871 16.018,7.44C15.66,7.312 15.3,7.238 14.945,7.213ZM15.072,12.259C14.531,11.321 13.688,10.795 13.189,11.082C12.692,11.37 12.727,12.364 13.269,13.301C13.81,14.238 14.653,14.764 15.151,14.477C15.649,14.19 15.613,13.196 15.072,12.259ZM10.676,6.082C10.178,5.794 9.335,6.321 8.793,7.259C8.252,8.196 8.216,9.19 8.714,9.478C9.212,9.765 10.055,9.238 10.597,8.301C11.138,7.363 11.174,6.37 10.676,6.082Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-opacity=\"0.9\"/></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "VolumeOff",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M20.51,21.487C20.287,22.467 19.413,23.199 18.366,23.199C17.152,23.199 16.166,22.214 16.166,20.999V18.736L20.51,21.487ZM2.446,1.843C4.146,0.143 6.979,0.509 8.92,2.213C8.565,2.238 8.205,2.312 7.848,2.44C6.648,2.871 5.583,3.712 4.896,4.903C4.366,5.822 4.129,6.827 4.151,7.813L5.573,8.713C5.321,7.676 5.448,6.547 6.021,5.553C6.548,4.64 7.364,3.996 8.287,3.664C8.914,3.439 9.562,3.463 10.142,3.673C10.142,3.674 10.144,3.676 10.144,3.678C10.864,3.94 11.477,4.489 11.806,5.207C12.105,5.861 12.252,6.571 12.219,7.273C12.201,7.633 12.139,7.991 12.021,8.338C11.968,8.496 11.903,8.653 11.828,8.806C11.791,8.882 11.75,8.958 11.707,9.033C11.632,9.163 11.55,9.287 11.463,9.404C10.873,10.198 10.016,10.709 9.071,10.929L11.674,12.576C11.661,12.476 11.651,12.375 11.646,12.273C11.613,11.571 11.76,10.861 12.06,10.207C12.389,9.489 13.002,8.94 13.721,8.678C13.722,8.676 13.723,8.674 13.724,8.673C14.303,8.463 14.952,8.439 15.578,8.664C16.502,8.996 17.317,9.64 17.844,10.553C18.507,11.703 18.573,13.034 18.146,14.193C17.978,14.65 17.697,15.032 17.349,15.328L17.347,15.329C17.146,15.499 16.921,15.639 16.682,15.748L17.946,16.549C18.871,16.365 19.771,15.983 20.566,15.452V18.208L23.375,19.987C23.701,20.194 23.798,20.627 23.592,20.953C23.385,21.279 22.953,21.376 22.627,21.171L1.375,7.712C1.372,7.71 1.368,7.709 1.365,7.707L0.625,7.238C0.299,7.031 0.202,6.598 0.408,6.271C0.615,5.945 1.049,5.848 1.375,6.055L1.601,6.197C1.095,4.644 1.303,2.987 2.446,1.843ZM7.7,13.375V15.999C7.7,17.214 6.715,18.199 5.5,18.199C4.285,18.199 3.3,17.214 3.3,15.999V10.589L7.7,13.375ZM14.945,7.213C16.887,5.509 19.719,5.143 21.419,6.843C23.207,8.632 22.709,11.675 20.771,13.614C20.344,14.04 19.864,14.396 19.355,14.673C19.359,14.663 19.364,14.653 19.367,14.643C19.919,13.142 19.837,11.406 18.97,9.903C18.282,8.712 17.217,7.871 16.018,7.44C15.66,7.312 15.3,7.238 14.945,7.213ZM15.072,12.259C14.531,11.321 13.688,10.795 13.189,11.082C12.692,11.37 12.727,12.364 13.269,13.301C13.81,14.238 14.653,14.764 15.151,14.477C15.649,14.19 15.613,13.196 15.072,12.259ZM10.676,6.082C10.178,5.794 9.335,6.321 8.793,7.259C8.252,8.196 8.216,9.19 8.714,9.478C9.212,9.765 10.055,9.238 10.597,8.301C11.138,7.363 11.174,6.37 10.676,6.082Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 0.9,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "VolumeOff",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M20.51,21.487C20.287,22.467 19.413,23.199 18.366,23.199C17.152,23.199 16.166,22.214 16.166,20.999V18.736L20.51,21.487ZM2.446,1.843C4.146,0.143 6.979,0.509 8.92,2.213C8.565,2.238 8.205,2.312 7.848,2.44C6.648,2.871 5.583,3.712 4.896,4.903C4.366,5.822 4.129,6.827 4.151,7.813L5.573,8.713C5.321,7.676 5.448,6.547 6.021,5.553C6.548,4.64 7.364,3.996 8.287,3.664C8.914,3.439 9.562,3.463 10.142,3.673C10.142,3.674 10.144,3.676 10.144,3.678C10.864,3.94 11.477,4.489 11.806,5.207C12.105,5.861 12.252,6.571 12.219,7.273C12.201,7.633 12.139,7.991 12.021,8.338C11.968,8.496 11.903,8.653 11.828,8.806C11.791,8.882 11.75,8.958 11.707,9.033C11.632,9.163 11.55,9.287 11.463,9.404C10.873,10.198 10.016,10.709 9.071,10.929L11.674,12.576C11.661,12.476 11.651,12.375 11.646,12.273C11.613,11.571 11.76,10.861 12.06,10.207C12.389,9.489 13.002,8.94 13.721,8.678C13.722,8.676 13.723,8.674 13.724,8.673C14.303,8.463 14.952,8.439 15.578,8.664C16.502,8.996 17.317,9.64 17.844,10.553C18.507,11.703 18.573,13.034 18.146,14.193C17.978,14.65 17.697,15.032 17.349,15.328L17.347,15.329C17.146,15.499 16.921,15.639 16.682,15.748L17.946,16.549C18.871,16.365 19.771,15.983 20.566,15.452V18.208L23.375,19.987C23.701,20.194 23.798,20.627 23.592,20.953C23.385,21.279 22.953,21.376 22.627,21.171L1.375,7.712C1.372,7.71 1.368,7.709 1.365,7.707L0.625,7.238C0.299,7.031 0.202,6.598 0.408,6.271C0.615,5.945 1.049,5.848 1.375,6.055L1.601,6.197C1.095,4.644 1.303,2.987 2.446,1.843ZM7.7,13.375V15.999C7.7,17.214 6.715,18.199 5.5,18.199C4.285,18.199 3.3,17.214 3.3,15.999V10.589L7.7,13.375ZM14.945,7.213C16.887,5.509 19.719,5.143 21.419,6.843C23.207,8.632 22.709,11.675 20.771,13.614C20.344,14.04 19.864,14.396 19.355,14.673C19.359,14.663 19.364,14.653 19.367,14.643C19.919,13.142 19.837,11.406 18.97,9.903C18.282,8.712 17.217,7.871 16.018,7.44C15.66,7.312 15.3,7.238 14.945,7.213ZM15.072,12.259C14.531,11.321 13.688,10.795 13.189,11.082C12.692,11.37 12.727,12.364 13.269,13.301C13.81,14.238 14.653,14.764 15.151,14.477C15.649,14.19 15.613,13.196 15.072,12.259ZM10.676,6.082C10.178,5.794 9.335,6.321 8.793,7.259C8.252,8.196 8.216,9.19 8.714,9.478C9.212,9.765 10.055,9.238 10.597,8.301C11.138,7.363 11.174,6.37 10.676,6.082Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 0.9,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Vibrate",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M1,9h2v6H1V9zM4,17h2V7H4V17zM21,9v6h2V9H21zM18,17h2V7h-2V17zM17,5.5v13c0,0.83 -0.67,1.5 -1.5,1.5h-7C7.67,20 7,19.33 7,18.5v-13C7,4.67 7.67,4 8.5,4h7C16.33,4 17,4.67 17,5.5zM15,6H9v12h6V6z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M1,9h2v6H1V9zM4,17h2V7H4V17zM21,9v6h2V9H21zM18,17h2V7h-2V17zM17,5.5v13c0,0.83 -0.67,1.5 -1.5,1.5h-7C7.67,20 7,19.33 7,18.5v-13C7,4.67 7.67,4 8.5,4h7C16.33,4 17,4.67 17,5.5zM15,6H9v12h6V6z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Vibrate",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M1,9h2v6H1V9zM4,17h2V7H4V17zM21,9v6h2V9H21zM18,17h2V7h-2V17zM17,5.5v13c0,0.83 -0.67,1.5 -1.5,1.5h-7C7.67,20 7,19.33 7,18.5v-13C7,4.67 7.67,4 8.5,4h7C16.33,4 17,4.67 17,5.5zM15,6H9v12h6V6z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Vibrate",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M1,9h2v6H1V9zM4,17h2V7H4V17zM21,9v6h2V9H21zM18,17h2V7h-2V17zM17,5.5v13c0,0.83 -0.67,1.5 -1.5,1.5h-7C7.67,20 7,19.33 7,18.5v-13C7,4.67 7.67,4 8.5,4h7C16.33,4 17,4.67 17,5.5zM15,6H9v12h6V6z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Hotspot",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,7c-3.31,0-6,2.69-6,6c0,1.66,0.68,3.15,1.76,4.24l1.42-1.42C8.45,15.1,8,14.11,8,13c0-2.21,1.79-4,4-4s4,1.79,4,4 c0,1.11-0.45,2.1-1.18,2.82l1.42,1.42C17.32,16.15,18,14.66,18,13C18,9.69,15.31,7,12,7z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M12,3C6.48,3,2,7.48,2,13c0,2.76,1.12,5.26,2.93,7.07l1.41-1.41C4.9,17.21,4,15.21,4,13c0-4.42,3.58-8,8-8s8,3.58,8,8 c0,2.21-0.9,4.2-2.35,5.65l1.41,1.41C20.88,18.26,22,15.76,22,13C22,7.48,17.52,3,12,3z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M12,11c-1.1,0-2,0.9-2,2c0,0.55,0.23,1.05,0.59,1.41C10.95,14.77,11.45,15,12,15s1.05-0.23,1.41-0.59 C13.77,14.05,14,13.55,14,13C14,11.9,13.1,11,12,11z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,7c-3.31,0-6,2.69-6,6c0,1.66,0.68,3.15,1.76,4.24l1.42-1.42C8.45,15.1,8,14.11,8,13c0-2.21,1.79-4,4-4s4,1.79,4,4 c0,1.11-0.45,2.1-1.18,2.82l1.42,1.42C17.32,16.15,18,14.66,18,13C18,9.69,15.31,7,12,7z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M12,3C6.48,3,2,7.48,2,13c0,2.76,1.12,5.26,2.93,7.07l1.41-1.41C4.9,17.21,4,15.21,4,13c0-4.42,3.58-8,8-8s8,3.58,8,8 c0,2.21-0.9,4.2-2.35,5.65l1.41,1.41C20.88,18.26,22,15.76,22,13C22,7.48,17.52,3,12,3z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M12,11c-1.1,0-2,0.9-2,2c0,0.55,0.23,1.05,0.59,1.41C10.95,14.77,11.45,15,12,15s1.05-0.23,1.41-0.59 C13.77,14.05,14,13.55,14,13C14,11.9,13.1,11,12,11z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Hotspot",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,7c-3.31,0-6,2.69-6,6c0,1.66,0.68,3.15,1.76,4.24l1.42-1.42C8.45,15.1,8,14.11,8,13c0-2.21,1.79-4,4-4s4,1.79,4,4 c0,1.11-0.45,2.1-1.18,2.82l1.42,1.42C17.32,16.15,18,14.66,18,13C18,9.69,15.31,7,12,7z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,3C6.48,3,2,7.48,2,13c0,2.76,1.12,5.26,2.93,7.07l1.41-1.41C4.9,17.21,4,15.21,4,13c0-4.42,3.58-8,8-8s8,3.58,8,8 c0,2.21-0.9,4.2-2.35,5.65l1.41,1.41C20.88,18.26,22,15.76,22,13C22,7.48,17.52,3,12,3z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,11c-1.1,0-2,0.9-2,2c0,0.55,0.23,1.05,0.59,1.41C10.95,14.77,11.45,15,12,15s1.05-0.23,1.41-0.59 C13.77,14.05,14,13.55,14,13C14,11.9,13.1,11,12,11z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Hotspot",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,7c-3.31,0-6,2.69-6,6c0,1.66,0.68,3.15,1.76,4.24l1.42-1.42C8.45,15.1,8,14.11,8,13c0-2.21,1.79-4,4-4s4,1.79,4,4 c0,1.11-0.45,2.1-1.18,2.82l1.42,1.42C17.32,16.15,18,14.66,18,13C18,9.69,15.31,7,12,7z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,3C6.48,3,2,7.48,2,13c0,2.76,1.12,5.26,2.93,7.07l1.41-1.41C4.9,17.21,4,15.21,4,13c0-4.42,3.58-8,8-8s8,3.58,8,8 c0,2.21-0.9,4.2-2.35,5.65l1.41,1.41C20.88,18.26,22,15.76,22,13C22,7.48,17.52,3,12,3z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,11c-1.1,0-2,0.9-2,2c0,0.55,0.23,1.05,0.59,1.41C10.95,14.77,11.45,15,12,15s1.05-0.23,1.41-0.59 C13.77,14.05,14,13.55,14,13C14,11.9,13.1,11,12,11z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Vpn",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12.09,9C11.11,7.5 9.43,6.5 7.5,6.5C4.46,6.5 2,8.96 2,12c0,3.04 2.46,5.5 5.5,5.5c1.93,0 3.61,-1 4.59,-2.5H14v3h6v-3h2V9H12.09zM20,13h-2v3h-2v-3h-5.16c-0.43,1.44 -1.76,2.5 -3.34,2.5C5.57,15.5 4,13.93 4,12c0,-1.93 1.57,-3.5 3.5,-3.5c1.58,0 2.9,1.06 3.34,2.5H20V13z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M7.5,12m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12.09,9C11.11,7.5 9.43,6.5 7.5,6.5C4.46,6.5 2,8.96 2,12c0,3.04 2.46,5.5 5.5,5.5c1.93,0 3.61,-1 4.59,-2.5H14v3h6v-3h2V9H12.09zM20,13h-2v3h-2v-3h-5.16c-0.43,1.44 -1.76,2.5 -3.34,2.5C5.57,15.5 4,13.93 4,12c0,-1.93 1.57,-3.5 3.5,-3.5c1.58,0 2.9,1.06 3.34,2.5H20V13z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M7.5,12m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Vpn",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12.09,9C11.11,7.5 9.43,6.5 7.5,6.5C4.46,6.5 2,8.96 2,12c0,3.04 2.46,5.5 5.5,5.5c1.93,0 3.61,-1 4.59,-2.5H14v3h6v-3h2V9H12.09zM20,13h-2v3h-2v-3h-5.16c-0.43,1.44 -1.76,2.5 -3.34,2.5C5.57,15.5 4,13.93 4,12c0,-1.93 1.57,-3.5 3.5,-3.5c1.58,0 2.9,1.06 3.34,2.5H20V13z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M7.5,12m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Vpn",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12.09,9C11.11,7.5 9.43,6.5 7.5,6.5C4.46,6.5 2,8.96 2,12c0,3.04 2.46,5.5 5.5,5.5c1.93,0 3.61,-1 4.59,-2.5H14v3h6v-3h2V9H12.09zM20,13h-2v3h-2v-3h-5.16c-0.43,1.44 -1.76,2.5 -3.34,2.5C5.57,15.5 4,13.93 4,12c0,-1.93 1.57,-3.5 3.5,-3.5c1.58,0 2.9,1.06 3.34,2.5H20V13z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M7.5,12m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Nfc",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,2L4,2c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,20L4,20L4,4h16v16zM18,6h-5c-1.1,0 -2,0.9 -2,2v2.28c-0.6,0.35 -1,0.98 -1,1.72 0,1.1 0.9,2 2,2s2,-0.9 2,-2c0,-0.74 -0.4,-1.38 -1,-1.72L13,8h3v8L8,16L8,8h2L10,6L6,6v12h12L18,6z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,2L4,2c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,20L4,20L4,4h16v16zM18,6h-5c-1.1,0 -2,0.9 -2,2v2.28c-0.6,0.35 -1,0.98 -1,1.72 0,1.1 0.9,2 2,2s2,-0.9 2,-2c0,-0.74 -0.4,-1.38 -1,-1.72L13,8h3v8L8,16L8,8h2L10,6L6,6v12h12L18,6z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Nfc",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,2L4,2c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,20L4,20L4,4h16v16zM18,6h-5c-1.1,0 -2,0.9 -2,2v2.28c-0.6,0.35 -1,0.98 -1,1.72 0,1.1 0.9,2 2,2s2,-0.9 2,-2c0,-0.74 -0.4,-1.38 -1,-1.72L13,8h3v8L8,16L8,8h2L10,6L6,6v12h12L18,6z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Nfc",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,2L4,2c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,20L4,20L4,4h16v16zM18,6h-5c-1.1,0 -2,0.9 -2,2v2.28c-0.6,0.35 -1,0.98 -1,1.72 0,1.1 0.9,2 2,2s2,-0.9 2,-2c0,-0.74 -0.4,-1.38 -1,-1.72L13,8h3v8L8,16L8,8h2L10,6L6,6v12h12L18,6z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cast",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M21,3H3C1.9,3 1,3.9 1,5v3h2V5h18v14h-7v2h7c1.1,0 2,-0.9 2,-2V5C23,3.9 22.1,3 21,3zM1,18v3h3C4,19.34 2.66,18 1,18zM1,14v2c2.76,0 5,2.24 5,5h2C8,17.13 4.87,14 1,14zM1,10v2c4.97,0 9,4.03 9,9h2C12,14.92 7.07,10 1,10z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M21,3H3C1.9,3 1,3.9 1,5v3h2V5h18v14h-7v2h7c1.1,0 2,-0.9 2,-2V5C23,3.9 22.1,3 21,3zM1,18v3h3C4,19.34 2.66,18 1,18zM1,14v2c2.76,0 5,2.24 5,5h2C8,17.13 4.87,14 1,14zM1,10v2c4.97,0 9,4.03 9,9h2C12,14.92 7.07,10 1,10z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Cast",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M21,3H3C1.9,3 1,3.9 1,5v3h2V5h18v14h-7v2h7c1.1,0 2,-0.9 2,-2V5C23,3.9 22.1,3 21,3zM1,18v3h3C4,19.34 2.66,18 1,18zM1,14v2c2.76,0 5,2.24 5,5h2C8,17.13 4.87,14 1,14zM1,10v2c4.97,0 9,4.03 9,9h2C12,14.92 7.07,10 1,10z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Cast",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M21,3H3C1.9,3 1,3.9 1,5v3h2V5h18v14h-7v2h7c1.1,0 2,-0.9 2,-2V5C23,3.9 22.1,3 21,3zM1,18v3h3C4,19.34 2.66,18 1,18zM1,14v2c2.76,0 5,2.24 5,5h2C8,17.13 4.87,14 1,14zM1,10v2c4.97,0 9,4.03 9,9h2C12,14.92 7.07,10 1,10z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "BatteryCharging",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M16.2,22.5H7.8c-1.3,0 -2.3,-1 -2.3,-2.3V5.8c0,-1.3 1,-2.3 2.3,-2.3h0.7v-2h7v2h0.7c1.3,0 2.3,1.1 2.3,2.3v14.3C18.5,21.5 17.5,22.5 16.2,22.5zM7.8,5.5c-0.2,0 -0.3,0.2 -0.3,0.3v14.3c0,0.2 0.2,0.3 0.3,0.3h8.3c0.2,0 0.3,-0.1 0.3,-0.3V5.8c0,-0.2 -0.1,-0.3 -0.3,-0.3h-2.7v-2h-3v2H7.8z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M11.17,18.42v-4.58H9.5l3.33,-6.25v4.58h1.67L11.17,18.42z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M16.2,22.5H7.8c-1.3,0 -2.3,-1 -2.3,-2.3V5.8c0,-1.3 1,-2.3 2.3,-2.3h0.7v-2h7v2h0.7c1.3,0 2.3,1.1 2.3,2.3v14.3C18.5,21.5 17.5,22.5 16.2,22.5zM7.8,5.5c-0.2,0 -0.3,0.2 -0.3,0.3v14.3c0,0.2 0.2,0.3 0.3,0.3h8.3c0.2,0 0.3,-0.1 0.3,-0.3V5.8c0,-0.2 -0.1,-0.3 -0.3,-0.3h-2.7v-2h-3v2H7.8z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M11.17,18.42v-4.58H9.5l3.33,-6.25v4.58h1.67L11.17,18.42z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "BatteryCharging",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M16.2,22.5H7.8c-1.3,0 -2.3,-1 -2.3,-2.3V5.8c0,-1.3 1,-2.3 2.3,-2.3h0.7v-2h7v2h0.7c1.3,0 2.3,1.1 2.3,2.3v14.3C18.5,21.5 17.5,22.5 16.2,22.5zM7.8,5.5c-0.2,0 -0.3,0.2 -0.3,0.3v14.3c0,0.2 0.2,0.3 0.3,0.3h8.3c0.2,0 0.3,-0.1 0.3,-0.3V5.8c0,-0.2 -0.1,-0.3 -0.3,-0.3h-2.7v-2h-3v2H7.8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11.17,18.42v-4.58H9.5l3.33,-6.25v4.58h1.67L11.17,18.42z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "BatteryCharging",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M16.2,22.5H7.8c-1.3,0 -2.3,-1 -2.3,-2.3V5.8c0,-1.3 1,-2.3 2.3,-2.3h0.7v-2h7v2h0.7c1.3,0 2.3,1.1 2.3,2.3v14.3C18.5,21.5 17.5,22.5 16.2,22.5zM7.8,5.5c-0.2,0 -0.3,0.2 -0.3,0.3v14.3c0,0.2 0.2,0.3 0.3,0.3h8.3c0.2,0 0.3,-0.1 0.3,-0.3V5.8c0,-0.2 -0.1,-0.3 -0.3,-0.3h-2.7v-2h-3v2H7.8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11.17,18.42v-4.58H9.5l3.33,-6.25v4.58h1.67L11.17,18.42z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "SystemUpdate",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17,1.01L7,1C5.9,1 5,1.9 5,3v18c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V3C19,1.9 18.1,1.01 17,1.01zM17,21H7l0,-1h10V21zM17,18H7V6h10V18zM7,4V3h10v1H7zM16,12.5l-4,4l-4,-4l1.41,-1.41L11,12.67V8.5V8h2v0.5v4.17l1.59,-1.59L16,12.5z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17,1.01L7,1C5.9,1 5,1.9 5,3v18c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V3C19,1.9 18.1,1.01 17,1.01zM17,21H7l0,-1h10V21zM17,18H7V6h10V18zM7,4V3h10v1H7zM16,12.5l-4,4l-4,-4l1.41,-1.41L11,12.67V8.5V8h2v0.5v4.17l1.59,-1.59L16,12.5z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "SystemUpdate",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17,1.01L7,1C5.9,1 5,1.9 5,3v18c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V3C19,1.9 18.1,1.01 17,1.01zM17,21H7l0,-1h10V21zM17,18H7V6h10V18zM7,4V3h10v1H7zM16,12.5l-4,4l-4,-4l1.41,-1.41L11,12.67V8.5V8h2v0.5v4.17l1.59,-1.59L16,12.5z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "SystemUpdate",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17,1.01L7,1C5.9,1 5,1.9 5,3v18c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V3C19,1.9 18.1,1.01 17,1.01zM17,21H7l0,-1h10V21zM17,18H7V6h10V18zM7,4V3h10v1H7zM16,12.5l-4,4l-4,-4l1.41,-1.41L11,12.67V8.5V8h2v0.5v4.17l1.59,-1.59L16,12.5z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Storage",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3,20h18v-4H3V20zM5,17h2v2H5V17zM3,4v4h18V4H3zM7,7H5V5h2V7zM3,14h18v-4H3V14zM5,11h2v2H5V11z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3,20h18v-4H3V20zM5,17h2v2H5V17zM3,4v4h18V4H3zM7,7H5V5h2V7zM3,14h18v-4H3V14zM5,11h2v2H5V11z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Storage",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M3,20h18v-4H3V20zM5,17h2v2H5V17zM3,4v4h18V4H3zM7,7H5V5h2V7zM3,14h18v-4H3V14zM5,11h2v2H5V11z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Storage",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M3,20h18v-4H3V20zM5,17h2v2H5V17zM3,4v4h18V4H3zM7,7H5V5h2V7zM3,14h18v-4H3V14zM5,11h2v2H5V11z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DataUsage",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18.32 16.75l1.32 .76 c.26 .15 .34 .51 .15 .74 -2.09 2.6-5.44 4.14-9.14 3.65-4.4-.58-7.96-4.12-8.56-8.52C1.34 7.8 5.21 2.95 10.43 2.12c.3-.05 .57 .2 .57 .5v1.53c0 .24-.18 .44 -.41 .49 -3.6 .69 -6.29 3.95-6.07 7.79 .21 3.82 3.43 6.95 7.25 7.07 2.37 .08 4.51-.96 5.93-2.63a.48 .48 0 0 1 .62-.12zM19.5 12c0 .83-.14 1.63-.39 2.38-.08 .23 .01 .47 .21 .59 l1.33 .77 c.26 .15 .61 .04 .72-.24 .4 -1.09 .63 -2.27 .63 -3.5 0-4.99-3.65-9.12-8.43-9.88-.3-.04-.57 .2 -.57 .5 v1.53c0 .24 .18 .44 .41 .48 3.46 .68 6.09 3.72 6.09 7.37z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18.32 16.75l1.32 .76 c.26 .15 .34 .51 .15 .74 -2.09 2.6-5.44 4.14-9.14 3.65-4.4-.58-7.96-4.12-8.56-8.52C1.34 7.8 5.21 2.95 10.43 2.12c.3-.05 .57 .2 .57 .5v1.53c0 .24-.18 .44 -.41 .49 -3.6 .69 -6.29 3.95-6.07 7.79 .21 3.82 3.43 6.95 7.25 7.07 2.37 .08 4.51-.96 5.93-2.63a.48 .48 0 0 1 .62-.12zM19.5 12c0 .83-.14 1.63-.39 2.38-.08 .23 .01 .47 .21 .59 l1.33 .77 c.26 .15 .61 .04 .72-.24 .4 -1.09 .63 -2.27 .63 -3.5 0-4.99-3.65-9.12-8.43-9.88-.3-.04-.57 .2 -.57 .5 v1.53c0 .24 .18 .44 .41 .48 3.46 .68 6.09 3.72 6.09 7.37z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "DataUsage",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18.32 16.75l1.32 .76 c.26 .15 .34 .51 .15 .74 -2.09 2.6-5.44 4.14-9.14 3.65-4.4-.58-7.96-4.12-8.56-8.52C1.34 7.8 5.21 2.95 10.43 2.12c.3-.05 .57 .2 .57 .5v1.53c0 .24-.18 .44 -.41 .49 -3.6 .69 -6.29 3.95-6.07 7.79 .21 3.82 3.43 6.95 7.25 7.07 2.37 .08 4.51-.96 5.93-2.63a.48 .48 0 0 1 .62-.12zM19.5 12c0 .83-.14 1.63-.39 2.38-.08 .23 .01 .47 .21 .59 l1.33 .77 c.26 .15 .61 .04 .72-.24 .4 -1.09 .63 -2.27 .63 -3.5 0-4.99-3.65-9.12-8.43-9.88-.3-.04-.57 .2 -.57 .5 v1.53c0 .24 .18 .44 .41 .48 3.46 .68 6.09 3.72 6.09 7.37z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "DataUsage",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18.32 16.75l1.32 .76 c.26 .15 .34 .51 .15 .74 -2.09 2.6-5.44 4.14-9.14 3.65-4.4-.58-7.96-4.12-8.56-8.52C1.34 7.8 5.21 2.95 10.43 2.12c.3-.05 .57 .2 .57 .5v1.53c0 .24-.18 .44 -.41 .49 -3.6 .69 -6.29 3.95-6.07 7.79 .21 3.82 3.43 6.95 7.25 7.07 2.37 .08 4.51-.96 5.93-2.63a.48 .48 0 0 1 .62-.12zM19.5 12c0 .83-.14 1.63-.39 2.38-.08 .23 .01 .47 .21 .59 l1.33 .77 c.26 .15 .61 .04 .72-.24 .4 -1.09 .63 -2.27 .63 -3.5 0-4.99-3.65-9.12-8.43-9.88-.3-.04-.57 .2 -.57 .5 v1.53c0 .24 .18 .44 .41 .48 3.46 .68 6.09 3.72 6.09 7.37z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Language",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11.99,2.0C6.47,2.0 2.0,6.48 2.0,12.0s4.47,10.0 9.99,10.0C17.52,22.0 22.0,17.52 22.0,12.0S17.52,2.0 11.99,2.0z         m6.93,6.0l-2.95,0.0c-0.32,-1.25 -0.78,-2.45 -1.38,-3.56 1.8,0.63 3.37,1.91 4.33,3.56z         M12.0,4.04c0.83,1.2 1.48,2.53 1.91,3.96l-3.82,0.0c0.43,-1.43 1.08,-2.76 1.91,-3.96z         M4.26,14.0C4.1,13.36 4.0,12.69 4.0,12.0s0.1,-1.3 0.26,-2.0l3.38,0.0c0.0,0.66 -0.14,1.32 -0.14,2.0 0.0,0.6 0.06,1.3 0.14,2.0L4.26,14.0z         m0.82,2.0 l2.95,0.0c0.32,1.2 0.78,2.45 1.38,3.56 -1.84,-0.63 -3.37,-1.9 -4.33,-3.56z         m2.95,-8.0 L5.08,8.  c0.96,-1.66 2.49,-2.93 4.33,-3.56 C8.81,5.55 8.35,6.75 8.03,8.0z          M12.0,19.96c-0.83,-1.2 -1.48,-2.53 -1.91,-3.96l3.82,0.0c-0.43,1.43 -1.08,2.76 -1.91,3.96z         M14.34,14.0 L9.66,14.0c-0.09,-0.66 -0.16,-1.32 -0.16,-2.0 0.0,-0.6 0.07,-1.3 0.16,-2.0l4.68,0.0c0.0,0.6 0.16,1.3 0.16,2.0 0.0,0.68 -0.07,1.34 -0.16,2.0z         m0.25,5.56c0.6,-1.11 1.06,-2.31 1.38,-3.56l2.95,0.0c-0.96,1.65 -2.49,2.93 -4.33,3.56z         M16.36,14.0c0.08,-0.6 0.14,-1.3 0.14,-2.0 0.0,-0.68 -0.06,-1.34 -0.14,-2.0l3.38,0.0c0.1,0.6 0.26,1.3 0.26,2.0s-0.1,1.36 -0.26,2.0l-3.38,0.0z         \" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11.99,2.0C6.47,2.0 2.0,6.48 2.0,12.0s4.47,10.0 9.99,10.0C17.52,22.0 22.0,17.52 22.0,12.0S17.52,2.0 11.99,2.0z         m6.93,6.0l-2.95,0.0c-0.32,-1.25 -0.78,-2.45 -1.38,-3.56 1.8,0.63 3.37,1.91 4.33,3.56z         M12.0,4.04c0.83,1.2 1.48,2.53 1.91,3.96l-3.82,0.0c0.43,-1.43 1.08,-2.76 1.91,-3.96z         M4.26,14.0C4.1,13.36 4.0,12.69 4.0,12.0s0.1,-1.3 0.26,-2.0l3.38,0.0c0.0,0.66 -0.14,1.32 -0.14,2.0 0.0,0.6 0.06,1.3 0.14,2.0L4.26,14.0z         m0.82,2.0 l2.95,0.0c0.32,1.2 0.78,2.45 1.38,3.56 -1.84,-0.63 -3.37,-1.9 -4.33,-3.56z         m2.95,-8.0 L5.08,8.  c0.96,-1.66 2.49,-2.93 4.33,-3.56 C8.81,5.55 8.35,6.75 8.03,8.0z          M12.0,19.96c-0.83,-1.2 -1.48,-2.53 -1.91,-3.96l3.82,0.0c-0.43,1.43 -1.08,2.76 -1.91,3.96z         M14.34,14.0 L9.66,14.0c-0.09,-0.66 -0.16,-1.32 -0.16,-2.0 0.0,-0.6 0.07,-1.3 0.16,-2.0l4.68,0.0c0.0,0.6 0.16,1.3 0.16,2.0 0.0,0.68 -0.07,1.34 -0.16,2.0z         m0.25,5.56c0.6,-1.11 1.06,-2.31 1.38,-3.56l2.95,0.0c-0.96,1.65 -2.49,2.93 -4.33,3.56z         M16.36,14.0c0.08,-0.6 0.14,-1.3 0.14,-2.0 0.0,-0.68 -0.06,-1.34 -0.14,-2.0l3.38,0.0c0.1,0.6 0.26,1.3 0.26,2.0s-0.1,1.36 -0.26,2.0l-3.38,0.0z         \" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Language",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11.99,2.0C6.47,2.0 2.0,6.48 2.0,12.0s4.47,10.0 9.99,10.0C17.52,22.0 22.0,17.52 22.0,12.0S17.52,2.0 11.99,2.0z         m6.93,6.0l-2.95,0.0c-0.32,-1.25 -0.78,-2.45 -1.38,-3.56 1.8,0.63 3.37,1.91 4.33,3.56z         M12.0,4.04c0.83,1.2 1.48,2.53 1.91,3.96l-3.82,0.0c0.43,-1.43 1.08,-2.76 1.91,-3.96z         M4.26,14.0C4.1,13.36 4.0,12.69 4.0,12.0s0.1,-1.3 0.26,-2.0l3.38,0.0c0.0,0.66 -0.14,1.32 -0.14,2.0 0.0,0.6 0.06,1.3 0.14,2.0L4.26,14.0z         m0.82,2.0 l2.95,0.0c0.32,1.2 0.78,2.45 1.38,3.56 -1.84,-0.63 -3.37,-1.9 -4.33,-3.56z         m2.95,-8.0 L5.08,8.  c0.96,-1.66 2.49,-2.93 4.33,-3.56 C8.81,5.55 8.35,6.75 8.03,8.0z          M12.0,19.96c-0.83,-1.2 -1.48,-2.53 -1.91,-3.96l3.82,0.0c-0.43,1.43 -1.08,2.76 -1.91,3.96z         M14.34,14.0 L9.66,14.0c-0.09,-0.66 -0.16,-1.32 -0.16,-2.0 0.0,-0.6 0.07,-1.3 0.16,-2.0l4.68,0.0c0.0,0.6 0.16,1.3 0.16,2.0 0.0,0.68 -0.07,1.34 -0.16,2.0z         m0.25,5.56c0.6,-1.11 1.06,-2.31 1.38,-3.56l2.95,0.0c-0.96,1.65 -2.49,2.93 -4.33,3.56z         M16.36,14.0c0.08,-0.6 0.14,-1.3 0.14,-2.0 0.0,-0.68 -0.06,-1.34 -0.14,-2.0l3.38,0.0c0.1,0.6 0.26,1.3 0.26,2.0s-0.1,1.36 -0.26,2.0l-3.38,0.0z         ",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Language",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11.99,2.0C6.47,2.0 2.0,6.48 2.0,12.0s4.47,10.0 9.99,10.0C17.52,22.0 22.0,17.52 22.0,12.0S17.52,2.0 11.99,2.0z         m6.93,6.0l-2.95,0.0c-0.32,-1.25 -0.78,-2.45 -1.38,-3.56 1.8,0.63 3.37,1.91 4.33,3.56z         M12.0,4.04c0.83,1.2 1.48,2.53 1.91,3.96l-3.82,0.0c0.43,-1.43 1.08,-2.76 1.91,-3.96z         M4.26,14.0C4.1,13.36 4.0,12.69 4.0,12.0s0.1,-1.3 0.26,-2.0l3.38,0.0c0.0,0.66 -0.14,1.32 -0.14,2.0 0.0,0.6 0.06,1.3 0.14,2.0L4.26,14.0z         m0.82,2.0 l2.95,0.0c0.32,1.2 0.78,2.45 1.38,3.56 -1.84,-0.63 -3.37,-1.9 -4.33,-3.56z         m2.95,-8.0 L5.08,8.  c0.96,-1.66 2.49,-2.93 4.33,-3.56 C8.81,5.55 8.35,6.75 8.03,8.0z          M12.0,19.96c-0.83,-1.2 -1.48,-2.53 -1.91,-3.96l3.82,0.0c-0.43,1.43 -1.08,2.76 -1.91,3.96z         M14.34,14.0 L9.66,14.0c-0.09,-0.66 -0.16,-1.32 -0.16,-2.0 0.0,-0.6 0.07,-1.3 0.16,-2.0l4.68,0.0c0.0,0.6 0.16,1.3 0.16,2.0 0.0,0.68 -0.07,1.34 -0.16,2.0z         m0.25,5.56c0.6,-1.11 1.06,-2.31 1.38,-3.56l2.95,0.0c-0.96,1.65 -2.49,2.93 -4.33,3.56z         M16.36,14.0c0.08,-0.6 0.14,-1.3 0.14,-2.0 0.0,-0.68 -0.06,-1.34 -0.14,-2.0l3.38,0.0c0.1,0.6 0.26,1.3 0.26,2.0s-0.1,1.36 -0.26,2.0l-3.38,0.0z         ",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "QrCode",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3,9h6V3H3V9zM5,5h2v2H5V5zM15,3v6h6V3H15zM19,7h-2V5h2V7zM3,21h6v-6H3V21zM5,17h2v2H5V17zM13,15v2h-2v-2v-2v-2h2v2h2v-2h2v2v2H13zM17,19h4v2h-4h-2v-2v-2h2V19zM19,11h2v6h-2V11zM7,11h2v2H7V11zM11,19h2v2h-2V19zM5,13H3v-2h2V13zM13,9h-2V3h2V9z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3,9h6V3H3V9zM5,5h2v2H5V5zM15,3v6h6V3H15zM19,7h-2V5h2V7zM3,21h6v-6H3V21zM5,17h2v2H5V17zM13,15v2h-2v-2v-2v-2h2v2h2v-2h2v2v2H13zM17,19h4v2h-4h-2v-2v-2h2V19zM19,11h2v6h-2V11zM7,11h2v2H7V11zM11,19h2v2h-2V19zM5,13H3v-2h2V13zM13,9h-2V3h2V9z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "QrCode",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M3,9h6V3H3V9zM5,5h2v2H5V5zM15,3v6h6V3H15zM19,7h-2V5h2V7zM3,21h6v-6H3V21zM5,17h2v2H5V17zM13,15v2h-2v-2v-2v-2h2v2h2v-2h2v2v2H13zM17,19h4v2h-4h-2v-2v-2h2V19zM19,11h2v6h-2V11zM7,11h2v2H7V11zM11,19h2v2h-2V19zM5,13H3v-2h2V13zM13,9h-2V3h2V9z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "QrCode",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M3,9h6V3H3V9zM5,5h2v2H5V5zM15,3v6h6V3H15zM19,7h-2V5h2V7zM3,21h6v-6H3V21zM5,17h2v2H5V17zM13,15v2h-2v-2v-2v-2h2v2h2v-2h2v2v2H13zM17,19h4v2h-4h-2v-2v-2h2V19zM19,11h2v6h-2V11zM7,11h2v2H7V11zM11,19h2v2h-2V19zM5,13H3v-2h2V13zM13,9h-2V3h2V9z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Clock",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8s8,3.58 8,8S16.42,20 12,20zM17.23,14.94l-1.26,1.55L11,13V6h2v6L17.23,14.94z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8s8,3.58 8,8S16.42,20 12,20zM17.23,14.94l-1.26,1.55L11,13V6h2v6L17.23,14.94z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Clock",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8s8,3.58 8,8S16.42,20 12,20zM17.23,14.94l-1.26,1.55L11,13V6h2v6L17.23,14.94z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Clock",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8s8,3.58 8,8S16.42,20 12,20zM17.23,14.94l-1.26,1.55L11,13V6h2v6L17.23,14.94z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Calendar",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,3h-1L19,1h-2v2L7,3L7,1L5,1v2L4,3c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,5c0,-1.1 -0.9,-2 -2,-2zM20,21L4,21L4,8h16v13z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,3h-1L19,1h-2v2L7,3L7,1L5,1v2L4,3c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,5c0,-1.1 -0.9,-2 -2,-2zM20,21L4,21L4,8h16v13z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Calendar",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,3h-1L19,1h-2v2L7,3L7,1L5,1v2L4,3c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,5c0,-1.1 -0.9,-2 -2,-2zM20,21L4,21L4,8h16v13z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Calendar",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,3h-1L19,1h-2v2L7,3L7,1L5,1v2L4,3c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,5c0,-1.1 -0.9,-2 -2,-2zM20,21L4,21L4,8h16v13z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Keyboard",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,5L4,5c-1.1,0 -1.99,0.9 -1.99,2L2,17c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,7c0,-1.1 -0.9,-2 -2,-2zM11,8h2v2h-2L11,8zM11,11h2v2h-2v-2zM8,8h2v2L8,10L8,8zM8,11h2v2L8,13v-2zM7,13L5,13v-2h2v2zM7,10L5,10L5,8h2v2zM16,17L8,17v-2h8v2zM16,13h-2v-2h2v2zM16,10h-2L14,8h2v2zM19,13h-2v-2h2v2zM19,10h-2L17,8h2v2z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,5L4,5c-1.1,0 -1.99,0.9 -1.99,2L2,17c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,7c0,-1.1 -0.9,-2 -2,-2zM11,8h2v2h-2L11,8zM11,11h2v2h-2v-2zM8,8h2v2L8,10L8,8zM8,11h2v2L8,13v-2zM7,13L5,13v-2h2v2zM7,10L5,10L5,8h2v2zM16,17L8,17v-2h8v2zM16,13h-2v-2h2v2zM16,10h-2L14,8h2v2zM19,13h-2v-2h2v2zM19,10h-2L17,8h2v2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Keyboard",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,5L4,5c-1.1,0 -1.99,0.9 -1.99,2L2,17c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,7c0,-1.1 -0.9,-2 -2,-2zM11,8h2v2h-2L11,8zM11,11h2v2h-2v-2zM8,8h2v2L8,10L8,8zM8,11h2v2L8,13v-2zM7,13L5,13v-2h2v2zM7,10L5,10L5,8h2v2zM16,17L8,17v-2h8v2zM16,13h-2v-2h2v2zM16,10h-2L14,8h2v2zM19,13h-2v-2h2v2zM19,10h-2L17,8h2v2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Keyboard",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,5L4,5c-1.1,0 -1.99,0.9 -1.99,2L2,17c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,7c0,-1.1 -0.9,-2 -2,-2zM11,8h2v2h-2L11,8zM11,11h2v2h-2v-2zM8,8h2v2L8,10L8,8zM8,11h2v2L8,13v-2zM7,13L5,13v-2h2v2zM7,10L5,10L5,8h2v2zM16,17L8,17v-2h8v2zM16,13h-2v-2h2v2zM16,10h-2L14,8h2v2zM19,13h-2v-2h2v2zM19,10h-2L17,8h2v2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Apps",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M4,8h4L8,4L4,4v4zM10,20h4v-4h-4v4zM4,20h4v-4L4,16v4zM4,14h4v-4L4,10v4zM10,14h4v-4h-4v4zM16,4v4h4L20,4h-4zM10,8h4L14,4h-4v4zM16,14h4v-4h-4v4zM16,20h4v-4h-4v4z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M4,8h4L8,4L4,4v4zM10,20h4v-4h-4v4zM4,20h4v-4L4,16v4zM4,14h4v-4L4,10v4zM10,14h4v-4h-4v4zM16,4v4h4L20,4h-4zM10,8h4L14,4h-4v4zM16,14h4v-4h-4v4zM16,20h4v-4h-4v4z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Apps",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M4,8h4L8,4L4,4v4zM10,20h4v-4h-4v4zM4,20h4v-4L4,16v4zM4,14h4v-4L4,10v4zM10,14h4v-4h-4v4zM16,4v4h4L20,4h-4zM10,8h4L14,4h-4v4zM16,14h4v-4h-4v4zM16,20h4v-4h-4v4z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Apps",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M4,8h4L8,4L4,4v4zM10,20h4v-4h-4v4zM4,20h4v-4L4,16v4zM4,14h4v-4L4,10v4zM10,14h4v-4h-4v4zM16,4v4h4L20,4h-4zM10,8h4L14,4h-4v4zM16,14h4v-4h-4v4zM16,20h4v-4h-4v4z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Person",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,12q-1.65,0 -2.825,-1.175Q8,9.65 8,8q0,-1.65 1.175,-2.825Q10.35,4 12,4q1.65,0 2.825,1.175Q16,6.35 16,8q0,1.65 -1.175,2.825Q13.65,12 12,12zM4,20v-2.8q0,-0.85 0.438,-1.562 0.437,-0.713 1.162,-1.088 1.55,-0.775 3.15,-1.163Q10.35,13 12,13t3.25,0.387q1.6,0.388 3.15,1.163 0.725,0.375 1.163,1.088Q20,16.35 20,17.2L20,20zM6,18h12v-0.8q0,-0.275 -0.137,-0.5 -0.138,-0.225 -0.363,-0.35 -1.35,-0.675 -2.725,-1.013Q13.4,15 12,15t-2.775,0.338Q7.85,15.675 6.5,16.35q-0.225,0.125 -0.362,0.35 -0.138,0.225 -0.138,0.5zM12,10q0.825,0 1.412,-0.588Q14,8.825 14,8t-0.588,-1.412Q12.825,6 12,6t-1.412,0.588Q10,7.175 10,8t0.588,1.412Q11.175,10 12,10zM12,8zM12,18z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,12q-1.65,0 -2.825,-1.175Q8,9.65 8,8q0,-1.65 1.175,-2.825Q10.35,4 12,4q1.65,0 2.825,1.175Q16,6.35 16,8q0,1.65 -1.175,2.825Q13.65,12 12,12zM4,20v-2.8q0,-0.85 0.438,-1.562 0.437,-0.713 1.162,-1.088 1.55,-0.775 3.15,-1.163Q10.35,13 12,13t3.25,0.387q1.6,0.388 3.15,1.163 0.725,0.375 1.163,1.088Q20,16.35 20,17.2L20,20zM6,18h12v-0.8q0,-0.275 -0.137,-0.5 -0.138,-0.225 -0.363,-0.35 -1.35,-0.675 -2.725,-1.013Q13.4,15 12,15t-2.775,0.338Q7.85,15.675 6.5,16.35q-0.225,0.125 -0.362,0.35 -0.138,0.225 -0.138,0.5zM12,10q0.825,0 1.412,-0.588Q14,8.825 14,8t-0.588,-1.412Q12.825,6 12,6t-1.412,0.588Q10,7.175 10,8t0.588,1.412Q11.175,10 12,10zM12,8zM12,18z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Person",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,12q-1.65,0 -2.825,-1.175Q8,9.65 8,8q0,-1.65 1.175,-2.825Q10.35,4 12,4q1.65,0 2.825,1.175Q16,6.35 16,8q0,1.65 -1.175,2.825Q13.65,12 12,12zM4,20v-2.8q0,-0.85 0.438,-1.562 0.437,-0.713 1.162,-1.088 1.55,-0.775 3.15,-1.163Q10.35,13 12,13t3.25,0.387q1.6,0.388 3.15,1.163 0.725,0.375 1.163,1.088Q20,16.35 20,17.2L20,20zM6,18h12v-0.8q0,-0.275 -0.137,-0.5 -0.138,-0.225 -0.363,-0.35 -1.35,-0.675 -2.725,-1.013Q13.4,15 12,15t-2.775,0.338Q7.85,15.675 6.5,16.35q-0.225,0.125 -0.362,0.35 -0.138,0.225 -0.138,0.5zM12,10q0.825,0 1.412,-0.588Q14,8.825 14,8t-0.588,-1.412Q12.825,6 12,6t-1.412,0.588Q10,7.175 10,8t0.588,1.412Q11.175,10 12,10zM12,8zM12,18z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Person",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,12q-1.65,0 -2.825,-1.175Q8,9.65 8,8q0,-1.65 1.175,-2.825Q10.35,4 12,4q1.65,0 2.825,1.175Q16,6.35 16,8q0,1.65 -1.175,2.825Q13.65,12 12,12zM4,20v-2.8q0,-0.85 0.438,-1.562 0.437,-0.713 1.162,-1.088 1.55,-0.775 3.15,-1.163Q10.35,13 12,13t3.25,0.387q1.6,0.388 3.15,1.163 0.725,0.375 1.163,1.088Q20,16.35 20,17.2L20,20zM6,18h12v-0.8q0,-0.275 -0.137,-0.5 -0.138,-0.225 -0.363,-0.35 -1.35,-0.675 -2.725,-1.013Q13.4,15 12,15t-2.775,0.338Q7.85,15.675 6.5,16.35q-0.225,0.125 -0.362,0.35 -0.138,0.225 -0.138,0.5zM12,10q0.825,0 1.412,-0.588Q14,8.825 14,8t-0.588,-1.412Q12.825,6 12,6t-1.412,0.588Q10,7.175 10,8t0.588,1.412Q11.175,10 12,10zM12,8zM12,18z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Chat",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,2L4,2c-1.1,0 -2,0.9 -2,2v18l4,-4h14c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,16L4,16L4,4h16v12z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,2L4,2c-1.1,0 -2,0.9 -2,2v18l4,-4h14c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,16L4,16L4,4h16v12z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Chat",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,2L4,2c-1.1,0 -2,0.9 -2,2v18l4,-4h14c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,16L4,16L4,4h16v12z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Chat",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,2L4,2c-1.1,0 -2,0.9 -2,2v18l4,-4h14c1.1,0 2,-0.9 2,-2L22,4c0,-1.1 -0.9,-2 -2,-2zM20,16L4,16L4,4h16v12z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Fingerprint",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M7.3122,4.6691C8.6549,3.9318 10.2631,3.5 11.9979,3.5C13.7326,3.5 15.3409,3.9318 16.6835,4.6691C17.0466,4.8684 17.5026,4.7357 17.7019,4.3727C17.9013,4.0096 17.7686,3.5536 17.4055,3.3543C15.838,2.4935 13.9808,2 11.9979,2C10.0149,2 8.1578,2.4935 6.5902,3.3543C6.2271,3.5536 6.0944,4.0096 6.2938,4.3727C6.4932,4.7357 6.9491,4.8684 7.3122,4.6691ZM6.8614,14.8781C6.862,12.3662 9.0049,10.2292 11.9992,10.2292C14.9939,10.2292 17.137,12.3668 17.137,14.8791V15.0389C17.137,15.735 16.5727,16.2992 15.8767,16.2992C15.3591,16.2992 14.9045,15.9899 14.7153,15.5116L14.7142,15.509L14.0424,13.8294L14.0418,13.828C13.6244,12.7746 12.6064,12.0936 11.4861,12.0936C9.9616,12.0936 8.7258,13.3294 8.7258,14.8539C8.7258,16.4681 9.4592,18.005 10.7237,19.0147L10.7237,19.0147L10.7295,19.0192L11.1164,19.322C11.4426,19.5773 11.914,19.5198 12.1692,19.1936C12.4245,18.8674 12.367,18.396 12.0409,18.1408L11.657,17.8403C10.7531,17.1173 10.2258,16.0141 10.2258,14.8539C10.2258,14.1578 10.79,13.5936 11.4861,13.5936C11.9971,13.5936 12.459,13.9045 12.6475,14.3812L12.6486,14.3838L13.3204,16.0634L13.321,16.0649C13.7377,17.1165 14.7462,17.7992 15.8767,17.7992C17.4012,17.7992 18.637,16.5634 18.637,15.0389V14.8791C18.637,11.4364 15.7165,8.7292 11.9992,8.7292C8.2818,8.7292 5.3614,11.4364 5.3614,14.8791H6.1114C5.3614,14.8791 5.3614,14.8792 5.3614,14.8794L5.3614,14.8797L5.3614,14.8803L5.3614,14.882L5.3614,14.8865L5.3615,14.9002C5.3617,14.9114 5.3619,14.9268 5.3624,14.9459C5.3633,14.9842 5.365,15.0379 5.3684,15.1047C5.3752,15.2382 5.3885,15.4256 5.415,15.6487C5.4674,16.0908 5.5735,16.6934 5.7925,17.3028C5.9326,17.6926 6.3622,17.8951 6.752,17.755C7.1418,17.6149 7.3442,17.1853 7.2041,16.7955C7.0362,16.3283 6.9489,15.8459 6.9046,15.4721C6.8826,15.2873 6.8718,15.134 6.8665,15.0288C6.8638,14.9764 6.8625,14.9362 6.8619,14.9105L6.8615,14.8831L6.8614,14.8791H6.1114C6.8614,14.8791 6.8614,14.879 6.8614,14.8789V14.8781ZM11.9985,6.8631C9.2417,6.8631 6.9467,8.145 5.9123,9.8642C5.6987,10.2192 5.2379,10.3338 4.883,10.1202C4.528,9.9067 4.4134,9.4458 4.627,9.0909C5.9813,6.8401 8.8171,5.3631 11.9985,5.3631C15.18,5.3631 18.0157,6.8401 19.3701,9.0909C19.5836,9.4458 19.469,9.9067 19.1141,10.1202C18.7592,10.3338 18.2983,10.2192 18.0848,9.8642C17.0503,8.145 14.7553,6.8631 11.9985,6.8631ZM8.3064,19.0229C8.0034,18.7404 7.5288,18.7571 7.2463,19.06C6.9639,19.363 6.9805,19.8376 7.2835,20.12C8.5306,21.2828 10.182,22.0037 12.0005,22.0037C13.8189,22.0037 15.4703,21.2828 16.7175,20.12C17.0204,19.8376 17.037,19.363 16.7546,19.06C16.4721,18.7571 15.9975,18.7404 15.6946,19.0229C14.7044,19.9461 13.4119,20.5037 12.0005,20.5037C10.5891,20.5037 9.2965,19.9461 8.3064,19.0229Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M7.3122,4.6691C8.6549,3.9318 10.2631,3.5 11.9979,3.5C13.7326,3.5 15.3409,3.9318 16.6835,4.6691C17.0466,4.8684 17.5026,4.7357 17.7019,4.3727C17.9013,4.0096 17.7686,3.5536 17.4055,3.3543C15.838,2.4935 13.9808,2 11.9979,2C10.0149,2 8.1578,2.4935 6.5902,3.3543C6.2271,3.5536 6.0944,4.0096 6.2938,4.3727C6.4932,4.7357 6.9491,4.8684 7.3122,4.6691ZM6.8614,14.8781C6.862,12.3662 9.0049,10.2292 11.9992,10.2292C14.9939,10.2292 17.137,12.3668 17.137,14.8791V15.0389C17.137,15.735 16.5727,16.2992 15.8767,16.2992C15.3591,16.2992 14.9045,15.9899 14.7153,15.5116L14.7142,15.509L14.0424,13.8294L14.0418,13.828C13.6244,12.7746 12.6064,12.0936 11.4861,12.0936C9.9616,12.0936 8.7258,13.3294 8.7258,14.8539C8.7258,16.4681 9.4592,18.005 10.7237,19.0147L10.7237,19.0147L10.7295,19.0192L11.1164,19.322C11.4426,19.5773 11.914,19.5198 12.1692,19.1936C12.4245,18.8674 12.367,18.396 12.0409,18.1408L11.657,17.8403C10.7531,17.1173 10.2258,16.0141 10.2258,14.8539C10.2258,14.1578 10.79,13.5936 11.4861,13.5936C11.9971,13.5936 12.459,13.9045 12.6475,14.3812L12.6486,14.3838L13.3204,16.0634L13.321,16.0649C13.7377,17.1165 14.7462,17.7992 15.8767,17.7992C17.4012,17.7992 18.637,16.5634 18.637,15.0389V14.8791C18.637,11.4364 15.7165,8.7292 11.9992,8.7292C8.2818,8.7292 5.3614,11.4364 5.3614,14.8791H6.1114C5.3614,14.8791 5.3614,14.8792 5.3614,14.8794L5.3614,14.8797L5.3614,14.8803L5.3614,14.882L5.3614,14.8865L5.3615,14.9002C5.3617,14.9114 5.3619,14.9268 5.3624,14.9459C5.3633,14.9842 5.365,15.0379 5.3684,15.1047C5.3752,15.2382 5.3885,15.4256 5.415,15.6487C5.4674,16.0908 5.5735,16.6934 5.7925,17.3028C5.9326,17.6926 6.3622,17.8951 6.752,17.755C7.1418,17.6149 7.3442,17.1853 7.2041,16.7955C7.0362,16.3283 6.9489,15.8459 6.9046,15.4721C6.8826,15.2873 6.8718,15.134 6.8665,15.0288C6.8638,14.9764 6.8625,14.9362 6.8619,14.9105L6.8615,14.8831L6.8614,14.8791H6.1114C6.8614,14.8791 6.8614,14.879 6.8614,14.8789V14.8781ZM11.9985,6.8631C9.2417,6.8631 6.9467,8.145 5.9123,9.8642C5.6987,10.2192 5.2379,10.3338 4.883,10.1202C4.528,9.9067 4.4134,9.4458 4.627,9.0909C5.9813,6.8401 8.8171,5.3631 11.9985,5.3631C15.18,5.3631 18.0157,6.8401 19.3701,9.0909C19.5836,9.4458 19.469,9.9067 19.1141,10.1202C18.7592,10.3338 18.2983,10.2192 18.0848,9.8642C17.0503,8.145 14.7553,6.8631 11.9985,6.8631ZM8.3064,19.0229C8.0034,18.7404 7.5288,18.7571 7.2463,19.06C6.9639,19.363 6.9805,19.8376 7.2835,20.12C8.5306,21.2828 10.182,22.0037 12.0005,22.0037C13.8189,22.0037 15.4703,21.2828 16.7175,20.12C17.0204,19.8376 17.037,19.363 16.7546,19.06C16.4721,18.7571 15.9975,18.7404 15.6946,19.0229C14.7044,19.9461 13.4119,20.5037 12.0005,20.5037C10.5891,20.5037 9.2965,19.9461 8.3064,19.0229Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Fingerprint",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M7.3122,4.6691C8.6549,3.9318 10.2631,3.5 11.9979,3.5C13.7326,3.5 15.3409,3.9318 16.6835,4.6691C17.0466,4.8684 17.5026,4.7357 17.7019,4.3727C17.9013,4.0096 17.7686,3.5536 17.4055,3.3543C15.838,2.4935 13.9808,2 11.9979,2C10.0149,2 8.1578,2.4935 6.5902,3.3543C6.2271,3.5536 6.0944,4.0096 6.2938,4.3727C6.4932,4.7357 6.9491,4.8684 7.3122,4.6691ZM6.8614,14.8781C6.862,12.3662 9.0049,10.2292 11.9992,10.2292C14.9939,10.2292 17.137,12.3668 17.137,14.8791V15.0389C17.137,15.735 16.5727,16.2992 15.8767,16.2992C15.3591,16.2992 14.9045,15.9899 14.7153,15.5116L14.7142,15.509L14.0424,13.8294L14.0418,13.828C13.6244,12.7746 12.6064,12.0936 11.4861,12.0936C9.9616,12.0936 8.7258,13.3294 8.7258,14.8539C8.7258,16.4681 9.4592,18.005 10.7237,19.0147L10.7237,19.0147L10.7295,19.0192L11.1164,19.322C11.4426,19.5773 11.914,19.5198 12.1692,19.1936C12.4245,18.8674 12.367,18.396 12.0409,18.1408L11.657,17.8403C10.7531,17.1173 10.2258,16.0141 10.2258,14.8539C10.2258,14.1578 10.79,13.5936 11.4861,13.5936C11.9971,13.5936 12.459,13.9045 12.6475,14.3812L12.6486,14.3838L13.3204,16.0634L13.321,16.0649C13.7377,17.1165 14.7462,17.7992 15.8767,17.7992C17.4012,17.7992 18.637,16.5634 18.637,15.0389V14.8791C18.637,11.4364 15.7165,8.7292 11.9992,8.7292C8.2818,8.7292 5.3614,11.4364 5.3614,14.8791H6.1114C5.3614,14.8791 5.3614,14.8792 5.3614,14.8794L5.3614,14.8797L5.3614,14.8803L5.3614,14.882L5.3614,14.8865L5.3615,14.9002C5.3617,14.9114 5.3619,14.9268 5.3624,14.9459C5.3633,14.9842 5.365,15.0379 5.3684,15.1047C5.3752,15.2382 5.3885,15.4256 5.415,15.6487C5.4674,16.0908 5.5735,16.6934 5.7925,17.3028C5.9326,17.6926 6.3622,17.8951 6.752,17.755C7.1418,17.6149 7.3442,17.1853 7.2041,16.7955C7.0362,16.3283 6.9489,15.8459 6.9046,15.4721C6.8826,15.2873 6.8718,15.134 6.8665,15.0288C6.8638,14.9764 6.8625,14.9362 6.8619,14.9105L6.8615,14.8831L6.8614,14.8791H6.1114C6.8614,14.8791 6.8614,14.879 6.8614,14.8789V14.8781ZM11.9985,6.8631C9.2417,6.8631 6.9467,8.145 5.9123,9.8642C5.6987,10.2192 5.2379,10.3338 4.883,10.1202C4.528,9.9067 4.4134,9.4458 4.627,9.0909C5.9813,6.8401 8.8171,5.3631 11.9985,5.3631C15.18,5.3631 18.0157,6.8401 19.3701,9.0909C19.5836,9.4458 19.469,9.9067 19.1141,10.1202C18.7592,10.3338 18.2983,10.2192 18.0848,9.8642C17.0503,8.145 14.7553,6.8631 11.9985,6.8631ZM8.3064,19.0229C8.0034,18.7404 7.5288,18.7571 7.2463,19.06C6.9639,19.363 6.9805,19.8376 7.2835,20.12C8.5306,21.2828 10.182,22.0037 12.0005,22.0037C13.8189,22.0037 15.4703,21.2828 16.7175,20.12C17.0204,19.8376 17.037,19.363 16.7546,19.06C16.4721,18.7571 15.9975,18.7404 15.6946,19.0229C14.7044,19.9461 13.4119,20.5037 12.0005,20.5037C10.5891,20.5037 9.2965,19.9461 8.3064,19.0229Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        },
+        "night": {
+          "name": "Fingerprint",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M7.3122,4.6691C8.6549,3.9318 10.2631,3.5 11.9979,3.5C13.7326,3.5 15.3409,3.9318 16.6835,4.6691C17.0466,4.8684 17.5026,4.7357 17.7019,4.3727C17.9013,4.0096 17.7686,3.5536 17.4055,3.3543C15.838,2.4935 13.9808,2 11.9979,2C10.0149,2 8.1578,2.4935 6.5902,3.3543C6.2271,3.5536 6.0944,4.0096 6.2938,4.3727C6.4932,4.7357 6.9491,4.8684 7.3122,4.6691ZM6.8614,14.8781C6.862,12.3662 9.0049,10.2292 11.9992,10.2292C14.9939,10.2292 17.137,12.3668 17.137,14.8791V15.0389C17.137,15.735 16.5727,16.2992 15.8767,16.2992C15.3591,16.2992 14.9045,15.9899 14.7153,15.5116L14.7142,15.509L14.0424,13.8294L14.0418,13.828C13.6244,12.7746 12.6064,12.0936 11.4861,12.0936C9.9616,12.0936 8.7258,13.3294 8.7258,14.8539C8.7258,16.4681 9.4592,18.005 10.7237,19.0147L10.7237,19.0147L10.7295,19.0192L11.1164,19.322C11.4426,19.5773 11.914,19.5198 12.1692,19.1936C12.4245,18.8674 12.367,18.396 12.0409,18.1408L11.657,17.8403C10.7531,17.1173 10.2258,16.0141 10.2258,14.8539C10.2258,14.1578 10.79,13.5936 11.4861,13.5936C11.9971,13.5936 12.459,13.9045 12.6475,14.3812L12.6486,14.3838L13.3204,16.0634L13.321,16.0649C13.7377,17.1165 14.7462,17.7992 15.8767,17.7992C17.4012,17.7992 18.637,16.5634 18.637,15.0389V14.8791C18.637,11.4364 15.7165,8.7292 11.9992,8.7292C8.2818,8.7292 5.3614,11.4364 5.3614,14.8791H6.1114C5.3614,14.8791 5.3614,14.8792 5.3614,14.8794L5.3614,14.8797L5.3614,14.8803L5.3614,14.882L5.3614,14.8865L5.3615,14.9002C5.3617,14.9114 5.3619,14.9268 5.3624,14.9459C5.3633,14.9842 5.365,15.0379 5.3684,15.1047C5.3752,15.2382 5.3885,15.4256 5.415,15.6487C5.4674,16.0908 5.5735,16.6934 5.7925,17.3028C5.9326,17.6926 6.3622,17.8951 6.752,17.755C7.1418,17.6149 7.3442,17.1853 7.2041,16.7955C7.0362,16.3283 6.9489,15.8459 6.9046,15.4721C6.8826,15.2873 6.8718,15.134 6.8665,15.0288C6.8638,14.9764 6.8625,14.9362 6.8619,14.9105L6.8615,14.8831L6.8614,14.8791H6.1114C6.8614,14.8791 6.8614,14.879 6.8614,14.8789V14.8781ZM11.9985,6.8631C9.2417,6.8631 6.9467,8.145 5.9123,9.8642C5.6987,10.2192 5.2379,10.3338 4.883,10.1202C4.528,9.9067 4.4134,9.4458 4.627,9.0909C5.9813,6.8401 8.8171,5.3631 11.9985,5.3631C15.18,5.3631 18.0157,6.8401 19.3701,9.0909C19.5836,9.4458 19.469,9.9067 19.1141,10.1202C18.7592,10.3338 18.2983,10.2192 18.0848,9.8642C17.0503,8.145 14.7553,6.8631 11.9985,6.8631ZM8.3064,19.0229C8.0034,18.7404 7.5288,18.7571 7.2463,19.06C6.9639,19.363 6.9805,19.8376 7.2835,20.12C8.5306,21.2828 10.182,22.0037 12.0005,22.0037C13.8189,22.0037 15.4703,21.2828 16.7175,20.12C17.0204,19.8376 17.037,19.363 16.7546,19.06C16.4721,18.7571 15.9975,18.7404 15.6946,19.0229C14.7044,19.9461 13.4119,20.5037 12.0005,20.5037C10.5891,20.5037 9.2965,19.9461 8.3064,19.0229Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PrivacyShield",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,2L3.82,5.64v5.45c0,5.05 3.49,9.76 8.18,10.91c4.69,-1.15 8.18,-5.86 8.18,-10.91V5.64L12,2zM18.18,11.09c0,1.55 -0.41,3.05 -1.1,4.38C15.77,14.5 13.4,14 12,14s-3.77,0.5 -5.08,1.47c-0.69,-1.33 -1.1,-2.83 -1.1,-4.38V6.94L12,4.19l6.18,2.75V11.09z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M12,10.5m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,2L3.82,5.64v5.45c0,5.05 3.49,9.76 8.18,10.91c4.69,-1.15 8.18,-5.86 8.18,-10.91V5.64L12,2zM18.18,11.09c0,1.55 -0.41,3.05 -1.1,4.38C15.77,14.5 13.4,14 12,14s-3.77,0.5 -5.08,1.47c-0.69,-1.33 -1.1,-2.83 -1.1,-4.38V6.94L12,4.19l6.18,2.75V11.09z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M12,10.5m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "PrivacyShield",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,2L3.82,5.64v5.45c0,5.05 3.49,9.76 8.18,10.91c4.69,-1.15 8.18,-5.86 8.18,-10.91V5.64L12,2zM18.18,11.09c0,1.55 -0.41,3.05 -1.1,4.38C15.77,14.5 13.4,14 12,14s-3.77,0.5 -5.08,1.47c-0.69,-1.33 -1.1,-2.83 -1.1,-4.38V6.94L12,4.19l6.18,2.75V11.09z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,10.5m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "PrivacyShield",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,2L3.82,5.64v5.45c0,5.05 3.49,9.76 8.18,10.91c4.69,-1.15 8.18,-5.86 8.18,-10.91V5.64L12,2zM18.18,11.09c0,1.55 -0.41,3.05 -1.1,4.38C15.77,14.5 13.4,14 12,14s-3.77,0.5 -5.08,1.47c-0.69,-1.33 -1.1,-2.83 -1.1,-4.38V6.94L12,4.19l6.18,2.75V11.09z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,10.5m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DoNotDisturb",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10c5.52,0 10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8c4.41,0 8,3.59 8,8C20,16.41 16.41,20 12,20z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M7,11h10v2h-10z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10c5.52,0 10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8c4.41,0 8,3.59 8,8C20,16.41 16.41,20 12,20z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M7,11h10v2h-10z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "DoNotDisturb",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10c5.52,0 10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8c4.41,0 8,3.59 8,8C20,16.41 16.41,20 12,20z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M7,11h10v2h-10z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "DoNotDisturb",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10c5.52,0 10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8c4.41,0 8,3.59 8,8C20,16.41 16.41,20 12,20z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M7,11h10v2h-10z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "OpenInNew",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19,19H5V5h7V3H5c-1.11,0 -2,0.9 -2,2v14c0,1.1 0.89,2 2,2h14c1.1,0 2,-0.9 2,-2v-7h-2v7zM14,3v2h3.59l-9.83,9.83 1.41,1.41L19,6.41V10h2V3h-7z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19,19H5V5h7V3H5c-1.11,0 -2,0.9 -2,2v14c0,1.1 0.89,2 2,2h14c1.1,0 2,-0.9 2,-2v-7h-2v7zM14,3v2h3.59l-9.83,9.83 1.41,1.41L19,6.41V10h2V3h-7z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "OpenInNew",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19,19H5V5h7V3H5c-1.11,0 -2,0.9 -2,2v14c0,1.1 0.89,2 2,2h14c1.1,0 2,-0.9 2,-2v-7h-2v7zM14,3v2h3.59l-9.83,9.83 1.41,1.41L19,6.41V10h2V3h-7z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "OpenInNew",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19,19H5V5h7V3H5c-1.11,0 -2,0.9 -2,2v14c0,1.1 0.89,2 2,2h14c1.1,0 2,-0.9 2,-2v-7h-2v7zM14,3v2h3.59l-9.83,9.83 1.41,1.41L19,6.41V10h2V3h-7z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Flashlight",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><g transform=\"translate(-20 -20) translate(32 32) scale(0.7 0.7) translate(-32 -32)\"><path d=\"M24 21.7182V23.1202H40.0533V21.7182C40.0533 21.0061 39.7969 20.4053 39.2841 19.9157C38.7936 19.4039 38.1916 19.1479 37.4781 19.1479H26.5752C25.8617 19.1479 25.2486 19.4039 24.7358 19.9157C24.2453 20.4053 24 21.0061 24 21.7182Z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M32.0267 37.24C32.5618 37.24 33.0189 37.0508 33.3979 36.6725C33.7769 36.2942 33.9664 35.838 33.9664 35.3039C33.9664 34.7698 33.7769 34.3136 33.3979 33.9353C33.0189 33.5348 32.5618 33.3345 32.0267 33.3345C31.4916 33.3345 31.0345 33.5236 30.6554 33.9019C30.2764 34.2802 30.0869 34.7476 30.0869 35.3039C30.0869 35.838 30.2764 36.2942 30.6554 36.6725C31.0345 37.0508 31.4916 37.24 32.0267 37.24ZM26.7424 43.2818V31.1314L24.4013 27.7266C24.2676 27.5041 24.1672 27.2815 24.1003 27.059C24.0334 26.8142 24 26.5583 24 26.2913V25.6904H40.0533V26.2913C40.0533 26.5583 40.0199 26.8142 39.953 27.059C39.8861 27.2815 39.7858 27.5041 39.652 27.7266L37.3109 31.1314V43.2818C37.3109 43.9939 37.0545 44.6058 36.5417 45.1177C36.0511 45.6072 35.4603 45.852 34.7691 45.852H29.2842C28.593 45.852 27.991 45.6072 27.4782 45.1177C26.9877 44.6058 26.7424 43.9939 26.7424 43.2818Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><g transform=\"translate(-20 -20) translate(32 32) scale(0.7 0.7) translate(-32 -32)\"><path d=\"M24 21.7182V23.1202H40.0533V21.7182C40.0533 21.0061 39.7969 20.4053 39.2841 19.9157C38.7936 19.4039 38.1916 19.1479 37.4781 19.1479H26.5752C25.8617 19.1479 25.2486 19.4039 24.7358 19.9157C24.2453 20.4053 24 21.0061 24 21.7182Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M32.0267 37.24C32.5618 37.24 33.0189 37.0508 33.3979 36.6725C33.7769 36.2942 33.9664 35.838 33.9664 35.3039C33.9664 34.7698 33.7769 34.3136 33.3979 33.9353C33.0189 33.5348 32.5618 33.3345 32.0267 33.3345C31.4916 33.3345 31.0345 33.5236 30.6554 33.9019C30.2764 34.2802 30.0869 34.7476 30.0869 35.3039C30.0869 35.838 30.2764 36.2942 30.6554 36.6725C31.0345 37.0508 31.4916 37.24 32.0267 37.24ZM26.7424 43.2818V31.1314L24.4013 27.7266C24.2676 27.5041 24.1672 27.2815 24.1003 27.059C24.0334 26.8142 24 26.5583 24 26.2913V25.6904H40.0533V26.2913C40.0533 26.5583 40.0199 26.8142 39.953 27.059C39.8861 27.2815 39.7858 27.5041 39.652 27.7266L37.3109 31.1314V43.2818C37.3109 43.9939 37.0545 44.6058 36.5417 45.1177C36.0511 45.6072 35.4603 45.852 34.7691 45.852H29.2842C28.593 45.852 27.991 45.6072 27.4782 45.1177C26.9877 44.6058 26.7424 43.9939 26.7424 43.2818Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Flashlight",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 32,
+              "pivotY": 32,
+              "scaleX": 0.7,
+              "scaleY": 0.7,
+              "translationX": -20,
+              "translationY": -20,
+              "clipPathD": null,
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M24 21.7182V23.1202H40.0533V21.7182C40.0533 21.0061 39.7969 20.4053 39.2841 19.9157C38.7936 19.4039 38.1916 19.1479 37.4781 19.1479H26.5752C25.8617 19.1479 25.2486 19.4039 24.7358 19.9157C24.2453 20.4053 24 21.0061 24 21.7182Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M32.0267 37.24C32.5618 37.24 33.0189 37.0508 33.3979 36.6725C33.7769 36.2942 33.9664 35.838 33.9664 35.3039C33.9664 34.7698 33.7769 34.3136 33.3979 33.9353C33.0189 33.5348 32.5618 33.3345 32.0267 33.3345C31.4916 33.3345 31.0345 33.5236 30.6554 33.9019C30.2764 34.2802 30.0869 34.7476 30.0869 35.3039C30.0869 35.838 30.2764 36.2942 30.6554 36.6725C31.0345 37.0508 31.4916 37.24 32.0267 37.24ZM26.7424 43.2818V31.1314L24.4013 27.7266C24.2676 27.5041 24.1672 27.2815 24.1003 27.059C24.0334 26.8142 24 26.5583 24 26.2913V25.6904H40.0533V26.2913C40.0533 26.5583 40.0199 26.8142 39.953 27.059C39.8861 27.2815 39.7858 27.5041 39.652 27.7266L37.3109 31.1314V43.2818C37.3109 43.9939 37.0545 44.6058 36.5417 45.1177C36.0511 45.6072 35.4603 45.852 34.7691 45.852H29.2842C28.593 45.852 27.991 45.6072 27.4782 45.1177C26.9877 44.6058 26.7424 43.9939 26.7424 43.2818Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Flashlight",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 32,
+              "pivotY": 32,
+              "scaleX": 0.7,
+              "scaleY": 0.7,
+              "translationX": -20,
+              "translationY": -20,
+              "clipPathD": null,
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M24 21.7182V23.1202H40.0533V21.7182C40.0533 21.0061 39.7969 20.4053 39.2841 19.9157C38.7936 19.4039 38.1916 19.1479 37.4781 19.1479H26.5752C25.8617 19.1479 25.2486 19.4039 24.7358 19.9157C24.2453 20.4053 24 21.0061 24 21.7182Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M32.0267 37.24C32.5618 37.24 33.0189 37.0508 33.3979 36.6725C33.7769 36.2942 33.9664 35.838 33.9664 35.3039C33.9664 34.7698 33.7769 34.3136 33.3979 33.9353C33.0189 33.5348 32.5618 33.3345 32.0267 33.3345C31.4916 33.3345 31.0345 33.5236 30.6554 33.9019C30.2764 34.2802 30.0869 34.7476 30.0869 35.3039C30.0869 35.838 30.2764 36.2942 30.6554 36.6725C31.0345 37.0508 31.4916 37.24 32.0267 37.24ZM26.7424 43.2818V31.1314L24.4013 27.7266C24.2676 27.5041 24.1672 27.2815 24.1003 27.059C24.0334 26.8142 24 26.5583 24 26.2913V25.6904H40.0533V26.2913C40.0533 26.5583 40.0199 26.8142 39.953 27.059C39.8861 27.2815 39.7858 27.5041 39.652 27.7266L37.3109 31.1314V43.2818C37.3109 43.9939 37.0545 44.6058 36.5417 45.1177C36.0511 45.6072 35.4603 45.852 34.7691 45.852H29.2842C28.593 45.852 27.991 45.6072 27.4782 45.1177C26.9877 44.6058 26.7424 43.9939 26.7424 43.2818Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Help",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M2,12C2,6.48 6.48,2 12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12ZM13,16V18H11V16H13ZM12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20ZM8,10C8,7.79 9.79,6 12,6C14.21,6 16,7.79 16,10C16,11.283 15.21,11.973 14.441,12.646C13.711,13.283 13,13.905 13,15H11C11,13.179 11.942,12.457 12.77,11.822C13.42,11.324 14,10.879 14,10C14,8.9 13.1,8 12,8C10.9,8 10,8.9 10,10H8Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M2,12C2,6.48 6.48,2 12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12ZM13,16V18H11V16H13ZM12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20ZM8,10C8,7.79 9.79,6 12,6C14.21,6 16,7.79 16,10C16,11.283 15.21,11.973 14.441,12.646C13.711,13.283 13,13.905 13,15H11C11,13.179 11.942,12.457 12.77,11.822C13.42,11.324 14,10.879 14,10C14,8.9 13.1,8 12,8C10.9,8 10,8.9 10,10H8Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Help",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M2,12C2,6.48 6.48,2 12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12ZM13,16V18H11V16H13ZM12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20ZM8,10C8,7.79 9.79,6 12,6C14.21,6 16,7.79 16,10C16,11.283 15.21,11.973 14.441,12.646C13.711,13.283 13,13.905 13,15H11C11,13.179 11.942,12.457 12.77,11.822C13.42,11.324 14,10.879 14,10C14,8.9 13.1,8 12,8C10.9,8 10,8.9 10,10H8Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        },
+        "night": {
+          "name": "Help",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M2,12C2,6.48 6.48,2 12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12ZM13,16V18H11V16H13ZM12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20ZM8,10C8,7.79 9.79,6 12,6C14.21,6 16,7.79 16,10C16,11.283 15.21,11.973 14.441,12.646C13.711,13.283 13,13.905 13,15H11C11,13.179 11.942,12.457 12.77,11.822C13.42,11.324 14,10.879 14,10C14,8.9 13.1,8 12,8C10.9,8 10,8.9 10,10H8Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Video",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9,7v8l7,-4zM21,3L3,3c-1.1,0 -2,0.9 -2,2v12c0,1.1 0.9,2 2,2h5v2h8v-2h5c1.1,0 2,-0.9 2,-2L23,5c0,-1.1 -0.9,-2 -2,-2zM21,17L3,17L3,5h18v12z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9,7v8l7,-4zM21,3L3,3c-1.1,0 -2,0.9 -2,2v12c0,1.1 0.9,2 2,2h5v2h8v-2h5c1.1,0 2,-0.9 2,-2L23,5c0,-1.1 -0.9,-2 -2,-2zM21,17L3,17L3,5h18v12z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Video",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M9,7v8l7,-4zM21,3L3,3c-1.1,0 -2,0.9 -2,2v12c0,1.1 0.9,2 2,2h5v2h8v-2h5c1.1,0 2,-0.9 2,-2L23,5c0,-1.1 -0.9,-2 -2,-2zM21,17L3,17L3,5h18v12z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Video",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M9,7v8l7,-4zM21,3L3,3c-1.1,0 -2,0.9 -2,2v12c0,1.1 0.9,2 2,2h5v2h8v-2h5c1.1,0 2,-0.9 2,-2L23,5c0,-1.1 -0.9,-2 -2,-2zM21,17L3,17L3,5h18v12z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Document",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19 3H5c-1.1 0,-2 .9,-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2,-.9 2,-2V5c0,-1.1,-.9,-2,-2,-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M19 3H5c-1.1 0,-2 .9,-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2,-.9 2,-2V5c0,-1.1,-.9,-2,-2,-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Document",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19 3H5c-1.1 0,-2 .9,-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2,-.9 2,-2V5c0,-1.1,-.9,-2,-2,-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Document",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M19 3H5c-1.1 0,-2 .9,-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2,-.9 2,-2V5c0,-1.1,-.9,-2,-2,-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NotificationsOff",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,22c1.1,0 2,-0.9 2,-2h-4C10,21.1 10.9,22 12,22z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M16,16L2.81,2.81L1.39,4.22l4.85,4.85C6.09,9.68 6,10.33 6,11v6H4v2h12.17l3.61,3.61l1.41,-1.41L16,16zM8,17c0,0 0.01,-6.11 0.01,-6.16L14.17,17H8z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M12,6.5c2.49,0 4,2.02 4,4.5v2.17l2,2V11c0,-3.07 -1.63,-5.64 -4.5,-6.32V4c0,-0.83 -0.67,-1.5 -1.5,-1.5S10.5,3.17 10.5,4v0.68C9.72,4.86 9.05,5.2 8.46,5.63L9.93,7.1C10.51,6.73 11.2,6.5 12,6.5z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,22c1.1,0 2,-0.9 2,-2h-4C10,21.1 10.9,22 12,22z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M16,16L2.81,2.81L1.39,4.22l4.85,4.85C6.09,9.68 6,10.33 6,11v6H4v2h12.17l3.61,3.61l1.41,-1.41L16,16zM8,17c0,0 0.01,-6.11 0.01,-6.16L14.17,17H8z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M12,6.5c2.49,0 4,2.02 4,4.5v2.17l2,2V11c0,-3.07 -1.63,-5.64 -4.5,-6.32V4c0,-0.83 -0.67,-1.5 -1.5,-1.5S10.5,3.17 10.5,4v0.68C9.72,4.86 9.05,5.2 8.46,5.63L9.93,7.1C10.51,6.73 11.2,6.5 12,6.5z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "NotificationsOff",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,22c1.1,0 2,-0.9 2,-2h-4C10,21.1 10.9,22 12,22z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M16,16L2.81,2.81L1.39,4.22l4.85,4.85C6.09,9.68 6,10.33 6,11v6H4v2h12.17l3.61,3.61l1.41,-1.41L16,16zM8,17c0,0 0.01,-6.11 0.01,-6.16L14.17,17H8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,6.5c2.49,0 4,2.02 4,4.5v2.17l2,2V11c0,-3.07 -1.63,-5.64 -4.5,-6.32V4c0,-0.83 -0.67,-1.5 -1.5,-1.5S10.5,3.17 10.5,4v0.68C9.72,4.86 9.05,5.2 8.46,5.63L9.93,7.1C10.51,6.73 11.2,6.5 12,6.5z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "NotificationsOff",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,22c1.1,0 2,-0.9 2,-2h-4C10,21.1 10.9,22 12,22z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M16,16L2.81,2.81L1.39,4.22l4.85,4.85C6.09,9.68 6,10.33 6,11v6H4v2h12.17l3.61,3.61l1.41,-1.41L16,16zM8,17c0,0 0.01,-6.11 0.01,-6.16L14.17,17H8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,6.5c2.49,0 4,2.02 4,4.5v2.17l2,2V11c0,-3.07 -1.63,-5.64 -4.5,-6.32V4c0,-0.83 -0.67,-1.5 -1.5,-1.5S10.5,3.17 10.5,4v0.68C9.72,4.86 9.05,5.2 8.46,5.63L9.93,7.1C10.51,6.73 11.2,6.5 12,6.5z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "MicOff",
+      "style": "Filled",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M5,10.791C5.387,10.791 5.7,11.105 5.7,11.491C5.7,14.97 8.521,17.791 12,17.791C12.17,17.791 12.338,17.782 12.505,17.769C12.502,17.846 12.5,17.923 12.5,18.001C12.5,18.533 12.57,19.049 12.7,19.541V21.791H13.85C14.27,22.306 14.773,22.749 15.34,23.101C15.278,23.135 15.212,23.162 15.141,23.177L15,23.191H9C8.613,23.191 8.3,22.878 8.3,22.491C8.3,22.105 8.613,21.791 9,21.791H11.3V19.157C7.375,18.803 4.3,15.508 4.3,11.491C4.3,11.105 4.613,10.791 5,10.791ZM12.001,0.791C14.597,0.791 16.701,2.896 16.701,5.491V11.491C16.701,11.767 16.675,12.036 16.63,12.299C15.938,12.526 15.302,12.875 14.746,13.321C15.096,12.797 15.301,12.168 15.301,11.491V5.491C15.301,3.669 13.823,2.192 12.001,2.191C10.178,2.191 8.701,3.669 8.701,5.491V11.491C8.701,13.314 10.179,14.791 12.001,14.791C12.676,14.791 13.303,14.588 13.825,14.24C13.379,14.795 13.03,15.43 12.802,16.121C12.541,16.166 12.274,16.191 12.001,16.191C9.405,16.191 7.301,14.087 7.301,11.491V5.491C7.301,2.895 9.405,0.791 12.001,0.791ZM19,10.791C19.386,10.791 19.7,11.105 19.7,11.491C19.7,11.701 19.689,11.909 19.673,12.115C19.294,12.04 18.901,12.001 18.5,12.001C18.425,12.001 18.351,12.003 18.277,12.006C18.291,11.836 18.3,11.665 18.3,11.491C18.3,11.105 18.613,10.791 19,10.791Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/><path d=\"M18.501,13.301C21.097,13.301 23.201,15.405 23.201,18.001C23.201,20.597 21.097,22.701 18.501,22.701C15.905,22.701 13.801,20.597 13.801,18.001C13.801,15.405 15.905,13.301 18.501,13.301ZM16.716,20.775C17.23,21.107 17.843,21.301 18.501,21.301C20.323,21.301 21.801,19.823 21.801,18.001C21.801,17.343 21.607,16.73 21.275,16.215L16.716,20.775ZM18.501,14.701C16.678,14.701 15.201,16.178 15.201,18.001C15.201,18.659 15.394,19.271 15.726,19.785L20.284,15.226C19.77,14.894 19.158,14.701 18.501,14.701Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M5,10.791C5.387,10.791 5.7,11.105 5.7,11.491C5.7,14.97 8.521,17.791 12,17.791C12.17,17.791 12.338,17.782 12.505,17.769C12.502,17.846 12.5,17.923 12.5,18.001C12.5,18.533 12.57,19.049 12.7,19.541V21.791H13.85C14.27,22.306 14.773,22.749 15.34,23.101C15.278,23.135 15.212,23.162 15.141,23.177L15,23.191H9C8.613,23.191 8.3,22.878 8.3,22.491C8.3,22.105 8.613,21.791 9,21.791H11.3V19.157C7.375,18.803 4.3,15.508 4.3,11.491C4.3,11.105 4.613,10.791 5,10.791ZM12.001,0.791C14.597,0.791 16.701,2.896 16.701,5.491V11.491C16.701,11.767 16.675,12.036 16.63,12.299C15.938,12.526 15.302,12.875 14.746,13.321C15.096,12.797 15.301,12.168 15.301,11.491V5.491C15.301,3.669 13.823,2.192 12.001,2.191C10.178,2.191 8.701,3.669 8.701,5.491V11.491C8.701,13.314 10.179,14.791 12.001,14.791C12.676,14.791 13.303,14.588 13.825,14.24C13.379,14.795 13.03,15.43 12.802,16.121C12.541,16.166 12.274,16.191 12.001,16.191C9.405,16.191 7.301,14.087 7.301,11.491V5.491C7.301,2.895 9.405,0.791 12.001,0.791ZM19,10.791C19.386,10.791 19.7,11.105 19.7,11.491C19.7,11.701 19.689,11.909 19.673,12.115C19.294,12.04 18.901,12.001 18.5,12.001C18.425,12.001 18.351,12.003 18.277,12.006C18.291,11.836 18.3,11.665 18.3,11.491C18.3,11.105 18.613,10.791 19,10.791Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/><path d=\"M18.501,13.301C21.097,13.301 23.201,15.405 23.201,18.001C23.201,20.597 21.097,22.701 18.501,22.701C15.905,22.701 13.801,20.597 13.801,18.001C13.801,15.405 15.905,13.301 18.501,13.301ZM16.716,20.775C17.23,21.107 17.843,21.301 18.501,21.301C20.323,21.301 21.801,19.823 21.801,18.001C21.801,17.343 21.607,16.73 21.275,16.215L16.716,20.775ZM18.501,14.701C16.678,14.701 15.201,16.178 15.201,18.001C15.201,18.659 15.394,19.271 15.726,19.785L20.284,15.226C19.77,14.894 19.158,14.701 18.501,14.701Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "MicOff",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M5,10.791C5.387,10.791 5.7,11.105 5.7,11.491C5.7,14.97 8.521,17.791 12,17.791C12.17,17.791 12.338,17.782 12.505,17.769C12.502,17.846 12.5,17.923 12.5,18.001C12.5,18.533 12.57,19.049 12.7,19.541V21.791H13.85C14.27,22.306 14.773,22.749 15.34,23.101C15.278,23.135 15.212,23.162 15.141,23.177L15,23.191H9C8.613,23.191 8.3,22.878 8.3,22.491C8.3,22.105 8.613,21.791 9,21.791H11.3V19.157C7.375,18.803 4.3,15.508 4.3,11.491C4.3,11.105 4.613,10.791 5,10.791ZM12.001,0.791C14.597,0.791 16.701,2.896 16.701,5.491V11.491C16.701,11.767 16.675,12.036 16.63,12.299C15.938,12.526 15.302,12.875 14.746,13.321C15.096,12.797 15.301,12.168 15.301,11.491V5.491C15.301,3.669 13.823,2.192 12.001,2.191C10.178,2.191 8.701,3.669 8.701,5.491V11.491C8.701,13.314 10.179,14.791 12.001,14.791C12.676,14.791 13.303,14.588 13.825,14.24C13.379,14.795 13.03,15.43 12.802,16.121C12.541,16.166 12.274,16.191 12.001,16.191C9.405,16.191 7.301,14.087 7.301,11.491V5.491C7.301,2.895 9.405,0.791 12.001,0.791ZM19,10.791C19.386,10.791 19.7,11.105 19.7,11.491C19.7,11.701 19.689,11.909 19.673,12.115C19.294,12.04 18.901,12.001 18.5,12.001C18.425,12.001 18.351,12.003 18.277,12.006C18.291,11.836 18.3,11.665 18.3,11.491C18.3,11.105 18.613,10.791 19,10.791Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "path",
+              "d": "M18.501,13.301C21.097,13.301 23.201,15.405 23.201,18.001C23.201,20.597 21.097,22.701 18.501,22.701C15.905,22.701 13.801,20.597 13.801,18.001C13.801,15.405 15.905,13.301 18.501,13.301ZM16.716,20.775C17.23,21.107 17.843,21.301 18.501,21.301C20.323,21.301 21.801,19.823 21.801,18.001C21.801,17.343 21.607,16.73 21.275,16.215L16.716,20.775ZM18.501,14.701C16.678,14.701 15.201,16.178 15.201,18.001C15.201,18.659 15.394,19.271 15.726,19.785L20.284,15.226C19.77,14.894 19.158,14.701 18.501,14.701Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        },
+        "night": {
+          "name": "MicOff",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M5,10.791C5.387,10.791 5.7,11.105 5.7,11.491C5.7,14.97 8.521,17.791 12,17.791C12.17,17.791 12.338,17.782 12.505,17.769C12.502,17.846 12.5,17.923 12.5,18.001C12.5,18.533 12.57,19.049 12.7,19.541V21.791H13.85C14.27,22.306 14.773,22.749 15.34,23.101C15.278,23.135 15.212,23.162 15.141,23.177L15,23.191H9C8.613,23.191 8.3,22.878 8.3,22.491C8.3,22.105 8.613,21.791 9,21.791H11.3V19.157C7.375,18.803 4.3,15.508 4.3,11.491C4.3,11.105 4.613,10.791 5,10.791ZM12.001,0.791C14.597,0.791 16.701,2.896 16.701,5.491V11.491C16.701,11.767 16.675,12.036 16.63,12.299C15.938,12.526 15.302,12.875 14.746,13.321C15.096,12.797 15.301,12.168 15.301,11.491V5.491C15.301,3.669 13.823,2.192 12.001,2.191C10.178,2.191 8.701,3.669 8.701,5.491V11.491C8.701,13.314 10.179,14.791 12.001,14.791C12.676,14.791 13.303,14.588 13.825,14.24C13.379,14.795 13.03,15.43 12.802,16.121C12.541,16.166 12.274,16.191 12.001,16.191C9.405,16.191 7.301,14.087 7.301,11.491V5.491C7.301,2.895 9.405,0.791 12.001,0.791ZM19,10.791C19.386,10.791 19.7,11.105 19.7,11.491C19.7,11.701 19.689,11.909 19.673,12.115C19.294,12.04 18.901,12.001 18.5,12.001C18.425,12.001 18.351,12.003 18.277,12.006C18.291,11.836 18.3,11.665 18.3,11.491C18.3,11.105 18.613,10.791 19,10.791Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "path",
+              "d": "M18.501,13.301C21.097,13.301 23.201,15.405 23.201,18.001C23.201,20.597 21.097,22.701 18.501,22.701C15.905,22.701 13.801,20.597 13.801,18.001C13.801,15.405 15.905,13.301 18.501,13.301ZM16.716,20.775C17.23,21.107 17.843,21.301 18.501,21.301C20.323,21.301 21.801,19.823 21.801,18.001C21.801,17.343 21.607,16.73 21.275,16.215L16.716,20.775ZM18.501,14.701C16.678,14.701 15.201,16.178 15.201,18.001C15.201,18.659 15.394,19.271 15.726,19.785L20.284,15.226C19.77,14.894 19.158,14.701 18.501,14.701Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "Search",
       "style": "Outlined",
       "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><path d=\"M2.822,8.191C2.822,5.226 5.226,2.822 8.191,2.822C11.156,2.822 13.56,5.226 13.56,8.191C13.56,11.156 11.156,13.56 8.191,13.56C5.226,13.56 2.822,11.156 2.822,8.191ZM8.191,1.422C4.452,1.422 1.422,4.452 1.422,8.191C1.422,11.929 4.452,14.96 8.191,14.96C9.735,14.96 11.159,14.442 12.298,13.571L17.075,18.348C17.426,18.699 17.996,18.699 18.347,18.348C18.699,17.997 18.699,17.427 18.347,17.075L13.571,12.299C14.442,11.16 14.96,9.736 14.96,8.191C14.96,4.452 11.929,1.422 8.191,1.422Z\" fill=\"#000000\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></svg>",
@@ -12556,6 +15995,413 @@ window.COUI_ICON_DATA = {
             {
               "type": "path",
               "d": "M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Gesture",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17,18L7,18L7,6L17,6L17,7L19,7L19,3C19,1.895 18.105,1 17,1L7,1C5.895,1 5,1.895 5,3L5,21C5,22.105 5.895,23 7,23L17,23C18.105,23 19,22.105 19,21L19,17L17,17L17,18ZM7,3L17,3L17,4L7,4L7,3ZM17,21L7,21L7,20L17,20L17,21ZM17.94,12.06L20,13L17.94,13.94L17,16L16.06,13.94L14,13L16.06,12.06L17,10L17.94,12.06ZM20.63,8.38L22,9L20.63,9.63L20,11L19.38,9.63L18,9L19.38,8.38L20,7L20.63,8.38Z\" fill=\"#000000\" data-coui-fill=\"true\" stroke=\"#000000\" data-coui-stroke=\"true\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17,18L7,18L7,6L17,6L17,7L19,7L19,3C19,1.895 18.105,1 17,1L7,1C5.895,1 5,1.895 5,3L5,21C5,22.105 5.895,23 7,23L17,23C18.105,23 19,22.105 19,21L19,17L17,17L17,18ZM7,3L17,3L17,4L7,4L7,3ZM17,21L7,21L7,20L17,20L17,21ZM17.94,12.06L20,13L17.94,13.94L17,16L16.06,13.94L14,13L16.06,12.06L17,10L17.94,12.06ZM20.63,8.38L22,9L20.63,9.63L20,11L19.38,9.63L18,9L19.38,8.38L20,7L20.63,8.38Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\" stroke=\"#FFFFFF\" data-coui-stroke=\"true\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Gesture",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17,18L7,18L7,6L17,6L17,7L19,7L19,3C19,1.895 18.105,1 17,1L7,1C5.895,1 5,1.895 5,3L5,21C5,22.105 5.895,23 7,23L17,23C18.105,23 19,22.105 19,21L19,17L17,17L17,18ZM7,3L17,3L17,4L7,4L7,3ZM17,21L7,21L7,20L17,20L17,21ZM17.94,12.06L20,13L17.94,13.94L17,16L16.06,13.94L14,13L16.06,12.06L17,10L17.94,12.06ZM20.63,8.38L22,9L20.63,9.63L20,11L19.38,9.63L18,9L19.38,8.38L20,7L20.63,8.38Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Gesture",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17,18L7,18L7,6L17,6L17,7L19,7L19,3C19,1.895 18.105,1 17,1L7,1C5.895,1 5,1.895 5,3L5,21C5,22.105 5.895,23 7,23L17,23C18.105,23 19,22.105 19,21L19,17L17,17L17,18ZM7,3L17,3L17,4L7,4L7,3ZM17,21L7,21L7,20L17,20L17,21ZM17.94,12.06L20,13L17.94,13.94L17,16L16.06,13.94L14,13L16.06,12.06L17,10L17.94,12.06ZM20.63,8.38L22,9L20.63,9.63L20,11L19.38,9.63L18,9L19.38,8.38L20,7L20.63,8.38Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Error",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11,15h2v2h-2v-2zM11,7h2v6h-2L11,7zM11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8 8,3.58 8,8 -3.58,8 -8,8z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11,15h2v2h-2v-2zM11,7h2v6h-2L11,7zM11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8 8,3.58 8,8 -3.58,8 -8,8z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Error",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11,15h2v2h-2v-2zM11,7h2v6h-2L11,7zM11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8 8,3.58 8,8 -3.58,8 -8,8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Error",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11,15h2v2h-2v-2zM11,7h2v6h-2L11,7zM11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8 8,3.58 8,8 -3.58,8 -8,8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ArrowDown",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,16.41l-6.71,-6.7l1.42,-1.42l5.29,5.3l5.29,-5.3l1.42,1.42z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,16.41l-6.71,-6.7l1.42,-1.42l5.29,5.3l5.29,-5.3l1.42,1.42z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "ArrowDown",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,16.41l-6.71,-6.7l1.42,-1.42l5.29,5.3l5.29,-5.3l1.42,1.42z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "ArrowDown",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,16.41l-6.71,-6.7l1.42,-1.42l5.29,5.3l5.29,-5.3l1.42,1.42z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ExpandMore",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M5.41,7.59L4,9l8,8 8,-8 -1.41,-1.41L12,14.17\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M5.41,7.59L4,9l8,8 8,-8 -1.41,-1.41L12,14.17\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "ExpandMore",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M5.41,7.59L4,9l8,8 8,-8 -1.41,-1.41L12,14.17",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "ExpandMore",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M5.41,7.59L4,9l8,8 8,-8 -1.41,-1.41L12,14.17",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ExpandLess",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18.59,16.41L20,15L12,7L4,15L5.41,16.41L12,9.83\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M18.59,16.41L20,15L12,7L4,15L5.41,16.41L12,9.83\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "ExpandLess",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18.59,16.41L20,15L12,7L4,15L5.41,16.41L12,9.83",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "ExpandLess",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M18.59,16.41L20,15L12,7L4,15L5.41,16.41L12,9.83",
               "fill": {
                 "type": "solid",
                 "hex": "#000000",

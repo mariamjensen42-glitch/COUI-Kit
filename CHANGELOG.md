@@ -84,6 +84,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 - Demo 的二级页导航从「每页一个 Activity」换成 Navigation 3：新增 `DemoRoute` 导航键与 `rememberDemoBackStack()`（`listSaver` 保存页面栈，不引入序列化插件），`MainActivity` 用 `NavDisplay` 分发首页与详情页并处理系统返回；移除 `DemoSecondaryActivity` 及其 manifest 声明。库 API 不变。[Demo 指南](docs/guide/demo.md)
 - `coui-icons` 新增 20 个图标：设置首页线框版 `Outlined.Wifi`、`Bluetooth`、`Bell`、`Sun`、`Volume`、`Plane`、`Location`、`ShieldUser`（保留原厂功能色，与同名 `Filled` 成对），以及通用操作 `Outlined.Check`、`Delete`、`Edit`、`Info`、`Warning`、`ChevronRight`、`History`、`Folder`、`Sync`、`Link`、`Download`、`Visibility`（中性色）；`ChevronRight` 与 `Download` 支持 RTL 自动镜像。[图标](docs/components/icons.md)
+- `coui-icons` 新增 42 个常用图标：分享与编辑 `Filled.Share`、`Copy`、`Send`、`Upload`、`Print`、`OpenInNew`，播放控制 `Filled.Play`、`Pause`、`Previous`、`NextTrack`、`VolumeOff`，系统与网络 `Filled.Hotspot`、`Vpn`、`Nfc`、`Cast`、`BatteryCharging`、`SystemUpdate`、`Storage`、`DataUsage`、`Language`、`NotificationsOff`、`MicOff`、`Fingerprint`、`PrivacyShield`、`DoNotDisturb`、`Flashlight`、`Vibrate`，内容与文件 `Filled.Document`、`Video`、`Chat`、`Person`、`Apps`、`Calendar`、`Clock`、`Keyboard`、`QrCode`、`Help`，以及线框 `Outlined.Gesture`、`Error`、`ArrowDown`、`ExpandMore`、`ExpandLess`；全部为中性单色，`Copy` 与 `Send` 支持 RTL 自动镜像。[图标](docs/components/icons.md)
 
 ### 移除
 

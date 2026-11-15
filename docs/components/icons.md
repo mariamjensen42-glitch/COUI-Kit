@@ -27,12 +27,14 @@ Icon(
 )
 ```
 
-图标按 `CouiIcons.Filled` 和 `CouiIcons.Outlined` 提供。`Back`、`Next`、`Close`、`Add`、`DarkLight`、`ListFilter`、`More` 和 `Scan` 在两种样式中使用相同图形；`Search`、`SliderCustom` 和 `LayoutSpliced` 仅提供 `Outlined`。它们默认日间为黑色、夜间为白色，其中 `Back`、`Next`、`ChevronRight` 和 `Download` 支持 RTL 自动镜像。
+图标按 `CouiIcons.Filled` 和 `CouiIcons.Outlined` 提供。`Back`、`Next`、`Close`、`Add`、`DarkLight`、`ListFilter`、`More` 和 `Scan` 在两种样式中使用相同图形；`Search`、`SliderCustom` 和 `LayoutSpliced` 仅提供 `Outlined`。它们默认日间为黑色、夜间为白色，其中 `Back`、`Next`、`ChevronRight`、`Download`、`Copy` 和 `Send` 支持 RTL 自动镜像。
 
 `Outlined` 另提供两类只有线框形式的图标：
 
 - 设置入口线框图，与同名 `Filled` 图标成对，保留原厂功能色：`Wifi`、`Bluetooth`、`Bell`（蓝）、`Sun`、`Plane`、`Location`（黄）、`Volume`（绿）、`ShieldUser`（蓝）。
-- 通用操作图标，中性黑白：`Check`、`Delete`、`Edit`、`Info`、`Warning`、`ChevronRight`、`History`、`Folder`、`Sync`、`Link`、`Download`、`Visibility`。
+- 通用操作图标，中性黑白：`Check`、`Delete`、`Edit`、`Info`、`Warning`、`ChevronRight`、`History`、`Folder`、`Sync`、`Link`、`Download`、`Visibility`、`Gesture`、`Error`、`ArrowDown`、`ExpandMore`、`ExpandLess`。
+
+`Filled` 覆盖常用功能图形，按用途分为几组：分享与编辑（`Share`、`Copy`、`Send`、`Upload`、`Print`、`OpenInNew`）、播放控制（`Play`、`Pause`、`Previous`、`NextTrack`、`VolumeOff`）、系统与网络（`Hotspot`、`Vpn`、`Nfc`、`Cast`、`BatteryCharging`、`SystemUpdate`、`Storage`、`DataUsage`、`Language`、`NotificationsOff`、`MicOff`、`Fingerprint`、`PrivacyShield`、`DoNotDisturb`、`Flashlight`、`Vibrate`）、内容与文件（`Document`、`Video`、`Chat`、`Person`、`Apps`、`Calendar`、`Clock`、`Keyboard`、`QrCode`、`Help`）。这一组统一为中性单色，需要功能色时由调用方传 `tint`。
 
 矢量图形保存在 VectorDrawable 资源中，传统 View 可直接引用，例如 `@drawable/coui_wifi_filled`。传统 View 根据 Android 配置选择日夜资源。
 

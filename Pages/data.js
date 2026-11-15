@@ -10001,6 +10001,2582 @@ window.COUI_ICON_DATA = {
       }
     },
     {
+      "name": "Wifi",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Wifi-outlined-day-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-Wifi-outlined-day-clip-1)\"><path d=\"M3.237,9.358C5.582,7.117 8.689,5.875 11.996,5.875C15.286,5.875 18.392,7.109 20.764,9.366\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M5.73,11.85C7.428,10.258 9.642,9.383 11.995,9.383C14.34,9.383 16.554,10.258 18.269,11.859\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M8.224,14.346C9.248,13.419 10.587,12.902 11.995,12.902C13.413,12.902 14.743,13.419 15.784,14.346\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10.325,16.387C10.777,15.994 11.366,15.766 12.004,15.766C12.642,15.766 13.231,15.994 13.684,16.387C13.812,16.499 13.888,16.659 13.894,16.828C13.9,16.998 13.835,17.163 13.714,17.283L12.437,18.557C12.198,18.796 11.811,18.796 11.572,18.557L10.294,17.283C10.174,17.163 10.109,16.998 10.115,16.828C10.12,16.659 10.197,16.499 10.325,16.387Z\" fill=\"#0080FF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Wifi-outlined-night-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-Wifi-outlined-night-clip-1)\"><path d=\"M3.237,9.358C5.582,7.117 8.689,5.875 11.996,5.875C15.286,5.875 18.392,7.109 20.764,9.366\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M5.73,11.85C7.428,10.258 9.642,9.383 11.995,9.383C14.34,9.383 16.554,10.258 18.269,11.859\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M8.224,14.346C9.248,13.419 10.587,12.902 11.995,12.902C13.413,12.902 14.743,13.419 15.784,14.346\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10.325,16.387C10.777,15.994 11.366,15.766 12.004,15.766C12.642,15.766 13.231,15.994 13.684,16.387C13.812,16.499 13.888,16.659 13.894,16.828C13.9,16.998 13.835,17.163 13.714,17.283L12.437,18.557C12.198,18.796 11.811,18.796 11.572,18.557L10.294,17.283C10.174,17.163 10.109,16.998 10.115,16.828C10.12,16.659 10.197,16.499 10.325,16.387Z\" fill=\"#1A8CFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Wifi",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#0080FF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M3.237,9.358C5.582,7.117 8.689,5.875 11.996,5.875C15.286,5.875 18.392,7.109 20.764,9.366",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M5.73,11.85C7.428,10.258 9.642,9.383 11.995,9.383C14.34,9.383 16.554,10.258 18.269,11.859",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M8.224,14.346C9.248,13.419 10.587,12.902 11.995,12.902C13.413,12.902 14.743,13.419 15.784,14.346",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M10.325,16.387C10.777,15.994 11.366,15.766 12.004,15.766C12.642,15.766 13.231,15.994 13.684,16.387C13.812,16.499 13.888,16.659 13.894,16.828C13.9,16.998 13.835,17.163 13.714,17.283L12.437,18.557C12.198,18.796 11.811,18.796 11.572,18.557L10.294,17.283C10.174,17.163 10.109,16.998 10.115,16.828C10.12,16.659 10.197,16.499 10.325,16.387Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Wifi",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#1A8CFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M3.237,9.358C5.582,7.117 8.689,5.875 11.996,5.875C15.286,5.875 18.392,7.109 20.764,9.366",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M5.73,11.85C7.428,10.258 9.642,9.383 11.995,9.383C14.34,9.383 16.554,10.258 18.269,11.859",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M8.224,14.346C9.248,13.419 10.587,12.902 11.995,12.902C13.413,12.902 14.743,13.419 15.784,14.346",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M10.325,16.387C10.777,15.994 11.366,15.766 12.004,15.766C12.642,15.766 13.231,15.994 13.684,16.387C13.812,16.499 13.888,16.659 13.894,16.828C13.9,16.998 13.835,17.163 13.714,17.283L12.437,18.557C12.198,18.796 11.811,18.796 11.572,18.557L10.294,17.283C10.174,17.163 10.109,16.998 10.115,16.828C10.12,16.659 10.197,16.499 10.325,16.387Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bluetooth",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Bluetooth-outlined-day-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath><clipPath id=\"coui-Bluetooth-outlined-day-clip-2\"><path d=\"M1.5,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Bluetooth-outlined-day-clip-1)\"><g clip-path=\"url(#coui-Bluetooth-outlined-day-clip-2)\"><path d=\"M7.143,7.227L16.596,16.68L11.947,20.716L11.947,12.031L11.997,11.998L11.997,3.313L16.646,7.349L7.184,16.811\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Bluetooth-outlined-night-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath><clipPath id=\"coui-Bluetooth-outlined-night-clip-2\"><path d=\"M1.5,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Bluetooth-outlined-night-clip-1)\"><g clip-path=\"url(#coui-Bluetooth-outlined-night-clip-2)\"><path d=\"M7.143,7.227L16.596,16.68L11.947,20.716L11.947,12.031L11.997,11.998L11.997,3.313L16.646,7.349L7.184,16.811\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Bluetooth",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#0080FF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.5,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M7.143,7.227L16.596,16.68L11.947,20.716L11.947,12.031L11.997,11.998L11.997,3.313L16.646,7.349L7.184,16.811",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Bluetooth",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#1A8CFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.5,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M7.143,7.227L16.596,16.68L11.947,20.716L11.947,12.031L11.997,11.998L11.997,3.313L16.646,7.349L7.184,16.811",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bell",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Bell-outlined-day-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath><clipPath id=\"coui-Bell-outlined-day-clip-2\"><path d=\"M1.5,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Bell-outlined-day-clip-1)\"><g clip-path=\"url(#coui-Bell-outlined-day-clip-2)\"><path d=\"M20.013,16.117C19.803,16.852 19.111,17.386 18.298,17.386H6.205C5.391,17.386 4.7,16.852 4.49,16.117C4.543,16.126 4.586,16.126 4.639,16.126H19.864C19.917,16.126 19.96,16.126 20.013,16.117Z\" fill=\"#0080FF\" data-coui-fill=\"true\"/><path d=\"M12.251,9.127H18.151\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.225\" stroke-linecap=\"round\" stroke-linejoin=\"miter\"/><path d=\"M12.251,11.752H14.876\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.225\" stroke-linecap=\"round\" stroke-linejoin=\"miter\"/><path d=\"M19.862,6.5H4.637C4.009,6.5 3.5,7.009 3.5,7.637V13.238C3.5,13.866 4.009,14.375 4.637,14.375H19.862C20.491,14.375 21,13.866 21,13.238V7.637C21,7.009 20.491,6.5 19.862,6.5Z\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\"/><path d=\"M9.057,9.696V11.183H7.569V9.696H9.057ZM9.494,8.471H7.132C6.697,8.471 6.344,8.823 6.344,9.258V11.621C6.344,12.056 6.697,12.408 7.132,12.408H9.494C9.929,12.408 10.282,12.056 10.282,11.621V9.258C10.282,8.823 9.929,8.471 9.494,8.471Z\" fill=\"#0080FF\" data-coui-fill=\"true\"/></g></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Bell-outlined-night-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath><clipPath id=\"coui-Bell-outlined-night-clip-2\"><path d=\"M1.5,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Bell-outlined-night-clip-1)\"><g clip-path=\"url(#coui-Bell-outlined-night-clip-2)\"><path d=\"M20.013,16.117C19.803,16.852 19.111,17.386 18.298,17.386H6.205C5.391,17.386 4.7,16.852 4.49,16.117C4.543,16.126 4.586,16.126 4.639,16.126H19.864C19.917,16.126 19.96,16.126 20.013,16.117Z\" fill=\"#1A8CFF\" data-coui-fill=\"true\"/><path d=\"M12.251,9.127H18.151\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.225\" stroke-linecap=\"round\" stroke-linejoin=\"miter\"/><path d=\"M12.251,11.752H14.876\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.225\" stroke-linecap=\"round\" stroke-linejoin=\"miter\"/><path d=\"M19.862,6.5H4.637C4.009,6.5 3.5,7.009 3.5,7.637V13.238C3.5,13.866 4.009,14.375 4.637,14.375H19.862C20.491,14.375 21,13.866 21,13.238V7.637C21,7.009 20.491,6.5 19.862,6.5Z\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\"/><path d=\"M9.057,9.696V11.183H7.569V9.696H9.057ZM9.494,8.471H7.132C6.697,8.471 6.344,8.823 6.344,9.258V11.621C6.344,12.056 6.697,12.408 7.132,12.408H9.494C9.929,12.408 10.282,12.056 10.282,11.621V9.258C10.282,8.823 9.929,8.471 9.494,8.471Z\" fill=\"#1A8CFF\" data-coui-fill=\"true\"/></g></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Bell",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#0080FF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.5,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M20.013,16.117C19.803,16.852 19.111,17.386 18.298,17.386H6.205C5.391,17.386 4.7,16.852 4.49,16.117C4.543,16.126 4.586,16.126 4.639,16.126H19.864C19.917,16.126 19.96,16.126 20.013,16.117Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12.251,9.127H18.151",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.225,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12.251,11.752H14.876",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.225,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M19.862,6.5H4.637C4.009,6.5 3.5,7.009 3.5,7.637V13.238C3.5,13.866 4.009,14.375 4.637,14.375H19.862C20.491,14.375 21,13.866 21,13.238V7.637C21,7.009 20.491,6.5 19.862,6.5Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M9.057,9.696V11.183H7.569V9.696H9.057ZM9.494,8.471H7.132C6.697,8.471 6.344,8.823 6.344,9.258V11.621C6.344,12.056 6.697,12.408 7.132,12.408H9.494C9.929,12.408 10.282,12.056 10.282,11.621V9.258C10.282,8.823 9.929,8.471 9.494,8.471Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Bell",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#1A8CFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.5,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M20.013,16.117C19.803,16.852 19.111,17.386 18.298,17.386H6.205C5.391,17.386 4.7,16.852 4.49,16.117C4.543,16.126 4.586,16.126 4.639,16.126H19.864C19.917,16.126 19.96,16.126 20.013,16.117Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12.251,9.127H18.151",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.225,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12.251,11.752H14.876",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.225,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M19.862,6.5H4.637C4.009,6.5 3.5,7.009 3.5,7.637V13.238C3.5,13.866 4.009,14.375 4.637,14.375H19.862C20.491,14.375 21,13.866 21,13.238V7.637C21,7.009 20.491,6.5 19.862,6.5Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M9.057,9.696V11.183H7.569V9.696H9.057ZM9.494,8.471H7.132C6.697,8.471 6.344,8.823 6.344,9.258V11.621C6.344,12.056 6.697,12.408 7.132,12.408H9.494C9.929,12.408 10.282,12.056 10.282,11.621V9.258C10.282,8.823 9.929,8.471 9.494,8.471Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Sun",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Sun-outlined-day-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-Sun-outlined-day-clip-1)\"><path d=\"M11.997,2.461C12.431,2.461 12.784,2.814 12.784,3.248V4.998C12.784,5.433 12.431,5.786 11.997,5.786C11.562,5.786 11.209,5.433 11.209,4.998V3.248C11.209,2.814 11.562,2.461 11.997,2.461ZM11.997,8.411C10.015,8.411 8.409,10.017 8.409,11.998C8.409,13.98 10.015,15.586 11.997,15.586C13.978,15.586 15.584,13.98 15.584,11.998C15.584,10.017 13.978,8.411 11.997,8.411ZM6.834,11.998C6.834,9.147 9.145,6.836 11.997,6.836C14.848,6.836 17.159,9.147 17.159,11.998C17.159,14.85 14.848,17.161 11.997,17.161C9.145,17.161 6.834,14.85 6.834,11.998ZM18.74,6.369C19.048,6.061 19.048,5.563 18.74,5.255C18.433,4.948 17.934,4.948 17.626,5.255L16.389,6.492C16.081,6.8 16.081,7.299 16.389,7.606C16.696,7.914 17.195,7.914 17.503,7.606L18.74,6.369ZM18.209,11.998C18.209,11.564 18.562,11.211 18.997,11.211H20.747C21.181,11.211 21.534,11.564 21.534,11.998C21.534,12.433 21.181,12.786 20.747,12.786H18.997C18.562,12.786 18.209,12.433 18.209,11.998ZM17.503,16.391C17.195,16.083 16.696,16.083 16.389,16.391C16.081,16.698 16.081,17.197 16.389,17.504L17.626,18.742C17.934,19.049 18.433,19.049 18.74,18.742C19.048,18.434 19.048,17.936 18.74,17.628L17.503,16.391ZM11.997,18.211C12.431,18.211 12.784,18.563 12.784,18.998V20.748C12.784,21.183 12.431,21.536 11.997,21.536C11.562,21.536 11.209,21.183 11.209,20.748V18.998C11.209,18.563 11.562,18.211 11.997,18.211ZM7.604,17.504C7.912,17.197 7.912,16.698 7.604,16.391C7.297,16.083 6.798,16.083 6.491,16.391L5.253,17.628C4.946,17.936 4.946,18.434 5.253,18.742C5.561,19.049 6.059,19.049 6.367,18.742L7.604,17.504ZM2.459,11.998C2.459,11.564 2.812,11.211 3.246,11.211H4.996C5.431,11.211 5.784,11.564 5.784,11.998C5.784,12.433 5.431,12.786 4.996,12.786H3.246C2.812,12.786 2.459,12.433 2.459,11.998ZM6.367,5.255C6.059,4.948 5.561,4.948 5.253,5.255C4.946,5.563 4.946,6.061 5.253,6.369L6.491,7.606C6.798,7.914 7.297,7.914 7.604,7.606C7.912,7.299 7.912,6.8 7.604,6.492L6.367,5.255Z\" fill=\"#FFB200\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Sun-outlined-night-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-Sun-outlined-night-clip-1)\"><path d=\"M11.997,2.461C12.431,2.461 12.784,2.814 12.784,3.248V4.998C12.784,5.433 12.431,5.786 11.997,5.786C11.562,5.786 11.209,5.433 11.209,4.998V3.248C11.209,2.814 11.562,2.461 11.997,2.461ZM11.997,8.411C10.015,8.411 8.409,10.017 8.409,11.998C8.409,13.98 10.015,15.586 11.997,15.586C13.978,15.586 15.584,13.98 15.584,11.998C15.584,10.017 13.978,8.411 11.997,8.411ZM6.834,11.998C6.834,9.147 9.145,6.836 11.997,6.836C14.848,6.836 17.159,9.147 17.159,11.998C17.159,14.85 14.848,17.161 11.997,17.161C9.145,17.161 6.834,14.85 6.834,11.998ZM18.74,6.369C19.048,6.061 19.048,5.563 18.74,5.255C18.433,4.948 17.934,4.948 17.626,5.255L16.389,6.492C16.081,6.8 16.081,7.299 16.389,7.606C16.696,7.914 17.195,7.914 17.503,7.606L18.74,6.369ZM18.209,11.998C18.209,11.564 18.562,11.211 18.997,11.211H20.747C21.181,11.211 21.534,11.564 21.534,11.998C21.534,12.433 21.181,12.786 20.747,12.786H18.997C18.562,12.786 18.209,12.433 18.209,11.998ZM17.503,16.391C17.195,16.083 16.696,16.083 16.389,16.391C16.081,16.698 16.081,17.197 16.389,17.504L17.626,18.742C17.934,19.049 18.433,19.049 18.74,18.742C19.048,18.434 19.048,17.936 18.74,17.628L17.503,16.391ZM11.997,18.211C12.431,18.211 12.784,18.563 12.784,18.998V20.748C12.784,21.183 12.431,21.536 11.997,21.536C11.562,21.536 11.209,21.183 11.209,20.748V18.998C11.209,18.563 11.562,18.211 11.997,18.211ZM7.604,17.504C7.912,17.197 7.912,16.698 7.604,16.391C7.297,16.083 6.798,16.083 6.491,16.391L5.253,17.628C4.946,17.936 4.946,18.434 5.253,18.742C5.561,19.049 6.059,19.049 6.367,18.742L7.604,17.504ZM2.459,11.998C2.459,11.564 2.812,11.211 3.246,11.211H4.996C5.431,11.211 5.784,11.564 5.784,11.998C5.784,12.433 5.431,12.786 4.996,12.786H3.246C2.812,12.786 2.459,12.433 2.459,11.998ZM6.367,5.255C6.059,4.948 5.561,4.948 5.253,5.255C4.946,5.563 4.946,6.061 5.253,6.369L6.491,7.606C6.798,7.914 7.297,7.914 7.604,7.606C7.912,7.299 7.912,6.8 7.604,6.492L6.367,5.255Z\" fill=\"#E5A100\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Sun",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFB200",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11.997,2.461C12.431,2.461 12.784,2.814 12.784,3.248V4.998C12.784,5.433 12.431,5.786 11.997,5.786C11.562,5.786 11.209,5.433 11.209,4.998V3.248C11.209,2.814 11.562,2.461 11.997,2.461ZM11.997,8.411C10.015,8.411 8.409,10.017 8.409,11.998C8.409,13.98 10.015,15.586 11.997,15.586C13.978,15.586 15.584,13.98 15.584,11.998C15.584,10.017 13.978,8.411 11.997,8.411ZM6.834,11.998C6.834,9.147 9.145,6.836 11.997,6.836C14.848,6.836 17.159,9.147 17.159,11.998C17.159,14.85 14.848,17.161 11.997,17.161C9.145,17.161 6.834,14.85 6.834,11.998ZM18.74,6.369C19.048,6.061 19.048,5.563 18.74,5.255C18.433,4.948 17.934,4.948 17.626,5.255L16.389,6.492C16.081,6.8 16.081,7.299 16.389,7.606C16.696,7.914 17.195,7.914 17.503,7.606L18.74,6.369ZM18.209,11.998C18.209,11.564 18.562,11.211 18.997,11.211H20.747C21.181,11.211 21.534,11.564 21.534,11.998C21.534,12.433 21.181,12.786 20.747,12.786H18.997C18.562,12.786 18.209,12.433 18.209,11.998ZM17.503,16.391C17.195,16.083 16.696,16.083 16.389,16.391C16.081,16.698 16.081,17.197 16.389,17.504L17.626,18.742C17.934,19.049 18.433,19.049 18.74,18.742C19.048,18.434 19.048,17.936 18.74,17.628L17.503,16.391ZM11.997,18.211C12.431,18.211 12.784,18.563 12.784,18.998V20.748C12.784,21.183 12.431,21.536 11.997,21.536C11.562,21.536 11.209,21.183 11.209,20.748V18.998C11.209,18.563 11.562,18.211 11.997,18.211ZM7.604,17.504C7.912,17.197 7.912,16.698 7.604,16.391C7.297,16.083 6.798,16.083 6.491,16.391L5.253,17.628C4.946,17.936 4.946,18.434 5.253,18.742C5.561,19.049 6.059,19.049 6.367,18.742L7.604,17.504ZM2.459,11.998C2.459,11.564 2.812,11.211 3.246,11.211H4.996C5.431,11.211 5.784,11.564 5.784,11.998C5.784,12.433 5.431,12.786 4.996,12.786H3.246C2.812,12.786 2.459,12.433 2.459,11.998ZM6.367,5.255C6.059,4.948 5.561,4.948 5.253,5.255C4.946,5.563 4.946,6.061 5.253,6.369L6.491,7.606C6.798,7.914 7.297,7.914 7.604,7.606C7.912,7.299 7.912,6.8 7.604,6.492L6.367,5.255Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Sun",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#E5A100",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11.997,2.461C12.431,2.461 12.784,2.814 12.784,3.248V4.998C12.784,5.433 12.431,5.786 11.997,5.786C11.562,5.786 11.209,5.433 11.209,4.998V3.248C11.209,2.814 11.562,2.461 11.997,2.461ZM11.997,8.411C10.015,8.411 8.409,10.017 8.409,11.998C8.409,13.98 10.015,15.586 11.997,15.586C13.978,15.586 15.584,13.98 15.584,11.998C15.584,10.017 13.978,8.411 11.997,8.411ZM6.834,11.998C6.834,9.147 9.145,6.836 11.997,6.836C14.848,6.836 17.159,9.147 17.159,11.998C17.159,14.85 14.848,17.161 11.997,17.161C9.145,17.161 6.834,14.85 6.834,11.998ZM18.74,6.369C19.048,6.061 19.048,5.563 18.74,5.255C18.433,4.948 17.934,4.948 17.626,5.255L16.389,6.492C16.081,6.8 16.081,7.299 16.389,7.606C16.696,7.914 17.195,7.914 17.503,7.606L18.74,6.369ZM18.209,11.998C18.209,11.564 18.562,11.211 18.997,11.211H20.747C21.181,11.211 21.534,11.564 21.534,11.998C21.534,12.433 21.181,12.786 20.747,12.786H18.997C18.562,12.786 18.209,12.433 18.209,11.998ZM17.503,16.391C17.195,16.083 16.696,16.083 16.389,16.391C16.081,16.698 16.081,17.197 16.389,17.504L17.626,18.742C17.934,19.049 18.433,19.049 18.74,18.742C19.048,18.434 19.048,17.936 18.74,17.628L17.503,16.391ZM11.997,18.211C12.431,18.211 12.784,18.563 12.784,18.998V20.748C12.784,21.183 12.431,21.536 11.997,21.536C11.562,21.536 11.209,21.183 11.209,20.748V18.998C11.209,18.563 11.562,18.211 11.997,18.211ZM7.604,17.504C7.912,17.197 7.912,16.698 7.604,16.391C7.297,16.083 6.798,16.083 6.491,16.391L5.253,17.628C4.946,17.936 4.946,18.434 5.253,18.742C5.561,19.049 6.059,19.049 6.367,18.742L7.604,17.504ZM2.459,11.998C2.459,11.564 2.812,11.211 3.246,11.211H4.996C5.431,11.211 5.784,11.564 5.784,11.998C5.784,12.433 5.431,12.786 4.996,12.786H3.246C2.812,12.786 2.459,12.433 2.459,11.998ZM6.367,5.255C6.059,4.948 5.561,4.948 5.253,5.255C4.946,5.563 4.946,6.061 5.253,6.369L6.491,7.606C6.798,7.914 7.297,7.914 7.604,7.606C7.912,7.299 7.912,6.8 7.604,6.492L6.367,5.255Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Volume",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Volume-outlined-day-clip-1\"><path d=\"M1.5,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Volume-outlined-day-clip-1)\"><path d=\"M4.907,4.715C5.182,4.378 5.133,3.882 4.796,3.607C4.459,3.331 3.963,3.381 3.688,3.717C2.324,5.384 1.585,7.53 1.585,9.965V10.248C1.585,10.683 1.937,11.035 2.372,11.035C2.807,11.035 3.16,10.683 3.16,10.248V9.965C3.16,7.856 3.796,6.072 4.907,4.715ZM19.199,3.607C19.536,3.331 20.032,3.381 20.307,3.717C21.671,5.384 22.41,7.53 22.41,9.965V10.248C22.41,10.683 22.058,11.035 21.623,11.035C21.188,11.035 20.835,10.683 20.835,10.248V9.965C20.835,7.856 20.199,6.072 19.088,4.715C18.813,4.378 18.863,3.882 19.199,3.607ZM11.997,4.137C11.521,4.137 11.134,4.523 11.134,5C11.134,5.078 11.145,5.155 11.165,5.227C9.837,5.362 8.778,5.835 8.024,6.639C7.125,7.596 6.759,8.917 6.759,10.379V11.561C6.759,13.534 6.24,14.443 5.772,15.028C5.646,15.185 5.518,15.326 5.385,15.471L5.359,15.499L5.358,15.5C5.238,15.631 5.105,15.775 4.988,15.922C4.723,16.257 4.484,16.675 4.484,17.249C4.484,17.629 4.792,17.936 5.172,17.936H9.168C9.13,18.702 9.406,19.478 9.996,20.062C11.103,21.177 12.891,21.177 13.998,20.062C14.587,19.478 14.863,18.702 14.826,17.936H18.822C19.201,17.936 19.509,17.629 19.509,17.249C19.509,16.675 19.27,16.257 19.005,15.922C18.888,15.775 18.755,15.631 18.635,15.5L18.634,15.499L18.608,15.471C18.475,15.326 18.347,15.185 18.221,15.028C17.753,14.443 17.234,13.534 17.234,11.561V10.379C17.234,8.917 16.868,7.596 15.969,6.639C15.215,5.835 14.157,5.363 12.829,5.227C12.849,5.155 12.86,5.078 12.86,5C12.86,4.523 12.473,4.137 11.997,4.137ZM9.026,7.58C9.598,6.971 10.529,6.561 11.997,6.561C13.464,6.561 14.395,6.971 14.967,7.58C15.546,8.197 15.859,9.128 15.859,10.379V11.561C15.859,13.835 16.477,15.05 17.147,15.887C17.306,16.085 17.462,16.256 17.596,16.401L17.611,16.418C17.659,16.47 17.702,16.517 17.742,16.561H6.251C6.291,16.517 6.335,16.47 6.382,16.418L6.397,16.401C6.531,16.256 6.687,16.085 6.846,15.887C7.516,15.05 8.134,13.835 8.134,11.561V10.379C8.134,9.128 8.447,8.197 9.026,7.58ZM11.211,18.837C10.962,18.591 10.857,18.258 10.898,17.936H13.095C13.137,18.258 13.031,18.592 12.782,18.838L12.775,18.845C12.342,19.282 11.651,19.281 11.218,18.844L11.211,18.837ZM17.381,5.322C17.731,5.064 18.224,5.138 18.482,5.488C19.381,6.706 19.831,8.236 19.831,9.966V10.249C19.831,10.684 19.478,11.036 19.043,11.036C18.608,11.036 18.256,10.684 18.256,10.249V9.966C18.256,8.51 17.88,7.324 17.215,6.423C16.957,6.073 17.031,5.58 17.381,5.322ZM6.779,6.423C7.037,6.073 6.963,5.58 6.613,5.322C6.263,5.064 5.77,5.138 5.512,5.488C4.613,6.706 4.164,8.236 4.164,9.966V10.249C4.164,10.684 4.516,11.036 4.951,11.036C5.386,11.036 5.739,10.684 5.739,10.249V9.966C5.739,8.51 6.114,7.324 6.779,6.423Z\" fill=\"#00BD13\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Volume-outlined-night-clip-1\"><path d=\"M1.5,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Volume-outlined-night-clip-1)\"><path d=\"M4.907,4.715C5.182,4.378 5.133,3.882 4.796,3.607C4.459,3.331 3.963,3.381 3.688,3.717C2.324,5.384 1.585,7.53 1.585,9.965V10.248C1.585,10.683 1.937,11.035 2.372,11.035C2.807,11.035 3.16,10.683 3.16,10.248V9.965C3.16,7.856 3.796,6.072 4.907,4.715ZM19.199,3.607C19.536,3.331 20.032,3.381 20.307,3.717C21.671,5.384 22.41,7.53 22.41,9.965V10.248C22.41,10.683 22.058,11.035 21.623,11.035C21.188,11.035 20.835,10.683 20.835,10.248V9.965C20.835,7.856 20.199,6.072 19.088,4.715C18.813,4.378 18.863,3.882 19.199,3.607ZM11.997,4.137C11.521,4.137 11.134,4.523 11.134,5C11.134,5.078 11.145,5.155 11.165,5.227C9.837,5.362 8.778,5.835 8.024,6.639C7.125,7.596 6.759,8.917 6.759,10.379V11.561C6.759,13.534 6.24,14.443 5.772,15.028C5.646,15.185 5.518,15.326 5.385,15.471L5.359,15.499L5.358,15.5C5.238,15.631 5.105,15.775 4.988,15.922C4.723,16.257 4.484,16.675 4.484,17.249C4.484,17.629 4.792,17.936 5.172,17.936H9.168C9.13,18.702 9.406,19.478 9.996,20.062C11.103,21.177 12.891,21.177 13.998,20.062C14.587,19.478 14.863,18.702 14.826,17.936H18.822C19.201,17.936 19.509,17.629 19.509,17.249C19.509,16.675 19.27,16.257 19.005,15.922C18.888,15.775 18.755,15.631 18.635,15.5L18.634,15.499L18.608,15.471C18.475,15.326 18.347,15.185 18.221,15.028C17.753,14.443 17.234,13.534 17.234,11.561V10.379C17.234,8.917 16.868,7.596 15.969,6.639C15.215,5.835 14.157,5.363 12.829,5.227C12.849,5.155 12.86,5.078 12.86,5C12.86,4.523 12.473,4.137 11.997,4.137ZM9.026,7.58C9.598,6.971 10.529,6.561 11.997,6.561C13.464,6.561 14.395,6.971 14.967,7.58C15.546,8.197 15.859,9.128 15.859,10.379V11.561C15.859,13.835 16.477,15.05 17.147,15.887C17.306,16.085 17.462,16.256 17.596,16.401L17.611,16.418C17.659,16.47 17.702,16.517 17.742,16.561H6.251C6.291,16.517 6.335,16.47 6.382,16.418L6.397,16.401C6.531,16.256 6.687,16.085 6.846,15.887C7.516,15.05 8.134,13.835 8.134,11.561V10.379C8.134,9.128 8.447,8.197 9.026,7.58ZM11.211,18.837C10.962,18.591 10.857,18.258 10.898,17.936H13.095C13.137,18.258 13.031,18.592 12.782,18.838L12.775,18.845C12.342,19.282 11.651,19.281 11.218,18.844L11.211,18.837ZM17.381,5.322C17.731,5.064 18.224,5.138 18.482,5.488C19.381,6.706 19.831,8.236 19.831,9.966V10.249C19.831,10.684 19.478,11.036 19.043,11.036C18.608,11.036 18.256,10.684 18.256,10.249V9.966C18.256,8.51 17.88,7.324 17.215,6.423C16.957,6.073 17.031,5.58 17.381,5.322ZM6.779,6.423C7.037,6.073 6.963,5.58 6.613,5.322C6.263,5.064 5.77,5.138 5.512,5.488C4.613,6.706 4.164,8.236 4.164,9.966V10.249C4.164,10.684 4.516,11.036 4.951,11.036C5.386,11.036 5.739,10.684 5.739,10.249V9.966C5.739,8.51 6.114,7.324 6.779,6.423Z\" fill=\"#24B232\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Volume",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#00BD13",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.5,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M4.907,4.715C5.182,4.378 5.133,3.882 4.796,3.607C4.459,3.331 3.963,3.381 3.688,3.717C2.324,5.384 1.585,7.53 1.585,9.965V10.248C1.585,10.683 1.937,11.035 2.372,11.035C2.807,11.035 3.16,10.683 3.16,10.248V9.965C3.16,7.856 3.796,6.072 4.907,4.715ZM19.199,3.607C19.536,3.331 20.032,3.381 20.307,3.717C21.671,5.384 22.41,7.53 22.41,9.965V10.248C22.41,10.683 22.058,11.035 21.623,11.035C21.188,11.035 20.835,10.683 20.835,10.248V9.965C20.835,7.856 20.199,6.072 19.088,4.715C18.813,4.378 18.863,3.882 19.199,3.607ZM11.997,4.137C11.521,4.137 11.134,4.523 11.134,5C11.134,5.078 11.145,5.155 11.165,5.227C9.837,5.362 8.778,5.835 8.024,6.639C7.125,7.596 6.759,8.917 6.759,10.379V11.561C6.759,13.534 6.24,14.443 5.772,15.028C5.646,15.185 5.518,15.326 5.385,15.471L5.359,15.499L5.358,15.5C5.238,15.631 5.105,15.775 4.988,15.922C4.723,16.257 4.484,16.675 4.484,17.249C4.484,17.629 4.792,17.936 5.172,17.936H9.168C9.13,18.702 9.406,19.478 9.996,20.062C11.103,21.177 12.891,21.177 13.998,20.062C14.587,19.478 14.863,18.702 14.826,17.936H18.822C19.201,17.936 19.509,17.629 19.509,17.249C19.509,16.675 19.27,16.257 19.005,15.922C18.888,15.775 18.755,15.631 18.635,15.5L18.634,15.499L18.608,15.471C18.475,15.326 18.347,15.185 18.221,15.028C17.753,14.443 17.234,13.534 17.234,11.561V10.379C17.234,8.917 16.868,7.596 15.969,6.639C15.215,5.835 14.157,5.363 12.829,5.227C12.849,5.155 12.86,5.078 12.86,5C12.86,4.523 12.473,4.137 11.997,4.137ZM9.026,7.58C9.598,6.971 10.529,6.561 11.997,6.561C13.464,6.561 14.395,6.971 14.967,7.58C15.546,8.197 15.859,9.128 15.859,10.379V11.561C15.859,13.835 16.477,15.05 17.147,15.887C17.306,16.085 17.462,16.256 17.596,16.401L17.611,16.418C17.659,16.47 17.702,16.517 17.742,16.561H6.251C6.291,16.517 6.335,16.47 6.382,16.418L6.397,16.401C6.531,16.256 6.687,16.085 6.846,15.887C7.516,15.05 8.134,13.835 8.134,11.561V10.379C8.134,9.128 8.447,8.197 9.026,7.58ZM11.211,18.837C10.962,18.591 10.857,18.258 10.898,17.936H13.095C13.137,18.258 13.031,18.592 12.782,18.838L12.775,18.845C12.342,19.282 11.651,19.281 11.218,18.844L11.211,18.837ZM17.381,5.322C17.731,5.064 18.224,5.138 18.482,5.488C19.381,6.706 19.831,8.236 19.831,9.966V10.249C19.831,10.684 19.478,11.036 19.043,11.036C18.608,11.036 18.256,10.684 18.256,10.249V9.966C18.256,8.51 17.88,7.324 17.215,6.423C16.957,6.073 17.031,5.58 17.381,5.322ZM6.779,6.423C7.037,6.073 6.963,5.58 6.613,5.322C6.263,5.064 5.77,5.138 5.512,5.488C4.613,6.706 4.164,8.236 4.164,9.966V10.249C4.164,10.684 4.516,11.036 4.951,11.036C5.386,11.036 5.739,10.684 5.739,10.249V9.966C5.739,8.51 6.114,7.324 6.779,6.423Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Volume",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#24B232",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.5,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M4.907,4.715C5.182,4.378 5.133,3.882 4.796,3.607C4.459,3.331 3.963,3.381 3.688,3.717C2.324,5.384 1.585,7.53 1.585,9.965V10.248C1.585,10.683 1.937,11.035 2.372,11.035C2.807,11.035 3.16,10.683 3.16,10.248V9.965C3.16,7.856 3.796,6.072 4.907,4.715ZM19.199,3.607C19.536,3.331 20.032,3.381 20.307,3.717C21.671,5.384 22.41,7.53 22.41,9.965V10.248C22.41,10.683 22.058,11.035 21.623,11.035C21.188,11.035 20.835,10.683 20.835,10.248V9.965C20.835,7.856 20.199,6.072 19.088,4.715C18.813,4.378 18.863,3.882 19.199,3.607ZM11.997,4.137C11.521,4.137 11.134,4.523 11.134,5C11.134,5.078 11.145,5.155 11.165,5.227C9.837,5.362 8.778,5.835 8.024,6.639C7.125,7.596 6.759,8.917 6.759,10.379V11.561C6.759,13.534 6.24,14.443 5.772,15.028C5.646,15.185 5.518,15.326 5.385,15.471L5.359,15.499L5.358,15.5C5.238,15.631 5.105,15.775 4.988,15.922C4.723,16.257 4.484,16.675 4.484,17.249C4.484,17.629 4.792,17.936 5.172,17.936H9.168C9.13,18.702 9.406,19.478 9.996,20.062C11.103,21.177 12.891,21.177 13.998,20.062C14.587,19.478 14.863,18.702 14.826,17.936H18.822C19.201,17.936 19.509,17.629 19.509,17.249C19.509,16.675 19.27,16.257 19.005,15.922C18.888,15.775 18.755,15.631 18.635,15.5L18.634,15.499L18.608,15.471C18.475,15.326 18.347,15.185 18.221,15.028C17.753,14.443 17.234,13.534 17.234,11.561V10.379C17.234,8.917 16.868,7.596 15.969,6.639C15.215,5.835 14.157,5.363 12.829,5.227C12.849,5.155 12.86,5.078 12.86,5C12.86,4.523 12.473,4.137 11.997,4.137ZM9.026,7.58C9.598,6.971 10.529,6.561 11.997,6.561C13.464,6.561 14.395,6.971 14.967,7.58C15.546,8.197 15.859,9.128 15.859,10.379V11.561C15.859,13.835 16.477,15.05 17.147,15.887C17.306,16.085 17.462,16.256 17.596,16.401L17.611,16.418C17.659,16.47 17.702,16.517 17.742,16.561H6.251C6.291,16.517 6.335,16.47 6.382,16.418L6.397,16.401C6.531,16.256 6.687,16.085 6.846,15.887C7.516,15.05 8.134,13.835 8.134,11.561V10.379C8.134,9.128 8.447,8.197 9.026,7.58ZM11.211,18.837C10.962,18.591 10.857,18.258 10.898,17.936H13.095C13.137,18.258 13.031,18.592 12.782,18.838L12.775,18.845C12.342,19.282 11.651,19.281 11.218,18.844L11.211,18.837ZM17.381,5.322C17.731,5.064 18.224,5.138 18.482,5.488C19.381,6.706 19.831,8.236 19.831,9.966V10.249C19.831,10.684 19.478,11.036 19.043,11.036C18.608,11.036 18.256,10.684 18.256,10.249V9.966C18.256,8.51 17.88,7.324 17.215,6.423C16.957,6.073 17.031,5.58 17.381,5.322ZM6.779,6.423C7.037,6.073 6.963,5.58 6.613,5.322C6.263,5.064 5.77,5.138 5.512,5.488C4.613,6.706 4.164,8.236 4.164,9.966V10.249C4.164,10.684 4.516,11.036 4.951,11.036C5.386,11.036 5.739,10.684 5.739,10.249V9.966C5.739,8.51 6.114,7.324 6.779,6.423Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Plane",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Plane-outlined-day-clip-1\"><path d=\"M0.005,0h24v24h-24z\"/></clipPath><clipPath id=\"coui-Plane-outlined-day-clip-2\"><path d=\"M1.505,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Plane-outlined-day-clip-1)\"><g clip-path=\"url(#coui-Plane-outlined-day-clip-2)\"><path d=\"M13.288,17.578L13.57,13.41L20.095,15.102V14.265C20.095,13.984 19.957,13.72 19.725,13.555L13.927,9.605C13.64,9.349 13.57,9.186 13.57,8.751V5.838C13.57,4.356 12.903,3.121 12.002,3.113C11.094,3.121 10.434,4.356 10.434,5.838V8.751C10.434,9.186 10.364,9.349 10.069,9.605L4.278,13.555C4.046,13.72 3.909,13.984 3.909,14.265V15.102L10.434,13.41L10.716,17.578L9.363,18.86C9.213,19.011 9.127,19.225 9.127,19.45V20.551L12.002,19.159L14.877,20.551V19.45C14.877,19.225 14.791,19.011 14.641,18.86L13.288,17.578Z\" fill=\"#FFB200\" data-coui-fill=\"true\"/></g></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Plane-outlined-night-clip-1\"><path d=\"M0.005,0h24v24h-24z\"/></clipPath><clipPath id=\"coui-Plane-outlined-night-clip-2\"><path d=\"M1.505,1.5h21v21h-21z\"/></clipPath></defs><g clip-path=\"url(#coui-Plane-outlined-night-clip-1)\"><g clip-path=\"url(#coui-Plane-outlined-night-clip-2)\"><path d=\"M13.288,17.578L13.57,13.41L20.095,15.102V14.265C20.095,13.984 19.957,13.72 19.725,13.555L13.927,9.605C13.64,9.349 13.57,9.186 13.57,8.751V5.838C13.57,4.356 12.903,3.121 12.002,3.113C11.094,3.121 10.434,4.356 10.434,5.838V8.751C10.434,9.186 10.364,9.349 10.069,9.605L4.278,13.555C4.046,13.72 3.909,13.984 3.909,14.265V15.102L10.434,13.41L10.716,17.578L9.363,18.86C9.213,19.011 9.127,19.225 9.127,19.45V20.551L12.002,19.159L14.877,20.551V19.45C14.877,19.225 14.791,19.011 14.641,18.86L13.288,17.578Z\" fill=\"#E5A100\" data-coui-fill=\"true\"/></g></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Plane",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFB200",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0.005,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.505,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13.288,17.578L13.57,13.41L20.095,15.102V14.265C20.095,13.984 19.957,13.72 19.725,13.555L13.927,9.605C13.64,9.349 13.57,9.186 13.57,8.751V5.838C13.57,4.356 12.903,3.121 12.002,3.113C11.094,3.121 10.434,4.356 10.434,5.838V8.751C10.434,9.186 10.364,9.349 10.069,9.605L4.278,13.555C4.046,13.72 3.909,13.984 3.909,14.265V15.102L10.434,13.41L10.716,17.578L9.363,18.86C9.213,19.011 9.127,19.225 9.127,19.45V20.551L12.002,19.159L14.877,20.551V19.45C14.877,19.225 14.791,19.011 14.641,18.86L13.288,17.578Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Plane",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#E5A100",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0.005,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M1.505,1.5h21v21h-21z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13.288,17.578L13.57,13.41L20.095,15.102V14.265C20.095,13.984 19.957,13.72 19.725,13.555L13.927,9.605C13.64,9.349 13.57,9.186 13.57,8.751V5.838C13.57,4.356 12.903,3.121 12.002,3.113C11.094,3.121 10.434,4.356 10.434,5.838V8.751C10.434,9.186 10.364,9.349 10.069,9.605L4.278,13.555C4.046,13.72 3.909,13.984 3.909,14.265V15.102L10.434,13.41L10.716,17.578L9.363,18.86C9.213,19.011 9.127,19.225 9.127,19.45V20.551L12.002,19.159L14.877,20.551V19.45C14.877,19.225 14.791,19.011 14.641,18.86L13.288,17.578Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "clearGroup"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Location",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Location-outlined-day-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-Location-outlined-day-clip-1)\"><path d=\"M5.936,10.803C5.936,7.497 8.642,4.805 11.995,4.805C15.349,4.805 18.055,7.497 18.055,10.803C18.055,12.297 17.504,13.663 16.59,14.714L16.584,14.721L16.578,14.728C15.157,16.445 13.627,18.068 11.996,19.587C10.536,18.228 9.156,16.785 7.864,15.266C7.714,15.089 7.565,14.912 7.418,14.734L7.411,14.726L7.405,14.719C7.167,14.446 6.953,14.151 6.767,13.838C6.238,12.948 5.936,11.911 5.936,10.803ZM11.995,3.305C7.827,3.305 4.436,6.655 4.436,10.803C4.436,12.674 5.127,14.385 6.268,15.697C7.849,17.606 9.562,19.403 11.394,21.072L11.476,21.147C11.771,21.416 12.22,21.416 12.515,21.148L12.598,21.072C14.432,19.401 16.146,17.603 17.728,15.691C18.866,14.38 19.555,12.671 19.555,10.803C19.555,6.655 16.164,3.305 11.995,3.305ZM9.667,10.802C9.667,9.538 10.703,8.501 11.995,8.501C13.288,8.501 14.324,9.538 14.324,10.802C14.324,12.066 13.288,13.103 11.995,13.103C10.703,13.103 9.667,12.066 9.667,10.802ZM11.995,7.001C9.887,7.001 8.167,8.697 8.167,10.802C8.167,12.908 9.887,14.603 11.995,14.603C14.103,14.603 15.824,12.908 15.824,10.802C15.824,8.697 14.103,7.001 11.995,7.001Z\" fill=\"#FFB200\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-Location-outlined-night-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-Location-outlined-night-clip-1)\"><path d=\"M5.936,10.803C5.936,7.497 8.642,4.805 11.995,4.805C15.349,4.805 18.055,7.497 18.055,10.803C18.055,12.297 17.504,13.663 16.59,14.714L16.584,14.721L16.578,14.728C15.157,16.445 13.627,18.068 11.996,19.587C10.536,18.228 9.156,16.785 7.864,15.266C7.714,15.089 7.565,14.912 7.418,14.734L7.411,14.726L7.405,14.719C7.167,14.446 6.953,14.151 6.767,13.838C6.238,12.948 5.936,11.911 5.936,10.803ZM11.995,3.305C7.827,3.305 4.436,6.655 4.436,10.803C4.436,12.674 5.127,14.385 6.268,15.697C7.849,17.606 9.562,19.403 11.394,21.072L11.476,21.147C11.771,21.416 12.22,21.416 12.515,21.148L12.598,21.072C14.432,19.401 16.146,17.603 17.728,15.691C18.866,14.38 19.555,12.671 19.555,10.803C19.555,6.655 16.164,3.305 11.995,3.305ZM9.667,10.802C9.667,9.538 10.703,8.501 11.995,8.501C13.288,8.501 14.324,9.538 14.324,10.802C14.324,12.066 13.288,13.103 11.995,13.103C10.703,13.103 9.667,12.066 9.667,10.802ZM11.995,7.001C9.887,7.001 8.167,8.697 8.167,10.802C8.167,12.908 9.887,14.603 11.995,14.603C14.103,14.603 15.824,12.908 15.824,10.802C15.824,8.697 14.103,7.001 11.995,7.001Z\" fill=\"#E5A100\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Location",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFB200",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M5.936,10.803C5.936,7.497 8.642,4.805 11.995,4.805C15.349,4.805 18.055,7.497 18.055,10.803C18.055,12.297 17.504,13.663 16.59,14.714L16.584,14.721L16.578,14.728C15.157,16.445 13.627,18.068 11.996,19.587C10.536,18.228 9.156,16.785 7.864,15.266C7.714,15.089 7.565,14.912 7.418,14.734L7.411,14.726L7.405,14.719C7.167,14.446 6.953,14.151 6.767,13.838C6.238,12.948 5.936,11.911 5.936,10.803ZM11.995,3.305C7.827,3.305 4.436,6.655 4.436,10.803C4.436,12.674 5.127,14.385 6.268,15.697C7.849,17.606 9.562,19.403 11.394,21.072L11.476,21.147C11.771,21.416 12.22,21.416 12.515,21.148L12.598,21.072C14.432,19.401 16.146,17.603 17.728,15.691C18.866,14.38 19.555,12.671 19.555,10.803C19.555,6.655 16.164,3.305 11.995,3.305ZM9.667,10.802C9.667,9.538 10.703,8.501 11.995,8.501C13.288,8.501 14.324,9.538 14.324,10.802C14.324,12.066 13.288,13.103 11.995,13.103C10.703,13.103 9.667,12.066 9.667,10.802ZM11.995,7.001C9.887,7.001 8.167,8.697 8.167,10.802C8.167,12.908 9.887,14.603 11.995,14.603C14.103,14.603 15.824,12.908 15.824,10.802C15.824,8.697 14.103,7.001 11.995,7.001Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "Location",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#E5A100",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M5.936,10.803C5.936,7.497 8.642,4.805 11.995,4.805C15.349,4.805 18.055,7.497 18.055,10.803C18.055,12.297 17.504,13.663 16.59,14.714L16.584,14.721L16.578,14.728C15.157,16.445 13.627,18.068 11.996,19.587C10.536,18.228 9.156,16.785 7.864,15.266C7.714,15.089 7.565,14.912 7.418,14.734L7.411,14.726L7.405,14.719C7.167,14.446 6.953,14.151 6.767,13.838C6.238,12.948 5.936,11.911 5.936,10.803ZM11.995,3.305C7.827,3.305 4.436,6.655 4.436,10.803C4.436,12.674 5.127,14.385 6.268,15.697C7.849,17.606 9.562,19.403 11.394,21.072L11.476,21.147C11.771,21.416 12.22,21.416 12.515,21.148L12.598,21.072C14.432,19.401 16.146,17.603 17.728,15.691C18.866,14.38 19.555,12.671 19.555,10.803C19.555,6.655 16.164,3.305 11.995,3.305ZM9.667,10.802C9.667,9.538 10.703,8.501 11.995,8.501C13.288,8.501 14.324,9.538 14.324,10.802C14.324,12.066 13.288,13.103 11.995,13.103C10.703,13.103 9.667,12.066 9.667,10.802ZM11.995,7.001C9.887,7.001 8.167,8.697 8.167,10.802C8.167,12.908 9.887,14.603 11.995,14.603C14.103,14.603 15.824,12.908 15.824,10.802C15.824,8.697 14.103,7.001 11.995,7.001Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ShieldUser",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-ShieldUser-outlined-day-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-ShieldUser-outlined-day-clip-1)\"><path d=\"M12.632,20.901C16.895,19.1 19.875,15.63 19.875,10.625L19.875,7.783C19.875,7.043 19.875,6.673 19.754,6.355C19.647,6.074 19.473,5.823 19.248,5.625C18.993,5.4 18.646,5.27 17.953,5.01L13.3,3.265C12.819,3.084 12.578,2.994 12.331,2.958C12.111,2.927 11.889,2.927 11.669,2.958C11.422,2.994 11.181,3.084 10.7,3.265L6.047,5.01C5.354,5.27 5.007,5.4 4.752,5.625C4.527,5.823 4.353,6.074 4.246,6.355C4.125,6.673 4.125,7.043 4.125,7.783L4.125,10.625C4.125,15.63 7.105,19.1 11.368,20.901L11.368,20.901C11.578,20.99 11.684,21.034 11.819,21.056C11.926,21.073 12.074,21.073 12.181,21.056C12.316,21.034 12.422,20.99 12.632,20.901L12.632,20.901Z\" fill=\"none\" stroke=\"#0080FF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M11.999,7.95C11.672,7.95 11.381,8.224 11.381,8.596V9.537H12.616V8.596C12.616,8.224 12.325,7.95 11.999,7.95ZM9.806,8.596V9.537H9.469L9.459,9.537C9.421,9.537 9.353,9.536 9.29,9.542C9.212,9.548 9.075,9.566 8.927,9.642C8.746,9.734 8.599,9.881 8.506,10.062C8.431,10.21 8.413,10.347 8.406,10.425C8.401,10.488 8.401,10.556 8.401,10.594L8.401,10.604V14.244L8.401,14.254C8.401,14.292 8.401,14.36 8.406,14.423C8.413,14.501 8.431,14.638 8.506,14.786C8.599,14.967 8.746,15.114 8.927,15.207C9.075,15.282 9.212,15.3 9.29,15.307C9.353,15.312 9.421,15.312 9.459,15.312L9.469,15.312H14.53L14.539,15.312C14.578,15.312 14.646,15.312 14.709,15.307C14.786,15.3 14.923,15.282 15.071,15.207C15.253,15.114 15.4,14.967 15.492,14.786C15.568,14.638 15.586,14.501 15.592,14.423C15.597,14.36 15.597,14.292 15.597,14.254L15.597,14.244V10.604L15.597,10.594C15.597,10.556 15.597,10.488 15.592,10.425C15.586,10.347 15.568,10.21 15.492,10.062C15.4,9.881 15.253,9.734 15.071,9.642C14.923,9.566 14.786,9.548 14.709,9.542C14.646,9.536 14.578,9.537 14.539,9.537L14.53,9.537H14.191V8.596C14.191,7.384 13.224,6.375 11.999,6.375C10.773,6.375 9.806,7.384 9.806,8.596ZM12.629,12.475C12.629,12.823 12.347,13.105 12,13.105C11.652,13.105 11.37,12.823 11.37,12.475C11.37,12.128 11.652,11.846 12,11.846C12.347,11.846 12.629,12.128 12.629,12.475Z\" fill=\"#0080FF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><defs><clipPath id=\"coui-ShieldUser-outlined-night-clip-1\"><path d=\"M0,0h24v24h-24z\"/></clipPath></defs><g clip-path=\"url(#coui-ShieldUser-outlined-night-clip-1)\"><path d=\"M12.632,20.901C16.895,19.1 19.875,15.63 19.875,10.625L19.875,7.783C19.875,7.043 19.875,6.673 19.754,6.355C19.647,6.074 19.473,5.823 19.248,5.625C18.993,5.4 18.646,5.27 17.953,5.01L13.3,3.265C12.819,3.084 12.578,2.994 12.331,2.958C12.111,2.927 11.889,2.927 11.669,2.958C11.422,2.994 11.181,3.084 10.7,3.265L6.047,5.01C5.354,5.27 5.007,5.4 4.752,5.625C4.527,5.823 4.353,6.074 4.246,6.355C4.125,6.673 4.125,7.043 4.125,7.783L4.125,10.625C4.125,15.63 7.105,19.1 11.368,20.901L11.368,20.901C11.578,20.99 11.684,21.034 11.819,21.056C11.926,21.073 12.074,21.073 12.181,21.056C12.316,21.034 12.422,20.99 12.632,20.901L12.632,20.901Z\" fill=\"none\" stroke=\"#1A8CFF\" data-coui-stroke=\"true\" stroke-width=\"1.575\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M11.999,7.95C11.672,7.95 11.381,8.224 11.381,8.596V9.537H12.616V8.596C12.616,8.224 12.325,7.95 11.999,7.95ZM9.806,8.596V9.537H9.469L9.459,9.537C9.421,9.537 9.353,9.536 9.29,9.542C9.212,9.548 9.075,9.566 8.927,9.642C8.746,9.734 8.599,9.881 8.506,10.062C8.431,10.21 8.413,10.347 8.406,10.425C8.401,10.488 8.401,10.556 8.401,10.594L8.401,10.604V14.244L8.401,14.254C8.401,14.292 8.401,14.36 8.406,14.423C8.413,14.501 8.431,14.638 8.506,14.786C8.599,14.967 8.746,15.114 8.927,15.207C9.075,15.282 9.212,15.3 9.29,15.307C9.353,15.312 9.421,15.312 9.459,15.312L9.469,15.312H14.53L14.539,15.312C14.578,15.312 14.646,15.312 14.709,15.307C14.786,15.3 14.923,15.282 15.071,15.207C15.253,15.114 15.4,14.967 15.492,14.786C15.568,14.638 15.586,14.501 15.592,14.423C15.597,14.36 15.597,14.292 15.597,14.254L15.597,14.244V10.604L15.597,10.594C15.597,10.556 15.597,10.488 15.592,10.425C15.586,10.347 15.568,10.21 15.492,10.062C15.4,9.881 15.253,9.734 15.071,9.642C14.923,9.566 14.786,9.548 14.709,9.542C14.646,9.536 14.578,9.537 14.539,9.537L14.53,9.537H14.191V8.596C14.191,7.384 13.224,6.375 11.999,6.375C10.773,6.375 9.806,7.384 9.806,8.596ZM12.629,12.475C12.629,12.823 12.347,13.105 12,13.105C11.652,13.105 11.37,12.823 11.37,12.475C11.37,12.128 11.652,11.846 12,11.846C12.347,11.846 12.629,12.128 12.629,12.475Z\" fill=\"#1A8CFF\" data-coui-fill=\"true\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></g></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "ShieldUser",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#0080FF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12.632,20.901C16.895,19.1 19.875,15.63 19.875,10.625L19.875,7.783C19.875,7.043 19.875,6.673 19.754,6.355C19.647,6.074 19.473,5.823 19.248,5.625C18.993,5.4 18.646,5.27 17.953,5.01L13.3,3.265C12.819,3.084 12.578,2.994 12.331,2.958C12.111,2.927 11.889,2.927 11.669,2.958C11.422,2.994 11.181,3.084 10.7,3.265L6.047,5.01C5.354,5.27 5.007,5.4 4.752,5.625C4.527,5.823 4.353,6.074 4.246,6.355C4.125,6.673 4.125,7.043 4.125,7.783L4.125,10.625C4.125,15.63 7.105,19.1 11.368,20.901L11.368,20.901C11.578,20.99 11.684,21.034 11.819,21.056C11.926,21.073 12.074,21.073 12.181,21.056C12.316,21.034 12.422,20.99 12.632,20.901L12.632,20.901Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11.999,7.95C11.672,7.95 11.381,8.224 11.381,8.596V9.537H12.616V8.596C12.616,8.224 12.325,7.95 11.999,7.95ZM9.806,8.596V9.537H9.469L9.459,9.537C9.421,9.537 9.353,9.536 9.29,9.542C9.212,9.548 9.075,9.566 8.927,9.642C8.746,9.734 8.599,9.881 8.506,10.062C8.431,10.21 8.413,10.347 8.406,10.425C8.401,10.488 8.401,10.556 8.401,10.594L8.401,10.604V14.244L8.401,14.254C8.401,14.292 8.401,14.36 8.406,14.423C8.413,14.501 8.431,14.638 8.506,14.786C8.599,14.967 8.746,15.114 8.927,15.207C9.075,15.282 9.212,15.3 9.29,15.307C9.353,15.312 9.421,15.312 9.459,15.312L9.469,15.312H14.53L14.539,15.312C14.578,15.312 14.646,15.312 14.709,15.307C14.786,15.3 14.923,15.282 15.071,15.207C15.253,15.114 15.4,14.967 15.492,14.786C15.568,14.638 15.586,14.501 15.592,14.423C15.597,14.36 15.597,14.292 15.597,14.254L15.597,14.244V10.604L15.597,10.594C15.597,10.556 15.597,10.488 15.592,10.425C15.586,10.347 15.568,10.21 15.492,10.062C15.4,9.881 15.253,9.734 15.071,9.642C14.923,9.566 14.786,9.548 14.709,9.542C14.646,9.536 14.578,9.537 14.539,9.537L14.53,9.537H14.191V8.596C14.191,7.384 13.224,6.375 11.999,6.375C10.773,6.375 9.806,7.384 9.806,8.596ZM12.629,12.475C12.629,12.823 12.347,13.105 12,13.105C11.652,13.105 11.37,12.823 11.37,12.475C11.37,12.128 11.652,11.846 12,11.846C12.347,11.846 12.629,12.128 12.629,12.475Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        },
+        "night": {
+          "name": "ShieldUser",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#1A8CFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "addGroup",
+              "rotate": 0,
+              "pivotX": 0,
+              "pivotY": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "translationX": 0,
+              "translationY": 0,
+              "clipPathD": "M0,0h24v24h-24z",
+              "clipPathFillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12.632,20.901C16.895,19.1 19.875,15.63 19.875,10.625L19.875,7.783C19.875,7.043 19.875,6.673 19.754,6.355C19.647,6.074 19.473,5.823 19.248,5.625C18.993,5.4 18.646,5.27 17.953,5.01L13.3,3.265C12.819,3.084 12.578,2.994 12.331,2.958C12.111,2.927 11.889,2.927 11.669,2.958C11.422,2.994 11.181,3.084 10.7,3.265L6.047,5.01C5.354,5.27 5.007,5.4 4.752,5.625C4.527,5.823 4.353,6.074 4.246,6.355C4.125,6.673 4.125,7.043 4.125,7.783L4.125,10.625C4.125,15.63 7.105,19.1 11.368,20.901L11.368,20.901C11.578,20.99 11.684,21.034 11.819,21.056C11.926,21.073 12.074,21.073 12.181,21.056C12.316,21.034 12.422,20.99 12.632,20.901L12.632,20.901Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 0,
+                "rawAlpha": 0,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "strokeAlpha": 1,
+              "strokeLineWidth": 1.575,
+              "strokeLineCap": "round",
+              "strokeLineJoin": "round",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11.999,7.95C11.672,7.95 11.381,8.224 11.381,8.596V9.537H12.616V8.596C12.616,8.224 12.325,7.95 11.999,7.95ZM9.806,8.596V9.537H9.469L9.459,9.537C9.421,9.537 9.353,9.536 9.29,9.542C9.212,9.548 9.075,9.566 8.927,9.642C8.746,9.734 8.599,9.881 8.506,10.062C8.431,10.21 8.413,10.347 8.406,10.425C8.401,10.488 8.401,10.556 8.401,10.594L8.401,10.604V14.244L8.401,14.254C8.401,14.292 8.401,14.36 8.406,14.423C8.413,14.501 8.431,14.638 8.506,14.786C8.599,14.967 8.746,15.114 8.927,15.207C9.075,15.282 9.212,15.3 9.29,15.307C9.353,15.312 9.421,15.312 9.459,15.312L9.469,15.312H14.53L14.539,15.312C14.578,15.312 14.646,15.312 14.709,15.307C14.786,15.3 14.923,15.282 15.071,15.207C15.253,15.114 15.4,14.967 15.492,14.786C15.568,14.638 15.586,14.501 15.592,14.423C15.597,14.36 15.597,14.292 15.597,14.254L15.597,14.244V10.604L15.597,10.594C15.597,10.556 15.597,10.488 15.592,10.425C15.586,10.347 15.568,10.21 15.492,10.062C15.4,9.881 15.253,9.734 15.071,9.642C14.923,9.566 14.786,9.548 14.709,9.542C14.646,9.536 14.578,9.537 14.539,9.537L14.53,9.537H14.191V8.596C14.191,7.384 13.224,6.375 11.999,6.375C10.773,6.375 9.806,7.384 9.806,8.596ZM12.629,12.475C12.629,12.823 12.347,13.105 12,13.105C11.652,13.105 11.37,12.823 11.37,12.475C11.37,12.128 11.652,11.846 12,11.846C12.347,11.846 12.629,12.128 12.629,12.475Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "evenodd"
+            },
+            {
+              "type": "clearGroup"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Check",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41,-1.41z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41,-1.41z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Check",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41,-1.41z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Check",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41,-1.41z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M15,4V3H9v1H4v2h1v13c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V6h1V4H15zM17,19H7V6h10V19z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M9,8h2v9h-2z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M13,8h2v9h-2z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M15,4V3H9v1H4v2h1v13c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V6h1V4H15zM17,19H7V6h10V19z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M9,8h2v9h-2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M13,8h2v9h-2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Delete",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M15,4V3H9v1H4v2h1v13c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V6h1V4H15zM17,19H7V6h10V19z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M9,8h2v9h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13,8h2v9h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Delete",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M15,4V3H9v1H4v2h1v13c0,1.1 0.9,2 2,2h10c1.1,0 2,-0.9 2,-2V6h1V4H15zM17,19H7V6h10V19z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M9,8h2v9h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13,8h2v9h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Edit",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M5,19H6.4L16.45,8.975L15.75,8.25L15.025,7.55L5,17.6ZM3,21V16.75L16.45,3.325Q17.025,2.75 17.863,2.75Q18.7,2.75 19.275,3.325L20.675,4.75Q21.25,5.325 21.25,6.15Q21.25,6.975 20.675,7.55L7.25,21ZM19.25,6.15 L17.85,4.75ZM16.45,8.975 L15.75,8.25 15.025,7.55 16.45,8.975Z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M5,19H6.4L16.45,8.975L15.75,8.25L15.025,7.55L5,17.6ZM3,21V16.75L16.45,3.325Q17.025,2.75 17.863,2.75Q18.7,2.75 19.275,3.325L20.675,4.75Q21.25,5.325 21.25,6.15Q21.25,6.975 20.675,7.55L7.25,21ZM19.25,6.15 L17.85,4.75ZM16.45,8.975 L15.75,8.25 15.025,7.55 16.45,8.975Z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Edit",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M5,19H6.4L16.45,8.975L15.75,8.25L15.025,7.55L5,17.6ZM3,21V16.75L16.45,3.325Q17.025,2.75 17.863,2.75Q18.7,2.75 19.275,3.325L20.675,4.75Q21.25,5.325 21.25,6.15Q21.25,6.975 20.675,7.55L7.25,21ZM19.25,6.15 L17.85,4.75ZM16.45,8.975 L15.75,8.25 15.025,7.55 16.45,8.975Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Edit",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M5,19H6.4L16.45,8.975L15.75,8.25L15.025,7.55L5,17.6ZM3,21V16.75L16.45,3.325Q17.025,2.75 17.863,2.75Q18.7,2.75 19.275,3.325L20.675,4.75Q21.25,5.325 21.25,6.15Q21.25,6.975 20.675,7.55L7.25,21ZM19.25,6.15 L17.85,4.75ZM16.45,8.975 L15.75,8.25 15.025,7.55 16.45,8.975Z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Info",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11,7h2v2h-2z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M11,11h2v6h-2z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10s10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8s8,3.59 8,8C20,16.41 16.41,20 12,20z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M11,7h2v2h-2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M11,11h2v6h-2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10s10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8s8,3.59 8,8C20,16.41 16.41,20 12,20z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Info",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11,7h2v2h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11,11h2v6h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10s10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8s8,3.59 8,8C20,16.41 16.41,20 12,20z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Info",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M11,7h2v2h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M11,11h2v6h-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M12,2C6.48,2 2,6.48 2,12c0,5.52 4.48,10 10,10s10,-4.48 10,-10C22,6.48 17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8s8,3.59 8,8C20,16.41 16.41,20 12,20z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Warning",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,5.99L19.53,19H4.47L12,5.99M12,2L1,21h22L12,2L12,2z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M13,16l-2,0l0,2l2,0l0,-2z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M13,10l-2,0l0,4l2,0l0,-4z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,5.99L19.53,19H4.47L12,5.99M12,2L1,21h22L12,2L12,2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M13,16l-2,0l0,2l2,0l0,-2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M13,10l-2,0l0,4l2,0l0,-4z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Warning",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,5.99L19.53,19H4.47L12,5.99M12,2L1,21h22L12,2L12,2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13,16l-2,0l0,2l2,0l0,-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13,10l-2,0l0,4l2,0l0,-4z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Warning",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,5.99L19.53,19H4.47L12,5.99M12,2L1,21h22L12,2L12,2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13,16l-2,0l0,2l2,0l0,-2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M13,10l-2,0l0,4l2,0l0,-4z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ChevronRight",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9.71,18.71l-1.42,-1.42l5.3,-5.29l-5.3,-5.29l1.42,-1.42l6.7,6.71z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9.71,18.71l-1.42,-1.42l5.3,-5.29l-5.3,-5.29l1.42,-1.42l6.7,6.71z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "ChevronRight",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M9.71,18.71l-1.42,-1.42l5.3,-5.29l-5.3,-5.29l1.42,-1.42l6.7,6.71z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "ChevronRight",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M9.71,18.71l-1.42,-1.42l5.3,-5.29l-5.3,-5.29l1.42,-1.42l6.7,6.71z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "History",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M13,3c-4.76,0 -8.64,3.69 -8.97,8.37L2.21,9.54 0.8,10.95 5,15.16l4.21,-4.21 -1.42,-1.41 -1.75,1.76C6.39,7.76 9.37,5 13,5c3.87,0 7,3.13 7,7s-3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM4.71,12c-0.01,0.01 -0.01,0.02 -0.02,0.03L4.66,12h0.05zM14,7h-2v5.41l3.79,3.8 1.42,-1.42 -3.21,-3.2z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M13,3c-4.76,0 -8.64,3.69 -8.97,8.37L2.21,9.54 0.8,10.95 5,15.16l4.21,-4.21 -1.42,-1.41 -1.75,1.76C6.39,7.76 9.37,5 13,5c3.87,0 7,3.13 7,7s-3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM4.71,12c-0.01,0.01 -0.01,0.02 -0.02,0.03L4.66,12h0.05zM14,7h-2v5.41l3.79,3.8 1.42,-1.42 -3.21,-3.2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "History",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M13,3c-4.76,0 -8.64,3.69 -8.97,8.37L2.21,9.54 0.8,10.95 5,15.16l4.21,-4.21 -1.42,-1.41 -1.75,1.76C6.39,7.76 9.37,5 13,5c3.87,0 7,3.13 7,7s-3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM4.71,12c-0.01,0.01 -0.01,0.02 -0.02,0.03L4.66,12h0.05zM14,7h-2v5.41l3.79,3.8 1.42,-1.42 -3.21,-3.2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "History",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M13,3c-4.76,0 -8.64,3.69 -8.97,8.37L2.21,9.54 0.8,10.95 5,15.16l4.21,-4.21 -1.42,-1.41 -1.75,1.76C6.39,7.76 9.37,5 13,5c3.87,0 7,3.13 7,7s-3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM4.71,12c-0.01,0.01 -0.01,0.02 -0.02,0.03L4.66,12h0.05zM14,7h-2v5.41l3.79,3.8 1.42,-1.42 -3.21,-3.2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Folder",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,6h-8l-2,-2H4C2.9,4 2.01,4.9 2.01,6L2,18c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2V8C22,6.9 21.1,6 20,6zM20,18H4V8h16V18z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20,6h-8l-2,-2H4C2.9,4 2.01,4.9 2.01,6L2,18c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2V8C22,6.9 21.1,6 20,6zM20,18H4V8h16V18z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Folder",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,6h-8l-2,-2H4C2.9,4 2.01,4.9 2.01,6L2,18c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2V8C22,6.9 21.1,6 20,6zM20,18H4V8h16V18z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Folder",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M20,6h-8l-2,-2H4C2.9,4 2.01,4.9 2.01,6L2,18c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2V8C22,6.9 21.1,6 20,6zM20,18H4V8h16V18z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Sync",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17.26,6H19V4h-6v0.07V10h2V6.81c1.79,1.04 3,2.97 3,5.19c0,2.97 -2.17,5.43 -5,5.91v2.02c3.95,-0.49 7,-3.85 7,-7.93C20,9.6 18.93,7.46 17.26,6z\" fill=\"#000000\" data-coui-fill=\"true\"/><path d=\"M4,12c0,2.4 1.07,4.54 2.74,6H5v2h6v-0.07V14H9v3.19C7.21,16.15 6,14.22 6,12c0,-2.97 2.17,-5.43 5,-5.91V4.07C7.05,4.56 4,7.92 4,12z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17.26,6H19V4h-6v0.07V10h2V6.81c1.79,1.04 3,2.97 3,5.19c0,2.97 -2.17,5.43 -5,5.91v2.02c3.95,-0.49 7,-3.85 7,-7.93C20,9.6 18.93,7.46 17.26,6z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/><path d=\"M4,12c0,2.4 1.07,4.54 2.74,6H5v2h6v-0.07V14H9v3.19C7.21,16.15 6,14.22 6,12c0,-2.97 2.17,-5.43 5,-5.91V4.07C7.05,4.56 4,7.92 4,12z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Sync",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17.26,6H19V4h-6v0.07V10h2V6.81c1.79,1.04 3,2.97 3,5.19c0,2.97 -2.17,5.43 -5,5.91v2.02c3.95,-0.49 7,-3.85 7,-7.93C20,9.6 18.93,7.46 17.26,6z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M4,12c0,2.4 1.07,4.54 2.74,6H5v2h6v-0.07V14H9v3.19C7.21,16.15 6,14.22 6,12c0,-2.97 2.17,-5.43 5,-5.91V4.07C7.05,4.56 4,7.92 4,12z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Sync",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17.26,6H19V4h-6v0.07V10h2V6.81c1.79,1.04 3,2.97 3,5.19c0,2.97 -2.17,5.43 -5,5.91v2.02c3.95,-0.49 7,-3.85 7,-7.93C20,9.6 18.93,7.46 17.26,6z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            },
+            {
+              "type": "path",
+              "d": "M4,12c0,2.4 1.07,4.54 2.74,6H5v2h6v-0.07V14H9v3.19C7.21,16.15 6,14.22 6,12c0,-2.97 2.17,-5.43 5,-5.91V4.07C7.05,4.56 4,7.92 4,12z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Link",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Link",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Link",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Download",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,2C6.49,2 2,6.49 2,12s4.49,10 10,10 10,-4.49 10,-10S17.51,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8s3.59,-8 8,-8 8,3.59 8,8 -3.59,8 -8,8zM14.59,8.59L16,10l-4,4 -4,-4 1.41,-1.41L11,10.17L11,6h2v4.17l1.59,-1.58zM17,17L7,17v-2h10v2z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,2C6.49,2 2,6.49 2,12s4.49,10 10,10 10,-4.49 10,-10S17.51,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8s3.59,-8 8,-8 8,3.59 8,8 -3.59,8 -8,8zM14.59,8.59L16,10l-4,4 -4,-4 1.41,-1.41L11,10.17L11,6h2v4.17l1.59,-1.58zM17,17L7,17v-2h10v2z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Download",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,2C6.49,2 2,6.49 2,12s4.49,10 10,10 10,-4.49 10,-10S17.51,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8s3.59,-8 8,-8 8,3.59 8,8 -3.59,8 -8,8zM14.59,8.59L16,10l-4,4 -4,-4 1.41,-1.41L11,10.17L11,6h2v4.17l1.59,-1.58zM17,17L7,17v-2h10v2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Download",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": true,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,2C6.49,2 2,6.49 2,12s4.49,10 10,10 10,-4.49 10,-10S17.51,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8s3.59,-8 8,-8 8,3.59 8,8 -3.59,8 -8,8zM14.59,8.59L16,10l-4,4 -4,-4 1.41,-1.41L11,10.17L11,6h2v4.17l1.59,-1.58zM17,17L7,17v-2h10v2z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Visibility",
+      "style": "Outlined",
+      "day": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z\" fill=\"#000000\" data-coui-fill=\"true\"/></svg>",
+      "night": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z\" fill=\"#FFFFFF\" data-coui-fill=\"true\"/></svg>",
+      "mode": "tint",
+      "vector": {
+        "day": {
+          "name": "Visibility",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#000000",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        },
+        "night": {
+          "name": "Visibility",
+          "width": 24,
+          "height": 24,
+          "viewportWidth": 24,
+          "viewportHeight": 24,
+          "autoMirror": false,
+          "tintColor": {
+            "type": "color",
+            "hex": "#FFFFFF",
+            "alpha": 1,
+            "rawAlpha": 255
+          },
+          "commands": [
+            {
+              "type": "path",
+              "d": "M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z",
+              "fill": {
+                "type": "solid",
+                "hex": "#000000",
+                "alpha": 1,
+                "rawAlpha": 255,
+                "isBackgroundParam": false
+              },
+              "fillAlpha": 1,
+              "stroke": null,
+              "strokeAlpha": 1,
+              "strokeLineWidth": 0,
+              "strokeLineCap": "butt",
+              "strokeLineJoin": "miter",
+              "strokeLineMiter": 4,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "IdCard",
       "style": "Bitmap",
       "mode": "original",

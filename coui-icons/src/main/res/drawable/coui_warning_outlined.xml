@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:name="Warning" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24" android:tint="@color/coui_icon_tint_neutral_ff000000_ffffffff">
+    <path android:pathData="M12,5.99L19.53,19H4.47L12,5.99M12,2L1,21h22L12,2L12,2z" android:fillColor="#FF000000" />
+    <path android:pathData="M13,16l-2,0l0,2l2,0l0,-2z" android:fillColor="#FF000000" />
+    <path android:pathData="M13,10l-2,0l0,4l2,0l0,-4z" android:fillColor="#FF000000" />
+</vector>

@@ -343,6 +343,86 @@ object CouiIcons {
         /** com.oplus.account:drawable/menu_ic_setting_normal。 */
         val Setting: ImageVector
             @Composable get() = couiIconResource(R.drawable.coui_setting_outlined)
+
+        /** com.android.settings:drawable/settings_wifi_ic_oplus。 */
+        val Wifi: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_wifi_outlined)
+
+        /** com.android.settings:drawable/settings_bluetooh_ic_oplus。 */
+        val Bluetooth: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_bluetooth_outlined)
+
+        /** com.android.settings:drawable/settings_notify_center_ic_oplus。 */
+        val Bell: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_bell_outlined)
+
+        /** com.android.settings:drawable/settings_brightness_ic_oplus。 */
+        val Sun: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_sun_outlined)
+
+        /** com.android.settings:drawable/settings_sound_settings_ic_oplus。 */
+        val Volume: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_volume_outlined)
+
+        /** com.android.settings:drawable/settings_airplane_mode_ic_oplus。 */
+        val Plane: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_plane_outlined)
+
+        /** com.android.settings:drawable/settings_position_exp_ic_oplus。 */
+        val Location: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_location_outlined)
+
+        /** com.android.settings:drawable/settings_privacy_exp_ic_oplus。 */
+        val ShieldUser: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_shield_user_outlined)
+
+        /** com.android.settings:drawable/ic_check_24dp。 */
+        val Check: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_check_outlined)
+
+        /** com.android.settings:drawable/ic_delete。 */
+        val Delete: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_delete_outlined)
+
+        /** com.android.settings:drawable/ic_edit。 */
+        val Edit: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_edit_outlined)
+
+        /** com.android.settings:drawable/ic_info_outline_24dp。 */
+        val Info: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_info_outlined)
+
+        /** com.android.settings:drawable/ic_warning_24dp。 */
+        val Warning: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_warning_outlined)
+
+        /** com.android.settings:drawable/ic_chevron_right_24dp。 */
+        val ChevronRight: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_chevron_right_outlined)
+
+        /** com.android.settings:drawable/ic_history。 */
+        val History: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_history_outlined)
+
+        /** com.android.settings:drawable/ic_folder_vd_theme_24。 */
+        val Folder: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_folder_outlined)
+
+        /** com.android.settings:drawable/ic_sync。 */
+        val Sync: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_sync_outlined)
+
+        /** com.android.settings:drawable/ic_link_24dp。 */
+        val Link: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_link_outlined)
+
+        /** com.android.settings:drawable/ic_download_for_offline。 */
+        val Download: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_download_outlined)
+
+        /** com.android.settings:drawable/design_ic_visibility。 */
+        val Visibility: ImageVector
+            @Composable get() = couiIconResource(R.drawable.coui_visibility_outlined)
     }
 
     /** 位图原件按 COUI 主题选择日夜资源。 */

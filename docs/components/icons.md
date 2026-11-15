@@ -27,7 +27,12 @@ Icon(
 )
 ```
 
-图标按 `CouiIcons.Filled` 和 `CouiIcons.Outlined` 提供。`Back`、`Next`、`Close`、`Add`、`DarkLight`、`ListFilter`、`More` 和 `Scan` 在两种样式中使用相同图形；`Search`、`SliderCustom` 和 `LayoutSpliced` 仅提供 `Outlined`。它们默认日间为黑色、夜间为白色，其中 `Back` 和 `Next` 支持 RTL 自动镜像。
+图标按 `CouiIcons.Filled` 和 `CouiIcons.Outlined` 提供。`Back`、`Next`、`Close`、`Add`、`DarkLight`、`ListFilter`、`More` 和 `Scan` 在两种样式中使用相同图形；`Search`、`SliderCustom` 和 `LayoutSpliced` 仅提供 `Outlined`。它们默认日间为黑色、夜间为白色，其中 `Back`、`Next`、`ChevronRight` 和 `Download` 支持 RTL 自动镜像。
+
+`Outlined` 另提供两类只有线框形式的图标：
+
+- 设置入口线框图，与同名 `Filled` 图标成对，保留原厂功能色：`Wifi`、`Bluetooth`、`Bell`（蓝）、`Sun`、`Plane`、`Location`（黄）、`Volume`（绿）、`ShieldUser`（蓝）。
+- 通用操作图标，中性黑白：`Check`、`Delete`、`Edit`、`Info`、`Warning`、`ChevronRight`、`History`、`Folder`、`Sync`、`Link`、`Download`、`Visibility`。
 
 矢量图形保存在 VectorDrawable 资源中，传统 View 可直接引用，例如 `@drawable/coui_wifi_filled`。传统 View 根据 Android 配置选择日夜资源。
 

@@ -83,6 +83,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 按钮、环形进度、角标、气泡、页码、空状态、输入框、底部面板与轻提示均对齐 ColorOS 17 应用内嵌的 COUI 资源；原厂没有对应分支的细节（按钮加载的三点动画、不确定态弧长、占位脉冲、轻提示投影）按同族资源的数值与节奏推演。
 
 - Demo 的二级页导航从「每页一个 Activity」换成 Navigation 3：新增 `DemoRoute` 导航键与 `rememberDemoBackStack()`（`listSaver` 保存页面栈，不引入序列化插件），`MainActivity` 用 `NavDisplay` 分发首页与详情页并处理系统返回；移除 `DemoSecondaryActivity` 及其 manifest 声明。库 API 不变。[Demo 指南](docs/guide/demo.md)
+- `coui-icons` 新增 20 个图标：设置首页线框版 `Outlined.Wifi`、`Bluetooth`、`Bell`、`Sun`、`Volume`、`Plane`、`Location`、`ShieldUser`（保留原厂功能色，与同名 `Filled` 成对），以及通用操作 `Outlined.Check`、`Delete`、`Edit`、`Info`、`Warning`、`ChevronRight`、`History`、`Folder`、`Sync`、`Link`、`Download`、`Visibility`（中性色）；`ChevronRight` 与 `Download` 支持 RTL 自动镜像。[图标](docs/components/icons.md)
 
 ### 移除
 

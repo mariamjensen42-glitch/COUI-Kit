@@ -2,10 +2,7 @@ package com.itos.coui.demo
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.path
-import androidx.compose.ui.unit.dp
 import com.itos.coui.icons.CouiIcons
 import com.itos.coui.theme.CouiColor
 import com.itos.coui.theme.CouiTheme
@@ -61,16 +58,7 @@ internal object DemoIcons {
     val SimTwo: ImageVector
         @Composable get() = CouiIcons.Filled.Transfer
 
-    /** 记录侧滑的确认勾选；库图标集没有勾形，Demo 自行绘制。 */
-    val Check: ImageVector = ImageVector.Builder("Check", 24.dp, 24.dp, 24f, 24f).apply {
-        path(fill = SolidColor(Color.Black)) {
-            moveTo(9.2f, 16.4f)
-            lineTo(4.8f, 12f)
-            lineTo(3.4f, 13.4f)
-            lineTo(9.2f, 19.2f)
-            lineTo(21f, 7.4f)
-            lineTo(19.6f, 6f)
-            close()
-        }
-    }.build()
+    /** 记录侧滑的确认勾选。 */
+    val Check: ImageVector
+        @Composable get() = CouiIcons.Outlined.Check
 }

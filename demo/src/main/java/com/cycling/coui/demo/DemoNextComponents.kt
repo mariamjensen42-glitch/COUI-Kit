@@ -29,7 +29,7 @@ import com.cycling.coui.text.CouiTextKind
 import com.cycling.coui.text.Text
 import com.cycling.coui.theme.CouiTheme
 
-/** 页签条：固定等分与横向滚动两种排布，共用一个受控下标。 */
+/** 页签条：胶囊容器里的文字页签，固定收缩与横向滚动两种排布，共用一个受控下标。 */
 @Composable
 internal fun TabLayoutSample(dark: Boolean) {
     val labels = listOf(
@@ -61,7 +61,6 @@ internal fun TabLayoutSample(dark: Boolean) {
                 onSelectedIndexChange = { selectedIndex = it },
                 mode = CouiTabLayoutMode.Scrollable,
                 dark = dark,
-                dividerVisible = true,
             )
         }
     }

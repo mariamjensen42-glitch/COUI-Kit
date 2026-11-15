@@ -10,6 +10,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 
 - 调整公开发行渠道：Maven Central 发布工作流与 Tag 版本校验脚本下线，公开版本改由 JitPack 按 `v` 开头的 Tag 构建，坐标变为 `com.github.mariamjensen42-glitch.COUI-Kit:coui` 与 `:coui-icons`；Android 工程需在 `settings.gradle.kts` 增加 `maven("https://jitpack.io")`。[快速开始](docs/guide/getting-started.md)
 - 调整 GitHub Packages 快照的归属：仓库地址、POM 的 url/scm 与工作流 gate 统一指向 `mariamjensen42-glitch/COUI-Kit`，坐标 group 仍为 `io.github.itoseo`。[发布渠道](docs/development/publishing.md)
+- 调整页签条外观为胶囊分段：容器改为包裹内容的胶囊并在可用宽度内居中，选中项由底部 2dp 下划线改为整段宽度的胶囊填充，几何与配色复用分段控件（40dp 高、4dp 内缩、52dp 最小段宽、12dp 文字留白）。`TabLayout` 移除 `dividerVisible`，`CouiTabLayoutDefaults` 移除 `indicatorHeight` / `indicatorMinWidth` / `indicatorPadding` / `dividerHeight` / `tabSpacing` / `edgeMargin` / `contentMinWidth`，改为 `containerPadding` / `tabMinWidth` / `labelPadding`；`CouiTabLayoutColors` 的 `divider` 换成 `container`。[页签条](docs/components/tab-layout.md)
 - 调整包名为 `com.cycling.coui`：核心、`coui-icons` 与 Demo 的 `namespace` 由 `com.itos.*` 改为 `com.cycling.*`，Demo `applicationId` 改为 `com.cycling.coui.demo`。源码目录随包名迁移，宿主的 `import` 与依赖坐标中的 group `io.github.itoseo` 不变；Demo 因 applicationId 变化，需卸载旧版本再安装。
 
 ## [0.0.1-alpha13] - 2026-11-15

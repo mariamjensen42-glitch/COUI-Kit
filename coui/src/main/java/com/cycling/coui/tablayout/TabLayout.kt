@@ -2,16 +2,13 @@ package com.cycling.coui.tablayout
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.rememberScrollState
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,8 +20,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.DrawScope
@@ -45,6 +42,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.constrainHeight
+import com.cycling.coui.segmentbutton.SegmentGeometry
+import com.cycling.coui.segmentbutton.segmentWidths
 import com.cycling.coui.theme.CouiTheme
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -54,22 +53,18 @@ import kotlin.math.min
 import kotlin.math.roundToInt
 
 /**
- * 页签条：文字标签配一条跟随选中项滑动的底部指示器。
+ * 页签条：胶囊容器里的一排文字页签，选中项是一枚跟随切换滑动的胶囊填充。
  *
  * [selectedIndex] 与 [onSelectedIndexChange] 由宿主持有，组件不保存选中状态；
  * 重复点击当前项仍会回调，禁用项不响应但仍占位移。
  *
- * 排布按原厂 `COUISlidingTabStrip.onMeasure`：每项占「文字宽 + [CouiTabLayoutDefaults.tabSpacing]」，
- * 其中一半间距落在文字两侧，因此项中心与文字中心重合、整项都可点击。
- * [CouiTabLayoutMode.Scrollable] 以 `edgeMargin - tabSpacing / 2` 收边并可横向滚动，选中项滚向中间；
- * [CouiTabLayoutMode.Fixed] 先按内容宽度 `(页签数 - 1) × 间距 + 两侧外边距 + 文字总宽` 判断：
- * 不超过 [CouiTabLayoutDefaults.contentMinWidth] 时把临界宽度按「页签数 + 1」均分剩余间距，
- * 不超过视口时退化为固定间距居中，再宽则按最小外边距排布并裁切。
+ * 几何取自分段控件：容器高 [CouiTabLayoutDefaults.height]、内容内缩
+ * [CouiTabLayoutDefaults.containerPadding]，每段自然宽 `max(tabMinWidth, 文字宽 + 2 × labelPadding)`。
+ * 容器包裹内容并在宿主给的宽度里居中；[CouiTabLayoutMode.Fixed] 在内容超宽时按原厂水位算法收缩，
+ * [CouiTabLayoutMode.Scrollable] 保留自然宽度、可横向滚动，选中项滚向中间。
  *
- * 指示器宽度取文字宽度加两侧 [CouiTabLayoutDefaults.indicatorPadding]，不小于
- * [CouiTabLayoutDefaults.indicatorMinWidth]，高度 [CouiTabLayoutDefaults.indicatorHeight] 贴在本文本行底部；
- * 切换时长按 `min(300, 距离 × 50 + 150)` 计算；文字颜色用同一进度在选中色与未选中色之间插值，
- * 选中项切换为 medium 字重。
+ * 选中胶囊取整段宽度、高为容器减去上下留白；切换时长按 `min(300, 距离 × 50 + 150)`
+ * 补间中心与宽度，文字颜色用同一进度在选中色与未选中色之间插值，选中项切换为 medium 字重。
  */
 @Composable
 fun TabLayout(
@@ -80,12 +75,14 @@ fun TabLayout(
     mode: CouiTabLayoutMode = CouiTabLayoutMode.Fixed,
     dark: Boolean = CouiTheme.isDark,
     colors: CouiTabLayoutColors = CouiTabLayoutDefaults.colors(dark),
-    dividerVisible: Boolean = false,
 ) {
     if (tabs.isEmpty()) return
     val selected = selectedIndex.coerceIn(0, tabs.lastIndex)
 
-    BoxWithConstraints(modifier.defaultMinSize(minHeight = CouiTabLayoutDefaults.height)) {
+    BoxWithConstraints(
+        modifier = modifier.defaultMinSize(minHeight = CouiTabLayoutDefaults.height),
+        contentAlignment = Alignment.Center,
+    ) {
         val density = LocalDensity.current
         val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
         val textMeasurer = rememberTextMeasurer()
@@ -98,14 +95,12 @@ fun TabLayout(
                 platformStyle = PlatformTextStyle(includeFontPadding = false),
             )
         }
-        val viewportPx = with(density) { maxWidth.toPx() }
-        val spacingPx = with(density) { CouiTabLayoutDefaults.tabSpacing.toPx() }
-        val edgePx = with(density) { CouiTabLayoutDefaults.edgeMargin.toPx() }
-        val contentMinPx = with(density) { CouiTabLayoutDefaults.contentMinWidth.toPx() }
+        val heightPx = with(density) { CouiTabLayoutDefaults.height.toPx() }
+        val paddingPx = with(density) { CouiTabLayoutDefaults.containerPadding.toPx() }
+        val labelPaddingPx = with(density) { CouiTabLayoutDefaults.labelPadding.toPx() }
+        val minTabPx = with(density) { CouiTabLayoutDefaults.tabMinWidth.toPx() }
         val tabMaxPx = with(density) { CouiTabLayoutDefaults.tabMaxWidth.toPx() }
-        val indicatorPaddingPx = with(density) { CouiTabLayoutDefaults.indicatorPadding.toPx() }
-        val indicatorMinWidthPx = with(density) { CouiTabLayoutDefaults.indicatorMinWidth.toPx() }
-        val indicatorHeightPx = with(density) { CouiTabLayoutDefaults.indicatorHeight.toPx() }
+        val viewportPx = if (constraints.hasBoundedWidth) maxWidth.toPx() else Float.MAX_VALUE
 
         val textWidths = remember(tabs, textStyle, density, tabMaxPx) {
             tabs.map { tab ->
@@ -117,34 +112,21 @@ fun TabLayout(
                 ).size.width.toFloat()
             }
         }
-        val textTotal = textWidths.sum()
-        val scrollEdge = (edgePx - spacingPx / 2f).coerceAtLeast(0f)
-        val (gapPx, startPx) = when (mode) {
-            CouiTabLayoutMode.Fixed -> {
-                val needed = (tabs.size - 1) * spacingPx + edgePx * 2 + textTotal
-                when {
-                    needed <= contentMinPx -> {
-                        // 临界宽度以下按实际视口均分，超过时以 contentMinWidth 为准并把余量居中。
-                        val basis = min(viewportPx, contentMinPx)
-                        val gap = max((basis - textTotal) / (tabs.size + 1), spacingPx)
-                        gap to (viewportPx - basis + gap) / 2f
-                    }
-                    needed <= viewportPx -> spacingPx to ((viewportPx - textTotal) - spacingPx * tabs.size) / 2f
-                    else -> spacingPx to scrollEdge
-                }
-            }
-            CouiTabLayoutMode.Scrollable -> spacingPx to scrollEdge
+        val naturalWidths = remember(textWidths, minTabPx, labelPaddingPx) {
+            textWidths.map { max(minTabPx, it + labelPaddingPx * 2f) }
         }
-        val lefts = FloatArray(tabs.size)
-        var cursor = startPx
-        for (index in tabs.indices) {
-            lefts[index] = cursor
-            cursor += textWidths[index] + gapPx
+        val naturalTotal = naturalWidths.sum() + paddingPx * 2f
+        val contentWidthPx = when (mode) {
+            CouiTabLayoutMode.Fixed -> min(naturalTotal, viewportPx)
+            CouiTabLayoutMode.Scrollable -> naturalTotal
         }
-        val contentWidthPx = cursor + startPx
-        val targetCenter = lefts[selected] + (textWidths[selected] + gapPx) / 2f
-        val indicatorWidthPx = (textWidths[selected] + indicatorPaddingPx * 2)
-            .coerceAtLeast(indicatorMinWidthPx)
+        val contentAreaPx = (contentWidthPx - paddingPx * 2f).roundToInt().coerceAtLeast(0)
+        val widths = remember(naturalWidths, contentAreaPx) { segmentWidths(naturalWidths, contentAreaPx) }
+        val geometry = remember(contentWidthPx, heightPx, paddingPx, widths, rtl) {
+            SegmentGeometry(contentWidthPx, heightPx, paddingPx, widths, rtl, false)
+        }
+        val targetCenter = geometry.center(selected)
+        val targetWidth = widths[selected].toFloat()
 
         val indicatorCenter = remember { Animatable(0f) }
         val indicatorWidth = remember { Animatable(0f) }
@@ -155,48 +137,57 @@ fun TabLayout(
         val selectionState = selection.asState()
         var initialized by remember { mutableStateOf(false) }
         var previousSelected by remember { mutableIntStateOf(selected) }
-        LaunchedEffect(targetCenter, indicatorWidthPx, selected) {
+        LaunchedEffect(targetCenter, targetWidth, selected) {
             val duration = CouiTabLayoutDefaults.indicatorDurationMillis(abs(selected - previousSelected))
             previousSelected = selected
             if (!initialized) {
                 indicatorCenter.snapTo(targetCenter)
-                indicatorWidth.snapTo(indicatorWidthPx)
+                indicatorWidth.snapTo(targetWidth)
                 selection.snapTo(selected.toFloat())
                 initialized = true
             } else {
                 launch { indicatorCenter.animateTo(targetCenter, tween(duration)) }
-                launch { indicatorWidth.animateTo(indicatorWidthPx, tween(duration)) }
+                launch { indicatorWidth.animateTo(targetWidth, tween(duration)) }
                 launch { selection.animateTo(selected.toFloat(), tween(duration)) }
             }
         }
 
         val scrollState = rememberScrollState()
-        LaunchedEffect(selected, mode, viewportPx, contentWidthPx) {
-            if (mode != CouiTabLayoutMode.Scrollable || contentWidthPx <= viewportPx) return@LaunchedEffect
+        val scrollable = mode == CouiTabLayoutMode.Scrollable && contentWidthPx > viewportPx
+        LaunchedEffect(selected, scrollable, viewportPx, contentWidthPx) {
+            if (!scrollable) return@LaunchedEffect
             // 滚动上限来自首次布局，maxValue 到位前不能夹紧目标。
             snapshotFlow { scrollState.maxValue }.first { it > 0 }
             val target = (targetCenter - viewportPx / 2f).roundToInt().coerceIn(0, scrollState.maxValue)
             scrollState.animateScrollTo(target, tween(CouiTabLayoutDefaults.scrollAnimationMillis))
         }
 
-        // 指示器画在内容坐标系里，随滚动一起位移，RTL 下与 placeRelative 的镜像保持一致。
-        val drawIndicator: DrawScope.() -> Unit = {
-            val center = if (rtl) size.width - indicatorCenterState.value else indicatorCenterState.value
-            val width = indicatorWidthState.value
-            drawRect(
-                color = colors.indicator,
-                topLeft = Offset(center - width / 2f, size.height - indicatorHeightPx),
-                size = Size(width, indicatorHeightPx),
+        // 容器与选中胶囊画在内容坐标系里，随滚动一起位移；RTL 的中心已由 SegmentGeometry 镜像。
+        val drawSurface: DrawScope.() -> Unit = {
+            drawRoundRect(
+                color = colors.container,
+                size = size,
+                cornerRadius = CornerRadius(size.height / 2f),
             )
+            val indicatorHeight = (size.height - paddingPx * 2f).coerceAtLeast(0f)
+            val width = indicatorWidthState.value
+            if (width > 0f && indicatorHeight > 0f) {
+                drawRoundRect(
+                    color = colors.indicator,
+                    topLeft = Offset(indicatorCenterState.value - width / 2f, paddingPx),
+                    size = Size(width, indicatorHeight),
+                    cornerRadius = CornerRadius(indicatorHeight / 2f),
+                )
+            }
         }
 
-        val rowModifier = if (mode == CouiTabLayoutMode.Fixed) {
-            Modifier.fillMaxWidth().clipToBounds()
+        val rowModifier = if (scrollable) {
+            Modifier.horizontalScroll(scrollState)
         } else {
-            Modifier.fillMaxWidth().horizontalScroll(scrollState)
+            Modifier
         }
         Layout(
-            modifier = rowModifier.drawBehind(drawIndicator),
+            modifier = rowModifier.drawBehind(drawSurface),
             content = {
                 tabs.forEachIndexed { index, tab ->
                     val interaction = remember(tab.key) { MutableInteractionSource() }
@@ -224,26 +215,17 @@ fun TabLayout(
                 }
             },
         ) { measurables, constraints ->
-            val height = constraints.constrainHeight(CouiTabLayoutDefaults.height.roundToPx())
+            val height = constraints.constrainHeight(heightPx.roundToInt())
             val placeables = measurables.mapIndexed { index, measurable ->
-                measurable.measure(Constraints.fixed((textWidths[index] + gapPx).roundToInt(), height))
+                measurable.measure(Constraints.fixed(widths[index], height))
             }
-            val width = if (mode == CouiTabLayoutMode.Fixed && constraints.hasBoundedWidth) {
-                constraints.maxWidth
-            } else {
-                contentWidthPx.roundToInt()
+            layout(contentWidthPx.roundToInt(), height) {
+                var start = paddingPx
+                placeables.forEachIndexed { index, placeable ->
+                    placeable.placeRelative(start.roundToInt(), 0)
+                    start += widths[index]
+                }
             }
-            layout(width, height) {
-                placeables.forEachIndexed { index, placeable -> placeable.placeRelative(lefts[index].roundToInt(), 0) }
-            }
-        }
-        if (dividerVisible) {
-            Box(
-                Modifier.align(Alignment.BottomStart)
-                    .fillMaxWidth()
-                    .height(CouiTabLayoutDefaults.dividerHeight)
-                    .background(colors.divider),
-            )
         }
     }
 }

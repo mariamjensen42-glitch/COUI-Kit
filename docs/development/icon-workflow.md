@@ -14,13 +14,13 @@
 
 - 对矢量资源，保留可用的 Android VectorDrawable XML 及必要的颜色资源。XML 需要完整的命名空间、宽高、viewport 和路径；资源表、未解析的主题或资源引用不能直接当作完整图标。预览异常时先检查实际资源类型和依赖，不要只改文件名。
 - PNG 或 WebP 可保留原图接入位图入口。通用资源放入 `drawable-nodpi`，夜间原图放入 `drawable-night-nodpi` 并使用相同文件名。
-- 单色图标保留各路径的 alpha，再按已确认的日夜色值使用 [CouiColor](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/theme/CouiColor.kt)。多条路径只是透明度不同，仍可使用同一颜色；不能把未证实的颜色近似归入现有色板。需要新色时，先确认日夜值，再补充对应角色。
+- 单色图标保留各路径的 alpha，再按已确认的日夜色值使用 [CouiColor](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/theme/CouiColor.kt)。多条路径只是透明度不同，仍可使用同一颜色；不能把未证实的颜色近似归入现有色板。需要新色时，先确认日夜值，再补充对应角色。
 - 多色和渐变图标保留各路径颜色及渐变，不使用整体单色 tint。若只有部分图层可换色，应分别处理：`AppUpdate` 只更改背景，白色前景保持不变。
 
 ## 接入图标库
 
 1. 在 [drawable](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-icons/src/main/res/drawable) 中添加 VectorDrawable XML；需要不同的夜间图形时，在 `drawable-night` 中添加同名资源。保留实际路径、viewport、填充、描边、裁剪、渐变与透明度；日夜颜色资源分别放入 `values` 和 `values-night`。
-2. 在 [CouiIcons.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-icons/src/main/java/com/itos/coui/icons/CouiIcons.kt) 的对应样式中提供 `CouiIcons.Filled.名称` 或 `CouiIcons.Outlined.名称` 入口，通过 `couiIconResource` 加载 XML。图标跟随 `CouiTheme.isDark` 选择日夜资源；供静态目录使用时，保存 `@Composable () -> ImageVector` 并在组合时读取。
+2. 在 [CouiIcons.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-icons/src/main/java/com/cycling/coui/icons/CouiIcons.kt) 的对应样式中提供 `CouiIcons.Filled.名称` 或 `CouiIcons.Outlined.名称` 入口，通过 `couiIconResource` 加载 XML。图标跟随 `CouiTheme.isDark` 选择日夜资源；供静态目录使用时，保存 `@Composable () -> ImageVector` 并在组合时读取。
 3. 按实际来源应用更新[图标来源](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/ICON_SOURCES.md)中的图标分组。详细使用方法维护在[图标用法](../components/icons.md)，来源清单不记录路径细节或提取日志。
 
 `Image` 可显示矢量自带颜色；要保留这些颜色，不要传 `ColorFilter`。显式 tint 可覆盖单色图标，但会覆盖整张多色图。需要可换色的局部时，在图标实现中单独处理该图层。

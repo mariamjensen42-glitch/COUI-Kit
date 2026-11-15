@@ -73,4 +73,4 @@ snackbar.show(
 
 ## Demo 示例
 
-单条、带操作按钮、不自动消失与排队见 [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNextComponents.kt)，库入口见 [SnackbarHost / CouiSnackbarState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/snackbar/Snackbar.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/snackbar/CouiSnackbarDefaults.kt)。
+单条、带操作按钮、不自动消失与排队见 [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoNextComponents.kt)，库入口见 [SnackbarHost / CouiSnackbarState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/snackbar/Snackbar.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/snackbar/CouiSnackbarDefaults.kt)。

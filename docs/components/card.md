@@ -57,4 +57,4 @@ Card(shape = CouiTheme.shapes.medium, containerColor = CouiTheme.colorScheme.con
 
 ## Demo 示例
 
-静态卡、可点卡与禁用示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoContainerSamples.kt)，库入口见 [Card](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/card/Card.kt)。
+静态卡、可点卡与禁用示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoContainerSamples.kt)，库入口见 [Card](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/card/Card.kt)。

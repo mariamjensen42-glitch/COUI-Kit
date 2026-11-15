@@ -30,4 +30,4 @@ ChoiceCardGroup(
 
 卡片最小高度、间距、图标尺寸与描边宽度在 `CouiChoiceCardDefaults`。项目数较多时卡片会等分压缩，超过四项建议改用[快捷动作网格](quick-action-grid.md)或列表。
 
-源码见 [ChoiceCardGroup](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/choicecard/ChoiceCardGroup.kt)。
+源码见 [ChoiceCardGroup](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/choicecard/ChoiceCardGroup.kt)。

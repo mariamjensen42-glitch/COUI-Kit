@@ -1,6 +1,6 @@
 # 💬弹窗
 
-`Dialog` 用于显示确认、提示等弹窗，可以放在屏幕底部或居中显示。需要单行输入时，可以使用 `InputDialog`。任务执行期间可以使用 `LoadingDialog` 显示加载动画和提示。这些组件位于 `com.itos.coui.dialog`。
+`Dialog` 用于显示确认、提示等弹窗，可以放在屏幕底部或居中显示。需要单行输入时，可以使用 `InputDialog`。任务执行期间可以使用 `LoadingDialog` 显示加载动画和提示。这些组件位于 `com.cycling.coui.dialog`。
 
 [确认弹窗](#显示一个简单确认弹窗) · [输入弹窗](#输入型弹窗) · [加载弹窗](#显示加载弹窗) · [背景材质](#使用背景材质)
 
@@ -98,7 +98,7 @@ Dialog(
 }
 ~~~
 
-`content` 位于正文滚动区。操作区独立排列；正文较长时，按钮仍保留在窗口内。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
+`content` 位于正文滚动区。操作区独立排列；正文较长时，按钮仍保留在窗口内。示例中的 `Text` 使用 `com.cycling.coui.text.Text`。
 
 ## 输入型弹窗
 
@@ -317,4 +317,4 @@ Demo 的“组件 → 弹窗”分组包含底部、居中、长内容、多个�
 
 支持的设备可以通过“弹窗背景材质”开关比较模糊材质和不透明表面。
 
-Demo 源码见 [DemoDialogSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogSamples.kt)、[输入型示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogInputSample.kt) 与[引导、安全、列表示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogFamilySamples.kt)。公开参数见 [Dialog / CouiDialogAction](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/Dialog.kt)、[CouiDialogActionStyle / CouiDialogActionColors](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/CouiDialogButton.kt)、[InputDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/InputDialog.kt)、[LoadingDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/LoadingDialog.kt)、[GuideDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/GuideDialog.kt)、[SecurityDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/SecurityDialog.kt)、[ListDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/ListDialog.kt) 与 [CouiDialogDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/dialog/CouiDialogDefaults.kt)。
+Demo 源码见 [DemoDialogSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoDialogSamples.kt)、[输入型示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoDialogInputSample.kt) 与[引导、安全、列表示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoDialogFamilySamples.kt)。公开参数见 [Dialog / CouiDialogAction](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/Dialog.kt)、[CouiDialogActionStyle / CouiDialogActionColors](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/CouiDialogButton.kt)、[InputDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/InputDialog.kt)、[LoadingDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/LoadingDialog.kt)、[GuideDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/GuideDialog.kt)、[SecurityDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/SecurityDialog.kt)、[ListDialog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/ListDialog.kt) 与 [CouiDialogDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/dialog/CouiDialogDefaults.kt)。

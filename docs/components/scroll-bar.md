@@ -51,4 +51,4 @@ ScrollBar(Modifier.matchParentSize(), state = state,
 
 ## Demo 与源码
 
-示例见 [DemoScrollBarSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoScrollBarSamples.kt)，公开入口见 [ScrollBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/scrollbar/ScrollBar.kt)。
+示例见 [DemoScrollBarSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoScrollBarSamples.kt)，公开入口见 [ScrollBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/scrollbar/ScrollBar.kt)。

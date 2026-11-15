@@ -12,7 +12,7 @@ plugins {
 }
 
 android {
-    namespace = "com.itos.coui"
+    namespace = "com.cycling.coui"
     compileSdk = 37
     defaultConfig {
         minSdk = 31

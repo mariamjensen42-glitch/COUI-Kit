@@ -14,7 +14,7 @@ TopTips(visible = visible) {
 }
 ~~~
 
-组件位于 `com.itos.coui.toptips`。
+组件位于 `com.cycling.coui.toptips`。
 
 ## 内容排布
 

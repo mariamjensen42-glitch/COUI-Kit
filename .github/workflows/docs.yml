@@ -9,7 +9,7 @@ on:
       - zensical.toml
       - Pages/**
       - coui-icons/src/main/res/**
-      - coui/src/main/java/com/itos/coui/theme/CouiColor.kt
+      - coui/src/main/java/com/cycling/coui/theme/CouiColor.kt
       - .github/workflows/docs.yml
   workflow_dispatch:
 

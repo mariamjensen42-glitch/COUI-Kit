@@ -121,4 +121,4 @@ ChipGroupEditText(
 
 ## Demo 与源码
 
-示例见 [DemoChipFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoChipFamilySamples.kt)，公开入口见 [Chip](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/Chip.kt)、[ChipGroup](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/ChipGroup.kt) 与 [CouiChipDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/chip/CouiChipDefaults.kt)。
+示例见 [DemoChipFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoChipFamilySamples.kt)，公开入口见 [Chip](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/chip/Chip.kt)、[ChipGroup](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/chip/ChipGroup.kt) 与 [CouiChipDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/chip/CouiChipDefaults.kt)。

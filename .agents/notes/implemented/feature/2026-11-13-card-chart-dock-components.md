@@ -15,10 +15,10 @@ Status: implemented
 
 新增四个组件，全部只做布局与装配，不新增 Shader、模糊、轮廓或投影实现：
 
-- [ActionCard](../../../../coui/src/main/java/com/itos/coui/actioncard/ActionCard.kt)：`title` 可选，省略时退化为提示卡形态。两种形态共用同一套布局，不另建 `NoticeCard`——两者差异只有标题一行，独立组件会成为只转发参数的层。
-- [ChoiceCardGroup](../../../../coui/src/main/java/com/itos/coui/choicecard/ChoiceCardGroup.kt)：`selectable` + `Role.RadioButton` + `selectableGroup()`，选中态只叠加强调描边与文字色，不改高度。与 `SegmentedControl` 分工：后者是胶囊滑块，用于 2~4 个短标签的即时切换。
-- [BarChart](../../../../coui/src/main/java/com/itos/coui/chart/BarChart.kt)：Canvas 绘制圆角柱，柱宽按可用宽度均分，`axisLabels` 同时决定右侧刻度与水平网格线位置。不做滚动、缩放、动画或交互，也不引入图表库。
-- [DockBar](../../../../coui/src/main/java/com/itos/coui/navigation/DockBar.kt)：复用 `CouiFloatingRenderer.pair()` + `Modifier.couiFloatingPair`，胶囊是 index 1 主体、中央圆钮是 index 2 主体，融球、材质、阴影、跟手光全部由既有双主体链承担。
+- [ActionCard](../../../../coui/src/main/java/com/cycling/coui/actioncard/ActionCard.kt)：`title` 可选，省略时退化为提示卡形态。两种形态共用同一套布局，不另建 `NoticeCard`——两者差异只有标题一行，独立组件会成为只转发参数的层。
+- [ChoiceCardGroup](../../../../coui/src/main/java/com/cycling/coui/choicecard/ChoiceCardGroup.kt)：`selectable` + `Role.RadioButton` + `selectableGroup()`，选中态只叠加强调描边与文字色，不改高度。与 `SegmentedControl` 分工：后者是胶囊滑块，用于 2~4 个短标签的即时切换。
+- [BarChart](../../../../coui/src/main/java/com/cycling/coui/chart/BarChart.kt)：Canvas 绘制圆角柱，柱宽按可用宽度均分，`axisLabels` 同时决定右侧刻度与水平网格线位置。不做滚动、缩放、动画或交互，也不引入图表库。
+- [DockBar](../../../../coui/src/main/java/com/cycling/coui/navigation/DockBar.kt)：复用 `CouiFloatingRenderer.pair()` + `Modifier.couiFloatingPair`，胶囊是 index 1 主体、中央圆钮是 index 2 主体，融球、材质、阴影、跟手光全部由既有双主体链承担。
 
 DockBar 的几何与装配约束：
 

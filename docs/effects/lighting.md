@@ -80,7 +80,7 @@ Box(
 
 轮廓和背景感知效果要求 API 33，旧平台的跟手光工厂没有等价 Shader 回调。尺寸或颜色改变时更新对应 Effect，不复用旧 uniform 快照；详见[平台要求](../guide/compatibility.md)。
 
-[轮廓](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiContour.kt)、[背景感知描边](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiEdge.kt)、[跟手光 / 预设 / 诊断](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiSpotlight.kt)、[状态蒙层](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiStateMask.kt)、[状态反馈](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiStateFeedback.kt)。组合绘制实例见[顶栏按钮](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)。
+[轮廓](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiContour.kt)、[背景感知描边](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiEdge.kt)、[跟手光 / 预设 / 诊断](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiSpotlight.kt)、[状态蒙层](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiStateMask.kt)、[状态反馈](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiStateFeedback.kt)。组合绘制实例见[顶栏按钮](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/TopAppBarButton.kt)。
 
 ## 独立 Drawable 轮廓
 

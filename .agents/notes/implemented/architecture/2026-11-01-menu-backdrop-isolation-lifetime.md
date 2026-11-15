@@ -10,11 +10,11 @@ ProvideCouiMenuBackdrop 的源覆盖所属窗口内容。若它始终使用 Offs
 
 ## Decision
 
-[ProvideCouiMenuBackdrop](../../../../coui/src/main/java/com/itos/coui/menu/CouiMenuBackdrop.kt) 保留单参数入口和默认强制隔离，增加必须显式传入 isolateContent 的重载。false 仅允许源在没有材质消费者时使用 Auto，普通 rememberCouiBackdrop 的策略保持不变。现有调用无需迁移，新选项只用于宿主已核对的场景。
+[ProvideCouiMenuBackdrop](../../../../coui/src/main/java/com/cycling/coui/menu/CouiMenuBackdrop.kt) 保留单参数入口和默认强制隔离，增加必须显式传入 isolateContent 的重载。false 仅允许源在没有材质消费者时使用 Auto，普通 rememberCouiBackdrop 的策略保持不变。现有调用无需迁移，新选项只用于宿主已核对的场景。
 
-[CouiBackdrop](../../../../coui/src/main/java/com/itos/coui/backdrop/CouiBackdrop.kt) 持有空闲策略和消费者计数，沿已有 parent 链成对保留及释放。internal 组合入口 RetainWhileComposed 集中持有 DisposableEffect，以实际源身份为 key；retain、release 为 private，消费者不能拆开调用引用配对。策略更新统一考虑空闲隔离与活跃消费者；Provider 的 SideEffect 不能覆盖已经取得的引用。计数属于图层使用期，不作为 Compose 业务状态，也不建立额外租约对象或全局登记表。
+[CouiBackdrop](../../../../coui/src/main/java/com/cycling/coui/backdrop/CouiBackdrop.kt) 持有空闲策略和消费者计数，沿已有 parent 链成对保留及释放。internal 组合入口 RetainWhileComposed 集中持有 DisposableEffect，以实际源身份为 key；retain、release 为 private，消费者不能拆开调用引用配对。策略更新统一考虑空闲隔离与活跃消费者；Provider 的 SideEffect 不能覆盖已经取得的引用。计数属于图层使用期，不作为 Compose 业务状态，也不建立额外租约对象或全局登记表。
 
-[菜单材质](../../../../coui/src/main/java/com/itos/coui/menu/CouiMenuMaterial.kt) 在原材质组合位置调用 RetainWhileComposed。普通菜单和主、子菜单的材质在 expanded 或 motion.visible 为真时存在，退出动画结束后才释放，快速反向保持同一使用期。[材质弹窗](../../../../coui/src/main/java/com/itos/coui/dialog/CouiDialogWindow.kt) 在需要背景材质时，经平台及非空检查后调用同一入口持有实际窗口源；无材质弹窗不申请引用。显式传入的普通背景源仍保持原默认隔离。
+[菜单材质](../../../../coui/src/main/java/com/cycling/coui/menu/CouiMenuMaterial.kt) 在原材质组合位置调用 RetainWhileComposed。普通菜单和主、子菜单的材质在 expanded 或 motion.visible 为真时存在，退出动画结束后才释放，快速反向保持同一使用期。[材质弹窗](../../../../coui/src/main/java/com/cycling/coui/dialog/CouiDialogWindow.kt) 在需要背景材质时，经平台及非空检查后调用同一入口持有实际窗口源；无材质弹窗不申请引用。显式传入的普通背景源仍保持原默认隔离。
 
 源节点、clip、recorded、布局坐标、PreDraw 和 drawSource 录制继续存在。此决定只控制空闲源是否强制离屏，不删除采样节点、不冻结背景、不缩小输入，也不改变 Gaussian、Kawase 或菜单内容层的隔离。新菜单消费现有源，避免按需添加 source 带来的首帧重建。节点 detach 不清零消费者计数；即使图层已释放，消费者仍须偿还父链引用。诊断重建按 backdrop identity 迁移 Effect。
 
@@ -24,7 +24,7 @@ ProvideCouiMenuBackdrop 的源覆盖所属窗口内容。若它始终使用 Offs
 
 AndroidX 的 [GraphicsLayer](https://github.com/androidx/androidx/blob/918659e0a6ddfad64eb556fa2b6adf75844cba27/compose/ui/ui-graphics/src/androidMain/kotlin/androidx/compose/ui/graphics/layer/AndroidGraphicsLayer.android.kt) 将 compositingStrategy 交给平台实现；[GraphicsLayerV29](https://github.com/androidx/androidx/blob/918659e0a6ddfad64eb556fa2b6adf75844cba27/compose/ui/ui-graphics/src/androidMain/kotlin/androidx/compose/ui/graphics/layer/GraphicsLayerV29.android.kt) 通过 RenderNode 的合成层开关表达 Offscreen 与 Auto，并保留其他效果要求离屏的条件。因此 Auto 只取消强制隔离，不是绝对无离屏保证。
 
-菜单 Popup 与材质使用相同的可见条件，见 [Menu](../../../../coui/src/main/java/com/itos/coui/menu/Menu.kt) 和 [CouiMenuSubMenu](../../../../coui/src/main/java/com/itos/coui/menu/CouiMenuSubMenu.kt)。[CouiMenuMotion](../../../../coui/src/main/java/com/itos/coui/menu/CouiMenuMotion.kt) 在关闭动画结束后清理 visible。AndroidX [Dialog](https://github.com/androidx/androidx/blob/918659e0a6ddfad64eb556fa2b6adf75844cba27/compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/window/AndroidDialog.android.kt) 在退出时 dismiss 并释放内容 Composition，不为系统窗口退出动画额外增加固定延迟。
+菜单 Popup 与材质使用相同的可见条件，见 [Menu](../../../../coui/src/main/java/com/cycling/coui/menu/Menu.kt) 和 [CouiMenuSubMenu](../../../../coui/src/main/java/com/cycling/coui/menu/CouiMenuSubMenu.kt)。[CouiMenuMotion](../../../../coui/src/main/java/com/cycling/coui/menu/CouiMenuMotion.kt) 在关闭动画结束后清理 visible。AndroidX [Dialog](https://github.com/androidx/androidx/blob/918659e0a6ddfad64eb556fa2b6adf75844cba27/compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/window/AndroidDialog.android.kt) 在退出时 dismiss 并释放内容 Composition，不为系统窗口退出动画额外增加固定延迟。
 
 本决定属于公开 Android / Compose 的资源管理，不是新移植的 OEM 算法，也不引用厂商私有 SDK。此前透明卷积和固定绘制指令优化的收益仍归原决定，不与本次源隔离调整混算。
 

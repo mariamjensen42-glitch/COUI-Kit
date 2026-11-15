@@ -21,4 +21,4 @@ StepBar(
 
 圆点尺寸、线宽与标签间距在 `CouiStepBarDefaults`。标签超长以省略号截断，不做横向滚动；步骤多于 4 个时建议缩短文案或改用纵向流程。
 
-源码见 [StepBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/stepper/StepBar.kt)。
+源码见 [StepBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/stepper/StepBar.kt)。

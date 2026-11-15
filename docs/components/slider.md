@@ -1,6 +1,6 @@
 # 🎚️滑动选择条
 
-使用 `Slider` 调节音量、亮度等数值。滑条支持连续调节，也可以设置固定的档位。组件位于 `com.itos.coui.slider`。
+使用 `Slider` 调节音量、亮度等数值。滑条支持连续调节，也可以设置固定的档位。组件位于 `com.cycling.coui.slider`。
 
 ## 显示一个滑条
 
@@ -112,4 +112,4 @@ Slider(
 
 `value` 和范围端点必须是有限值，范围不能反向；`steps` 不能是负数或 `Int.MAX_VALUE`。参数不符合要求时会抛出异常。
 
-滑条不需要背景源。更多示例见 [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)，公开参数见 [Slider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/Slider.kt) 和 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/slider/CouiSliderDefaults.kt)。
+滑条不需要背景源。更多示例见 [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSamples.kt)，公开参数见 [Slider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/slider/Slider.kt) 和 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/slider/CouiSliderDefaults.kt)。

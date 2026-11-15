@@ -121,4 +121,4 @@ Button(
 
 ## Demo 示例
 
-三种外观、加载、禁用与两行文案示例见 [DemoButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoButtonSamples.kt)，库入口和配色见 [Button / CouiButtonDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/button/Button.kt)。按钮组见同文件的 `ButtonSample` 与 `ButtonGroup`。
+三种外观、加载、禁用与两行文案示例见 [DemoButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoButtonSamples.kt)，库入口和配色见 [Button / CouiButtonDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/button/Button.kt)。按钮组见同文件的 `ButtonSample` 与 `ButtonGroup`。

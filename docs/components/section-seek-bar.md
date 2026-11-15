@@ -76,6 +76,6 @@ IconSeekBar(
 
 ## Demo 与源码
 
-- Demo：`demo/src/main/java/com/itos/coui/demo/DemoSeekBarFamilySamples.kt`（目录项「Seek bar variants」）。
-- 源码：[SectionSeekBar.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/seekbar/SectionSeekBar.kt)、
-  [IconSeekBar.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/seekbar/IconSeekBar.kt)。
+- Demo：`demo/src/main/java/com/cycling/coui/demo/DemoSeekBarFamilySamples.kt`（目录项「Seek bar variants」）。
+- 源码：[SectionSeekBar.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/seekbar/SectionSeekBar.kt)、
+  [IconSeekBar.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/seekbar/IconSeekBar.kt)。

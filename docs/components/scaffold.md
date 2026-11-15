@@ -1,6 +1,6 @@
 # 页面容器
 
-`Scaffold` 测量顶栏、底栏并向正文提供 Padding，同时为浮动栏位提供正文背景源。它位于 `com.itos.coui.layout`，使用 Compose UI / Foundation，纯 COUI 页面只需依赖核心 `coui`。
+`Scaffold` 测量顶栏、底栏并向正文提供 Padding，同时为浮动栏位提供正文背景源。它位于 `com.cycling.coui.layout`，使用 Compose UI / Foundation，纯 COUI 页面只需依赖核心 `coui`。
 
 ## 显示带顶栏的列表
 
@@ -114,4 +114,4 @@ Scaffold(
 
 使用宿主已有的页面容器或自有布局时，创建源、在正文容器挂载源，再显式传给浮动组件，见[宿主页面接入](../guide/secondary-pages.md)。导航、返回、业务状态、滚动和 Snackbar 由宿主组合；设置页直接组合 `Group` 与 `Item`。菜单和材质弹窗的窗口背景源需另行配置。
 
-[公开实现](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/Scaffold.kt) · [首页 Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt) · [二级页 Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt)
+[公开实现](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/layout/Scaffold.kt) · [首页 Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoApp.kt) · [二级页 Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSettingsPage.kt)

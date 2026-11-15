@@ -1,6 +1,6 @@
 # Group
 
-`Group` 将相邻条目放入同一张平滑圆角卡片，可提供标题、标题右侧操作和底部说明。组件位于 `com.itos.coui.layout`。
+`Group` 将相邻条目放入同一张平滑圆角卡片，可提供标题、标题右侧操作和底部说明。组件位于 `com.cycling.coui.layout`。
 
 ```kotlin
 Group(title = groupTitle, footer = description) {
@@ -24,4 +24,4 @@ Group(title = groupTitle, footer = description) {
 
 组件不安装滚动、不消费系统栏 Insets，也不创建背景采样源。页面装配见[宿主页面接入](../guide/secondary-pages.md)。
 
-[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt) · [Demo 示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)
+[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/layout/CouiPageComponents.kt) · [Demo 示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSamples.kt)

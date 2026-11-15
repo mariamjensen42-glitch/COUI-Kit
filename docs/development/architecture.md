@@ -55,6 +55,6 @@ Group、Item、Divider、Footer 处理局部分组和行布局。Item.onClick �
 
 ## 依据
 
-参数以[库源码](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/)与[构建配置](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/build.gradle.kts)为准。原厂行为、公开平台适配与项目主动特化分别记录；完整使用要求由对应[组件](../components/README.md)和[效果](../effects/README.md)页面持有。
+参数以[库源码](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/)与[构建配置](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/build.gradle.kts)为准。原厂行为、公开平台适配与项目主动特化分别记录；完整使用要求由对应[组件](../components/README.md)和[效果](../effects/README.md)页面持有。
 
 历史取舍见[模块边界](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-21-coui-module-boundary.md)和[独立工程](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/.agents/notes/implemented/architecture/2026-10-23-standalone-coui-demo.md)。主题与染色的当前使用契约见[外观与预设](../guide/appearance.md)。

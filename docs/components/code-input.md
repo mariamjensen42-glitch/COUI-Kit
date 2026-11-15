@@ -1,6 +1,6 @@
 # 验证码输入
 
-`CodeInputView` 是一排等宽圆角格子，整段验证码由一个不可见输入框承接键盘与粘贴，位于 `com.itos.coui.textfield`。它只渲染格子与当前输入位置，验证码由宿主持有。
+`CodeInputView` 是一排等宽圆角格子，整段验证码由一个不可见输入框承接键盘与粘贴，位于 `com.cycling.coui.textfield`。它只渲染格子与当前输入位置，验证码由宿主持有。
 
 单行或多行文本输入用[输入框](text-field.md)，多行文本卡片用[多行输入卡](multi-input.md)。
 
@@ -68,4 +68,4 @@ CodeInputView(
 
 ## Demo 与源码
 
-示例见 [DemoTextFieldFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoTextFieldFamilySamples.kt)，公开入口见 [CodeInputView](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/CodeInputView.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/CouiCodeInputDefaults.kt)。
+示例见 [DemoTextFieldFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoTextFieldFamilySamples.kt)，公开入口见 [CodeInputView](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/textfield/CodeInputView.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/textfield/CouiCodeInputDefaults.kt)。

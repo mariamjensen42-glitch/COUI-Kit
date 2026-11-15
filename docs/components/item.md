@@ -1,6 +1,6 @@
 # Item
 
-`Item` 组合图标、主文字、辅助文字、尾部内容和可选整行点击，位于 `com.itos.coui.layout`。可以放入现有 Column、LazyColumn 或 [Group](group.md)。
+`Item` 组合图标、主文字、辅助文字、尾部内容和可选整行点击，位于 `com.cycling.coui.layout`。可以放入现有 Column、LazyColumn 或 [Group](group.md)。
 
 | 组件        | 用途                      |
 |-----------|-------------------------|
@@ -75,4 +75,4 @@ fun AboutRow(
 
 这些组件不安装滚动、不消费系统栏 Insets，也不创建背景采样源。页面负责布局、导航和受控值。需要 COUI 惯性与回弹时使用 [couiVerticalScroll](../effects/overscroll.md)；需要模糊顶栏或浮层时按[宿主页面接入](../guide/secondary-pages.md)装配采样。
 
-[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt) · [文字 API](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/text/Text.kt) · [Demo 示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)
+[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/layout/CouiPageComponents.kt) · [文字 API](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/text/Text.kt) · [Demo 示例](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSamples.kt)

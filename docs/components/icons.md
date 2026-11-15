@@ -87,4 +87,4 @@ Icon(
 )
 ```
 
-[CouiIcons.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-icons/src/main/java/com/itos/coui/icons/CouiIcons.kt) · [CouiColor.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/theme/CouiColor.kt)
+[CouiIcons.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-icons/src/main/java/com/cycling/coui/icons/CouiIcons.kt) · [CouiColor.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/theme/CouiColor.kt)

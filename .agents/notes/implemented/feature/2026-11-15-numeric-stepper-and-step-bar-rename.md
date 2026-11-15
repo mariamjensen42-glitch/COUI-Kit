@@ -8,7 +8,7 @@ Status: implemented
 
 ## Decision
 
-[Stepper](../../../../coui/src/main/java/com/itos/coui/stepper/Stepper.kt) 承载数值步进器，`CouiStepperColors` / `CouiStepperDefaults` 持有配色与固定值；横向步骤条改名 [StepBar](../../../../coui/src/main/java/com/itos/coui/stepper/StepBar.kt)，Defaults 同步为 `CouiStepBarDefaults`，行为与参数不变。
+[Stepper](../../../../coui/src/main/java/com/cycling/coui/stepper/Stepper.kt) 承载数值步进器，`CouiStepperColors` / `CouiStepperDefaults` 持有配色与固定值；横向步骤条改名 [StepBar](../../../../coui/src/main/java/com/cycling/coui/stepper/StepBar.kt)，Defaults 同步为 `CouiStepBarDefaults`，行为与参数不变。
 
 - 受控语义：`value` + `onValueChange`，提交值已夹紧到 `valueRange`；`valueRange` 默认 `-999..9999`，越界或下界大于上界时抛 `IllegalArgumentException`。
 - 到达下界时减号禁用、到达上界时加号禁用；`enabled = false` 时两个按钮都不可用且数值降到禁用色。

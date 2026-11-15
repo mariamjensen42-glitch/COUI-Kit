@@ -27,4 +27,4 @@ Avatar(size = CouiAvatarDefaults.largeSize) {
 - `containerColor`：底色，默认取主题 `container`；按联系人色板着色时直接覆盖。
 - `content`：`BoxScope` 内容，居中摆放。
 
-源码见 [Avatar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/avatar/Avatar.kt)。
+源码见 [Avatar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/avatar/Avatar.kt)。

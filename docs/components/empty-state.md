@@ -1,6 +1,6 @@
 # 📭空状态
 
-`EmptyState` 在无数据、无结果或未开始时说明当前状态，由图标槽、标题、说明和操作槽自上而下居中排列。组件位于 `com.itos.coui.emptystate`。
+`EmptyState` 在无数据、无结果或未开始时说明当前状态，由图标槽、标题、说明和操作槽自上而下居中排列。组件位于 `com.cycling.coui.emptystate`。
 
 ## 基本用法
 
@@ -86,4 +86,4 @@ StateLayout(
 
 ## Demo 示例
 
-标题、说明与操作槽的组合见 [DemoEmptyStateSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoEmptyStateSamples.kt)，库入口见 [EmptyState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/emptystate/EmptyState.kt)。
+标题、说明与操作槽的组合见 [DemoEmptyStateSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoEmptyStateSamples.kt)，库入口见 [EmptyState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/emptystate/EmptyState.kt)。

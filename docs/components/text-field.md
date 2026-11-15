@@ -1,6 +1,6 @@
 # 输入框
 
-`TextField` 是页面内的圆角输入卡片：无边框、卡片底色、标签、占位提示与前后图标槽，位于 `com.itos.coui.textfield`。它只负责把当前值、光标和焦点画出来，值、校验和提交仍由宿主持有。
+`TextField` 是页面内的圆角输入卡片：无边框、卡片底色、标签、占位提示与前后图标槽，位于 `com.cycling.coui.textfield`。它只负责把当前值、光标和焦点画出来，值、校验和提交仍由宿主持有。
 
 | 用途 | 使用 |
 | --- | --- |
@@ -192,6 +192,6 @@ TextField(
 
 ## 完整示例与 API
 
-源码见 [TextField](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/TextField.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/CouiTextFieldDefaults.kt)。Demo 装配见 [DemoTextFieldFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoTextFieldFamilySamples.kt)。
+源码见 [TextField](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/textfield/TextField.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/textfield/CouiTextFieldDefaults.kt)。Demo 装配见 [DemoTextFieldFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoTextFieldFamilySamples.kt)。
 
 同一包下的另外两个输入形态：[验证码输入](code-input.md) 与 [多行输入卡](multi-input.md)。

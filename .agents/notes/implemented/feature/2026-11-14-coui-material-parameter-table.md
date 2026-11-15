@@ -12,7 +12,7 @@ Status: implemented
 
 ## Decision
 
-[材质](../../../../coui/src/main/java/com/itos/coui/effect/CouiMaterial.kt) 改为两层模型，[参数表](../../../../coui/src/main/java/com/itos/coui/effect/CouiMaterialDefaults.kt) 独立成文件：
+[材质](../../../../coui/src/main/java/com/cycling/coui/effect/CouiMaterial.kt) 改为两层模型，[参数表](../../../../coui/src/main/java/com/cycling/coui/effect/CouiMaterialDefaults.kt) 独立成文件：
 
 - `CouiMaterialLayer(color, blendMode)` 表示一层，`blendMode` 用 `android.graphics.BlendMode`，与原厂 `BlendModeColorFilter` 和既有 `CouiFloatingMaterial` 同一词表，不再维护第二套枚举。
 - Shader 用一个 `couiBlend(int mode, float3 src, float3 dst)` 分发四种模式，两层在同一个 RuntimeShader 里顺序执行，不额外申请两个 `RenderEffect`。依据是背景采样不透明时 Skia 的 `Cr = Sa·B(Dc,Sc) + (1-Sa)·Dc` 等价于 `mix(dst, blend(src,dst), src.a)`；`COLOR_DODGE` 保留项目既有写法 `dst / (1 - src)`，不引入 epsilon，与原实现逐字一致。

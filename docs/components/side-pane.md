@@ -97,4 +97,4 @@ BackHandler(open) { open = false }
 
 ## Demo 示例
 
-起始边与结束边的开关示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoContainerSamples.kt)，库入口见 [SidePane](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/sidepane/SidePane.kt)。
+起始边与结束边的开关示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoContainerSamples.kt)，库入口见 [SidePane](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/sidepane/SidePane.kt)。

@@ -63,7 +63,7 @@ fun PageToolbar(
 
 把顶栏放入 Scaffold 的 `topBar`，并将正文应用 Scaffold 返回的 Padding。直接叠放时，由页面预留顶栏的实际高度。此例显式使用按钮 `style`；也可以省略它以使用默认样式。插槽内容自动继承组件内容色与文字样式。
 
-`navigationIcon` 放置返回等导航操作，`actions` 是 RowScope 槽位。`CouiTopAppBarDefaults.colors()` 分别配置背景遮罩、标题、导航和操作颜色。背景遮罩默认在浅色模式使用白色、深色模式使用黑色，并向下渐隐；其余颜色读取当前主题。传入 `backgroundColor = Color.Transparent` 可关闭遮罩。标题字体由顶栏提供。纯 Compose 标题使用 `BasicText(title, style = LocalCouiTextStyle.current)`，其中 `BasicText` 来自 `androidx.compose.foundation.text`，`LocalCouiTextStyle` 来自 `com.itos.coui.theme`。
+`navigationIcon` 放置返回等导航操作，`actions` 是 RowScope 槽位。`CouiTopAppBarDefaults.colors()` 分别配置背景遮罩、标题、导航和操作颜色。背景遮罩默认在浅色模式使用白色、深色模式使用黑色，并向下渐隐；其余颜色读取当前主题。传入 `backgroundColor = Color.Transparent` 可关闭遮罩。标题字体由顶栏提供。纯 Compose 标题使用 `BasicText(title, style = LocalCouiTextStyle.current)`，其中 `BasicText` 来自 `androidx.compose.foundation.text`，`LocalCouiTextStyle` 来自 `com.cycling.coui.theme`。
 
 普通大标题页面的滚动装配见[折叠顶栏](collapsing-app-bar.md#普通大标题)。
 
@@ -151,7 +151,7 @@ TopAppBarButtonGroup {
 
 COUI Scaffold 的 `topBar` 自动提供正文背景源，`TopAppBar`、`LargeTopAppBar` 和 `TopAppBarSurface` 可省略 `backdrop`，显式参数优先。第三方容器使用 `rememberCouiBackdrop()` 创建源，在现有正文容器上添加 `.couiBackdrop(backdrop)`，再将源显式传给顶栏。不需要额外的背景容器或全局初始化；源节点不能包含顶栏。完整装配与高级作用域见[背景采样](../effects/backdrop.md#顶栏接入)。
 
-源码见 [TopAppBar / LargeTopAppBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBar.kt)、[TopAppBarSurface](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarSurface.kt)、[按钮](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButton.kt)、[按钮组与显隐](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/TopAppBarButtonGroup.kt)、[按钮预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/topappbar/CouiTopAppBarButtonDefaults.kt)，完整页面见 [DemoApp](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)。
+源码见 [TopAppBar / LargeTopAppBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/TopAppBar.kt)、[TopAppBarSurface](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/TopAppBarSurface.kt)、[按钮](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/TopAppBarButton.kt)、[按钮组与显隐](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/TopAppBarButtonGroup.kt)、[按钮预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/CouiTopAppBarButtonDefaults.kt)，完整页面见 [DemoApp](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoApp.kt)。
 
 ## 背景参数
 

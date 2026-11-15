@@ -56,4 +56,4 @@ IconButton(
 
 ## Demo 示例
 
-三档尺寸、带底色与禁用示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoContainerSamples.kt)，库入口见 [IconButton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/button/IconButton.kt)。
+三档尺寸、带底色与禁用示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoContainerSamples.kt)，库入口见 [IconButton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/button/IconButton.kt)。

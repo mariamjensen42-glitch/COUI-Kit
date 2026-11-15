@@ -12,7 +12,7 @@ plugins {
 }
 
 android {
-    namespace = "com.itos.coui.icons"
+    namespace = "com.cycling.coui.icons"
     compileSdk = 37
     defaultConfig {
         minSdk = 31

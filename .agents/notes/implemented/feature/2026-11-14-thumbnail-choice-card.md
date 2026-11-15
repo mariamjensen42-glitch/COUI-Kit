@@ -13,7 +13,7 @@ ColorOS 17 设置页有两处「缩略图 + 文字」的卡片，`ChoiceCardGrou
 
 ## Decision
 
-[ThumbnailChoiceCard](../../../../coui/src/main/java/com/itos/coui/choicecard/ThumbnailChoiceCard.kt) 提供两个公开入口，共享 `CouiThumbnailChoice(label, thumbnail, value)` 与同一套槽位逻辑：
+[ThumbnailChoiceCard](../../../../coui/src/main/java/com/cycling/coui/choicecard/ThumbnailChoiceCard.kt) 提供两个公开入口，共享 `CouiThumbnailChoice(label, thumbnail, value)` 与同一套槽位逻辑：
 
 - `ThumbnailChoiceGroup`：固定两列，不自绘底色，`selectable` + `Role.RadioButton`，受控 `selectedIndex`。
 - `ThumbnailNavigationGroup`：固定三列，`clip(CouiShape(20.dp, 3f))` + `colors.card`，`clickable` + `Role.Button`。

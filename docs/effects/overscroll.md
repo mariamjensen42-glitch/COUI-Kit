@@ -48,4 +48,4 @@ val scrolling = Modifier.couiVerticalScroll(scroll, overscrollEffect = edge)
 
 需要 COUI 纵向惯性及同帧触边交接时，使用 `couiVerticalScroll`。它把触边帧的剩余位移和速度交给边界物理轴；已吸收的纵向速度不会再次交给父级消费。与折叠顶栏、Insets 和 IME 的组合见[宿主页面接入](../guide/secondary-pages.md)。
 
-[公开 effect 与滚动入口](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/scroll/CouiOverscrollEffect.kt) · [惯性实现](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/scroll/CouiScrollFlingBehavior.kt)
+[公开 effect 与滚动入口](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/scroll/CouiOverscrollEffect.kt) · [惯性实现](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/scroll/CouiScrollFlingBehavior.kt)

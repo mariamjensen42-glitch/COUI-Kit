@@ -1,6 +1,6 @@
 # 单/复选框
 
-`RadioButton` 显示互斥选择状态，`Checkbox` 显示可独立切换的勾选状态。两者只负责绘制，由外层添加点击和无障碍语义。组件分别位于 `com.itos.coui.radiobutton` 和 `com.itos.coui.checkbox`。
+`RadioButton` 显示互斥选择状态，`Checkbox` 显示可独立切换的勾选状态。两者只负责绘制，由外层添加点击和无障碍语义。组件分别位于 `com.cycling.coui.radiobutton` 和 `com.cycling.coui.checkbox`。
 
 ## 单选框
 
@@ -45,11 +45,11 @@ fun RadioButtonGroup(
 }
 ~~~
 
-在 `onSelect` 中把选中值设为点击项的索引。行和单选框必须使用相同的 `selected` 和 `enabled`。只由父项处理点击，不给绘制组件添加第二个点击入口。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
+在 `onSelect` 中把选中值设为点击项的索引。行和单选框必须使用相同的 `selected` 和 `enabled`。只由父项处理点击，不给绘制组件添加第二个点击入口。示例中的 `Text` 使用 `com.cycling.coui.text.Text`。
 
-单选框默认尺寸为 24dp，点击范围由父项提供。公开参数见 [RadioButton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/radiobutton/RadioButton.kt)。
+单选框默认尺寸为 24dp，点击范围由父项提供。公开参数见 [RadioButton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/radiobutton/RadioButton.kt)。
 
-`colors` 可覆盖配色，`CouiRadioButtonDefaults.colors(selected = accent, dark = dark)` 根据强调色与深浅模式生成默认值，见[单选框配色](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/radiobutton/CouiRadioButtonDefaults.kt)。禁用时直接显示静态状态，重新启用不补播切换动画。
+`colors` 可覆盖配色，`CouiRadioButtonDefaults.colors(selected = accent, dark = dark)` 根据强调色与深浅模式生成默认值，见[单选框配色](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/radiobutton/CouiRadioButtonDefaults.kt)。禁用时直接显示静态状态，重新启用不补播切换动画。
 
 ## 复选框最小调用
 
@@ -102,7 +102,7 @@ fun CheckboxRow(
 
 在 `onCheckedChange` 中更新页面的 `checked`，并将 `checked` 和 `enabled` 同时传给行和复选框。不要再给复选框添加单独的点击处理，以免与整行争用点击。
 
-`indication = null` 关掉整行涟漪，但保留 `toggleable` 的点击和 Checkbox 语义。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
+`indication = null` 关掉整行涟漪，但保留 `toggleable` 的点击和 Checkbox 语义。示例中的 `Text` 使用 `com.cycling.coui.text.Text`。
 
 ## 只放一个复选框
 
@@ -143,4 +143,4 @@ Box(
 
 复选框以 24dp 为基准等比缩放，外层尺寸和留白由页面决定。
 
-示例见 [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt)，公开参数见 [Checkbox](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/checkbox/Checkbox.kt) 和 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/checkbox/CouiCheckboxDefaults.kt)。
+示例见 [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSamples.kt)，公开参数见 [Checkbox](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/checkbox/Checkbox.kt) 和 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/checkbox/CouiCheckboxDefaults.kt)。

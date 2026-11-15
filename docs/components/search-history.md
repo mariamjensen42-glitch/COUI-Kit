@@ -96,4 +96,4 @@ SearchHistory(
 
 ## Demo 示例
 
-折叠、展开与清空见 [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNextComponents.kt)，库入口见 [SearchHistory](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/searchhistory/SearchHistory.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/searchhistory/CouiSearchHistoryDefaults.kt)。
+折叠、展开与清空见 [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoNextComponents.kt)，库入口见 [SearchHistory](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/searchhistory/SearchHistory.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/searchhistory/CouiSearchHistoryDefaults.kt)。

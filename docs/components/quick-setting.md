@@ -116,4 +116,4 @@ DeformationTileGrid(
 
 原厂磁贴还有长按进入设置、二级页展开、状态副标题、不可用态与跨页轮播；档位条还有自动亮度/静音的点按切换图标。这些属于 SystemUI 的交互外壳，不在组件范围内。大磁贴开启态、浅色主题、RTL 与真机玻璃叠加尚未验收。
 
-源码见 [QuickSettingTile](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/QuickSettingTile.kt)、[LevelSlider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/LevelSlider.kt) 与 [DeformationTileGrid](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/DeformationTileGrid.kt)。
+源码见 [QuickSettingTile](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/quicksetting/QuickSettingTile.kt)、[LevelSlider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/quicksetting/LevelSlider.kt) 与 [DeformationTileGrid](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/quicksetting/DeformationTileGrid.kt)。

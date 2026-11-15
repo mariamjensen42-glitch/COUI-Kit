@@ -80,4 +80,4 @@ ThumbnailNavigationGroup(
 - 两列形态的内容轴相对卡片中心左移 7.6dp（实测图片、文字与单选钮三者同轴，但都偏离卡片几何中心）。判断是原厂预览位图自带右侧留白所致，本实现按几何居中处理；若后续拆包确认是布局约束，再改。
 - 三列圆角取 20dp：顶边水平内缩实测 21.7dp、左边垂直内缩 16.3dp，平滑圆角两个方向的读数本就不等，取中间值。待原厂资源确认。
 
-源码见 [ThumbnailChoiceCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/choicecard/ThumbnailChoiceCard.kt)。
+源码见 [ThumbnailChoiceCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/choicecard/ThumbnailChoiceCard.kt)。

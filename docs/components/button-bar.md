@@ -47,4 +47,4 @@ CouiButtonBarItem(text = confirmLabel, onClick = onConfirm, style = CouiButtonSt
 
 ## Demo 示例
 
-两个短操作与长文案竖排两种排布见 [DemoButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoButtonSamples.kt) 的 `ButtonBarSample`，实现见 [ButtonBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/buttonBar/ButtonBar.kt)。
+两个短操作与长文案竖排两种排布见 [DemoButtonSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoButtonSamples.kt) 的 `ButtonBarSample`，实现见 [ButtonBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/buttonBar/ButtonBar.kt)。

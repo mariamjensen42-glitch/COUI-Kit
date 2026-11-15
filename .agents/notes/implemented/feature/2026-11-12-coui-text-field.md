@@ -12,7 +12,7 @@ Status: implemented
 
 - 表面由 `defaultMinSize(minHeight) + clip(shape) + background(card)` 构成，不接入材质、模糊、跟手光或投影。参考页里的输入卡片与同页分组卡片同形同色，页面输入不承担玻璃表面语义，也没有可用背景源。
 - 配色由组件族自己的 `CouiTextFieldColors`（`container` / `text` / `placeholder` / `cursor` / `disabled`）持有，`CouiTextFieldDefaults.colors(dark)` 从同一份 `CouiColorScheme` 解析：`card` 是底色、`onSurface` 是文字、`onSurfaceVariant` 是占位提示、`accent` 是光标。取值与页面色板同源，但公开参数不依赖 `layout` 的 `CouiPageColors`——和 SearchBar、Dialog 等族一样，输入组件族自持有角色。
-- 形状取组件私有资源 `coui_textinput_corner_radius`（10dp 标准圆角），不使用 [Group](../../../../coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt) 的 24dp 超椭圆；输入卡片与分组卡片的底色同源，轮廓按各自资源。
+- 形状取组件私有资源 `coui_textinput_corner_radius`（10dp 标准圆角），不使用 [Group](../../../../coui/src/main/java/com/cycling/coui/layout/CouiPageComponents.kt) 的 24dp 超椭圆；输入卡片与分组卡片的底色同源，轮廓按各自资源。
 - 排版不外扩公开的 `CouiTextKind`，而在 `CouiTextFieldDefaults.textStyle()` 内按族私有方式计算（16sp、`sans-serif`、400，行距与列表主文字一致），沿用弹窗 `DialogTextKind` 的既有做法。占位提示与输入共用同一排版、只换颜色；不复用 500 字重的 `ItemTitle`，也不复用 15sp 的 `Search`（那是搜索胶囊与弹窗输入的字号）。
 - 槽位为 `placeholder`、`leading`、`trailing`。图标尺寸与颜色由调用方决定，组件不改写槽位内容，与 Group/Item 的内容槽约定一致。
 - 装饰层用 `Box(Modifier.weight(1f))` 撑开输入区，使图标槽之间的留白也属于输入本体的点击范围；槽位内的可点击控件先消费事件，因此清空按钮不会顺带聚焦输入框。

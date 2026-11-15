@@ -1,0 +1,44 @@
+package com.cycling.coui.demo
+
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withLink
+import androidx.compose.ui.unit.dp
+import com.cycling.coui.demo.ui.Text
+import com.cycling.coui.layout.Divider
+import com.cycling.coui.layout.Group
+import com.cycling.coui.text.CouiTextKind
+import com.cycling.coui.text.CouiTextLinkDefaults
+import com.cycling.coui.text.Text as CouiText
+import com.cycling.coui.theme.CouiTheme
+
+@Composable
+internal fun RichTextSample(dark: Boolean) {
+    var clicks by rememberSaveable { mutableIntStateOf(0) }
+    val prefix = stringResource(R.string.richtext_prefix)
+    val link = stringResource(R.string.richtext_link)
+    val suffix = stringResource(R.string.richtext_suffix)
+    val styles = CouiTextLinkDefaults.textLinkStyles(dark)
+    val text = buildAnnotatedString {
+        append(prefix)
+        withLink(LinkAnnotation.Clickable("privacy", styles) { clicks++ }) { append(link) }
+        append(suffix)
+    }
+    Group(title = stringResource(R.string.richtext_examples)) {
+        CouiText(Modifier.fillMaxWidth().padding(16.dp), text = text, kind = CouiTextKind.Body)
+        Divider()
+        CouiText(Modifier.fillMaxWidth().padding(16.dp), text = text, kind = CouiTextKind.ItemSummary)
+        Divider()
+        Text(stringResource(R.string.richtext_clicks, clicks), Modifier.padding(16.dp),
+            color = CouiTheme.colorSchemeFor(dark).onSurfaceVariant)
+    }
+}

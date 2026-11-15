@@ -22,7 +22,7 @@ Box(
 
 每层是「常量色 + `BlendMode`」，与原厂 `RenderEffect.createColorFilterEffect(BlendModeColorFilter(color, mode), 上一层)` 同构，只用一层 Shader 完成。支持 `SRC_OVER`、`OVERLAY`、`COLOR_DODGE`、`LUMINOSITY`；其余模式在构造 `CouiMaterialLayer` 时直接拒绝。
 
-均匀模糊可直接使用 CouiBackdropEffectScope.blur，示例见[背景采样](backdrop.md)。需要同时模糊和混色时，先处理采样模糊，再处理材质，保留模糊采样外沿 padding；完整 RenderEffect 链见 [DemoVisualEffects](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoVisualEffects.kt)。
+均匀模糊可直接使用 CouiBackdropEffectScope.blur，示例见[背景采样](backdrop.md)。需要同时模糊和混色时，先处理采样模糊，再处理材质，保留模糊采样外沿 padding；完整 RenderEffect 链见 [DemoVisualEffects](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoVisualEffects.kt)。
 
 ## 使用 COUI 17 参数表
 
@@ -68,4 +68,4 @@ RuntimeShader 的相关效果要求 API 33，具体分支见[兼容要求](../gu
 
 ## 公开入口
 
-[材质与参数表](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiMaterial.kt)、[材质预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiMaterialDefaults.kt)、[渐进模糊](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiGradientBlur.kt)、[覆盖率模糊](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/effect/CouiCoverageBlurEffect.kt)、[菜单模糊工厂](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/menu/CouiMenuBlur.kt)。需要完整控件时使用[顶栏](../components/top-app-bar.md)或[菜单](../components/menu.md)。
+[材质与参数表](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiMaterial.kt)、[材质预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiMaterialDefaults.kt)、[渐进模糊](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiGradientBlur.kt)、[覆盖率模糊](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/effect/CouiCoverageBlurEffect.kt)、[菜单模糊工厂](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/menu/CouiMenuBlur.kt)。需要完整控件时使用[顶栏](../components/top-app-bar.md)或[菜单](../components/menu.md)。

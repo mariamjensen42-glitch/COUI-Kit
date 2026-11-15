@@ -11,7 +11,7 @@ MarqueeText(
 )
 ~~~
 
-组件位于 `com.itos.coui.text`。
+组件位于 `com.cycling.coui.text`。
 
 ## 行为
 

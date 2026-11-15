@@ -16,7 +16,7 @@ VerticalSeekBar(
 )
 ~~~
 
-组件位于 `com.itos.coui.seekbar`。
+组件位于 `com.cycling.coui.seekbar`。
 
 ## 外观
 

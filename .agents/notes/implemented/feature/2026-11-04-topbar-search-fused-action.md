@@ -28,7 +28,7 @@ graphicsLayer 的属性块也会在节点挂载和语义计算时执行，不能
 
 ## Consequences
 
-组件增加双主体内容录制和按内容分阶段测量的成本，获得真实的材质融合及一致的输入几何。普通用法见[顶栏搜索](../../../../docs/components/search.md#从搜索胶囊分离自定义按钮)，实现见[双主体装配](../../../../coui/src/main/java/com/itos/coui/topappbar/TopAppBarSearchPair.kt)。
+组件增加双主体内容录制和按内容分阶段测量的成本，获得真实的材质融合及一致的输入几何。普通用法见[顶栏搜索](../../../../docs/components/search.md#从搜索胶囊分离自定义按钮)，实现见[双主体装配](../../../../coui/src/main/java/com/cycling/coui/topappbar/TopAppBarSearchPair.kt)。
 
 静态检查和几何数值检查只能覆盖尺寸、镜像、路径与现有融合核参与，不能证明 Android GPU 像素、IME、TalkBack 或触摸事件的实际结果。设备动画中段、快速反向和隐藏恢复仍需用户验收。
 

@@ -16,11 +16,11 @@ Status: implemented
 
 五个组件都只做布局与状态分发，不新增 Shader、动画后端或网络行为：
 
-- [PullToRefresh](../../../../coui/src/main/java/com/itos/coui/pulltorefresh/PullToRefresh.kt)：`nestedScroll` 的 `onPostScroll` 里以「`consumed.y == 0` 且 `available.y > 0`」判定已到顶，位移用 `mutableFloatStateOf` 同步累加，回弹与刷新态收尾统一放在 `LaunchedEffect(refreshing)`，避免松手动画与状态动画互相覆盖。内容用 `graphicsLayer` 下移而不是改布局尺寸，列表滚动位置和 Scaffold 内边距都不受影响。
-- [Accordion](../../../../coui/src/main/java/com/itos/coui/accordion/Accordion.kt)：受控展开 + `AnimatedVisibility`；箭头自绘两段折线并整体旋转，不依赖图标库，也不受宿主图标配色影响。
-- [Avatar](../../../../coui/src/main/java/com/itos/coui/avatar/Avatar.kt)：只负责尺寸、裁剪与底色，图片加载、占位、首字母取字、在线角标都留给宿主与 `BadgedBox`。
-- [StateLayout](../../../../coui/src/main/java/com/itos/coui/statelayout/StateLayout.kt)：`CouiLoadState` 四态 + 宿主提供的空/失败槽；不内置文案，避免把中英文案塞进库。空态与失败态不居中，按原厂 `COUIEmptyStateView` 的 `onMeasure` / `onLayout` 摆位：测量后判定 `EMPTY_VIEW_SIZE_TYPE_*`（高 200dp / 宽 320dp / 高 480dp 阈值），顶部留白 = (容器高 − 槽高) × 0.45，`Small` 时 0.5 且槽内 `EmptyState` 跳过插图；容器高未被外部固定时自身收拢到槽内容高度。
-- [StepBar](../../../../coui/src/main/java/com/itos/coui/stepper/StepBar.kt)：Canvas 画连接线、weight 均分圆点，圆心与线段的 `segment/2 + segment*i` 对齐；`currentIndex` 越界夹紧。原名 `Stepper`，因与数值步进器同名不同物而改名，见[数值步进器与步骤条改名](2026-11-15-numeric-stepper-and-step-bar-rename.md)。
+- [PullToRefresh](../../../../coui/src/main/java/com/cycling/coui/pulltorefresh/PullToRefresh.kt)：`nestedScroll` 的 `onPostScroll` 里以「`consumed.y == 0` 且 `available.y > 0`」判定已到顶，位移用 `mutableFloatStateOf` 同步累加，回弹与刷新态收尾统一放在 `LaunchedEffect(refreshing)`，避免松手动画与状态动画互相覆盖。内容用 `graphicsLayer` 下移而不是改布局尺寸，列表滚动位置和 Scaffold 内边距都不受影响。
+- [Accordion](../../../../coui/src/main/java/com/cycling/coui/accordion/Accordion.kt)：受控展开 + `AnimatedVisibility`；箭头自绘两段折线并整体旋转，不依赖图标库，也不受宿主图标配色影响。
+- [Avatar](../../../../coui/src/main/java/com/cycling/coui/avatar/Avatar.kt)：只负责尺寸、裁剪与底色，图片加载、占位、首字母取字、在线角标都留给宿主与 `BadgedBox`。
+- [StateLayout](../../../../coui/src/main/java/com/cycling/coui/statelayout/StateLayout.kt)：`CouiLoadState` 四态 + 宿主提供的空/失败槽；不内置文案，避免把中英文案塞进库。空态与失败态不居中，按原厂 `COUIEmptyStateView` 的 `onMeasure` / `onLayout` 摆位：测量后判定 `EMPTY_VIEW_SIZE_TYPE_*`（高 200dp / 宽 320dp / 高 480dp 阈值），顶部留白 = (容器高 − 槽高) × 0.45，`Small` 时 0.5 且槽内 `EmptyState` 跳过插图；容器高未被外部固定时自身收拢到槽内容高度。
+- [StepBar](../../../../coui/src/main/java/com/cycling/coui/stepper/StepBar.kt)：Canvas 画连接线、weight 均分圆点，圆心与线段的 `segment/2 + segment*i` 对齐；`currentIndex` 越界夹紧。原名 `Stepper`，因与数值步进器同名不同物而改名，见[数值步进器与步骤条改名](2026-11-15-numeric-stepper-and-step-bar-rename.md)。
 
 ## Alternatives considered
 

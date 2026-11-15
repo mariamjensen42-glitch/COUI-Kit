@@ -35,7 +35,7 @@ NotificationCard(
 )
 ~~~
 
-各参数的完整含义见[浮动表面](../effects/floating-surfaces.md)，具体装配参照 [FloatingToolbar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/floatingtoolbar/FloatingToolbar.kt)。这条链路需要 API 34 与页面背景采样源，低版本没有替代实现；`shape` 必须与 `couiFloatingSurface` 的 `shape` 一致，否则描边和裁剪会错位。
+各参数的完整含义见[浮动表面](../effects/floating-surfaces.md)，具体装配参照 [FloatingToolbar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/floatingtoolbar/FloatingToolbar.kt)。这条链路需要 API 34 与页面背景采样源，低版本没有替代实现；`shape` 必须与 `couiFloatingSurface` 的 `shape` 一致，否则描边和裁剪会错位。
 
 ## 参数
 
@@ -64,4 +64,4 @@ NotificationCard(
 
 单条通知卡（211px 高）里标题框高 57px ≈ 16.3dp、正文框高 70px ≈ 20dp，比当前 `ItemTitle` / `ItemSummary` 的行高更矮更扁；该行是「无头」推广通知（`notification_headerless_view_row`），普通通知行是否同值待补证，因此字号暂不跟随调整。
 
-源码见 [NotificationCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/notificationcard/NotificationCard.kt)。
+源码见 [NotificationCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/notificationcard/NotificationCard.kt)。

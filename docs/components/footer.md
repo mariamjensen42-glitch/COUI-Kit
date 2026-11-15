@@ -1,6 +1,6 @@
 # Footer
 
-`Footer` 显示分组下方的辅助说明，位于 `com.itos.coui.layout`。
+`Footer` 显示分组下方的辅助说明，位于 `com.cycling.coui.layout`。
 
 ```kotlin
 Footer(text = description)
@@ -10,4 +10,4 @@ Footer(text = description)
 
 `color` 控制说明文字，默认读取 `CouiTheme.colorScheme.onSurfaceVariant`。使用 [Group](group.md) 的 `footer` 参数时，由 Group 自动装配说明并使用该组的说明颜色。
 
-[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/layout/CouiPageComponents.kt)
+[公开布局与 Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/layout/CouiPageComponents.kt)

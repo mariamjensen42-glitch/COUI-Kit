@@ -1,6 +1,6 @@
 # 🔘开关
 
-`Switch` 用于开启或关闭一个选项，支持点击、拖动和加载状态。组件位于 `com.itos.coui.switch`。
+`Switch` 用于开启或关闭一个选项，支持点击、拖动和加载状态。组件位于 `com.cycling.coui.switch`。
 
 ## 显示一个开关
 
@@ -62,7 +62,7 @@ fun SwitchRow(
 }
 ~~~
 
-行和开关共用 `MutableInteractionSource`，使按压和焦点反馈保持一致。示例将同一个回调传给 `onDragCheckedChange`，因此也可以拖动滑块；传 `null` 则只保留整行点击。示例中的 `Text` 使用 `com.itos.coui.text.Text`。
+行和开关共用 `MutableInteractionSource`，使按压和焦点反馈保持一致。示例将同一个回调传给 `onDragCheckedChange`，因此也可以拖动滑块；传 `null` 则只保留整行点击。示例中的 `Text` 使用 `com.cycling.coui.text.Text`。
 
 ## 显示加载状态
 
@@ -97,4 +97,4 @@ Switch(
 
 ## Demo 示例
 
-普通、加载和禁用示例见 [DemoSettingsSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsSamples.kt)，库入口和配色见 [Switch / CouiSwitchDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/switch/Switch.kt)。
+普通、加载和禁用示例见 [DemoSettingsSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSettingsSamples.kt)，库入口和配色见 [Switch / CouiSwitchDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/switch/Switch.kt)。

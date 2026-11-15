@@ -30,10 +30,10 @@ val signingValues = if (hasSigningEnvironment || signingPropertiesFile.exists())
 }
 
 android {
-    namespace = "com.itos.coui.demo"
+    namespace = "com.cycling.coui.demo"
     compileSdk = 37
     defaultConfig {
-        applicationId = "com.itos.coui.demo"
+        applicationId = "com.cycling.coui.demo"
         minSdk = 31
         targetSdk = 37
         versionCode = gitCommitCount.get()

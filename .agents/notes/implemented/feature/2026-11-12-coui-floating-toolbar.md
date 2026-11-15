@@ -8,7 +8,7 @@ Status: implemented
 
 ## Decision
 
-[FloatingToolbar](../../../../coui/src/main/java/com/itos/coui/floatingtoolbar/FloatingToolbar.kt) 与 `FloatingToolbarItem` 分工：容器绘制一次单主体浮动表面，并持有整条栏的跟手光、位移与形变；操作项只负责点击、悬停与焦点。
+[FloatingToolbar](../../../../coui/src/main/java/com/cycling/coui/floatingtoolbar/FloatingToolbar.kt) 与 `FloatingToolbarItem` 分工：容器绘制一次单主体浮动表面，并持有整条栏的跟手光、位移与形变；操作项只负责点击、悬停与焦点。
 
 - 容器使用 `CouiFloatingRenderer.standalone()` + `Modifier.couiFloatingSurface`，整个 Row 录制到同一个内容层。没有第二个主体，也没有逐项表面。
 - 跟手光、`couiTouchMotion`、`couiPressMotion` 都挂在整条胶囊上，装配方式与底栏中间胶囊（`NavigationBar` 的 `FloatingNode`）一致：光画在内容之下、随触点在栏内移动；表面几何与内容层读同一组弹簧值，材质和图标不会错位。操作项不各自叠光或形变，否则相邻项会各自亮起、缩放也会与整条玻璃分叉。

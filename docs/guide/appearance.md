@@ -40,7 +40,7 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 
 `CouiColorScheme.background` 是页面底色，`surface` 是组件表面，`container` 是通用容器底色，`card` 是列表分组卡片色。原生深色卡片使用 `couiColorCardBackground` 的半透明白色，叠加页面背景；菜单等顶层容器使用独立颜色。自定义色板省略 `background` 时沿用 `surface`，省略 `card` 时沿用 `container`。`CouiPageDefaults.themeColors()` 分别读取 `background` 和 `card`，宿主将页面底色传给自己的页面容器。`CouiPageDefaults.colors(accent, dark)` 从对应的原生浅色或深色预设生成 `CouiPageColors`，再应用显式强调色；它不会读取或创建主题作用域。
 
-`com.itos.coui.text.Text` 提供固定 COUI 排版角色，`kind` 必填。文字颜色依次取显式 `color`、已提供的 `LocalCouiContentColor`、当前 `CouiTheme.colorScheme.onSurface`。省略颜色即可在独立布局中跟随主题，详见[Item](../components/item.md#配色与文字)。菜单项则读取 `CouiTheme.typography.menuItem` 的字号、字重与字体族。
+`com.cycling.coui.text.Text` 提供固定 COUI 排版角色，`kind` 必填。文字颜色依次取显式 `color`、已提供的 `LocalCouiContentColor`、当前 `CouiTheme.colorScheme.onSurface`。省略颜色即可在独立布局中跟随主题，详见[Item](../components/item.md#配色与文字)。菜单项则读取 `CouiTheme.typography.menuItem` 的字号、字重与字体族。
 
 `LocalCouiContentColor` 的缺省值为 `Color.Unspecified`，表示未提供内容色。直接读取该 Local 的宿主应在未指定时取当前主题颜色；COUI 的文字和图标已经在消费处解析。显式颜色优先，包括透明色；图标显式传入 `tint = Color.Unspecified` 时保留不染色语义。
 
@@ -56,7 +56,7 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 
 顶栏按钮、搜索表面、Chip 和 FAB 的内容插槽提供 `LocalCouiContentColor` 与 `LocalCouiTextStyle`，插槽中的内容可直接继承组件样式。组件部分 TextStyle 与已有基线合并；`CouiTheme` 的完整基线替换外层样式。子内容的显式颜色与样式、Icon tint 和内层 Local 优先。
 
-仅转发的顶栏 title、buttonGroup、Chip leadingAction 和 Dialog 自定义正文不会被强设新样式。NavigationBar 自有文字继承宿主 ambient 字体属性，同时保留自己的字号、行高与字重。`com.itos.coui.theme` 包中的 `CouiText`、`CouiIcon` 和 `ProvideCouiTextStyle` 是内部实现；普通文字组件使用公开的 `com.itos.coui.text.Text`。
+仅转发的顶栏 title、buttonGroup、Chip leadingAction 和 Dialog 自定义正文不会被强设新样式。NavigationBar 自有文字继承宿主 ambient 字体属性，同时保留自己的字号、行高与字重。`com.cycling.coui.theme` 包中的 `CouiText`、`CouiIcon` 和 `ProvideCouiTextStyle` 是内部实现；普通文字组件使用公开的 `com.cycling.coui.text.Text`。
 
 顶栏按钮使用组件自己的最小布局尺寸，搜索按钮使用固定容器。宿主内容自带的最小交互尺寸语义不会被组件改写。
 
@@ -64,11 +64,11 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 
 ## Shape 与效果开关
 
-[CouiShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiShape.kt)和[CouiCapsuleShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiCapsuleShape.kt)可被宿主 Shape 替换。材质距离场、内容 Path 和投影 Outline 有各自的几何要求，不能因圆角同名就互换。
+[CouiShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/shape/CouiShape.kt)和[CouiCapsuleShape](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/shape/CouiCapsuleShape.kt)可被宿主 Shape 替换。材质距离场、内容 Path 和投影 Outline 有各自的几何要求，不能因圆角同名就互换。
 
 ### 轮廓 token
 
-[CouiShapes](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/shape/CouiShapes.kt) 是组件默认读取的轮廓集合，通过 `CouiTheme` 提供，与深浅色无关：
+[CouiShapes](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/shape/CouiShapes.kt) 是组件默认读取的轮廓集合，通过 `CouiTheme` 提供，与深浅色无关：
 
 | 字段 | 原生值 | 典型使用者 |
 | --- | --- | --- |

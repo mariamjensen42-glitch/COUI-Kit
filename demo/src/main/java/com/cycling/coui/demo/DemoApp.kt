@@ -1,0 +1,165 @@
+package com.cycling.coui.demo
+
+import com.cycling.coui.icons.CouiIcons
+import android.os.Build
+import androidx.activity.compose.BackHandler
+import androidx.annotation.RequiresApi
+import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
+import com.cycling.coui.scroll.couiVerticalScroll
+import androidx.compose.foundation.verticalScroll
+import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.demo.ui.Text
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.dp
+import com.cycling.coui.effect.CouiFloatingRenderer
+import com.cycling.coui.effect.LocalCouiContourGlowEnabled
+import com.cycling.coui.effect.couiNavigationFeedback
+import com.cycling.coui.floatingactionbutton.CouiFabColor
+import com.cycling.coui.floatingactionbutton.CouiFabDefaults
+import com.cycling.coui.navigation.NavigationBar
+import com.cycling.coui.navigation.CouiNavigationItem
+import com.cycling.coui.search.SearchBar
+import com.cycling.coui.search.rememberCouiSearchBarState
+import com.cycling.coui.layout.CouiPageDefaults
+import com.cycling.coui.layout.Scaffold
+import com.cycling.coui.topappbar.CollapsingTopAppBar
+import com.cycling.coui.topappbar.CouiTopAppBarDefaults
+import com.cycling.coui.topappbar.LargeTopAppBar
+import com.cycling.coui.text.CouiTextKind
+import com.cycling.coui.text.rememberCouiTextStyle
+import com.cycling.coui.theme.CouiTheme
+
+@RequiresApi(33)
+private class DemoRenderers {
+    val bottom = CouiFloatingRenderer()
+}
+
+@Composable
+internal fun DemoApp(dark: Boolean, preferences: DemoPreferences, onToggleTheme: () -> Unit, openPage: (String) -> Unit) {
+    var page by rememberSaveable { mutableIntStateOf(0) }
+    val contour = preferences.contour
+    var leftAccessory by rememberSaveable { mutableStateOf(true) }
+    var rightAccessory by rememberSaveable { mutableStateOf(true) }
+    var query by rememberSaveable { mutableStateOf("") }
+    var searching by rememberSaveable { mutableStateOf(false) }
+    val rendering = remember { if (Build.VERSION.SDK_INT >= 33) runCatching { DemoRenderers() } else null }
+    val renderers = rendering?.getOrNull()
+    val titles = listOf(stringResource(R.string.controls), stringResource(R.string.effects), stringResource(R.string.demo_settings))
+    val navigation = listOf(CouiIcons.Filled.Grid, DemoIcons.Effects, DemoIcons.Settings)
+    val selectedNavigation = listOf(CouiIcons.Filled.Grid, DemoIcons.EffectsSelected, DemoIcons.SettingsSelected)
+    val selectPage: (Int) -> Unit = { target ->
+        if (target != page) { page = target; query = ""; searching = false }
+    }
+    val pageState = rememberSaveableStateHolder()
+    val scrolls = List(3) { rememberScrollState() }
+    val componentSearchScroll = rememberScrollState()
+    LaunchedEffect(query) { componentSearchScroll.scrollTo(0) }
+    val headers = List(3) { index -> CouiTopAppBarDefaults.exitUntilCollapsedScrollBehavior(
+        canScroll = { scrolls[index].maxValue > 0 }) }
+    val colors = CouiTheme.colorScheme
+    val background = CouiPageDefaults.themeColors(dark).background
+    val color = CouiFabDefaults.containerColor(CouiFabColor.Notes, dark)
+    // 源 Activity 在窗口转场中仍可见，导航不拆掉结果行及其按压退场；返回时保留查询。
+    val open: (String) -> Unit = openPage
+    BackHandler(page == 0 && searching) { searching = false; query = "" }
+    CompositionLocalProvider(LocalCouiContourGlowEnabled provides contour) {
+        val contentScroll = if (page == 0 && query.isNotBlank()) componentSearchScroll else scrolls[page]
+        val behavior = headers[page]
+        val header = behavior.state
+        val search = key(page) { rememberCouiSearchBarState(page == 0 && searching) }
+        val density = LocalDensity.current
+        // 弹窗持有输入时，后面的页面不为其键盘提前腾空背景。
+        val imePadding = if (LocalWindowInfo.current.isWindowFocused) Modifier.imePadding() else Modifier
+        Scaffold(modifier = Modifier.fillMaxSize().then(imePadding)
+            .nestedScroll(behavior.nestedScrollConnection), containerColor = background,
+            topBar = {
+                if (page == 0) {
+                    CollapsingTopAppBar(state = header, searchState = search, title = titles[page],
+                        color = colors.onSurface, backgroundColor = LocalDemoTopBarGradient.current, dark = dark) {
+                            SearchBar(state = search, query = query, onQueryChange = { query = it },
+                                onExpandedChange = { searching = it; if (!it) query = "" },
+                                placeholder = stringResource(R.string.catalog_search_hint),
+                                cancelText = stringResource(R.string.catalog_search_cancel),
+                                clearDescription = stringResource(R.string.catalog_search_clear),
+                                dark = dark, shadowProgress = header.collapsedFraction)
+                    }
+                } else LargeTopAppBar(title = { Text(titles[page], maxLines = 1) },
+                    scrollBehavior = behavior, dark = dark,
+                    colors = CouiTopAppBarDefaults.colors(backgroundColor = LocalDemoTopBarGradient.current,
+                        titleColor = colors.onSurface, dark = dark))
+            }, bottomBar = {
+                if (Build.VERSION.SDK_INT >= 33 && renderers != null) {
+                    Box(Modifier.fillMaxWidth()) {
+                        NavigationBar(
+                            modifier = Modifier.align(Alignment.BottomCenter),
+                            renderer = renderers.bottom,
+                            items = titles.mapIndexed { index, title ->
+                                CouiNavigationItem(title = title, icon = navigation[index], selectedIcon = selectedNavigation[index])
+                            },
+                            selectedIndex = page, leftIcon = CouiIcons.Filled.DarkLight, leftDescription = stringResource(R.string.toggle_theme),
+                            rightIcon = CouiIcons.Filled.Add, rightDescription = stringResource(R.string.catalog_fab),
+                            leftVisible = leftAccessory, rightVisible = rightAccessory,
+                            onLeftClick = onToggleTheme, onRightClick = { openPage("fab") }, rightContainerColor = color,
+                            dark = dark, lightColor = Color.White,
+                            circleShape = DemoShapes.couiCircle, capsuleShape = DemoShapes.couiCapsule, onSelection = selectPage,
+                        )
+                    }
+                } else PlainDemoBottomBar(titles, navigation, selectedNavigation, page, selectPage, dark)
+            } ) { innerPadding ->
+            pageState.SaveableStateProvider(page) {
+                val contentPadding = remember(header, innerPadding, density) { header.contentPadding(innerPadding, density) }
+                Column(Modifier.fillMaxSize().couiVerticalScroll(contentScroll)
+                    .padding(contentPadding).consumeWindowInsets(innerPadding)
+                    .padding(bottom = 16.dp)) {
+                    rendering?.exceptionOrNull()?.let { failure ->
+                        Text(stringResource(R.string.renderer_error, failure.message ?: failure.javaClass.simpleName),
+                            Modifier.padding(32.dp), color = DemoPalette.error)
+                    }
+                    when (page) {
+                        0 -> DemoCatalog(DemoComponentGroups, open, query = query)
+                        1 -> DemoCatalog(DemoEffectGroups, open)
+                        else -> SettingsDemo(dark, preferences, leftAccessory, { leftAccessory = it },
+                            rightAccessory, { rightAccessory = it }, onAbout = { openPage("about") },
+                            onReset = { preferences.reset(); leftAccessory = true; rightAccessory = true })
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PlainDemoBottomBar(titles: List<String>, icons: List<ImageVector>, selectedIcons: List<ImageVector>, page: Int,
+    select: (Int) -> Unit, dark: Boolean) {
+    Row(Modifier.fillMaxWidth().background(CouiTheme.colorScheme.surface)
+        .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Bottom)).height(64.dp).selectableGroup(),
+        verticalAlignment = Alignment.CenterVertically) {
+        titles.forEachIndexed { index, title ->
+            val source = remember { MutableInteractionSource() }
+            Column(Modifier.weight(1f).clip(DemoShapes.couiCapsule).couiNavigationFeedback(dark, source)
+                .selectable(index == page, source, null, true, Role.Tab, onClick = { select(index) }).padding(vertical = 8.dp),
+                horizontalAlignment = Alignment.CenterHorizontally) {
+                val color = if (index == page) CouiTheme.colorScheme.accent else CouiTheme.colorScheme.onSurfaceVariant
+                Icon(if (index == page) selectedIcons[index] else icons[index], null, Modifier.size(24.dp), tint = color)
+                Text(title, style = rememberCouiTextStyle(CouiTextKind.GroupTitle), color = color)
+            }
+        }
+    }
+}

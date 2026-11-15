@@ -8,7 +8,7 @@ Status: implemented
 
 ## Decision
 
-[ChipTabRow](../../../../coui/src/main/java/com/itos/coui/chip/ChipTabRow.kt) 在测量完成后比较前后选中 key、索引和布局。选中值、项目位置或可用范围变化时，先停止惯性和旧露出动画，再复用 `reveal` 与已有弹簧滚动到对应项目。等宽项目重排可能保持所有几何数组不变，因此必须同时比较选中索引。点击与键盘焦点使用同一条滚动路径。
+[ChipTabRow](../../../../coui/src/main/java/com/cycling/coui/chip/ChipTabRow.kt) 在测量完成后比较前后选中 key、索引和布局。选中值、项目位置或可用范围变化时，先停止惯性和旧露出动画，再复用 `reveal` 与已有弹簧滚动到对应项目。等宽项目重排可能保持所有几何数组不变，因此必须同时比较选中索引。点击与键盘焦点使用同一条滚动路径。
 
 滚动终点使用当前内容可见区和已有列表内边距。原厂 `COUIChipTabGroup.updateContentVisibleRect` 调整可见区后，`scrollToChipTabWithAnimation` 直接以项目边界和可见区边界之差作为位移，没有额外加入渐隐宽度。移植的 `reveal` 保留这一终点语义；Compose 遮罩在停靠边界外完成过渡，使该边界内的胶囊保持完整。渐隐不再作为额外滚动留白，绘制裁剪与渐变使用同一段范围。项目最大宽度受可视范围约束，长文字沿用省略显示。按下时冻结滚动及新目标的启动速度由[滚动中断决定](2026-10-24-chip-scroll-interruption.md)持有。
 

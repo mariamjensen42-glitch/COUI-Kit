@@ -43,6 +43,6 @@ node .github/scripts/verify-maven-artifacts.cjs
 
 ## 开发诊断
 
-[CouiRenderDiagnostics](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/diagnostic/CouiRenderDiagnostics.kt) 与 renderDiagnosticProbe 在主线程按需启停。诊断结果用于定位录制、缓存或绘制成本，不成为业务状态，不默认启用截图或逐帧日志。
+[CouiRenderDiagnostics](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/diagnostic/CouiRenderDiagnostics.kt) 与 renderDiagnosticProbe 在主线程按需启停。诊断结果用于定位录制、缓存或绘制成本，不成为业务状态，不默认启用截图或逐帧日志。
 
 提交前清理本任务产生的临时检查器、日志和实验入口，保留复现所需的证据及当前有效结果。实际执行的命令、输入、原库对照和待验收项写入 PR。

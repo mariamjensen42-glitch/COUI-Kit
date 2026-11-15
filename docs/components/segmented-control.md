@@ -93,4 +93,4 @@ fun RangeOnBackground(
 
 Demo 依次展示多色背景上的透明模糊、默认 Group 内的普通填色，以及页面底色上的透明模糊。每组显示宿主已接收的选择值，可用于观察即时提交和抬手提交的差别。紧凑尺寸、禁用态和提交方式由同一组开关控制。
 
-[公开实现](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/segmentbutton/SegmentedControl.kt)、[预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/segmentbutton/CouiSegmentedControlDefaults.kt)、[Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSegmentedControl.kt)。
+[公开实现](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/segmentbutton/SegmentedControl.kt)、[预设](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/segmentbutton/CouiSegmentedControlDefaults.kt)、[Demo](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSegmentedControl.kt)。

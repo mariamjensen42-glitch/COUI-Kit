@@ -10,7 +10,7 @@ Status: implemented
 
 ## Decision
 
-[NotificationCard](../../../../coui/src/main/java/com/itos/coui/notificationcard/NotificationCard.kt) 只负责布局与排版，不自带材质：
+[NotificationCard](../../../../coui/src/main/java/com/cycling/coui/notificationcard/NotificationCard.kt) 只负责布局与排版，不自带材质：
 
 - `containerColor` 默认取 `colors.card`，组件直接 `background` 填充。
 - 需要玻璃时宿主传 `Color.Transparent`，用 `Modifier.couiFloatingSurface` 包裹并传入**同一个** `shape`。材质、模糊、轮廓光、阴影全部由既有浮动表面链路承担。

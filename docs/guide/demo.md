@@ -74,14 +74,14 @@ Demo 不安装任何默认样式，组件直接使用 COUI 原生预设；页面
 
 | 职责 | 文件 |
 | --- | --- |
-| 首页、搜索与底栏 | [DemoApp](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt) |
-| 目录与查询 | [DemoCatalog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoCatalog.kt) |
-| 导航与页面栈 | [DemoNavigation](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNavigation.kt)、[MainActivity](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/MainActivity.kt) |
-| 详情分发与页面容器 | [DemoSecondaryPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSecondaryPage.kt)、[DemoSettingsPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSettingsPage.kt) |
-| 组件与设置样例 | [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoSamples.kt) |
-| 页签条、搜索历史与 Snackbar | [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNextComponents.kt) |
-| 阴影、模糊与材质 | [DemoShadowSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoShadowSamples.kt)、[DemoBlurTutorial](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoBlurTutorial.kt)、[DemoVisualEffects](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoVisualEffects.kt) |
-| 弹窗与选择器 | [DemoDialogSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoDialogSamples.kt)、[DemoPickerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoPickerSamples.kt) |
-| 记录侧滑 | [DemoRecordSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoRecordSamples.kt) |
+| 首页、搜索与底栏 | [DemoApp](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoApp.kt) |
+| 目录与查询 | [DemoCatalog](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoCatalog.kt) |
+| 导航与页面栈 | [DemoNavigation](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoNavigation.kt)、[MainActivity](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/MainActivity.kt) |
+| 详情分发与页面容器 | [DemoSecondaryPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSecondaryPage.kt)、[DemoSettingsPage](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSettingsPage.kt) |
+| 组件与设置样例 | [DemoSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSamples.kt) |
+| 页签条、搜索历史与 Snackbar | [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoNextComponents.kt) |
+| 阴影、模糊与材质 | [DemoShadowSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoShadowSamples.kt)、[DemoBlurTutorial](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoBlurTutorial.kt)、[DemoVisualEffects](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoVisualEffects.kt) |
+| 弹窗与选择器 | [DemoDialogSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoDialogSamples.kt)、[DemoPickerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoPickerSamples.kt) |
+| 记录侧滑 | [DemoRecordSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoRecordSamples.kt) |
 
 Demo 展示宿主装配，内部行包装和路由不是库 API。接入从[组件目录](../components/README.md)或[效果目录](../effects/README.md)开始。

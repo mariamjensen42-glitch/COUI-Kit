@@ -12,9 +12,9 @@ Status: implemented
 
 三个组件都是纯布局、文字与状态装配，不复制模糊、材质、轮廓光、阴影或融合后端：
 
-- [TabLayout](../../../../coui/src/main/java/com/itos/coui/tablayout/TabLayout.kt) 在组合阶段用 `TextMeasurer` 得到文字宽度，据此计算等分/滚动宽度、指示器几何与滚动终点；指示器用外层 `Canvas` 按内容坐标减 `scrollState.value` 绘制。**不在 layout 阶段写 State**，也不为拿测量值引入 `SubcomposeLayout`。切换时长取原厂 `getIndicatorAnimTime()`。
-- [FlowLayout](../../../../coui/src/main/java/com/itos/coui/flowlayout/FlowLayout.kt) 用同一组测量值按 `Line.canAdd()` 分行，折叠时超出的行仍在布局中、靠 alpha 与 `clipToBounds` 裁剪，容器高度随展开态立即切换。[SearchHistory](../../../../coui/src/main/java/com/itos/coui/searchhistory/SearchHistory.kt) 只装配标题栏、清空淡出和 `FlowLayout`，**不复制换行逻辑**。
-- [SnackbarHost](../../../../coui/src/main/java/com/itos/coui/snackbar/Snackbar.kt) 保持原厂 `COUISnackBar.make()` 的单实例互斥：`show()` 在已有提示时返回 `false`，排队交给宿主在 `onDismissed` 提交。计时按原厂 `onTouchEvent()`，DOWN/MOVE 暂停、UP/CANCEL 按完整时长重启；`durationMillis = 0` 不自动消失。进出场复用 `CouiSpring`，几何复用从 `Toast.kt` 抽出的 `internal CouiToastSurface`。
+- [TabLayout](../../../../coui/src/main/java/com/cycling/coui/tablayout/TabLayout.kt) 在组合阶段用 `TextMeasurer` 得到文字宽度，据此计算等分/滚动宽度、指示器几何与滚动终点；指示器用外层 `Canvas` 按内容坐标减 `scrollState.value` 绘制。**不在 layout 阶段写 State**，也不为拿测量值引入 `SubcomposeLayout`。切换时长取原厂 `getIndicatorAnimTime()`。
+- [FlowLayout](../../../../coui/src/main/java/com/cycling/coui/flowlayout/FlowLayout.kt) 用同一组测量值按 `Line.canAdd()` 分行，折叠时超出的行仍在布局中、靠 alpha 与 `clipToBounds` 裁剪，容器高度随展开态立即切换。[SearchHistory](../../../../coui/src/main/java/com/cycling/coui/searchhistory/SearchHistory.kt) 只装配标题栏、清空淡出和 `FlowLayout`，**不复制换行逻辑**。
+- [SnackbarHost](../../../../coui/src/main/java/com/cycling/coui/snackbar/Snackbar.kt) 保持原厂 `COUISnackBar.make()` 的单实例互斥：`show()` 在已有提示时返回 `false`，排队交给宿主在 `onDismissed` 提交。计时按原厂 `onTouchEvent()`，DOWN/MOVE 暂停、UP/CANCEL 按完整时长重启；`durationMillis = 0` 不自动消失。进出场复用 `CouiSpring`，几何复用从 `Toast.kt` 抽出的 `internal CouiToastSurface`。
 
 `CouiToastSurface` 是**同一绘制节点的两处消费**，不是转发参数的包装层：`ToastHost` 仍各自持有队列、计时与退出动画，公开行为不变；`SnackbarHost` 持有自己的弹簧、计时与互斥状态。两者不得合并成一个带模式开关的 State，否则「单实例互斥」与「最多三条堆叠」会互相牵制。
 

@@ -8,17 +8,17 @@ Status: implemented
 
 ## Decision
 
-仅将普通标量弹簧抽为内部 [CouiSpring](../../../../coui/src/main/java/com/itos/coui/motion/CouiSpring.kt)，复用 AndroidX DynamicAnimation。Touch、Press、Slider、Switch 的普通弹簧和状态反馈共用它，不复制厂商调度框架。
+仅将普通标量弹簧抽为内部 [CouiSpring](../../../../coui/src/main/java/com/cycling/coui/motion/CouiSpring.kt)，复用 AndroidX DynamicAnimation。Touch、Press、Slider、Switch 的普通弹簧和状态反馈共用它，不复制厂商调度框架。
 
 运行中重定向复用原 SpringAnimation，保留速度及 pending/半帧积分。普通 cancel 停止并保留速度，取消时尚未处理的目标在下一次触摸前清除。cancelComplete 清回调并在使用过的通道上重建实例，清除原厂 reset 对应的历史。无弹簧运行介入的连续 snap 不反复重建。Slider 停止位置动画、重新按下及硬定位使用完整重置，Section ValueAnimator、惯性与既有边界适配保持。
 
-[TouchMotion](../../../../coui/src/main/java/com/itos/coui/motion/CouiTouchMotion.kt) 与 [PressMotion](../../../../coui/src/main/java/com/itos/coui/motion/CouiPressMotion.kt) 保留构造入口，通过原 scope 的取消释放动画；工厂也在节点移除时释放。入口及作用域均在主线程使用。四轴/按压轴公开类型收为 State<Float>，保留 .value 读取；子菜单退出改调 Touch.reset。库内 Press 调用统一使用 rememberCouiPressMotion。同一触摸组合的缩放增量相加，底栏附件外层收放仍按独立变换相乘；背景、内容、光效和投影使用一致的几何。
+[TouchMotion](../../../../coui/src/main/java/com/cycling/coui/motion/CouiTouchMotion.kt) 与 [PressMotion](../../../../coui/src/main/java/com/cycling/coui/motion/CouiPressMotion.kt) 保留构造入口，通过原 scope 的取消释放动画；工厂也在节点移除时释放。入口及作用域均在主线程使用。四轴/按压轴公开类型收为 State<Float>，保留 .value 读取；子菜单退出改调 Touch.reset。库内 Press 调用统一使用 rememberCouiPressMotion。同一触摸组合的缩放增量相加，底栏附件外层收放仍按独立变换相乘；背景、内容、光效和投影使用一致的几何。
 
-[CouiStateProgress](../../../../coui/src/main/java/com/itos/coui/effect/CouiStateProgress.kt) 保留原始进度尺度，仅在读取时归一化。短按等待首个实际超过最低进度的更新帧再重定向；掉帧直接到终点时，在旧动画结束后退场。菜单共享预选框交接直接从传入进度退场，不补亮。各消费者的颜色、短按门控、ARGB 插值和单一点击 owner 保持。
+[CouiStateProgress](../../../../coui/src/main/java/com/cycling/coui/effect/CouiStateProgress.kt) 保留原始进度尺度，仅在读取时归一化。短按等待首个实际超过最低进度的更新帧再重定向；掉帧直接到终点时，在旧动画结束后退场。菜单共享预选框交接直接从传入进度退场，不补亮。各消费者的颜色、短按门控、ARGB 插值和单一点击 owner 保持。
 
-[CouiSwitchMotion](../../../../coui/src/main/java/com/itos/coui/switch/CouiSwitchMotion.kt) 持有受控值同步、普通切换、拉伸、颜色进度和提交；内部 [CouiSwitchDrag](../../../../coui/src/main/java/com/itos/coui/switch/CouiSwitchDrag.kt) 持有拖动阈值、双锚点选择及吸附速度。Toggle 与拖动 X/Y 分别使用公共弹簧通道，吸附等待两轴均停止后通知一次完成。保留整数可见位置、浮点切换进度、速度量化、目标限制、近锚点直接完成，以及 CANCEL 不提交、宿主拒绝候选后恢复受控值。公开开关 API、输入装配及加载动画不变。
+[CouiSwitchMotion](../../../../coui/src/main/java/com/cycling/coui/switch/CouiSwitchMotion.kt) 持有受控值同步、普通切换、拉伸、颜色进度和提交；内部 [CouiSwitchDrag](../../../../coui/src/main/java/com/cycling/coui/switch/CouiSwitchDrag.kt) 持有拖动阈值、双锚点选择及吸附速度。Toggle 与拖动 X/Y 分别使用公共弹簧通道，吸附等待两轴均停止后通知一次完成。保留整数可见位置、浮点切换进度、速度量化、目标限制、近锚点直接完成，以及 CANCEL 不提交、宿主拒绝候选后恢复受控值。公开开关 API、输入装配及加载动画不变。
 
-[Checkbox](../../../../coui/src/main/java/com/itos/coui/checkbox/Checkbox.kt) 用一个线性时钟驱动方向资源的图形组，不为每项属性新增动画对象。外框与底色同曲线但分别绘制，勾线的选中回落独立；填充、trim 和方向笔宽来自对应资源。反向按不可逆 animated-selector 从新方向起点播放。初次显示、禁用与重新启用使用静态目标，保留宿主 Shape 和受控接口。
+[Checkbox](../../../../coui/src/main/java/com/cycling/coui/checkbox/Checkbox.kt) 用一个线性时钟驱动方向资源的图形组，不为每项属性新增动画对象。外框与底色同曲线但分别绘制，勾线的选中回落独立；填充、trim 和方向笔宽来自对应资源。反向按不可逆 animated-selector 从新方向起点播放。初次显示、禁用与重新启用使用静态目标，保留宿主 Shape 和受控接口。
 
 ## 原厂与平台依据
 

@@ -12,9 +12,9 @@ Demo 的整行装配与共享触觉入口见[整行开关输入](../bug-fix/2026
 
 ## Decision
 
-[Switch](../../../../coui/src/main/java/com/itos/coui/switch/Switch.kt)是唯一基础组件，宿主持有 checked、loading、主题与业务回调。库公开 CouiSwitchColors 和 CouiSwitchDefaults；运动和加载绘制保持 internal，触觉辅助为 private，不另公开按钮、设置行或通用触觉枚举。
+[Switch](../../../../coui/src/main/java/com/cycling/coui/switch/Switch.kt)是唯一基础组件，宿主持有 checked、loading、主题与业务回调。库公开 CouiSwitchColors 和 CouiSwitchDefaults；运动和加载绘制保持 internal，触觉辅助为 private，不另公开按钮、设置行或通用触觉枚举。
 
-加载和禁用都是同一个 Switch 的状态。[DemoSettingsSamples](../../../../demo/src/main/java/com/itos/coui/demo/DemoSettingsSamples.kt)直接传入 loading 或 enabled 展示，仅模拟业务等待。开关详情通过 Demo 的行布局装配，目录与页面组织见[设置式 Demo](2026-11-01-demo-catalog-and-system-icons.md)，业务等待不进入库。
+加载和禁用都是同一个 Switch 的状态。[DemoSettingsSamples](../../../../demo/src/main/java/com/cycling/coui/demo/DemoSettingsSamples.kt)直接传入 loading 或 enabled 展示，仅模拟业务等待。开关详情通过 Demo 的行布局装配，目录与页面组织见[设置式 Demo](2026-11-01-demo-catalog-and-system-icons.md)，业务等待不进入库。
 
 ### 原厂依据与移植
 
@@ -22,7 +22,7 @@ Demo 的整行装配与共享触觉入口见[整行开关输入](../bug-fix/2026
 
 SpringData 的构造顺序为 bounce、response、velocity，已经由 smali 字段写入确认。普通切换根据命名 getter 设置 Force，不能将构造调用的前两项读反，也不误用 SpringData.getDampingRatio 的另一条换算。拖动和吸附来自 COUISwitchParams 的独立字段。复用[普通弹簧通道](../architecture/2026-10-29-persistent-motion-channels.md)，保持原厂闭式积分、阈值、整数可见位置与浮点拉伸/颜色。普通反向只改变目标并保留速度；吸附开始使用原始浮点速度，选锚点先量化速度，并等 X/Y 两路收尾。
 
-[CouiSwitchMotion](../../../../coui/src/main/java/com/itos/coui/switch/CouiSwitchMotion.kt)负责 checked 同步、普通切换、拉伸、颜色进度与单一提交；[CouiSwitchDrag](../../../../coui/src/main/java/com/itos/coui/switch/CouiSwitchDrag.kt)仅持有拖动阈值、双锚点和双轴吸附完成，不接触业务值。两者复用内部 CouiSpring，不另造物理后端或公开通用拖动框架。通道生命周期、拆分代价及逐帧回归边界见[普通弹簧持久通道](../architecture/2026-10-29-persistent-motion-channels.md)，公开 API 与加载实现保持。
+[CouiSwitchMotion](../../../../coui/src/main/java/com/cycling/coui/switch/CouiSwitchMotion.kt)负责 checked 同步、普通切换、拉伸、颜色进度与单一提交；[CouiSwitchDrag](../../../../coui/src/main/java/com/cycling/coui/switch/CouiSwitchDrag.kt)仅持有拖动阈值、双锚点和双轴吸附完成，不接触业务值。两者复用内部 CouiSpring，不另造物理后端或公开通用拖动框架。通道生命周期、拆分代价及逐帧回归边界见[普通弹簧持久通道](../architecture/2026-10-29-persistent-motion-channels.md)，公开 API 与加载实现保持。
 
 触摸位移来自原始坐标差；速度采样沿 convertToTranslationCoordinates，把局部 X 映射并夹紧到行程、固定 Y=0，再交给平台 VelocityTracker。原厂限制弹簧目标而不截断物理当前位置。切换完成、快速反向、未过阈值 UP、取消、父容器接管、禁用和移除分别收尾；宿主拒绝拖动候选时恢复实际 checked。CANCEL 不提交是用户批准的受控适配，原厂 CompoundButton 的 CANCEL 可能吸附并改变值。
 
@@ -30,7 +30,7 @@ SpringData 的构造顺序为 bounce、response、velocity，已经由 smali 字
 
 ### 公共效果与资源
 
-原厂 drawBar 将 StateEffectAnimator 的 hover/press 合成到轨道。新增内部 couiSwitchFeedback，复用 [CouiStateFeedback](../../../../coui/src/main/java/com/itos/coui/effect/CouiStateFeedback.kt)现有蒙层弹簧和混色；不复制后端、不扩展已有公开反馈函数签名，不改变其他消费者。
+原厂 drawBar 将 StateEffectAnimator 的 hover/press 合成到轨道。新增内部 couiSwitchFeedback，复用 [CouiStateFeedback](../../../../coui/src/main/java/com/cycling/coui/effect/CouiStateFeedback.kt)现有蒙层弹簧和混色；不复制后端、不扩展已有公开反馈函数签名，不改变其他消费者。
 
 当前 View 通过公开 performHapticFeedback 调用原厂开关码，并保留系统设置及附着门控。不支持的 ROM 不合成替代波形；触觉码一致不代表跨硬件马达一致。程序赋值和取消不振动，声音未移植。
 

@@ -86,4 +86,4 @@ FlowLayout(
 
 ## Demo 示例
 
-单独使用与搜索历史组合见 [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoNextComponents.kt)，库入口见 [FlowLayout / CouiFlowItem](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/flowlayout/FlowLayout.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/flowlayout/CouiFlowLayoutDefaults.kt)。
+单独使用与搜索历史组合见 [DemoNextComponents](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoNextComponents.kt)，库入口见 [FlowLayout / CouiFlowItem](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/flowlayout/FlowLayout.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/flowlayout/CouiFlowLayoutDefaults.kt)。

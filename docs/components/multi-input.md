@@ -1,6 +1,6 @@
 # 多行输入卡
 
-`MultiInputCard` 是固定的多行输入卡片：152dp 卡片、左右 32dp 内留白、空态最多 3 行提示、正文最多 5 行，右下角可选字数，位于 `com.itos.coui.textfield`。
+`MultiInputCard` 是固定的多行输入卡片：152dp 卡片、左右 32dp 内留白、空态最多 3 行提示、正文最多 5 行，右下角可选字数，位于 `com.cycling.coui.textfield`。
 
 单行与可浮动标签的输入用[输入框](text-field.md)，分格数字输入用[验证码输入](code-input.md)。
 
@@ -58,4 +58,4 @@ MultiInputCard(
 
 ## Demo 与源码
 
-示例见 [DemoTextFieldFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoTextFieldFamilySamples.kt)，公开入口见 [MultiInputCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/MultiInputCard.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/CouiMultiInputDefaults.kt)。
+示例见 [DemoTextFieldFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoTextFieldFamilySamples.kt)，公开入口见 [MultiInputCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/textfield/MultiInputCard.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/textfield/CouiMultiInputDefaults.kt)。

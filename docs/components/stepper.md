@@ -34,4 +34,4 @@ Stepper(
 - 焦点描边画在 32dp 按钮外侧，可见性取决于父容器是否裁剪；原厂使用同一 drawable 结构。
 - 长按由 `awaitEachGesture` 自行实现：抬手在控件内、且未被父容器消费才算单击；长按后离开控件不结束重复，抬手或取消才结束。
 
-源码见 [Stepper](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/stepper/Stepper.kt)。
+源码见 [Stepper](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/stepper/Stepper.kt)。

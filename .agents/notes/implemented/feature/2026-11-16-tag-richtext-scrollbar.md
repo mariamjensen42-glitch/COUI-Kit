@@ -16,9 +16,9 @@ Status: implemented
 
 三个组件都是纯布局、文本与绘制装配，不新增效果后端：
 
-- [Tag](../../../../coui/src/main/java/com/itos/coui/tag/Tag.kt) 用 `Modifier.clip(shape).background(...)` 承载原厂「按轮廓裁剪子节点 + 填充」，四角独立的普通圆角直接由宿主的 `RoundedCornerShape` 给出。文本 10dp `sans-serif-medium` 单行省略、左图标 5×10dp 与 3/2dp 间距都按 `coui_tag_view_layout.xml` 固定。**不复用 `CouiShape`**：它是等半径 Lp 超椭圆，既不能四角分别设半径，也不是原厂 MaterialShapeDrawable 的普通圆角。
-- [Text](../../../../coui/src/main/java/com/itos/coui/text/Text.kt) 增加 `AnnotatedString` 重载，与既有 `String` 重载共用同一个内部排版函数，保留 `CouiTextKind`、颜色优先级、对齐与最大行数语义；链接样式由 [CouiTextLinkDefaults](../../../../coui/src/main/java/com/itos/coui/text/CouiTextLinkDefaults.kt) 以 `TextLinkStyles` 预设交给宿主装配。**不内置**链接样式拦截：`AnnotatedString` 里的 span 是宿主业务文本的一部分，库不替调用方改写。
-- [ScrollBar](../../../../coui/src/main/java/com/itos/coui/scrollbar/ScrollBar.kt) 只读 Compose 的 `ScrollState`，用 Canvas 绘制拇指，用 `awaitEachGesture` 在**拇指矩形命中**后才消费事件，其余触摸原样留给滚动容器；拖动只写入目标位置，滚动事务在 `LaunchedEffect` 里统一提交。
+- [Tag](../../../../coui/src/main/java/com/cycling/coui/tag/Tag.kt) 用 `Modifier.clip(shape).background(...)` 承载原厂「按轮廓裁剪子节点 + 填充」，四角独立的普通圆角直接由宿主的 `RoundedCornerShape` 给出。文本 10dp `sans-serif-medium` 单行省略、左图标 5×10dp 与 3/2dp 间距都按 `coui_tag_view_layout.xml` 固定。**不复用 `CouiShape`**：它是等半径 Lp 超椭圆，既不能四角分别设半径，也不是原厂 MaterialShapeDrawable 的普通圆角。
+- [Text](../../../../coui/src/main/java/com/cycling/coui/text/Text.kt) 增加 `AnnotatedString` 重载，与既有 `String` 重载共用同一个内部排版函数，保留 `CouiTextKind`、颜色优先级、对齐与最大行数语义；链接样式由 [CouiTextLinkDefaults](../../../../coui/src/main/java/com/cycling/coui/text/CouiTextLinkDefaults.kt) 以 `TextLinkStyles` 预设交给宿主装配。**不内置**链接样式拦截：`AnnotatedString` 里的 span 是宿主业务文本的一部分，库不替调用方改写。
+- [ScrollBar](../../../../coui/src/main/java/com/cycling/coui/scrollbar/ScrollBar.kt) 只读 Compose 的 `ScrollState`，用 Canvas 绘制拇指，用 `awaitEachGesture` 在**拇指矩形命中**后才消费事件，其余触摸原样留给滚动容器；拖动只写入目标位置，滚动事务在 `LaunchedEffect` 里统一提交。
 
 ## 原厂依据与复用核查
 

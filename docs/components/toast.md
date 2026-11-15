@@ -113,4 +113,4 @@ ToastHost(toast, dark = dark)
 
 ## Demo 示例
 
-单条、堆叠、操作按钮、图标与清空示例见 [DemoToastSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoToastSamples.kt)，库入口见 [ToastHost / ToastHostState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/toast/Toast.kt)。
+单条、堆叠、操作按钮、图标与清空示例见 [DemoToastSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoToastSamples.kt)，库入口见 [ToastHost / ToastHostState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/toast/Toast.kt)。

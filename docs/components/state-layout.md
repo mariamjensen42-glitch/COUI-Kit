@@ -69,4 +69,4 @@ StateLayout(
 
 判定结果同时决定槽内 `EmptyState` 是否渲染图标槽，宿主无需自己判断。
 
-源码见 [StateLayout](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/statelayout/StateLayout.kt)。
+源码见 [StateLayout](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/statelayout/StateLayout.kt)。

@@ -138,4 +138,4 @@ NavigationBar(
 
 每个底栏默认创建独立的三主体绘制器。宿主需要处理 Shader 初始化失败时，可以先用 `CouiFloatingRenderer()` 创建绘制器，成功后通过 `renderer` 传入底栏。每个底栏各用一个实例。
 
-完整页面示例见 [DemoApp](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoApp.kt)，公开参数见 [NavigationBar / CouiNavigationItem](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/navigation/NavigationBar.kt)。
+完整页面示例见 [DemoApp](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoApp.kt)，公开参数见 [NavigationBar / CouiNavigationItem](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/navigation/NavigationBar.kt)。

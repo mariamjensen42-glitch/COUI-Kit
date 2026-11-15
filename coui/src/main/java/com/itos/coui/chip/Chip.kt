@@ -148,7 +148,7 @@ fun Chip(
                 overflow = TextOverflow.Ellipsis,
             )
             if (count != null) {
-                CouiText(count, color = colors.countText, style = CouiChipDefaults.countTextStyle, maxLines = 1)
+                CouiText(text = count, color = colors.countText, style = CouiChipDefaults.countTextStyle, maxLines = 1)
             }
             if (showClose) {
                 ChipCloseButton(
@@ -199,8 +199,12 @@ fun Chip(
         val closePlaceable = if (showClose) measurables[index++] else null
         val redDotPlaceable = if (showRedDot) measurables[index] else null
 
-        val iconWidth = if (iconPlaceable == null) 0f else iconSizePx ?: iconPlaceable.maxIntrinsicWidth.toFloat()
-        val iconTotal = if (iconPlaceable == null) 0f else iconStartPx + iconWidth + iconEndPx
+        val iconPlace = iconPlaceable?.measure(
+            if (iconSizePx != null) Constraints.fixed(iconSizePx.roundToInt(), iconSizePx.roundToInt())
+            else Constraints(),
+        )
+        val iconWidth = iconPlace?.width?.toFloat() ?: 0f
+        val iconTotal = if (iconPlace == null) 0f else iconStartPx + iconWidth + iconEndPx
         val closeWidth = closeStartPx + closeSizePx + closeEndPx
         val closeTouchWidth = max(closeTouchPx, closeWidth)
         val maxAvailable = min(constraints.maxWidth.toFloat(), maxWidthPx)
@@ -229,7 +233,7 @@ fun Chip(
         val contentHeight = maxOf(
             textPlace.height.toFloat(),
             countPlace?.height?.toFloat() ?: 0f,
-            iconPlaceable?.let { iconWidth } ?: 0f,
+            iconWidth,
             if (showClose) closeTouchPx else 0f,
         )
         val height = max(contentHeight, minHeightPx).let {
@@ -251,7 +255,6 @@ fun Chip(
         val textX = textStartVisible + (textStartInvisible - textStartVisible) * (1f - closeFraction)
 
         val backgroundPlace = backgroundPlaceable.measure(Constraints.fixed(backgroundWidthPx, heightPx))
-        val iconPlace = iconPlaceable?.measure(Constraints(maxWidth = iconWidth.roundToInt()))
         val closePlace = closePlaceable?.measure(Constraints.fixed(closeTouchWidth.roundToInt(), heightPx))
         val dotOffsetX = with(density) { CouiChipDefaults.redDotOffset.x.toPx() }
         val dotOffsetY = with(density) { CouiChipDefaults.redDotOffset.y.toPx() }
@@ -260,17 +263,17 @@ fun Chip(
 
         layout(widthPx, heightPx) {
             backgroundPlace.place(backgroundX, 0)
-            if (iconPlace != null) {
-                iconPlace.placeRelative(
+            iconPlace?.let {
+                it.placeRelative(
                     (startPaddingPx + iconStartPx).roundToInt(),
-                    ((heightPx - iconPlace.height) / 2f).roundToInt(),
+                    ((heightPx - it.height) / 2f).roundToInt(),
                 )
             }
             textPlaceable.placeRelative(textX.roundToInt(), ((heightPx - textPlace.height) / 2f).roundToInt())
-            if (countPlace != null) {
-                countPlace.placeRelative(
+            countPlace?.let {
+                it.placeRelative(
                     (textX + textPlace.width + countStartPx).roundToInt(),
-                    ((heightPx - countPlace.height) / 2f).roundToInt(),
+                    ((heightPx - it.height) / 2f).roundToInt(),
                 )
             }
             closePlace?.place(closeX, 0)
@@ -297,8 +300,8 @@ internal fun DrawScope.drawShape(color: Color, shape: Shape) {
         is Outline.Rectangle -> drawRect(color, size = size)
         is Outline.Rounded -> drawRoundRect(
             color,
-            topLeft = outline.roundRect.topLeft,
-            size = outline.roundRect.size,
+            topLeft = Offset(outline.roundRect.left, outline.roundRect.top),
+            size = Size(outline.roundRect.width, outline.roundRect.height),
             cornerRadius = outline.roundRect.topLeftCornerRadius,
         )
         is Outline.Generic -> drawPath(outline.path, color)

@@ -90,6 +90,7 @@ object CouiTextFieldDefaults {
     val errorEase = CubicBezierEasing(0.42f, 0f, 1f, 1f)
 
     /** 错误色：日间 `coui_color_error`、夜间 `coui_color_error_dark`。 */
+    @Composable
     fun errorColor(dark: Boolean = CouiTheme.isDark): Color =
         if (dark) Color(0xFFFF6C61) else Color(0xFFDB382C)
 

@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.itos.coui.R
 import com.itos.coui.shape.CouiCapsuleShape
-import com.itos.coui.text.CouiText
+import com.itos.coui.theme.CouiText
 import com.itos.coui.theme.CouiTheme
 import java.text.DateFormatSymbols
 

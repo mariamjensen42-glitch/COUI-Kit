@@ -105,7 +105,7 @@ fun ListDialog(
                         CouiListSelection.Single -> checkedIndex == index
                         CouiListSelection.Multi -> index in checkedIndices
                     }
-                    val activate = when (selection) {
+                    val activate: (() -> Unit)? = when (selection) {
                         CouiListSelection.None -> onItemClick?.let { callback -> { callback(index) } }
                         CouiListSelection.Single -> {
                             val callback = onCheckedIndexChange ?: onItemClick
@@ -116,7 +116,10 @@ fun ListDialog(
                                 val limit = maxChecked
                                 if (selected) callback(checkedIndices - index)
                                 else if (limit == null || checkedIndices.size < limit) callback(checkedIndices + index)
-                                else onMaxChecked?.invoke(limit)
+                                else {
+                                    onMaxChecked?.invoke(limit)
+                                    Unit
+                                }
                             }
                         }
                     }

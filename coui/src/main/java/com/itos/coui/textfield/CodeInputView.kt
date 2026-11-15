@@ -78,7 +78,8 @@ fun CodeInputView(
     val currentOnComplete by rememberUpdatedState(onComplete)
     BoxWithConstraints(modifier.heightIn(min = cellHeight)) {
         val cellWidthPx = with(density) { cellWidth.toPx() }
-        val spacing = CouiCodeInputDefaults.cellSpacing(maxWidth.toPx(), cellWidthPx, length, metrics, density)
+        val availablePx = with(density) { maxWidth.toPx() }
+        val spacing = CouiCodeInputDefaults.cellSpacing(availablePx, cellWidthPx, length, metrics, density)
         Row(modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(spacing, Alignment.CenterHorizontally)) {
             repeat(length) { index ->

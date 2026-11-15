@@ -98,7 +98,7 @@ fun UserFollowBar(
                 maxLines = 1,
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.graphicsLayer { alpha = subtitleFraction },
+                modifier = Modifier.graphicsLayer { this.alpha = subtitleFraction },
             )
             FollowButton(
                 label = if (following) followingLabel else followLabel,

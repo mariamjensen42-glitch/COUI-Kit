@@ -78,7 +78,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("marquee", R.string.marquee_title, DemoIconTone.Blue) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("verticalseek", R.string.vertical_seek_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
         DemoCatalogEntry("seekbarfamily", R.string.seekbar_family_title, DemoIconTone.Orange) { CouiIcons.Outlined.SliderCustom },
-        DemoCatalogEntry("progressivedrag", R.string.progressive_drag_title, DemoIconTone.Blue) { CouiIcons.Filled.SliderCustom },
+        DemoCatalogEntry("progressivedrag", R.string.progressive_drag_title, DemoIconTone.Blue) { CouiIcons.Outlined.SliderCustom },
         DemoCatalogEntry("chips", R.string.chip_family_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("chip", R.string.chip_tab_title, DemoIconTone.Purple) { CouiIcons.Filled.Lab },
         DemoCatalogEntry("stepper", R.string.catalog_stepper, DemoIconTone.Green) { DemoIcons.Switch },
@@ -188,7 +188,7 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "progress" -> R.string.intro_progress
     "toast" -> R.string.intro_toast
     "marquee" -> R.string.intro_marquee
-    "verticalseek" -> R.string.intro_vertical_seek,
+    "verticalseek" -> R.string.intro_vertical_seek
     "seekbarfamily" -> R.string.intro_seekbar_family
     "progressivedrag" -> R.string.progressive_drag_hint
     "toptips" -> R.string.intro_top_tips

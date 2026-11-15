@@ -54,9 +54,9 @@ internal fun NavigationFamilySample(dark: Boolean) {
     var expanded by remember { mutableStateOf(false) }
     var accessoriesExpanded by remember { mutableStateOf(false) }
     val actions = listOf(
-        CouiAccessoryAction(CouiIcons.Filled.AI, stringResource(R.string.nav_family_ai)) {},
-        CouiAccessoryAction(CouiIcons.Filled.Album, stringResource(R.string.nav_family_settings)) {},
-        CouiAccessoryAction(CouiIcons.Filled.Lab, stringResource(R.string.nav_family_lab)) {},
+        CouiAccessoryAction(CouiIcons.Filled.AI, stringResource(R.string.nav_family_ai), onClick = {}),
+        CouiAccessoryAction(CouiIcons.Filled.Album, stringResource(R.string.nav_family_settings), onClick = {}),
+        CouiAccessoryAction(CouiIcons.Filled.Lab, stringResource(R.string.nav_family_lab), onClick = {}),
     )
 
     Group(title = stringResource(R.string.nav_family_side)) {

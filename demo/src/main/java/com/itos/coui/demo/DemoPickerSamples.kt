@@ -63,7 +63,7 @@ internal fun PickerSamples(page: String, dark: Boolean) {
         "wheel" -> String.format(locale, "%02d", number)
         "timepicker" -> LocalTime.ofSecondOfDay(timeSeconds.toLong()).format(
             DateTimeFormatter.ofPattern(if (is24Hour) "HH:mm" else "hh:mm a", locale))
-        "timelimitpicker" -> String.format(locale, "%02d:%02d", seconds / 3600, seconds / 60 % 60)
+        "timelimitpicker" -> String.format(locale, "%02d:%02d", timeSeconds / 3600, timeSeconds / 60 % 60)
         "countdownpicker" -> String.format(locale, "%02d:%02d:%02d",
             durationSeconds / 3600, durationSeconds / 60 % 60, durationSeconds % 60)
         else -> LocalDate.ofEpochDay(date).format(

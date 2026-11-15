@@ -31,6 +31,10 @@ private val CountdownHeight = 228.dp
 private val CountdownMargin = 30.dp
 private val CountdownSeparatorWidth = 30.dp
 
+internal data class DemoDuration(val hour: Int, val minute: Int, val second: Int) {
+    val totalSeconds: Int get() = hour * 3600 + minute * 60 + second
+}
+
 /** 时钟标准倒计时：三行、三列、38dp 数字、30dp 独立冒号及渐隐。 */
 @Composable
 internal fun DemoCountdownPicker(

@@ -54,7 +54,7 @@ internal fun UserFollowSample(dark: Boolean) {
                     text = stringResource(R.string.user_follow_hint),
                     kind = CouiTextKind.ItemSummary,
                     color = scheme.onSurfaceVariant,
-                    modifier = Modifier.padding(top = 12.dp),
+                    modifier = Modifier.padding(top = 12.dp, bottom = 12.dp),
                 )
                 Divider()
                 DemoSwitchPreference(

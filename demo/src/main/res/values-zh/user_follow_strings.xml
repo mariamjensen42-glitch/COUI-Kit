@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_follow_title">用户主页栏</string>
+    <string name="user_follow_intro">带头像、标题、副标题和关注按钮的个人主页顶栏。</string>
+    <string name="user_follow_group">个人栏</string>
+    <string name="user_follow_name">陈默</string>
+    <string name="user_follow_subtitle">2400 位关注者</string>
+    <string name="user_follow_fill">占满宽度</string>
+    <string name="user_follow_hint">切换关注可以看按钮配色与字号的变化；占满宽度会把按钮推到末端。</string>
+</resources>

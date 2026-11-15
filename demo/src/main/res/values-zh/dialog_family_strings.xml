@@ -1,0 +1,21 @@
+<resources>
+    <string name="dialog_family_title">弹窗变体</string>
+    <string name="intro_dialog_family">多页引导、安全声明与底部列表。</string>
+    <string name="dialog_guide_group">引导</string>
+    <string name="dialog_guide_entry">多页引导</string>
+    <string name="dialog_guide_page_title">引导第 %1$d 步</string>
+    <string name="dialog_guide_page_description">这一页的简短说明。</string>
+    <string name="dialog_guide_image">图片 %1$d</string>
+    <string name="dialog_security_group">安全</string>
+    <string name="dialog_security_entry">声明、链接与复选框</string>
+    <string name="dialog_security_title">允许自动备份吗？</string>
+    <string name="dialog_security_message">仅在连接 Wi-Fi 时执行备份。</string>
+    <string name="dialog_security_statement">点击并查看 %1$s 了解更多信息。</string>
+    <string name="dialog_security_link">隐私政策</string>
+    <string name="dialog_list_group">列表</string>
+    <string name="dialog_list_entry">操作列表</string>
+    <string name="dialog_list_single_entry">单选列表</string>
+    <string name="dialog_list_multi_entry">多选列表，最多 2 项</string>
+    <string name="dialog_list_item">选项 %1$d</string>
+    <string name="dialog_done">完成</string>
+</resources>

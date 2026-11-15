@@ -2,7 +2,7 @@
 
 COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和兼容要求的变化。日期以提交合并时间为准；版本归档以真实 Git Tag 和发行产物为准。
 
-## [未发布]
+## [0.0.1-alpha13] - 2026-11-15
 
 以下为相对 `0.0.1-alpha12` 的变更。
 
@@ -19,6 +19,15 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 新增 `StateEffectSurface` 与 `CouiStateEffectDefaults`：悬停、焦点、选中与按压蒙层的图层顺序、焦点并入选中、禁用归零与按压缩放按 `COUIStateEffectDrawable` 组合，蒙层与描边复用 `couiStateMask` / `couiFocusOutline`；原厂 `Processor` 体系未移植。[状态效果表面](docs/components/state-effect.md)
 - 新增 `ProgressiveDragState`、`rememberProgressiveDragState`、`Modifier.couiProgressiveDrag` 与 `CouiProgressiveDefaults`：按行距递增的响应与步长封顶、速度对回落响应与回弹的修正、橡皮筋公式按 `animatekit/progressive` 移植；原厂 View + 协程框架换成 `CouiSpring`，触发排由宿主传入。[渐进式拖动](docs/components/progressive-drag.md)
 - 新增 `UserFollowBar` 与 `CouiUserFollowDefaults`：头像 24dp、按钮 52×28dp、高度 52dp 与 8dp 间距按 `COUIUserFollowView` 的约束移植，关注态在 300ms 内插值按钮底色、内容色、字号与位置。[用户关注顶栏](docs/components/user-follow-bar.md)
+
+### 调整与修复
+
+- 优化弹窗族的度量核对：以 ColorOS 17 的 `Settings.apk` / `Contacts.apk` 资源与真机截图复核了最大宽高、外边距、标题与消息内缩、按钮条、列表项与安全弹窗面板；弹窗圆角经 1264×2780 截图拟合仍取 45dp 权重 3 的平滑超椭圆。[弹窗](docs/components/dialog.md)
+- 优化 `GuideDialog` 的排版与轮廓：页标题与描述改用 `DialogText` 的 `Title` / `Message`，字号与行距同原厂 18sp/550 与 13sp；新增 `CouiGuideDialogDefaults.cornerRadius` 与 `shape`（32dp，对应 `coui_dialog_guide_clip_radius_root`），不再跟随 `CouiTheme.shapes.dialog`。[弹窗](docs/components/dialog.md)
+- 修复 `ListDialog` 分隔线缩进：回到原厂 `coui_list_dialog_item` 的 20dp 水平留白。
+- 修复标签 `Chip` 的绘制异常：正文与红点改用 `measure` 后的 `Placeable`，红点补上 `Constraints()` 测量。
+- 修复新增组件示例的编译错误：图标改用 `CouiIcons.Outlined.SliderCustom`、去掉 `when` 分支尾逗号、`CouiTextKind.ItemTitle` 配 `Text` 具名参数、`CouiAccessoryAction` 改用 `onClick` 具名参数、时间列取正确的 `timeSeconds` 变量并补上 `DemoDuration`。
+- 调整 Demo 文案：弹窗变体页与用户主页栏页补上简体中文对照。
 
 ## [0.0.1-alpha12] - 2026-11-15
 

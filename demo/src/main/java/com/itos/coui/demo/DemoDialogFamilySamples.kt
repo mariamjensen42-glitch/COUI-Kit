@@ -141,7 +141,7 @@ private fun GuideImage(index: Int, dark: Boolean) {
         ),
         contentAlignment = Alignment.Center,
     ) {
-        Text(stringResource(R.string.dialog_guide_image, index), kind = CouiTextKind.Title,
+        Text(text = stringResource(R.string.dialog_guide_image, index), kind = CouiTextKind.ItemTitle,
             color = scheme.onSurfaceVariant)
     }
 }

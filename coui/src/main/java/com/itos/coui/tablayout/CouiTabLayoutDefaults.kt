@@ -13,10 +13,10 @@ data class CouiTabItem(val key: Any, val label: String, val enabled: Boolean = t
 
 /** 页签条的排布方式，对应 `COUITabLayout` 的 `MODE_FIXED` / `MODE_SCROLLABLE`。 */
 enum class CouiTabLayoutMode {
-    /** 等分整条宽度，不滚动。 */
+    /** 按可用宽度分配间距，不滚动。 */
     Fixed,
 
-    /** 每项按文字宽度排布，可横向滚动，选中项滚向中间。 */
+    /** 每项按文字宽度加 [CouiTabLayoutDefaults.tabSpacing] 排布，可横向滚动，选中项滚向中间。 */
     Scrollable,
 }
 
@@ -30,15 +30,21 @@ data class CouiTabLayoutColors(
 )
 
 /**
- * 页签条的固定参数，取自 `COUITabLayout` / `COUISlidingTabStrip` 与 `tablayout_*` 资源。
+ * 页签条的固定参数，取自 `SettingsSmallTabLayoutStyle`（父 `COUISmallTabLayoutStyle`）、
+ * `COUISmallTabViewStyle` / `COUIMiddleTabViewStyle` 与 `tablayout_*` / `coui_tab_layout_*` 资源。
+ *
+ * 高度与字号取页面实际使用的 Small / Middle / Largest 样式，而不是 `COUITabLayout` 未被样式覆盖时的
+ * 基类默认值（48dp、14sp）。每项占「文字宽 + [tabSpacing]」，[tabSpacing] 一半落在文字两侧；
+ * [edgeMargin] 是内容两侧的最小外边距，滚动模式的容器内边距按 `edgeMargin - tabSpacing / 2` 得出。
+ * 固定模式在内容不超过 [contentMinWidth] 时把剩余宽度均分为「页签数 + 1」段间距。
  *
  * 指示器宽度跟随文字宽度（两侧各加 [indicatorPadding]），最小 [indicatorMinWidth]，
  * 高度 [indicatorHeight]，绘制在容器底部；切换动画时长为 `min(300, 相邻距离 × 50 + 150)` 毫秒，
  * 滚动到选中项用 300ms。
  */
 object CouiTabLayoutDefaults {
-    /** `DEFAULT_HEIGHT`。 */
-    val height = 48.dp
+    /** `tablayout_small_layout_height` / `tablayout_large_layout_height` 的页面实际高度。 */
+    val height = 40.dp
 
     /** `tablayout_selected_indicator_height` / `couiTabIndicatorHeight`。 */
     val indicatorHeight = 2.dp
@@ -52,14 +58,20 @@ object CouiTabLayoutDefaults {
     /** 底部 1px 分隔线，按 1dp 还原。 */
     val dividerHeight = 1.dp
 
-    /** `tablayout_middle_text_size`。 */
-    val textSize = 14.sp
+    /** `COUISmallTabViewStyle` / `COUIMiddleTabViewStyle` → `tablayout_large_text_size`。 */
+    val textSize = 16.sp
 
-    /** `coui_tabwidget_min_width`，滚动模式下每项的最小占位。 */
-    val tabMinWidth = 72.dp
+    /** `coui_tab_layout_small_tab_spacing`，相邻项间距，两侧各取一半作为文字留白。 */
+    val tabSpacing = 20.dp
 
-    /** `coui_tab_layout_medium_tab_spacing`，滚动模式下文字两侧的留白。 */
-    val tabHorizontalPadding = 24.dp
+    /** `coui_tab_layout_small_horizontal_margin`，内容两侧的最小外边距。 */
+    val edgeMargin = 16.dp
+
+    /** `coui_tab_layout_content_min_width`，固定模式按剩余宽度均分间距的临界内容宽度。 */
+    val contentMinWidth = 360.dp
+
+    /** `couiTabMaxWidth` → `tablayout_large_tab_max_width`，单页签文字的最大宽度。 */
+    val tabMaxWidth = 128.dp
 
     /** `ANIMATION_DURATION`，滚动到选中项的时长。 */
     const val scrollAnimationMillis = 300

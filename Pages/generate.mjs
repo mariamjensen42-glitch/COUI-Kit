@@ -6,8 +6,8 @@ import { SaxesParser } from 'saxes';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
-const COUI_COLOR_PATH = path.join(ROOT_DIR, 'coui/src/main/java/com/itos/coui/theme/CouiColor.kt');
-const COUI_ICONS_PATH = path.join(ROOT_DIR, 'coui-icons/src/main/java/com/itos/coui/icons/CouiIcons.kt');
+const COUI_COLOR_PATH = path.join(ROOT_DIR, 'coui/src/main/java/com/cycling/coui/theme/CouiColor.kt');
+const COUI_ICONS_PATH = path.join(ROOT_DIR, 'coui-icons/src/main/java/com/cycling/coui/icons/CouiIcons.kt');
 const RESOURCE_DIR = path.join(ROOT_DIR, 'coui-icons/src/main/res');
 const DRAWABLE_DIR = path.join(RESOURCE_DIR, 'drawable');
 const DRAWABLE_NIGHT_DIR = path.join(RESOURCE_DIR, 'drawable-night');
@@ -345,6 +345,14 @@ function parsePathNode(node, resources, context) {
   }
   const fill = parseBrush(node, 'fillColor', resources, context);
   const stroke = parseBrush(node, 'strokeColor', resources, context);
+  if (!fill && !stroke) {
+    throw new Error(`Path has neither android:fillColor nor android:strokeColor in ${context}`);
+  }
+  const fillPaints = fill && (fill.type !== 'solid' || fill.rawAlpha > 0);
+  const strokePaints = stroke && (stroke.type !== 'solid' || stroke.rawAlpha > 0);
+  if (!fillPaints && !strokePaints) {
+    throw new Error(`Path paints nothing: transparent fill without a visible stroke in ${context}`);
+  }
   const fillAlpha = getAndroidAttr(node, 'fillAlpha') === undefined ? 1 : parseNumber(getAndroidAttr(node, 'fillAlpha'), `${context} fillAlpha`);
   const strokeAlpha = getAndroidAttr(node, 'strokeAlpha') === undefined ? 1 : parseNumber(getAndroidAttr(node, 'strokeAlpha'), `${context} strokeAlpha`);
   const strokeLineWidth = getAndroidAttr(node, 'strokeWidth') === undefined ? 0 : parseNumber(getAndroidAttr(node, 'strokeWidth'), `${context} strokeWidth`);

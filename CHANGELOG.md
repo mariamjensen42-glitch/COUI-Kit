@@ -2,6 +2,24 @@
 
 COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和兼容要求的变化。日期以提交合并时间为准；版本归档以真实 Git Tag 和发行产物为准。
 
+## [未发布]
+
+以下为相对 `0.0.1-alpha12` 的变更。
+
+### 新增与改进
+
+- 新增标签 `Chip`、`ChipGroup`、`ChipGroupEditText` 与 `CouiChipDefaults`：四套样式（`Default` / `Selection` / `Suggestion` / `Input`）的尺寸、宽度公式、文字居中、关闭区、数量与红点位置、染色与高度弹簧按 `COUIChipDrawable` / `COUIChipGroup` 移植；单选与必选交给宿主持有，`smoothtyle` 平滑轮廓与 `hovered`/`focused` 染色未复刻。[Chip](docs/components/chip.md)
+- 新增验证码输入 `CodeInputView`、多行输入卡 `MultiInputCard`，`TextField` 新增 `error`：格子按 `min(屏宽dp, 360)/360` 缩放、间距按原厂公式夹在 2–8dp，逐位出现与描边动画同原厂 100ms/33ms；错误态四段抖动 450ms、描边 217ms、文案 217/283ms 淡入淡出。[验证码输入](docs/components/code-input.md) · [多行输入卡](docs/components/multi-input.md) · [错误态](docs/components/text-field.md#错误态)
+- 新增 `DatePicker`、`TimePicker`、`TimeLimitPicker`、`LunarDatePicker` 与 `CouiLunarCalendar`：年月日、时分（含 AM/PM 与日期列）、带上限的时分与农历年月日按原厂列序与取值移植，农历互转覆盖 1900–2100；原厂内嵌 `CalendarView` 的切换拆为 `CalendarPicker` 组合。[选择器](docs/components/pickers.md)
+- 新增 `GuideDialog`、`SecurityDialog`、`ListDialog`：多页引导的分页、指示器、按钮宽度弹簧与文字交叉淡入，安全弹窗的说明链接与勾选框度量，列表弹窗的项高、内边距、分隔线缩进与多选上限均按原厂参数移植；旋转加载弹窗与推荐按钮未移植。[弹窗](docs/components/dialog.md)
+- 新增 `SideNavigationBar`、`NavigationRail`、`BottomFloatingNavigationBar`、`BottomFloatingAccessory` 与 `AccessoryNavigationBar`：抽屉 300dp / 停靠 `min(280dp, 宽 × 0.382)`、导航轨居中与 `max((可用高 × 0.4 − 项高和)/(项数 + 1), 8dp)` 的项间距、悬浮底栏 56/48/70/12/8dp 与附件栏 0.2/0.5+0.3 弹簧均按原厂移植。[导航栏变体](docs/components/navigation-layout.md)
+- 新增 `SectionSeekBar` 与 `IconSeekBar`：段标记的激活/未激活分工、0.4 跟手系数、150ms 掉落吸附、图标滑条的胶囊面板与 0.4–1 阻尼按 `COUISectionSeekBar` / `COUIIconSeekBar` 移植；`effect/` 的 ConicLight / Glitter / Loading / Deformation 渲染链依赖厂商私有 AGSL 与物理引擎，未移植。[分段与图标滑动条](docs/components/section-seek-bar.md)
+- 新增 `InstallLoadProgress` 与 `CouiInstallLoadProgressDefaults`：小 52×28dp / 大 220×44dp、底色 + 进度填充 + 双色文字、按下亮度 0.8 与 5% 内缩、200/340ms 过渡按 `COUIInstallLoadProgress` 与 `COUILoadProgress` 状态机移植；圆形位图样式与 `COUILottieLoadingView` 依赖厂商动画引擎，未移植。[安装进度按钮](docs/components/progress.md#安装进度按钮)
+- 新增 `DeformationTileGrid` 与 `CouiDeformationTileDefaults`：编辑态的 20dp 圆角、2/4dp 描边、右缘 12×28dp 把手与 0.35 格换算阈值，跨度变化按 response 0.35 的弹簧重排；原厂 SystemUI 的拖动换位与面板分页联动不在范围。[控制中心磁贴](docs/components/quick-setting.md#编辑态形变与重排)
+- 新增 `StateEffectSurface` 与 `CouiStateEffectDefaults`：悬停、焦点、选中与按压蒙层的图层顺序、焦点并入选中、禁用归零与按压缩放按 `COUIStateEffectDrawable` 组合，蒙层与描边复用 `couiStateMask` / `couiFocusOutline`；原厂 `Processor` 体系未移植。[状态效果表面](docs/components/state-effect.md)
+- 新增 `ProgressiveDragState`、`rememberProgressiveDragState`、`Modifier.couiProgressiveDrag` 与 `CouiProgressiveDefaults`：按行距递增的响应与步长封顶、速度对回落响应与回弹的修正、橡皮筋公式按 `animatekit/progressive` 移植；原厂 View + 协程框架换成 `CouiSpring`，触发排由宿主传入。[渐进式拖动](docs/components/progressive-drag.md)
+- 新增 `UserFollowBar` 与 `CouiUserFollowDefaults`：头像 24dp、按钮 52×28dp、高度 52dp 与 8dp 间距按 `COUIUserFollowView` 的约束移植，关注态在 300ms 内插值按钮底色、内容色、字号与位置。[用户关注顶栏](docs/components/user-follow-bar.md)
+
 ## [0.0.1-alpha12] - 2026-11-15
 
 以下为相对 `0.0.1-alpha11` 的变更。本版起项目只保留 ColorOS 17 一套外观，不再提供任何外部设计体系的适配层。
@@ -78,17 +96,6 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 新增头像容器 `Avatar` 与 `CouiAvatarDefaults`：固定尺寸、可裁剪、底色可覆盖，内容由宿主提供。[头像](docs/components/avatar.md)
 - 新增三态容器 `StateLayout` 与 `CouiLoadState`：加载、空、失败与就绪的统一分发，文案与重试入口由宿主提供；空态与失败态按原厂 `COUIEmptyStateView` 摆位——顶部留白为 (容器高 − 槽高) × 0.45，按高 200dp / 宽 320dp / 高 480dp 判三档尺寸类型、`Small` 跳过插图，容器高未被固定时收拢到内容高度，`emptyPageSize` 可强制档位。[三态容器](docs/components/state-layout.md)
 - 新增步骤条 `Stepper`：横向圆点、连接线与标签，当前步骤由宿主持有。[步骤条](docs/components/stepper.md)
-- 新增标签 `Chip`、`ChipGroup`、`ChipGroupEditText` 与 `CouiChipDefaults`：四套样式（`Default` / `Selection` / `Suggestion` / `Input`）的尺寸、宽度公式、文字居中、关闭区、数量与红点位置、染色与高度弹簧按 `COUIChipDrawable` / `COUIChipGroup` 移植；单选与必选交给宿主持有，`smoothtyle` 平滑轮廓与 `hovered`/`focused` 染色未复刻。[Chip](docs/components/chip.md)
-- 新增验证码输入 `CodeInputView`、多行输入卡 `MultiInputCard`，`TextField` 新增 `error`：格子按 `min(屏宽dp, 360)/360` 缩放、间距按原厂公式夹在 2–8dp，逐位出现与描边动画同原厂 100ms/33ms；错误态四段抖动 450ms、描边 217ms、文案 217/283ms 淡入淡出。[验证码输入](docs/components/code-input.md) · [多行输入卡](docs/components/multi-input.md) · [错误态](docs/components/text-field.md#错误态)
-- 新增 `DatePicker`、`TimePicker`、`TimeLimitPicker`、`LunarDatePicker` 与 `CouiLunarCalendar`：年月日、时分（含 AM/PM 与日期列）、带上限的时分与农历年月日按原厂列序与取值移植，农历互转覆盖 1900–2100；原厂内嵌 `CalendarView` 的切换拆为 `CalendarPicker` 组合。[选择器](docs/components/pickers.md)
-- 新增 `GuideDialog`、`SecurityDialog`、`ListDialog`：多页引导的分页、指示器、按钮宽度弹簧与文字交叉淡入，安全弹窗的说明链接与勾选框度量，列表弹窗的项高、内边距、分隔线缩进与多选上限均按原厂参数移植；旋转加载弹窗与推荐按钮未移植。[弹窗](docs/components/dialog.md)
-- 新增 `SideNavigationBar`、`NavigationRail`、`BottomFloatingNavigationBar`、`BottomFloatingAccessory` 与 `AccessoryNavigationBar`：抽屉 300dp / 停靠 `min(280dp, 宽 × 0.382)`、导航轨居中与 `max((可用高 × 0.4 − 项高和)/(项数 + 1), 8dp)` 的项间距、悬浮底栏 56/48/70/12/8dp 与附件栏 0.2/0.5+0.3 弹簧均按原厂移植。[导航栏变体](docs/components/navigation-layout.md)
-- 新增 `SectionSeekBar` 与 `IconSeekBar`：段标记的激活/未激活分工、0.4 跟手系数、150ms 掉落吸附、图标滑条的胶囊面板与 0.4–1 阻尼按 `COUISectionSeekBar` / `COUIIconSeekBar` 移植；`effect/` 的 ConicLight / Glitter / Loading / Deformation 渲染链依赖厂商私有 AGSL 与物理引擎，未移植。[分段与图标滑动条](docs/components/section-seek-bar.md)
-- 新增 `InstallLoadProgress` 与 `CouiInstallLoadProgressDefaults`：小 52×28dp / 大 220×44dp、底色 + 进度填充 + 双色文字、按下亮度 0.8 与 5% 内缩、200/340ms 过渡按 `COUIInstallLoadProgress` 与 `COUILoadProgress` 状态机移植；圆形位图样式与 `COUILottieLoadingView` 依赖厂商动画引擎，未移植。[安装进度按钮](docs/components/progress.md#安装进度按钮)
-- 新增 `DeformationTileGrid` 与 `CouiDeformationTileDefaults`：编辑态的 20dp 圆角、2/4dp 描边、右缘 12×28dp 把手与 0.35 格换算阈值，跨度变化按 response 0.35 的弹簧重排；原厂 SystemUI 的拖动换位与面板分页联动不在范围。[控制中心磁贴](docs/components/quick-setting.md#编辑态形变与重排)
-- 新增 `StateEffectSurface` 与 `CouiStateEffectDefaults`：悬停、焦点、选中与按压蒙层的图层顺序、焦点并入选中、禁用归零与按压缩放按 `COUIStateEffectDrawable` 组合，蒙层与描边复用 `couiStateMask` / `couiFocusOutline`；原厂 `Processor` 体系未移植。[状态效果表面](docs/components/state-effect.md)
-- 新增 `ProgressiveDragState`、`rememberProgressiveDragState`、`Modifier.couiProgressiveDrag` 与 `CouiProgressiveDefaults`：按行距递增的响应与步长封顶、速度对回落响应与回弹的修正、橡皮筋公式按 `animatekit/progressive` 移植；原厂 View + 协程框架换成 `CouiSpring`，触发排由宿主传入。[渐进式拖动](docs/components/progressive-drag.md)
-- 新增 `UserFollowBar` 与 `CouiUserFollowDefaults`：头像 24dp、按钮 52×28dp、高度 52dp 与 8dp 间距按 `COUIUserFollowView` 的约束移植，关注态在 300ms 内插值按钮底色、内容色、字号与位置。[用户关注顶栏](docs/components/user-follow-bar.md)
 - Demo 新增「手机管家」与「清理存储」两个页面级复刻，演示绿色渐变底、页内大标题、通知卡、白心分数环、2×2 入口卡、多色存储构成条，以及锚定在圆底更多按钮上的毛玻璃菜单。
 
 按钮、环形进度、角标、气泡、页码、空状态、输入框、底部面板与轻提示均对齐 ColorOS 17 应用内嵌的 COUI 资源；原厂没有对应分支的细节（按钮加载的三点动画、不确定态弧长、占位脉冲、轻提示投影）按同族资源的数值与节奏推演。

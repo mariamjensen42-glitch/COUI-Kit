@@ -14,6 +14,7 @@ object CouiListDialogDefaults {
     val itemHorizontalPadding = 20.dp
     val itemVerticalPadding = 16.dp
     val dividerThickness: Dp = Dp.Hairline
+    /** `coui_list_dialog_item.xml` 分隔线取 `layout_marginHorizontal = alert_dialog_list_item_padding_left`；高度 `coui_list_divider_height`。 */
     val dividerHorizontalPadding = 20.dp
     val panelTopPadding = 16.dp
     val listBottomPadding = 30.dp

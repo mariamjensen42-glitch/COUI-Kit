@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
  * 取值来自 ColorOS 17 的 `coui_round_corner_*` 圆角刻度与各组件实际使用的形状：
  * 刻度从 `coui_round_corner_xs` 到 `coui_round_corner_xxxxl` 以 4dp 递增到 32dp，
  * 卡片族在 24dp 上改用权重 3 的平滑超椭圆，菜单 28dp、弹窗 45dp 是刻度外的组件取值。
+ * 弹窗的 45dp 是 ColorOS 17 底部弹窗截图轮廓的拟合值（权重 3 的超椭圆，残差 2.7px）。
  * 胶囊与正圆不参与刻度，分别对应 Oplus `cornerType=4` 的 sdCapsule 与等宽高圆。
  *
  * 组件参数默认读取 [com.itos.coui.theme.CouiTheme.shapes] 的同名 token，

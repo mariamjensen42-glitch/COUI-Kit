@@ -1,7 +1,9 @@
 package com.itos.coui.dialog
 
 import androidx.compose.animation.core.CubicBezierEasing
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
+import com.itos.coui.shape.CouiShape
 import kotlin.math.PI
 
 /**
@@ -9,8 +11,11 @@ import kotlin.math.PI
  *
  * 取自原厂 `coui_guide_page_item.xml` 与 `COUIGuideLayoutContentView`：
  * 图片默认 328dp、紧凑样式 240dp，指示器下留 20dp，按钮区左右各 16dp 且底部留 8dp。
+ * 根节点裁剪半径取 `coui_dialog_guide_clip_radius_root` 32dp，比普通弹窗的 45dp 小。
  */
 object CouiGuideDialogDefaults {
+    val cornerRadius = 32.dp
+    val shape: Shape = CouiShape(32.dp, 3f)
     val imageHeight = 328.dp
     val compactImageHeight = 240.dp
     val imageBottomPadding = 16.dp

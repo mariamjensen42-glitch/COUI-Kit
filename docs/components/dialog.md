@@ -196,6 +196,8 @@ GuideDialog(
 
 图片区高度默认 328dp，紧凑样式改用 `CouiGuideDialogDefaults.compactImageHeight`。页码指示器最多显示 6 个点，规则同[页码指示器](page-indicator.md)。
 
+`shape` 默认取 `CouiGuideDialogDefaults.shape`（32dp，对应原厂 `coui_dialog_guide_clip_radius_root`），不跟随 `CouiTheme.shapes.dialog`；普通、安全与列表弹窗才使用主题的 45dp 弹窗轮廓。
+
 ## 安全弹窗
 
 `SecurityDialog` 在正文下加一段可带链接的说明文案和一个「不再提示」勾选框，默认从底部弹出。

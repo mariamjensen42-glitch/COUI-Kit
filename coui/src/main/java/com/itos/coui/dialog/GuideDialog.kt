@@ -27,16 +27,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import com.itos.coui.R
 import com.itos.coui.backdrop.CouiBackdrop
 import com.itos.coui.pageindicator.PageIndicator
-import com.itos.coui.theme.CouiText
 import com.itos.coui.theme.CouiTheme
 import kotlinx.coroutines.launch
 
@@ -69,7 +66,7 @@ fun GuideDialog(
     dark: Boolean = CouiTheme.isDark,
     colors: CouiDialogColors = CouiDialogDefaults.themeColors(dark),
     accent: Color = CouiTheme.colorSchemeFor(dark).accent,
-    shape: Shape = CouiTheme.shapes.dialog,
+    shape: Shape = CouiGuideDialogDefaults.shape,
     cornerRadius: Dp = Dp.Unspecified,
     material: CouiDialogMaterial? = null,
     backdrop: CouiBackdrop? = null,
@@ -115,11 +112,10 @@ fun GuideDialog(
                     val image = page.image
                     if (image != null) Box(Modifier.fillMaxWidth().height(imageHeight).clipToBounds(),
                         contentAlignment = Alignment.Center) { image() }
-                    CouiText(
+                    DialogText(
                         text = page.title,
+                        kind = DialogTextKind.Title,
                         color = colors.title,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.W500,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth()
                             .padding(horizontal = CouiGuideDialogDefaults.textHorizontalPadding)
@@ -127,10 +123,10 @@ fun GuideDialog(
                                 bottom = CouiGuideDialogDefaults.titleBottomPadding),
                     )
                     val description = page.description
-                    if (!description.isNullOrEmpty()) CouiText(
+                    if (!description.isNullOrEmpty()) DialogText(
                         text = description,
+                        kind = DialogTextKind.Message,
                         color = colors.message,
-                        fontSize = 13.sp,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth()
                             .padding(horizontal = CouiGuideDialogDefaults.textHorizontalPadding),

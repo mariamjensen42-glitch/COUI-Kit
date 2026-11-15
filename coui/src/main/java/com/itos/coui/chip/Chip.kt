@@ -220,6 +220,7 @@ fun Chip(
         )
         val textPlace = textPlaceable.measure(Constraints(maxWidth = textMaxWidth.roundToInt()))
         val countPlace = countPlaceable?.measure(Constraints())
+        val redDotPlace = redDotPlaceable?.measure(Constraints())
         val countWidth = if (countPlace == null) 0f else countStartPx + countPlace.width + countEndPx
 
         val contentWithClose = startPaddingPx + iconTotal + textStartPx + textPlace.width + textEndPx +
@@ -269,7 +270,7 @@ fun Chip(
                     ((heightPx - it.height) / 2f).roundToInt(),
                 )
             }
-            textPlaceable.placeRelative(textX.roundToInt(), ((heightPx - textPlace.height) / 2f).roundToInt())
+            textPlace.placeRelative(textX.roundToInt(), ((heightPx - textPlace.height) / 2f).roundToInt())
             countPlace?.let {
                 it.placeRelative(
                     (textX + textPlace.width + countStartPx).roundToInt(),
@@ -277,7 +278,7 @@ fun Chip(
                 )
             }
             closePlace?.place(closeX, 0)
-            redDotPlaceable?.placeRelative(
+            redDotPlace?.placeRelative(
                 (textX + textPlace.width + dotOffsetX).roundToInt(),
                 dotOffsetY.roundToInt(),
             )

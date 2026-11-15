@@ -73,6 +73,9 @@ object CouiPickerDefaults {
     val padding = 12.dp
     val dateYearWidth = 76.dp
     val dateMonthWidth = 96.dp
+    val timeDateCount = 100
+    val amPmButtonWidth = 56.dp
+    val amPmButtonHeight = 32.dp
 }
 
 /**

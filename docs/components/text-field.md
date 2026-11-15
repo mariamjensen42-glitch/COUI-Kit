@@ -5,6 +5,8 @@
 | 用途 | 使用 |
 | --- | --- |
 | 单行或多行文本输入 | `TextField` |
+| 验证码、分格数字输入 | [验证码输入](code-input.md) |
+| 多行文本卡片（字数上限、空态提示） | [多行输入卡](multi-input.md) |
 | 纯展示的选择行（右侧当前值 + 箭头） | [Item](item.md) |
 | 输入型弹窗 | [弹窗](dialog.md) |
 
@@ -68,6 +70,20 @@ fun LocationField(
 
 `onTextLayout` 在文本排版变化时回调：`String` / `TextFieldValue` 重载收到 `TextLayoutResult`，`TextFieldState` 重载沿用 Foundation 的 `Density.(getResult: () -> TextLayoutResult?) -> Unit`。需要按实际行数调整外部布局时使用它，不要在组合里自己估算行数。
 
+## 错误态
+
+`error` 是唯一的状态入口，组件不判断合法性，也不在文本变化时自行清除：
+
+| 阶段 | 表现 |
+| --- | --- |
+| 进入 | 卡片按四段位移横向抖动共 450ms、振幅 5.33dp；描边 217ms 渐变为错误色；文案 217ms 淡入 |
+| 保持 | 描边与文案颜色不变，抖动不重复 |
+| 退出 | 描边与文案回到常态，文案 283ms 淡出 |
+
+抖动只作用于卡片本体，卡片下方的错误文案位置不动。描边宽度 1dp，仅在错误态出现，常态不画边线，与“聚焦不画描边”的约定一致。
+
+文案占一行高度并紧跟卡片，`errorTextSpacing` 4dp 为上间距；多行文案超过卡片宽度时按容器宽度换行，不截断。禁用态同样接受 `error`，文案与描边使用同一错误色。
+
 ## 单行与多行
 
 `singleLine = true` 是默认值，字段高度由 `CouiTextFieldDefaults.minHeight` 与字号决定。多行时传 `singleLine = false` 并设置 `minLines` / `maxLines`：字段在最小行数上继续增长，超过 `maxLines` 后内部滚动，图标、标签与占位提示对齐首行。单行时这两个参数不参与布局。
@@ -85,8 +101,9 @@ fun LocationField(
 | `contentPadding` | 卡片内留白 |
 | `textStyle` | 输入、标签与占位提示共用的排版，默认 `CouiTextFieldDefaults.textStyle()` |
 | `cursorBrush` | 光标画笔，默认取 `colors.cursor` |
+| `error` | 错误文案；非空时进入错误态，见[错误态](#错误态) |
 
-`CouiTextFieldDefaults.colors(dark)` 从当前主题解析六个角色：`container` 是卡片底色（与同页分组卡片同源的 `card`）、`text` 是输入文字、`placeholder` 是占位提示、`label` 是标签、`cursor` 是光标（跟随强调色）、`disabled` 是禁用态文字。强调色与主题不一致时，在该结果上 `copy(cursor = accent)`，不要另建色板。
+`CouiTextFieldDefaults.colors(dark)` 从当前主题解析七个角色：`container` 是卡片底色（与同页分组卡片同源的 `card`）、`text` 是输入文字、`placeholder` 是占位提示、`label` 是标签、`cursor` 是光标（跟随强调色）、`disabled` 是禁用态文字、`error` 是错误态的描边与文案（日间 `#DB382C`、夜间 `#FF6C61`）。强调色与主题不一致时，在该结果上 `copy(cursor = accent)`，不要另建色板。
 
 组件没有聚焦态配色：不画描边、边框或底色动画，标签颜色也不随焦点变化，输入过程中卡片外观保持稳定。
 
@@ -129,7 +146,7 @@ TextField(
 
 ### 校验错误
 
-组件没有内置错误态。宿主在校验失败时覆盖 `label` 与 `cursor`，错误文字由页面自己排版：
+校验结论由宿主给出，传进 `error` 即可：非空时卡片横向抖动、描边转为错误色，并在卡片下方显示该文案。
 
 ```kotlin
 val invalid = email.isNotEmpty() && !emailPattern.matches(email)
@@ -137,19 +154,18 @@ val invalid = email.isNotEmpty() && !emailPattern.matches(email)
 TextField(
     modifier = Modifier.fillMaxWidth(),
     value = email,
-    onValueChange = { email = it },
+    onValueChange = {
+        email = it
+        error = null
+    },
     label = "邮箱",
-    colors = if (invalid) colors.copy(label = errorColor, cursor = errorColor) else colors,
+    error = error,
     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email, imeAction = ImeAction.Done),
     keyboardActions = KeyboardActions(onDone = { focus.clearFocus() }),
 )
-if (invalid) {
-    Text(text = "请输入有效的邮箱地址", kind = CouiTextKind.GroupFooter, color = errorColor,
-        modifier = Modifier.padding(start = CouiPageDefaults.rowPadding + 4.dp, top = 4.dp))
-}
 ```
 
-错误色由宿主主题提供，不要复用 `focus` 的强调色。
+`error` 从空变非空时播放一次进入动画，同一段文案持续存在不会重复抖动；再次校验失败需要宿主先清空再赋值，或更换文案内容。错误色取 `colors.error`，文案沿用 `CouiTextFieldDefaults.errorTextStyle()`。
 
 ### 多行备注
 
@@ -176,4 +192,6 @@ TextField(
 
 ## 完整示例与 API
 
-源码见 [TextField](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/TextField.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/CouiTextFieldDefaults.kt)。Demo 装配见 [DemoTextField](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoTextField.kt)。
+源码见 [TextField](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/TextField.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/textfield/CouiTextFieldDefaults.kt)。Demo 装配见 [DemoTextFieldFamilySamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/itos/coui/demo/DemoTextFieldFamilySamples.kt)。
+
+同一包下的另外两个输入形态：[验证码输入](code-input.md) 与 [多行输入卡](multi-input.md)。

@@ -72,8 +72,48 @@ LevelSlider(value = brightness, onValueChange = { brightness = it },
 - `fillColor`：填充色。深色下默认 `Color.White`（原厂控制中心），浅色下默认强调色，避免白色填充与浅色轨道混在一起。
 - `containerColor` / `shape`：默认卡片色与胶囊；材质由宿主包裹。图标槽 36dp、距底 10dp，图标本身建议 24dp。
 
+## 编辑态形变与重排
+
+SystemUI 在编辑态用 `DeformationFrameLayout` 让磁贴在 `1×1` 与 `2×1` 之间形变，周围磁贴按 `SpanSize` 重排，尺寸与位置走弹簧过渡，选中的磁贴叠一圈描边并在右缘给出竖向拖动把手。`DeformationTileGrid` 覆盖这一层。
+
+~~~kotlin
+var spans by remember { mutableStateOf(List(6) { CouiDeformationSpan.OneByOne }) }
+DeformationTileGrid(
+    items = labels.indices.toList(),
+    spanOf = { spans[it] },
+    editing = editing,
+    onSpanChange = { index, span -> spans = spans.toMutableList().also { it[index] = span } },
+) { index, span, isEditing ->
+    // 宿主绘制磁贴内容，span 为当前跨度，isEditing 与网格的 editing 一致
+}
+~~~
+
+### 尺寸与参数
+
+| 项 | 值 | 依据 |
+| --- | --- | --- |
+| 列数 | 4 | `CouiDeformationTileDefaults.columns` |
+| 间距 | 8dp | `gap` |
+| 圆角 | 20dp | `qs_tile_corner_radius_default` |
+| 编辑态描边 | 2dp；按住把手时 4dp | `qs_edit_tile_stroke_width_default` / `_press` |
+| 把手 | 12 × 28dp、6dp 圆角 | `DragBarView` 的拖拽条 |
+| 切跨度阈值 | 一格宽度的 0.35 | `spanToggleFraction` |
+| 弹簧 | response 0.35、无回弹 | `reshapeResponse` |
+
+- `editing`：由宿主控制（长按进入、退出编辑）。为真时逐块叠描边并显示把手。
+- `spanOf` / `onSpanChange`：读取与提交跨度；磁贴内容仍由 `tile` 绘制，第三个参数就是 `editing`。
+- 重排规则：按列顺序落位，`2×1` 放不下当前行剩余列时整体换行；行高等于单元高度，网格高度随行数弹簧过渡。
+
+### 与原厂的差异
+
+1. `DeformationFrameLayout` 属于 SystemUI，依赖 `CellCalculatorManager`、`SpanCache` 与 `springtransition`（`BoundsTransition`、`DrawableStrokeWidthProperty`）等私有类型；移植侧用 Compose 弹簧与 `BoxWithConstraints` 重算单元格代替，不是同一套测量与过渡实现。
+2. 原厂的跨行跨度（1×2、2×2）与「拖到其他磁贴位置交换」未移植，只提供 `1×1` / `2×1` 与拖动切换跨度。
+3. 原厂描边由 `StrokeDrawable` 向外扩一圈绘制、把手是 `DragBarView` 自绘；移植侧描边内缩在磁贴内，把手是独立的可拖动胶囊。
+4. 原厂高亮描边随选中态切换（`highlightDragBarAndStroke`）；移植侧只用按住把手时的 2dp→4dp 过渡表达。
+5. 原厂重排还联动 QS 面板的展开与分页；移植侧只做本网格内部的重排。
+
 ## 未覆盖
 
 原厂磁贴还有长按进入设置、二级页展开、状态副标题、不可用态与跨页轮播；档位条还有自动亮度/静音的点按切换图标。这些属于 SystemUI 的交互外壳，不在组件范围内。大磁贴开启态、浅色主题、RTL 与真机玻璃叠加尚未验收。
 
-源码见 [QuickSettingTile](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/QuickSettingTile.kt) 与 [LevelSlider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/LevelSlider.kt)。
+源码见 [QuickSettingTile](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/QuickSettingTile.kt)、[LevelSlider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/LevelSlider.kt) 与 [DeformationTileGrid](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/itos/coui/quicksetting/DeformationTileGrid.kt)。

@@ -1,0 +1,21 @@
+<resources>
+    <string name="dialog_family_title">Dialog variants</string>
+    <string name="intro_dialog_family">Multi-page guide, security statement and bottom lists.</string>
+    <string name="dialog_guide_group">Guide</string>
+    <string name="dialog_guide_entry">Multi-page guide</string>
+    <string name="dialog_guide_page_title">Guide step %1$d</string>
+    <string name="dialog_guide_page_description">A short description for this step.</string>
+    <string name="dialog_guide_image">Image %1$d</string>
+    <string name="dialog_security_group">Security</string>
+    <string name="dialog_security_entry">Statement, link and checkbox</string>
+    <string name="dialog_security_title">Allow automatic backup?</string>
+    <string name="dialog_security_message">Backups run only when connected to Wi-Fi.</string>
+    <string name="dialog_security_statement">Tap and view %1$s for more information.</string>
+    <string name="dialog_security_link">Privacy Policy</string>
+    <string name="dialog_list_group">Lists</string>
+    <string name="dialog_list_entry">Action list</string>
+    <string name="dialog_list_single_entry">Single choice list</string>
+    <string name="dialog_list_multi_entry">Multi choice list, max 2</string>
+    <string name="dialog_list_item">Option %1$d</string>
+    <string name="dialog_done">Done</string>
+</resources>

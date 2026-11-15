@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qs_edit_title">Tile resize</string>
+    <string name="qs_edit_intro">Long-press the panel to enter edit mode; drag a tile handle sideways to switch its span.</string>
+    <string name="qs_edit_mode">Edit mode</string>
+    <string name="qs_edit_hint">Drag the handle on a tile\'s right edge to switch between one and two columns.</string>
+</resources>

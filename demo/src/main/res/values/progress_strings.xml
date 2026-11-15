@@ -8,6 +8,9 @@
     <string name="progress_ring">Large ring</string>
     <string name="progress_ring_score">Score</string>
     <string name="progress_ring_unit">pts</string>
+    <string name="progress_install">Install progress</string>
+    <string name="progress_install_text">Download</string>
+    <string name="progress_install_hint">Tap a button to cycle idle, downloading, waiting and failed states.</string>
     <string name="progress_skeleton">Skeleton</string>
     <string name="progress_animated">Animate placeholder</string>
 </resources>

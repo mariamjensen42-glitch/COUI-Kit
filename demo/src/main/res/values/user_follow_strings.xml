@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_follow_title">User follow bar</string>
+    <string name="user_follow_intro">Profile top bar with avatar, title, subtitle and a follow button.</string>
+    <string name="user_follow_group">Profile bar</string>
+    <string name="user_follow_name">Alex Mercer</string>
+    <string name="user_follow_subtitle">2.4k followers</string>
+    <string name="user_follow_fill">Fill width</string>
+    <string name="user_follow_hint">Toggle follow to see the button colors and text size change; fill moves the button to the end.</string>
+</resources>

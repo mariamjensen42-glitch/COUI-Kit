@@ -1,12 +1,21 @@
 package com.itos.coui.textfield
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
@@ -24,9 +33,12 @@ import androidx.compose.foundation.text.input.TextFieldDecorator
 import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,9 +52,11 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.isUnspecified
 import androidx.compose.ui.unit.lerp
 import com.itos.coui.theme.CouiTheme
+import kotlin.math.roundToInt
 
 /**
  * 页面内的圆角输入框：卡片底色、无边框、标签、占位提示与前后图标槽。
@@ -58,6 +72,7 @@ import com.itos.coui.theme.CouiTheme
  *
  * 单行时 `minLines` 与 `maxLines` 不参与布局；多行时按两者在最小高度内增长并在 `maxLines` 处滚动。
  * `enabled = false` 停止输入并改用禁用文字色，`readOnly = true` 仍可聚焦、选择与复制。
+ * [error] 非空时卡片抖动、描边转为错误色，并在卡片下方显示该文案。
  */
 @Composable
 fun TextField(
@@ -66,6 +81,7 @@ fun TextField(
     onValueChange: (String) -> Unit,
     placeholder: String? = null,
     label: String? = null,
+    error: String? = null,
     useLabelAsPlaceholder: Boolean = false,
     leading: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
@@ -89,27 +105,31 @@ fun TextField(
     requireTextFieldLines(singleLine, minLines, maxLines)
     val currentOnValueChange by rememberUpdatedState(onValueChange)
     val currentOnTextLayout by rememberUpdatedState(onTextLayout)
-    BasicTextField(value = value, onValueChange = currentOnValueChange,
-        modifier = modifier.couiTextFieldSurface(shape, colors.container),
-        enabled = enabled, readOnly = readOnly,
-        textStyle = textStyle.copy(color = if (enabled) colors.text else colors.disabled),
-        keyboardOptions = keyboardOptions, keyboardActions = keyboardActions,
-        singleLine = singleLine, minLines = if (singleLine) 1 else minLines,
-        maxLines = if (singleLine) 1 else maxLines,
-        visualTransformation = visualTransformation, onTextLayout = currentOnTextLayout,
-        interactionSource = interactionSource, cursorBrush = cursorBrush,
-        decorationBox = { inner ->
-            CouiTextFieldDecoration(label = label, valueIsEmpty = value.isEmpty(),
-                useLabelAsPlaceholder = useLabelAsPlaceholder, placeholder = placeholder,
-                enabled = enabled, textStyle = textStyle, colors = colors,
-                leading = leading, trailing = trailing, contentPadding = contentPadding,
-                singleLine = singleLine, inner = inner)
-        })
+    CouiTextFieldRoot(modifier = modifier, error = error, errorColor = colors.error)
+    { cardModifier, borderColor ->
+        BasicTextField(value = value, onValueChange = currentOnValueChange,
+            modifier = cardModifier.couiTextFieldSurface(shape, colors.container, borderColor),
+            enabled = enabled, readOnly = readOnly,
+            textStyle = textStyle.copy(color = if (enabled) colors.text else colors.disabled),
+            keyboardOptions = keyboardOptions, keyboardActions = keyboardActions,
+            singleLine = singleLine, minLines = if (singleLine) 1 else minLines,
+            maxLines = if (singleLine) 1 else maxLines,
+            visualTransformation = visualTransformation, onTextLayout = currentOnTextLayout,
+            interactionSource = interactionSource, cursorBrush = cursorBrush,
+            decorationBox = { inner ->
+                CouiTextFieldDecoration(label = label, valueIsEmpty = value.isEmpty(),
+                    useLabelAsPlaceholder = useLabelAsPlaceholder, placeholder = placeholder,
+                    enabled = enabled, textStyle = textStyle, colors = colors,
+                    leading = leading, trailing = trailing, contentPadding = contentPadding,
+                    singleLine = singleLine, inner = inner)
+            })
+    }
 }
 
 /**
  * 同一外观的选区重载：宿主持有文本、选区和光标位置，用于聚焦时全选、指定初始光标等场景。
  * 需要编辑事务或撤销栈时改用 [TextField] 的 `TextFieldState` 重载。
+ * [error] 非空时卡片抖动、描边转为错误色，并在卡片下方显示该文案。
  */
 @Composable
 fun TextField(
@@ -118,6 +138,7 @@ fun TextField(
     onValueChange: (TextFieldValue) -> Unit,
     placeholder: String? = null,
     label: String? = null,
+    error: String? = null,
     useLabelAsPlaceholder: Boolean = false,
     leading: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
@@ -141,22 +162,25 @@ fun TextField(
     requireTextFieldLines(singleLine, minLines, maxLines)
     val currentOnValueChange by rememberUpdatedState(onValueChange)
     val currentOnTextLayout by rememberUpdatedState(onTextLayout)
-    BasicTextField(value = value, onValueChange = currentOnValueChange,
-        modifier = modifier.couiTextFieldSurface(shape, colors.container),
-        enabled = enabled, readOnly = readOnly,
-        textStyle = textStyle.copy(color = if (enabled) colors.text else colors.disabled),
-        keyboardOptions = keyboardOptions, keyboardActions = keyboardActions,
-        singleLine = singleLine, minLines = if (singleLine) 1 else minLines,
-        maxLines = if (singleLine) 1 else maxLines,
-        visualTransformation = visualTransformation, onTextLayout = currentOnTextLayout,
-        interactionSource = interactionSource, cursorBrush = cursorBrush,
-        decorationBox = { inner ->
-            CouiTextFieldDecoration(label = label, valueIsEmpty = value.text.isEmpty(),
-                useLabelAsPlaceholder = useLabelAsPlaceholder, placeholder = placeholder,
-                enabled = enabled, textStyle = textStyle, colors = colors,
-                leading = leading, trailing = trailing, contentPadding = contentPadding,
-                singleLine = singleLine, inner = inner)
-        })
+    CouiTextFieldRoot(modifier = modifier, error = error, errorColor = colors.error)
+    { cardModifier, borderColor ->
+        BasicTextField(value = value, onValueChange = currentOnValueChange,
+            modifier = cardModifier.couiTextFieldSurface(shape, colors.container, borderColor),
+            enabled = enabled, readOnly = readOnly,
+            textStyle = textStyle.copy(color = if (enabled) colors.text else colors.disabled),
+            keyboardOptions = keyboardOptions, keyboardActions = keyboardActions,
+            singleLine = singleLine, minLines = if (singleLine) 1 else minLines,
+            maxLines = if (singleLine) 1 else maxLines,
+            visualTransformation = visualTransformation, onTextLayout = currentOnTextLayout,
+            interactionSource = interactionSource, cursorBrush = cursorBrush,
+            decorationBox = { inner ->
+                CouiTextFieldDecoration(label = label, valueIsEmpty = value.text.isEmpty(),
+                    useLabelAsPlaceholder = useLabelAsPlaceholder, placeholder = placeholder,
+                    enabled = enabled, textStyle = textStyle, colors = colors,
+                    leading = leading, trailing = trailing, contentPadding = contentPadding,
+                    singleLine = singleLine, inner = inner)
+            })
+    }
 }
 
 /**
@@ -164,6 +188,7 @@ fun TextField(
  * `inputTransformation` 与 `outputTransformation` 直接交给 Foundation，用于长度、格式和掩码限制。
  * 键盘动作沿用 Foundation 的状态分支：只有默认动作回调，拿不到当前 ImeAction。
  * 多行滚动位置由 [scrollState] 持有，需要与宿主滚动联动时自行创建并传入。
+ * [error] 非空时卡片抖动、描边转为错误色，并在卡片下方显示该文案。
  */
 @Composable
 fun TextField(
@@ -171,6 +196,7 @@ fun TextField(
     state: TextFieldState,
     placeholder: String? = null,
     label: String? = null,
+    error: String? = null,
     useLabelAsPlaceholder: Boolean = false,
     leading: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
@@ -195,32 +221,98 @@ fun TextField(
 ) {
     requireTextFieldLines(singleLine, minLines, maxLines)
     val currentOnTextLayout by rememberUpdatedState(onTextLayout)
-    BasicTextField(state = state,
-        modifier = modifier.couiTextFieldSurface(shape, colors.container),
-        enabled = enabled, readOnly = readOnly,
-        inputTransformation = inputTransformation,
-        textStyle = textStyle.copy(color = if (enabled) colors.text else colors.disabled),
-        keyboardOptions = keyboardOptions, onKeyboardAction = onKeyboardAction,
-        lineLimits = if (singleLine) TextFieldLineLimits.SingleLine
-            else TextFieldLineLimits.MultiLine(minLines, maxLines),
-        onTextLayout = currentOnTextLayout, scrollState = scrollState,
-        interactionSource = interactionSource, cursorBrush = cursorBrush,
-        outputTransformation = outputTransformation,
-        decorator = object : TextFieldDecorator {
-            @Composable
-            override fun Decoration(innerTextField: @Composable () -> Unit) {
-                CouiTextFieldDecoration(label = label, valueIsEmpty = state.text.isEmpty(),
-                    useLabelAsPlaceholder = useLabelAsPlaceholder, placeholder = placeholder,
-                    enabled = enabled, textStyle = textStyle, colors = colors,
-                    leading = leading, trailing = trailing, contentPadding = contentPadding,
-                    singleLine = singleLine, inner = innerTextField)
-            }
-        })
+    CouiTextFieldRoot(modifier = modifier, error = error, errorColor = colors.error)
+    { cardModifier, borderColor ->
+        BasicTextField(state = state,
+            modifier = cardModifier.couiTextFieldSurface(shape, colors.container, borderColor),
+            enabled = enabled, readOnly = readOnly,
+            inputTransformation = inputTransformation,
+            textStyle = textStyle.copy(color = if (enabled) colors.text else colors.disabled),
+            keyboardOptions = keyboardOptions, onKeyboardAction = onKeyboardAction,
+            lineLimits = if (singleLine) TextFieldLineLimits.SingleLine
+                else TextFieldLineLimits.MultiLine(minLines, maxLines),
+            onTextLayout = currentOnTextLayout, scrollState = scrollState,
+            interactionSource = interactionSource, cursorBrush = cursorBrush,
+            outputTransformation = outputTransformation,
+            decorator = object : TextFieldDecorator {
+                @Composable
+                override fun Decoration(innerTextField: @Composable () -> Unit) {
+                    CouiTextFieldDecoration(label = label, valueIsEmpty = state.text.isEmpty(),
+                        useLabelAsPlaceholder = useLabelAsPlaceholder, placeholder = placeholder,
+                        enabled = enabled, textStyle = textStyle, colors = colors,
+                        leading = leading, trailing = trailing, contentPadding = contentPadding,
+                        singleLine = singleLine, inner = innerTextField)
+                }
+            })
+    }
 }
 
-/** 卡片轮廓属于输入本体，命中区包含留白。 */
-private fun Modifier.couiTextFieldSurface(shape: Shape, color: Color): Modifier =
+/**
+ * 卡片轮廓属于输入本体，命中区包含留白。
+ * [borderColor] 为透明时不画描边，进入错误态后才出现一圈错误色边线。
+ */
+private fun Modifier.couiTextFieldSurface(shape: Shape, color: Color, borderColor: Color): Modifier =
     defaultMinSize(minHeight = CouiTextFieldDefaults.minHeight).clip(shape).background(color)
+        .then(
+            if (borderColor.alpha > 0f) {
+                Modifier.border(CouiTextFieldDefaults.errorStrokeWidth, borderColor, shape)
+            } else {
+                Modifier
+            },
+        )
+
+/**
+ * 输入框根容器：卡片与卡片下方的错误文案。
+ *
+ * 进入错误态时卡片按原厂 `ShakeInterpolator` 的四段位移横向抖动（累计 450ms），
+ * 描边渐变为错误色；文案 217ms 淡入、283ms 淡出。抖动只作用于卡片，文案位置不动。
+ */
+@Composable
+private fun CouiTextFieldRoot(
+    modifier: Modifier,
+    error: String?,
+    errorColor: Color,
+    card: @Composable (Modifier, Color) -> Unit,
+) {
+    val shake = remember { Animatable(0f) }
+    val amplitude = CouiTextFieldDefaults.errorShakeAmplitude
+    LaunchedEffect(error) {
+        if (error == null) return@LaunchedEffect
+        shake.snapTo(0f)
+        shake.animateTo(0f, keyframes {
+            durationMillis = CouiTextFieldDefaults.errorShakeDurationMillis
+            -1f at 83 with CouiTextFieldDefaults.errorEase
+            0.5f at 216 with CouiTextFieldDefaults.errorEase
+            -0.5f at 333 with CouiTextFieldDefaults.errorEase
+        })
+    }
+    val borderColor by animateColorAsState(
+        targetValue = if (error != null) errorColor else Color.Transparent,
+        animationSpec = tween(CouiTextFieldDefaults.errorEnterDurationMillis,
+            easing = CouiTextFieldDefaults.errorEase),
+        label = "couiTextFieldErrorBorder",
+    )
+    Column(modifier = modifier) {
+        card(Modifier.offset { IntOffset((shake.value * amplitude.toPx()).roundToInt(), 0) }, borderColor)
+        CouiTextFieldError(error = error, errorColor = errorColor)
+    }
+}
+
+/** 错误文案留在淡出期间显示最后一条内容：`error` 变空时仍画旧值直到淡出结束。 */
+@Composable
+private fun CouiTextFieldError(error: String?, errorColor: Color) {
+    var shown by remember { mutableStateOf(error.orEmpty()) }
+    LaunchedEffect(error) { if (error != null) shown = error }
+    AnimatedVisibility(
+        visible = error != null,
+        enter = fadeIn(tween(CouiTextFieldDefaults.errorEnterDurationMillis)),
+        exit = fadeOut(tween(CouiTextFieldDefaults.errorExitDurationMillis)),
+    ) {
+        BasicText(shown,
+            modifier = Modifier.fillMaxWidth().padding(top = CouiTextFieldDefaults.errorTextSpacing),
+            style = CouiTextFieldDefaults.errorTextStyle().copy(color = errorColor))
+    }
+}
 
 /**
  * 标签的落位。`Inline` 是空值且输入区没有自己的提示时，标签占据输入位置当大字提示；

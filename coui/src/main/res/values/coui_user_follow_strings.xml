@@ -1,0 +1,4 @@
+<resources>
+    <string name="coui_user_follow_label">Follow</string>
+    <string name="coui_user_follow_following_label">Following</string>
+</resources>

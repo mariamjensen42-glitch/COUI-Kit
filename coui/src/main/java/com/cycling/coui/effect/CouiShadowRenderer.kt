@@ -95,14 +95,25 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
                 slots[slot][index] = it
             }
             updateColor(draw, argb)
-            draw.node?.let { canvas.drawRenderNode(it) } ?: draw.mesh?.let {
-                canvas.save()
-                canvas.translate(draw.projection.offset.x, draw.projection.offset.y)
-                // 裁剪独立使用局部坐标, Mesh 返回的 LUT 坐标只交给 Paint。
-                if (Build.VERSION.SDK_INT >= 35) draw.clipShader?.let { shader -> canvas.clipShader(shader) }
-                canvas.drawMesh(it, BlendMode.MODULATE, draw.paint)
-                canvas.restore()
-            }
+            // Mesh 与 Canvas.drawMesh 是 API 34 平台 API。前面已按 meshAvailable 分流，
+            // 这里再显式判一次版本：lint 不跨 let 推断字段形式的版本判断。
+            if (Build.VERSION.SDK_INT >= 34) drawProjection(canvas, draw)
+        }
+    }
+
+    /**
+     * API 34 网格后端：直接画 Skia mesh，或用已录制好投影的 RenderNode。
+     * 只有 `meshAvailable` 为真时才会走到这里，单独成方法是为了让 lint 的版本判断生效。
+     */
+    @RequiresApi(34)
+    private fun drawProjection(canvas: Canvas, draw: ProjectionDraw) {
+        draw.node?.let { canvas.drawRenderNode(it) } ?: draw.mesh?.let { mesh ->
+            canvas.save()
+            canvas.translate(draw.projection.offset.x, draw.projection.offset.y)
+            // 裁剪独立使用局部坐标, Mesh 返回的 LUT 坐标只交给 Paint。
+            if (Build.VERSION.SDK_INT >= 35) draw.clipShader?.let { shader -> canvas.clipShader(shader) }
+            canvas.drawMesh(mesh, BlendMode.MODULATE, draw.paint)
+            canvas.restore()
         }
     }
 

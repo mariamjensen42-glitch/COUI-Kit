@@ -29,3 +29,11 @@ BarChart(
 高度、柱间距、圆角与刻度间距在 `CouiChartDefaults`。柱宽由可用宽度和柱数均分，柱数很多时柱宽会收窄；需要横向滚动时由宿主外层容器负责。
 
 源码见 [BarChart](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/chart/BarChart.kt)。
+
+## 与原厂的差异
+
+项目新增的可视化件，原厂无同名实现；只画圆角柱与右侧刻度，不含坐标轴、图例与点击选中。
+
+## Demo
+
+完整示例见 [DemoChartSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoChartSamples.kt)。

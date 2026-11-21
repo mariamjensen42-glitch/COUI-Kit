@@ -38,3 +38,11 @@ fun BottomDock(backdrop: CouiBackdrop, selected: Int, onSelect: (Int) -> Unit) {
 胶囊高度、凸起量、圆钮尺寸与单项宽度在 `CouiDockBarDefaults`。凸起圆钮与胶囊的按压、拖动和跟手光由各自节点持有，两条弹簧互不干扰。
 
 源码见 [DockBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/navigation/DockBar.kt)。
+
+## 与原厂的差异
+
+浅色胶囊的两层色比原厂参数表低一档，深色一致，属**待真机验收**的已知偏差；底栏融球材质与编辑态未移植。
+
+## Demo
+
+完整示例见 [DemoDockBarSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoDockBarSamples.kt)。

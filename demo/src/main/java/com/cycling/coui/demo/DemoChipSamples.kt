@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.ui.Alignment
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.demo.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

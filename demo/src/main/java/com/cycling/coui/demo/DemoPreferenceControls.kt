@@ -68,7 +68,7 @@ internal fun <T> DemoPopupPreference(
 @Composable
 private fun PopupArrow(modifier: Modifier, color: Color) {
     val rotation = if (LocalLayoutDirection.current == LayoutDirection.Ltr) -90f else 90f
-    com.cycling.coui.demo.ui.Icon(CouiIcons.Filled.Back, null, modifier.rotate(rotation), tint = color)
+    com.cycling.coui.icon.Icon(CouiIcons.Filled.Back, null, modifier.rotate(rotation), tint = color)
 }
 
 /** 设置滑条行：标题/右值独立于滑条，48dp 触摸槽始终以自身中线绘制。 */

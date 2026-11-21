@@ -78,3 +78,7 @@ Tooltip(visible = tipVisible, onDismissRequest = { tipVisible = false },
 ## Demo 示例
 
 角标、叠放和气泡示例见 [DemoBadgeSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoBadgeSamples.kt)，库入口见 [Badge / BadgedBox](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/badge/Badge.kt) 与 [Tooltip](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/tooltip/Tooltip.kt)。
+
+## 与原厂的差异
+
+按原厂角标与气泡的可见排布实现；气泡由 `Popup` 定位，弹出与收起动画未逐参数核对。

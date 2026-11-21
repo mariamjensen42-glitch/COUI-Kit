@@ -59,7 +59,7 @@ jobs:
           PACKAGE_VERSION: ${{ steps.version.outputs.name }}
         run: |
           set -euo pipefail
-          ./gradlew :coui:publishAllPublicationsToLocalRepository :coui-icons:publishAllPublicationsToLocalRepository \
+          ./gradlew :coui:publishAllPublicationsToLocalRepository :coui-blocks:publishAllPublicationsToLocalRepository :coui-icons:publishAllPublicationsToLocalRepository \
             "-PVERSION_NAME=$PACKAGE_VERSION" --no-configuration-cache --stacktrace \
             2>&1 | tee "$RUNNER_TEMP/coui-publish-build.log"
       - name: 检查发行文件与传递依赖
@@ -74,7 +74,7 @@ jobs:
           ORG_GRADLE_PROJECT_GitHubPackagesPassword: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          ./gradlew :coui:publishAllPublicationsToGitHubPackagesRepository :coui-icons:publishAllPublicationsToGitHubPackagesRepository \
+          ./gradlew :coui:publishAllPublicationsToGitHubPackagesRepository :coui-blocks:publishAllPublicationsToGitHubPackagesRepository :coui-icons:publishAllPublicationsToGitHubPackagesRepository \
             "-PVERSION_NAME=$PACKAGE_VERSION" --no-configuration-cache --stacktrace \
             2>&1 | tee "$RUNNER_TEMP/coui-publish-upload.log"
       - name: 确认远端版本可读取
@@ -87,7 +87,7 @@ jobs:
           set -euo pipefail
           group_path=${PACKAGE_GROUP//./\/}
           repo_path=${GITHUB_REPOSITORY,,}
-          for artifact in coui coui-icons; do
+          for artifact in coui coui-icons coui-blocks; do
             metadata="$RUNNER_TEMP/$artifact-published-metadata.xml"
             curl --fail --silent --show-error --retry 3 \
               --user "$PACKAGE_USER:$PACKAGE_TOKEN" \
@@ -106,6 +106,7 @@ jobs:
             echo '```kotlin'
             echo "implementation(\"$PACKAGE_GROUP:coui:$PACKAGE_VERSION\")"
             echo "implementation(\"$PACKAGE_GROUP:coui-icons:$PACKAGE_VERSION\")"
+            echo "implementation(\"$PACKAGE_GROUP:coui-blocks:$PACKAGE_VERSION\")"
             echo '```'
             echo
             echo "源码提交: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
@@ -123,5 +124,6 @@ jobs:
             ${{ runner.temp }}/coui-publish-build.log
             ${{ runner.temp }}/coui-publish-upload.log
             coui/build/reports/**
+            coui-blocks/build/reports/**
             coui-icons/build/reports/**
           retention-days: 14

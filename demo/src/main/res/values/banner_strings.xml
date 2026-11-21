@@ -1,0 +1,8 @@
+<resources>
+    <string name="banner_title">Banner</string>
+    <string name="intro_banner">Banner with peeking edges and page dots</string>
+    <string name="banner_count">Pages</string>
+    <string name="banner_margin">Peek</string>
+    <string name="banner_example">Example</string>
+    <string name="banner_page">Card %1$d</string>
+</resources>

@@ -70,3 +70,11 @@ StateLayout(
 判定结果同时决定槽内 `EmptyState` 是否渲染图标槽，宿主无需自己判断。
 
 源码见 [StateLayout](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/statelayout/StateLayout.kt)。
+
+## 与原厂的差异
+
+四种状态的内容、文案与操作全部由宿主传入，库内只负责切换与过渡；原厂的多状态视图封装与自动重试没有对应实现。
+
+## Demo
+
+完整示例见 [DemoExtraSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoExtraSamples.kt)。

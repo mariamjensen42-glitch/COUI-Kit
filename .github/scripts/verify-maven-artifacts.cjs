@@ -8,7 +8,7 @@ const properties = Object.fromEntries(fs.readFileSync('gradle.properties', 'utf8
 const group = process.env.PACKAGE_GROUP || properties.GROUP;
 const version = process.env.PACKAGE_VERSION || properties.VERSION_NAME;
 
-for (const artifact of ['coui', 'coui-icons']) {
+for (const artifact of ['coui', 'coui-icons', 'coui-blocks']) {
   const dir = path.join(artifact, 'build/repository', group.replaceAll('.', '/'), artifact, version);
   const modules = fs.readdirSync(dir).filter(name => name.endsWith('.module'));
   assert.equal(modules.length, 1, `${artifact} 应只生成一个库 publication`);
@@ -40,6 +40,9 @@ for (const artifact of ['coui', 'coui-icons']) {
   } else if (artifact === 'coui-icons') {
     assert(dependencies.some(dep => dep.group === group && dep.module === 'coui' && dep.version?.requires === version), '图标模块必须依赖同版本核心');
     assert(!dependencies.some(dep => dep.group === 'androidx.compose.material3'), '图标模块不应依赖 Material 3');
+  } else if (artifact === 'coui-blocks') {
+    assert(dependencies.some(dep => dep.group === group && dep.module === 'coui' && dep.version?.requires === version), '业务模块必须依赖同版本核心');
+    assert(!dependencies.some(dep => dep.group === 'androidx.compose.material3'), '业务模块不应依赖 Material 3');
   } else {
     assert.fail(`未知的 artifact: ${artifact}`);
   }
@@ -58,6 +61,8 @@ for (const artifact of ['coui', 'coui-icons']) {
     assert(!pomDependencies.some(dep => dep.groupId === group && dep.artifactId === 'coui-icons'), `${artifact} POM 依赖不应引入 coui-icons`);
   } else if (artifact === 'coui-icons') {
     assert(pomDependencies.some(dep => dep.groupId === group && dep.artifactId === 'coui' && dep.version === version), '图标模块 POM 必须依赖同 group 同版本核心');
+  } else if (artifact === 'coui-blocks') {
+    assert(pomDependencies.some(dep => dep.groupId === group && dep.artifactId === 'coui' && dep.version === version), '业务模块 POM 必须依赖同 group 同版本核心');
   }
   const managedDependencies = pom.match(/<dependencyManagement>([\s\S]*?)<\/dependencyManagement>/)?.[1] ?? '';
   assert([...managedDependencies.matchAll(/<dependency>([\s\S]*?)<\/dependency>/g)].some(([, dependency]) => [
@@ -73,6 +78,8 @@ for (const artifact of ['coui', 'coui-icons']) {
     expectedSource = '/Slider.kt';
   } else if (artifact === 'coui-icons') {
     expectedSource = '/CouiIcons.kt';
+  } else if (artifact === 'coui-blocks') {
+    expectedSource = '/QuickSettingTile.kt';
   } else {
     assert.fail(`未知的 artifact: ${artifact}`);
   }

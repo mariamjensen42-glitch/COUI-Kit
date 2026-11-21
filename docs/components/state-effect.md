@@ -59,3 +59,7 @@ StateEffectSurface(
 Demo 的「State effect」页面（`DemoStateEffectSamples.kt`）并排三块卡片，可切换焦点描边、按压缩放与禁用态。
 
 源码见 [StateEffectSurface](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/state/StateEffectSurface.kt) 与 [CouiStateEffectDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/state/CouiStateEffectDefaults.kt)。
+
+## Demo
+
+完整示例见 [DemoStateEffectSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoStateEffectSamples.kt)。

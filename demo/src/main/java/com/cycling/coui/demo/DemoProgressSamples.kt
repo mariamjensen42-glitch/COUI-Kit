@@ -1,6 +1,7 @@
 package com.cycling.coui.demo
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,8 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -25,11 +28,13 @@ import androidx.compose.ui.unit.dp
 import com.cycling.coui.layout.Divider
 import com.cycling.coui.layout.Group
 import com.cycling.coui.progress.CircularProgress
-import com.cycling.coui.progress.CouiInstallLoadProgressStyle
-import com.cycling.coui.progress.CouiLoadProgressState
+import com.cycling.coui.blocks.progress.CouiInstallLoadProgressStyle
+import com.cycling.coui.blocks.progress.CouiLoadProgressState
 import com.cycling.coui.progress.CouiProgressDefaults
 import com.cycling.coui.progress.CouiProgressSegment
-import com.cycling.coui.progress.InstallLoadProgress
+import com.cycling.coui.progress.CouiScanRingDefaults
+import com.cycling.coui.progress.ScanRing
+import com.cycling.coui.blocks.progress.InstallLoadProgress
 import com.cycling.coui.progress.LinearProgress
 import com.cycling.coui.progress.SegmentedProgress
 import com.cycling.coui.progress.Skeleton
@@ -37,6 +42,7 @@ import com.cycling.coui.text.CouiTextKind
 import com.cycling.coui.text.Text
 import com.cycling.coui.theme.CouiPresets
 import com.cycling.coui.theme.CouiTheme
+import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
 /**
@@ -90,7 +96,8 @@ internal fun ProgressSample(dark: Boolean) {
                     progress = progress,
                     size = 120.dp,
                     strokeWidth = 8.dp,
-                    // 缺口中心落在 45°（右下），与手机管家首页分数环一致。
+                    // 按 78 分截图取的静态近似：缺口中心落在 45°（右下）；原厂缺口是未填充差额，
+                    // 随分数变化，需要算法级一致时用 ScanRing。
                     gapDegrees = 70f,
                     startAngleDegrees = 80f,
                     glow = true,
@@ -172,6 +179,50 @@ internal fun ProgressSample(dark: Boolean) {
                     Skeleton(Modifier.fillMaxWidth(.4f).height(14.dp), animated = animated)
                 }
             }
+        }
+    }
+}
+
+/**
+ * 分数环：点击在满分与低于红线的 52 分之间切换。扫描态由点击开启，2.6s 后停止，
+ * 停止时补完当前一圈再归零；环心的分数跟随 [ScanRing] 的 `onScoreChange` 实时显示。
+ */
+@Composable
+internal fun ScanRingSample(dark: Boolean) {
+    var score by rememberSaveable { mutableIntStateOf(100) }
+    var scanning by rememberSaveable { mutableStateOf(false) }
+    var shownScore by rememberSaveable { mutableIntStateOf(100) }
+    val scheme = CouiTheme.colorSchemeFor(dark)
+    LaunchedEffect(scanning) {
+        if (scanning) {
+            delay(2600)
+            scanning = false
+        }
+    }
+    Group(title = stringResource(R.string.scan_ring_title)) {
+        Column(Modifier.fillMaxWidth().padding(vertical = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            ScanRing(
+                modifier = Modifier.clip(CircleShape).clickable {
+                    score = if (score > CouiScanRingDefaults.redThreshold) 52 else 100
+                    scanning = true
+                },
+                score = score,
+                scanning = scanning,
+                onScoreChange = { shownScore = it },
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(text = "$shownScore", kind = CouiTextKind.Display, color = scheme.onSurface)
+                    Text(text = stringResource(R.string.scan_ring_score_unit), kind = CouiTextKind.Body,
+                        color = scheme.onSurfaceVariant)
+                }
+            }
+            Text(
+                text = stringResource(if (scanning) R.string.scan_ring_scanning else R.string.scan_ring_hint),
+                kind = CouiTextKind.ItemSummary,
+                color = scheme.onSurfaceVariant,
+            )
         }
     }
 }

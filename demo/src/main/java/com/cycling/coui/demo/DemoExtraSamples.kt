@@ -28,7 +28,7 @@ import com.cycling.coui.avatar.Avatar
 import com.cycling.coui.avatar.CouiAvatarDefaults
 import com.cycling.coui.button.Button
 import com.cycling.coui.button.CouiButtonStyle
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.emptystate.EmptyState
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.CouiPageDefaults
@@ -39,6 +39,7 @@ import com.cycling.coui.pulltorefresh.PullToRefresh
 import com.cycling.coui.statelayout.CouiLoadState
 import com.cycling.coui.statelayout.StateLayout
 import com.cycling.coui.stepper.StepBar
+import com.cycling.coui.stepper.StepRing
 import com.cycling.coui.stepper.Stepper
 import com.cycling.coui.text.CouiTextKind
 import com.cycling.coui.text.Text
@@ -51,26 +52,27 @@ import kotlinx.coroutines.launch
 internal fun PullToRefreshSample(dark: Boolean) {
     var refreshing by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
-    Column(Modifier.fillMaxSize()) {
-        PullToRefresh(modifier = Modifier.weight(1f), refreshing = refreshing, dark = dark,
-            onRefresh = {
-                refreshing = true
-                scope.launch {
-                    delay(1200)
-                    refreshing = false
-                }
-            }) {
-            Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())
-                .padding(horizontal = CouiPageDefaults.horizontalMargin)) {
-                Group(title = stringResource(R.string.pull_refresh_hint)) {
-                    repeat(12) { index ->
-                        Item(title = { Text(text = stringResource(R.string.pull_refresh_row, index + 1),
-                            kind = CouiTextKind.ItemTitle) })
-                        if (index != 11) Divider()
-                    }
-                }
-                Box(Modifier.height(16.dp))
+    // 刷新容器自己吃下拉位移，内部只用普通滚动，避免两层位移叠加。
+    PullToRefresh(modifier = Modifier.fillMaxSize(), refreshing = refreshing, dark = dark,
+        onRefresh = {
+            refreshing = true
+            scope.launch {
+                delay(1200)
+                refreshing = false
             }
+        }) {
+        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())
+            .padding(horizontal = CouiPageDefaults.horizontalMargin)) {
+            Group(title = stringResource(R.string.pull_refresh_hint)) {
+                repeat(12) { index ->
+                    Item(title = {
+                        Text(text = stringResource(R.string.pull_refresh_row, index + 1),
+                            kind = CouiTextKind.ItemTitle)
+                    })
+                    if (index != 11) Divider()
+                }
+            }
+            Box(Modifier.height(16.dp))
         }
     }
 }
@@ -166,6 +168,16 @@ internal fun StepBarSample(dark: Boolean) {
         Column(Modifier.fillMaxWidth().padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)) {
             StepBar(steps = steps, currentIndex = current, dark = dark)
+            // 环形徽标：只表达「第几步 / 共几步」，可与横向步骤条并排使用。
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically) {
+                repeat(steps.size) { index ->
+                    StepRing(step = index + 1, total = steps.size, dark = dark)
+                }
+                StepRing(step = steps.size, total = steps.size, dark = dark, size = 32.dp)
+                Text(text = stringResource(R.string.step_ring_summary, current + 1, steps.size),
+                    kind = CouiTextKind.ItemSummary)
+            }
             Button(onClick = { current = (current + 1) % steps.size },
                 label = stringResource(R.string.step_bar_next), style = CouiButtonStyle.Text, dark = dark)
         }

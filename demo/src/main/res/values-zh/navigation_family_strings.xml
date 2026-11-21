@@ -1,0 +1,16 @@
+<resources>
+    <string name="nav_family_title">导航栏变体</string>
+    <string name="intro_nav_family">侧边导航、平板导航轨、浮动底栏与可展开附件。</string>
+    <string name="nav_family_side">侧边导航</string>
+    <string name="nav_family_drawer">抽屉模式</string>
+    <string name="nav_family_rail">导航轨</string>
+    <string name="nav_family_bar">浮动底栏</string>
+    <string name="nav_family_accessory">附件栏</string>
+    <string name="nav_family_expand">展开附件</string>
+    <string name="nav_family_content">内容区</string>
+    <string name="nav_family_home">首页</string>
+    <string name="nav_family_files">文件</string>
+    <string name="nav_family_lab">实验室</string>
+    <string name="nav_family_settings">设置</string>
+    <string name="nav_family_ai">助手</string>
+</resources>

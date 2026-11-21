@@ -8,7 +8,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.cycling.coui.button.Button
 import com.cycling.coui.button.CouiButtonStyle
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.emptystate.EmptyState
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.Group

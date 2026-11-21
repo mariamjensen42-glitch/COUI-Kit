@@ -74,3 +74,7 @@ BottomSheet(
 ## Demo 示例
 
 底部面板示例见 [DemoBottomSheetSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoBottomSheetSamples.kt)，库入口见 [BottomSheet](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/bottomsheet/BottomSheet.kt)。
+
+## 与原厂的差异
+
+按原厂底部面板的可见结构实现；窗口与拖拽由 Compose 承载，遮罩层级与拖拽阈值未逐参数核对。

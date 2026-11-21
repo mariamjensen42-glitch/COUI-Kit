@@ -50,3 +50,7 @@ MarqueeText(text = message, enabled = false)
 ## 与原厂的差异
 
 原厂用 `TextView` 的 `StaticLayout` 判定字符方向，这里沿用同一判定来源；字号、字重按库内 `CouiTextKind` 换算，滚动速度由「每帧固定步距」改为按时间推进，两者每秒位移相同。渐隐由原厂 `TextView` 的 horizontal fading edge 改为等宽区间的 `DST_IN` 线性渐变遮罩，机制不同，观感需真机同背景对照。原厂另有 `stopRoll()` / `onDetachedFromWindow()` 的命令式收尾，这里由 `enabled` 与 `LaunchedEffect` 的取消代替。
+
+## Demo
+
+完整示例见 [DemoSystemWidgets.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSystemWidgets.kt)。

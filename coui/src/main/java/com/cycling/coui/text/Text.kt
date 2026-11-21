@@ -15,6 +15,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.cycling.coui.theme.CouiTheme
 import kotlin.math.roundToInt
@@ -93,6 +94,20 @@ fun Text(modifier: Modifier = Modifier, text: AnnotatedString, kind: CouiTextKin
     CouiTextContent(modifier, text, kind, color, onLineCount, textAlign, maxLines, overflow)
 }
 
+/**
+ * 按现成 [TextStyle] 排版，用于宿主自定义字号、行距与字重，或组件把 Defaults 里的样式交给文字。
+ * 需要 COUI 语义角色时改用 [kind] 重载；颜色仍按 `color` → `LocalCouiContentColor` → 主题内容色解析。
+ */
+@Composable
+fun Text(modifier: Modifier = Modifier, text: String, style: TextStyle,
+    color: Color = Color.Unspecified, onLineCount: (Int) -> Unit = {}, textAlign: TextAlign? = null,
+    maxLines: Int = Int.MAX_VALUE, overflow: TextOverflow = TextOverflow.Clip) {
+    BasicText(text, modifier,
+        style = style.copy(color = color.takeOrElse { CouiTheme.contentColor },
+            textAlign = textAlign ?: style.textAlign),
+        onTextLayout = { onLineCount(it.lineCount) }, maxLines = maxLines, overflow = overflow)
+}
+
 @Composable
 private fun CouiTextContent(modifier: Modifier, text: AnnotatedString, kind: CouiTextKind, color: Color,
     onLineCount: (Int) -> Unit, textAlign: TextAlign?, maxLines: Int, overflow: TextOverflow) {
@@ -112,14 +127,19 @@ private fun couiDefaultTextAlign(kind: CouiTextKind): TextAlign = when (kind) {
 @Composable
 fun rememberCouiTextStyle(kind: CouiTextKind): TextStyle = rememberCouiTextStyle(kind, kind.weight)
 
+/**
+ * 按 [kind] 的字体族与行距构建样式，并应用系统的字重补偿。
+ * [size] 省略时取该角色的原生字号；传入时只替换字号，行距倍数仍按 [kind]。
+ */
 @Composable
-internal fun rememberCouiSystemTextStyle(kind: CouiTextKind, size: Float = kind.size): TextStyle {
+fun rememberCouiSystemTextStyle(kind: CouiTextKind, size: TextUnit = TextUnit.Unspecified): TextStyle {
     val weight = kind.weight
     val adjustment = LocalConfiguration.current.fontWeightAdjustment
     // Compose 的已加载字体会直接返回 Typeface，需在创建字体前应用系统字重补偿。
     val adjustedWeight = if (adjustment == Configuration.FONT_WEIGHT_ADJUSTMENT_UNDEFINED) weight
         else (weight + adjustment).coerceIn(1, 1000)
-    return rememberCouiTextStyle(kind, adjustedWeight, size)
+    return rememberCouiTextStyle(kind, adjustedWeight,
+        if (size == TextUnit.Unspecified) kind.size else size.value)
 }
 
 @Composable

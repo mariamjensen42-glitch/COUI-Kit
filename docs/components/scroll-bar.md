@@ -52,3 +52,7 @@ ScrollBar(Modifier.matchParentSize(), state = state,
 ## Demo 与源码
 
 示例见 [DemoScrollBarSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoScrollBarSamples.kt)，公开入口见 [ScrollBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/scrollbar/ScrollBar.kt)。
+
+## 与原厂的差异
+
+只接受 `ScrollState`，`LazyListState` 需宿主适配；不取消滚动容器已进行的 fling；几何与 2000ms 停留后 250ms 淡出按原厂。

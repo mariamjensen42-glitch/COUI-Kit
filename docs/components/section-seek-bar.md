@@ -30,9 +30,10 @@ SectionSeekBar(
 
 | 行为 | 参数 |
 | --- | --- |
-| 拖动跟手 | 手指位移的 0.4 倍（`DRAG_MOVE_RATIO`），进度取最近档位 |
-| 抬手吸附 | 150ms，`PathInterpolator(0, 0, 0.25, 1)`（`RELEASE_SNAP_DURATION`） |
-| 点击跳转 | 200ms，`COUIMoveEaseInterpolator`（`PROGRESS_TRANSITION_DURATION`） |
+| 拖动开始 | 越过系统 `touchSlop` 后，以按下位置确定拖动锚点 |
+| 拖动跟手 | 0.6 跟随 + 0.4 动画混合；跨档以 100ms、`PathInterpolator(0, 0, 0.25, 1)` 中间吸附；方向反转重新锚定 |
+| 抬手吸附 | 150ms，`ValueAnimator` 默认 AccelerateDecelerate（`RELEASE_SNAP_DURATION`），按抬手位置取最近档位 |
+| 点击跳转 | 200ms，默认 AccelerateDecelerate（`PROGRESS_TRANSITION_DURATION`），目标档位在动画开始前提交 |
 | 档位触感 | 每次跨档一次分档震动 |
 
 无障碍暴露整数进度范围与档位数，`enabled = false` 时切到禁用色且不响应手势。
@@ -54,7 +55,10 @@ IconSeekBar(
 - `type = Brightness` 时太阳图标随进度旋转，每档 2°（对应原厂 `progress * 2`）。
 - `type = Volume` 时图标按档位调整不透明度。
 - 点击轨道按原厂时长过渡：`max(150, |Δ| / max * 483)` ms，曲线 `PathInterpolator(0.3, 0, 0.1, 1)`。
-- 拖动阻尼取 `clamp(1 - |x - center| / center, 0.4, 1)`，越靠近中心越跟手。
+- 拖动阻尼按原厂曲线计算：`1 - ease(|x - center| / center)` 夹到 `[0.4, 1]`，
+  `ease` 为 `PathInterpolator(0.3, 0, 0.1, 1)`；`center` 取进度区半宽并与面板绝对横坐标比较，
+  因此左右不对称，与原厂字面一致。
+- 拖动结束的 80ms 回档是本项目为受控 Compose 状态增加的平滑适配；原厂拖动结束停在阻尼位置，不做吸附。
 
 配色由 `CouiIconSeekBarDefaults.colors(dark)` 给出：面板 `coui_icon_seekbar_background`，
 未激活轨道 `coui_icon_seekbar_background_color_normal`，进度 `coui_icon_seekbar_def_progress_color`，
@@ -65,8 +69,6 @@ IconSeekBar(
 - 原厂 `effect/` 目录的 ConicLight、Glitter、Loading、Deformation 四条渲染链没有移植。
   它们只服务于 `COUIIntentSeekBar`：锥形光依赖私有 AGSL 绘制器 `IConicLightDrawer`，
   形变与惯性依赖 `com.oplus.physicsengine` 的弹簧与甩动引擎，均不在公开 API 范围内。
-- 原厂 `SectionAnimationHandler` 在拖动过程中会按方向变化做 100ms 的中间吸附，
-  这里拖动连续跟手，只在抬手时吸附。
 - 原厂分段滑条的形变（`couiSeekBarDeformation`）、进度闪光（`couiSeekBarShowGlitterEffect`）
   与厂商平滑圆角路径依赖 `com.oplus.graphics`，未移植。
 - 原厂图标滑条固定 408×96px 居中面板，这里面板铺满可用宽度、高度 32dp。
@@ -79,3 +81,7 @@ IconSeekBar(
 - Demo：`demo/src/main/java/com/cycling/coui/demo/DemoSeekBarFamilySamples.kt`（目录项「Seek bar variants」）。
 - 源码：[SectionSeekBar.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/seekbar/SectionSeekBar.kt)、
   [IconSeekBar.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/seekbar/IconSeekBar.kt)。
+
+## Demo
+
+完整示例见 [DemoSeekBarFamilySamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSeekBarFamilySamples.kt)。

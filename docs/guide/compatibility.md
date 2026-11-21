@@ -25,6 +25,8 @@
 
 `CouiIcons` 位于可选的 `coui-icons` 模块；使用时需添加该模块，并与核心使用相同版本。图标模块依赖核心读取主题，核心不依赖图标模块。
 
+控制中心磁贴、安装进度按钮与用户关注顶栏位于可选的 `coui-blocks` 模块，同样与核心同版本并依赖核心；核心不反向依赖它。
+
 预览版不保证二进制兼容。升级后重新编译使用库的模块，版本变化见 [CHANGELOG](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/CHANGELOG.md)。主题配置见[外观与预设](appearance.md)。
 
 ## 效果门槛

@@ -27,7 +27,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.CouiPageDefaults
 import com.cycling.coui.text.CouiTextKind

@@ -93,3 +93,7 @@ state.dragRubberband(offset, offsetX = 0f)
 - Demo：`demo/src/main/java/com/cycling/coui/demo/DemoProgressiveDragSamples.kt`（目录项「Progressive drag」）。
 - 源码：[ProgressiveDragState.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/motion/ProgressiveDragState.kt)、
   [CouiProgressiveDefaults.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/motion/CouiProgressiveDefaults.kt)。
+
+## Demo
+
+完整示例见 [DemoProgressiveDragSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoProgressiveDragSamples.kt)。

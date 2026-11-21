@@ -1,0 +1,11 @@
+<resources>
+    <string name="seekbar_family_title">滑动条变体</string>
+    <string name="intro_seekbar_family">带刻度标记的分段轨道，以及亮度与音量的图标面板。</string>
+    <string name="seekbar_section_title">分段滑动条</string>
+    <string name="seekbar_section_value">当前分段：%1$d</string>
+    <string name="seekbar_section_reset">重置分段</string>
+    <string name="seekbar_icon_title">图标滑动条</string>
+    <string name="seekbar_icon_brightness">亮度</string>
+    <string name="seekbar_icon_volume">音量</string>
+    <string name="seekbar_icon_value">档位：%1$d</string>
+</resources>

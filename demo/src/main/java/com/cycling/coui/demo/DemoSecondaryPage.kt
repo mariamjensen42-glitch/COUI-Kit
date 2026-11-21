@@ -65,7 +65,8 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
         Box(Modifier.fillMaxSize()) {
             val snackbarMessage = stringResource(R.string.snackbar_message)
             DemoSettingsPage(title = stringResource(title), backDescription = stringResource(R.string.settings_back),
-                onBack = back, dark = dark, colors = CouiPageDefaults.themeColors(dark), floatingAction = floatingAction) {
+                onBack = back, dark = dark, colors = CouiPageDefaults.themeColors(dark),
+                scrollable = page != "refresh", floatingAction = floatingAction) {
                 when (page) {
                     "sliders", "switch", "checkbox", "dialogs", "menu" -> ComponentDetail(page, dark, toggleTheme)
                     "dialogfamily" -> DialogFamilySample(dark)
@@ -90,6 +91,7 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "richtext" -> RichTextSample(dark)
                     "scrollbar" -> ScrollBarSample(dark)
                     "pageindicator" -> PageIndicatorSample(dark)
+        "banner" -> BannerSample(dark)
                     "emptystate" -> EmptyStateSample(dark)
                     "textfield" -> TextFieldSample(dark)
                     "textfields" -> TextFieldsSample(dark)
@@ -136,6 +138,9 @@ internal fun DemoSecondaryPage(page: String, dark: Boolean, preferences: DemoPre
                     "quicksettingedit" -> QuickSettingEditSample(dark)
                     "stateeffect" -> StateEffectSample(dark)
                     "chart" -> BarChartSample(dark)
+                    "linechart" -> LineChartSample(dark)
+                    "scanring" -> ScanRingSample(dark)
+                    "privacy" -> PrivacyStatementSample(dark)
                     "dockbar" -> DockBarSample(dark)
             "navigationfamily" -> NavigationFamilySample(dark)
                     "refresh" -> PullToRefreshSample(dark)

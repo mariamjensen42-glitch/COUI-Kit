@@ -22,7 +22,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.effect.CouiFloatingRenderer
 import com.cycling.coui.floatingtoolbar.CouiFloatingToolbarDefaults
 import com.cycling.coui.floatingtoolbar.FloatingToolbar

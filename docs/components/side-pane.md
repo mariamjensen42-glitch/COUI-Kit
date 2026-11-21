@@ -98,3 +98,7 @@ BackHandler(open) { open = false }
 ## Demo 示例
 
 起始边与结束边的开关示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoContainerSamples.kt)，库入口见 [SidePane](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/sidepane/SidePane.kt)。
+
+## 与原厂的差异
+
+面板宽度与停靠判定按原厂公式（抽屉 300dp、停靠 `min(280dp, 宽 × 0.382)`）；`DrawerLayout` 的边缘拖动、返回键与预测性返回未复刻。

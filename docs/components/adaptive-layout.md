@@ -1,13 +1,13 @@
 # 📐自适应布局
 
-`CouiAdaptiveLayout` 按容器宽度给出窗口尺寸档位，让同一份内容在手机、折叠屏展开与平板横屏下重新排布。
+`AdaptiveLayout` 按容器宽度给出窗口尺寸档位，让同一份内容在手机、折叠屏展开与平板横屏下重新排布。
 
 它只做宽度分档，不提供导航、不切换页面、也不接管滚动；如何按档位调整布局由调用方决定。
 
 ## 最小调用
 
 ~~~kotlin
-CouiAdaptiveLayout { sizeClass ->
+AdaptiveLayout { sizeClass ->
     when (sizeClass) {
         CouiWindowSizeClass.Compact -> SingleColumn()
         CouiWindowSizeClass.Medium -> TwoColumn()
@@ -34,12 +34,12 @@ val sizeClass = LocalCouiWindowSizeClass.current
 
 ## 量的是容器
 
-`CouiAdaptiveLayout` 用当前约束的宽度分档，而不是窗口宽度。分屏里的局部区域、侧栏内容、对话框内部都会报自己的可用宽度，因此同一屏上可以并存不同的档位：
+`AdaptiveLayout` 用当前约束的宽度分档，而不是窗口宽度。分屏里的局部区域、侧栏内容、对话框内部都会报自己的可用宽度，因此同一屏上可以并存不同的档位：
 
 ~~~kotlin
 Row {
-    CouiAdaptiveLayout(Modifier.weight(1f)) { compact -> CompactContent(compact) }
-    CouiAdaptiveLayout(Modifier.weight(2f)) { wide -> WideContent(wide) }
+    AdaptiveLayout(Modifier.weight(1f)) { compact -> CompactContent(compact) }
+    AdaptiveLayout(Modifier.weight(2f)) { wide -> WideContent(wide) }
 }
 ~~~
 
@@ -48,7 +48,7 @@ Row {
 容器按内容尺寸布局，不撑满父级。需要铺满时显式传 `Modifier.fillMaxSize()`：
 
 ~~~kotlin
-CouiAdaptiveLayout(Modifier.fillMaxSize()) { sizeClass -> ... }
+AdaptiveLayout(Modifier.fillMaxSize()) { sizeClass -> ... }
 ~~~
 
 这一点在包 `Scaffold` 时尤其重要：`Scaffold` 要求测量约束有界，省略 `fillMaxSize` 会让它拿到无界约束。
@@ -66,7 +66,7 @@ CouiAdaptiveLayout(Modifier.fillMaxSize()) { sizeClass -> ... }
 @Composable
 private fun MyContentPreview() {
     CouiTheme {
-        CouiAdaptiveLayout { sizeClass -> MyContent(sizeClass) }
+        AdaptiveLayout { sizeClass -> MyContent(sizeClass) }
     }
 }
 ~~~
@@ -75,4 +75,8 @@ private fun MyContentPreview() {
 
 ## Demo 示例
 
-三档宽度下的分栏示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoContainerSamples.kt)，库入口见 [CouiAdaptiveLayout](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/layout/CouiAdaptiveLayout.kt)。
+三档宽度下的分栏示例见 [DemoContainerSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoContainerSamples.kt)，库入口见 [AdaptiveLayout](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/layout/AdaptiveLayout.kt)。
+
+## 与原厂的差异
+
+原厂按窗口尺寸档位切换布局；`AdaptiveLayout` 量的是自身可用宽度，分屏与侧栏里得到的是局部宽度，这是有意差异。

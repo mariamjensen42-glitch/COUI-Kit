@@ -44,3 +44,7 @@ ActionCard(
 提示卡与推荐卡的差别只有标题，不要为两种形态各写一套卡片；需要多行说明时直接换行，卡片会随内容增高。
 
 源码见 [ActionCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/actioncard/ActionCard.kt)。
+
+## Demo
+
+完整示例见 [DemoCardSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoCardSamples.kt)。

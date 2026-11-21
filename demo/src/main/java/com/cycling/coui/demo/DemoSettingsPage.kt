@@ -17,7 +17,7 @@ import androidx.compose.foundation.rememberScrollState
 import com.cycling.coui.scroll.couiVerticalScroll
 import com.cycling.coui.scroll.CouiOverscrollEffect
 import com.cycling.coui.scroll.rememberCouiOverscrollEffect
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -47,6 +47,7 @@ import com.cycling.coui.layout.*
 /**
  * Demo 二级页统一使用大标题折叠顶栏。业务导航和返回拦截由宿主处理。
  * floatingAction 位于正文采样源之外，按页面安全区固定放置，不参与正文滚动。
+ * 自持滚动的样例（下拉刷新）传 [scrollable] = false，否则页面级滚动会先吃掉下拉位移。
  */
 @Composable
 internal fun DemoSettingsPage(
@@ -59,6 +60,7 @@ internal fun DemoSettingsPage(
     scrollState: ScrollState = rememberScrollState(),
     actions: @Composable () -> Unit = {},
     overscrollEffect: CouiOverscrollEffect? = rememberCouiOverscrollEffect(),
+    scrollable: Boolean = true,
     floatingAction: (@Composable BoxScope.() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -102,7 +104,9 @@ internal fun DemoSettingsPage(
         val contentPadding = remember(behavior, innerPadding, localDensity) {
             behavior.state.contentPadding(innerPadding, localDensity)
         }
-        Column(Modifier.fillMaxSize().couiVerticalScroll(scrollState, overscrollEffect = overscrollEffect)
+        val pageMode = if (scrollable) Modifier.couiVerticalScroll(scrollState, overscrollEffect = overscrollEffect)
+        else Modifier
+        Column(Modifier.fillMaxSize().then(pageMode)
             .padding(contentPadding).consumeWindowInsets(innerPadding)
             .padding(bottom = CouiPageDefaults.groupSpacing), content = content)
     }

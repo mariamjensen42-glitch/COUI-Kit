@@ -26,11 +26,17 @@ android {
 }
 
 dependencies {
-    implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui:v0.0.1-alpha13")
+    implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui:v0.1.0-alpha1")
 }
 ```
 
-`0.0.1-alpha13` 需要 Android 12（API 31）及以上，编译时需要 `compileSdk` 37 和 AGP 9.1.0 或更高版本。应用仍需配置自己的 Android 与 Compose 插件。组件的具体系统要求见[兼容要求](compatibility.md)。
+`0.1.0-alpha1` 需要 Android 12（API 31）及以上，编译时需要 `compileSdk` 37 和 AGP 9.1.0 或更高版本。应用仍需配置自己的 Android 与 Compose 插件。组件的具体系统要求见[兼容要求](compatibility.md)。
+
+业务组件单独发布：控制中心磁贴、安装进度按钮与用户关注顶栏在 `coui-blocks`，与核心使用同一版本，包名为 `com.cycling.coui.blocks`，只接入核心时没有这些控件。
+
+```kotlin
+implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui-blocks:v0.1.0-alpha1")
+```
 
 当前版本为早期预览版，API 可能发生不兼容的变化。
 
@@ -125,6 +131,8 @@ dependencies {
 源码模块还引用了 Maven Publish 和 Dokka 等插件别名。插件与依赖版本由项目统一声明。工具链和依赖对齐见[兼容要求](compatibility.md)。
 
 需要 `CouiIcons` 时，复制 `coui-icons/`，在 settings 增加 `include(":coui-icons")`，并在调用模块依赖 `project(":coui-icons")`。该模块依赖 `coui` 读取主题；只使用核心组件时不需要它。Maven 坐标及使用方式见[图标用法](../components/icons.md)。
+
+需要控制中心磁贴、安装进度按钮或用户关注顶栏时，同样复制 `coui-blocks/` 并 `include(":coui-blocks")`，在调用模块依赖 `project(":coui-blocks")`；它依赖同版本的 `coui`。
 
 [demo/build.gradle.kts](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/build.gradle.kts) 是完整示例，但不用照抄它的签名、应用标识或 Capsule 依赖。
 

@@ -41,10 +41,20 @@ VerticalSeekBar(
 
 ## 交互
 
-- 拖动时进度跟随手指，位移按原厂 `calculateDamping()` 的 0.4 系数平滑收敛，手指抖动不会直接反映到进度上。
-- 点击轨道按点击位置跳转，跳转时长随位移增大，最短 150ms。
+- 越过系统 `touchSlop` 后才进入拖动，首个拖动事件直接跳到手指位置；之后按原厂 `calculateDamping()` 的 0.4 系数从锚点收敛，档位变化时推进锚点，手指抖动不会直接反映到进度上。
+- 点击轨道按点击位置跳转，跳转时长随位移增大，最短 150ms；落在上下留白内的抬手不触发跳转。
 - 抬手时速度超过 100px/s 才继续惯性滑动，衰减系数取原厂 `mFlingLinearDamping` 的 15。
 - 进度每跨越 5% 档位触发一次触感反馈，对应原厂 `performFeedback()` 的分档节奏。
+- 拖动、点击过渡或惯性结束后调用 `onValueChangeFinished`，对应原厂 `onStopTrackingTouch`。
+
+~~~kotlin
+VerticalSeekBar(
+    modifier = Modifier.height(200.dp),
+    value = value,
+    onValueChange = { value = it },
+    onValueChangeFinished = { save(value) },
+)
+~~~
 
 无障碍暴露进度范围与当前百分比；`enabled = false` 时进度与滑块切到禁用色，且不响应手势。
 
@@ -54,3 +64,7 @@ VerticalSeekBar(
 - 原厂支持形变（`couiVerticalSeekBarDeformation`）、线性马达分档震动与厂商平滑圆角路径，这些依赖厂商私有接口，这里只保留按压变宽与普通触感反馈。
 - 原厂按下态还会把上下留白按 `mVerticalPaddingScale` 收敛，并给文字加阴影层；这里留白固定、文字无阴影。
 - 原厂 `mShowText` 默认关闭，这里 `label` 非空即绘制；原厂 `couiVerticalSeekBarMaxHeight` 默认 0（不限高），这里固定 480dp 上限。
+
+## Demo
+
+完整示例见 [DemoSystemWidgets.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSystemWidgets.kt)。

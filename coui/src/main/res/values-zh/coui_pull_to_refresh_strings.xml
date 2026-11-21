@@ -1,0 +1,4 @@
+<resources>
+    <string name="coui_pull_refresh">下拉刷新</string>
+    <string name="coui_pull_refreshing">正在刷新</string>
+</resources>

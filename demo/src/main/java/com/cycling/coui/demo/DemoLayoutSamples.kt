@@ -1,25 +1,32 @@
 package com.cycling.coui.demo
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.CouiPageDefaults
 import com.cycling.coui.layout.CouiQuickAction
 import com.cycling.coui.layout.CouiQuickActionStyle
 import com.cycling.coui.layout.Divider
 import com.cycling.coui.layout.Footer
+import com.cycling.coui.layout.Grid
 import com.cycling.coui.layout.Group
 import com.cycling.coui.layout.QuickActionGrid
+import com.cycling.coui.surface.Surface
 import com.cycling.coui.text.CouiTextKind
 import com.cycling.coui.text.Text
 import com.cycling.coui.theme.CouiColor
@@ -53,7 +60,28 @@ internal fun LayoutSample() {
             summary = stringResource(R.string.settings_disabled_summary), enabled = false)
     }
     QuickActionsSample()
+    SurfaceGridSample()
     Footer(text = stringResource(R.string.layout_standalone_footer))
+}
+
+/** 通用表面与等宽网格：`Surface` 铺底并下发内容色，`Grid` 只负责等宽排布。 */
+@Composable
+private fun SurfaceGridSample() {
+    val colors = CouiTheme.colorScheme
+    Column(Modifier.padding(top = CouiPageDefaults.categoryTopSpacing)) {
+        Text(text = stringResource(R.string.quick_action_title), kind = CouiTextKind.GroupTitle,
+            color = colors.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = 32.dp, vertical = 8.dp))
+        Grid(Modifier.fillMaxWidth().padding(horizontal = CouiPageDefaults.horizontalMargin), columns = 3) {
+            repeat(3) {
+                Surface(Modifier.height(56.dp), shape = CouiTheme.shapes.card) {
+                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Text(text = stringResource(R.string.settings_preview), kind = CouiTextKind.ItemTitle)
+                    }
+                }
+            }
+        }
+    }
 }
 
 /**

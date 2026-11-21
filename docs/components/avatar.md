@@ -28,3 +28,11 @@ Avatar(size = CouiAvatarDefaults.largeSize) {
 - `content`：`BoxScope` 内容，居中摆放。
 
 源码见 [Avatar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/avatar/Avatar.kt)。
+
+## 与原厂的差异
+
+原厂头像多由业务卡片自带；本项目抽成固定尺寸容器，只做裁剪与占位，不加载图片、不处理失败兜底。
+
+## Demo
+
+完整示例见 [DemoExtraSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoExtraSamples.kt)。

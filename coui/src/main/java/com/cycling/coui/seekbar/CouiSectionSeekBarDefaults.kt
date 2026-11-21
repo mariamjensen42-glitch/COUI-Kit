@@ -52,16 +52,21 @@ object CouiSectionSeekBarDefaults {
     /** 拖动吸附时长，对应原厂 `DRAG_SNAP_DURATION`。 */
     const val dragSnapMillis = 100
 
-    /** 抬手吸附时长，对应原厂 `RELEASE_SNAP_DURATION`。 */
+    /** 抬手吸附时长，对应原厂 `RELEASE_SNAP_DURATION`；原厂未设插值器，用默认 AccelerateDecelerate。 */
     const val releaseSnapMillis = 150
 
-    /** 点击过渡时长，对应原厂 `PROGRESS_TRANSITION_DURATION`。 */
+    /** 点击过渡时长，对应原厂 `PROGRESS_TRANSITION_DURATION`；原厂未设插值器，用默认 AccelerateDecelerate。 */
     const val progressTransitionMillis = 200
 
-    /** 拖动吸附曲线，对应原厂 `PathInterpolator(0, 0, 0.25, 1)`。 */
+    /** 拖动中间吸附曲线，对应原厂 `PathInterpolator(0, 0, 0.25, 1)`，只用于 100ms 的跨档吸附。 */
     val dragSnapEasing: CubicBezierEasing = CubicBezierEasing(0f, 0f, 0.25f, 1f)
 
-    /** 点击过渡曲线，对应原厂 `COUIMoveEaseInterpolator`。 */
+    /**
+     * 项目常用缓动。
+     *
+     * 原厂 `SectionAnimationHandler` 的抬手与点击过渡没有设置插值器，
+     * 使用 `ValueAnimator` 默认的 AccelerateDecelerate；本值不参与分段滑条的非拖动动画。
+     */
     val moveEase: CubicBezierEasing = CubicBezierEasing(0.3f, 0f, 0.1f, 1f)
 
     /**

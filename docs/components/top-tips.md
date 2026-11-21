@@ -53,3 +53,7 @@ TopTips(visible = visible) {
 ## 与原厂的差异
 
 原厂的 `COUICustomTopTips` 是 `View` 容器，内容来自子类覆写的布局 id；这里用内容插槽表达同一职责。动画时长、只改 `scaleY` 与容器底色一致，但轮廓、动画插值器不一致，且原厂命令式 `showWithAnim/dismissWithAnim` 的回调、`setContentView` 重复调用保护与 `COUIDefaultTopTips` 的双按钮横竖排约束、AI 支付样式、300ms 宽度变化动画都不在本实现范围内。
+
+## Demo
+
+完整示例见 [DemoSystemWidgets.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoSystemWidgets.kt)。

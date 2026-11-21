@@ -16,7 +16,7 @@ Status: implemented
 
 五个组件都只做布局与状态分发，不新增 Shader、动画后端或网络行为：
 
-- [PullToRefresh](../../../../coui/src/main/java/com/cycling/coui/pulltorefresh/PullToRefresh.kt)：`nestedScroll` 的 `onPostScroll` 里以「`consumed.y == 0` 且 `available.y > 0`」判定已到顶，位移用 `mutableFloatStateOf` 同步累加，回弹与刷新态收尾统一放在 `LaunchedEffect(refreshing)`，避免松手动画与状态动画互相覆盖。内容用 `graphicsLayer` 下移而不是改布局尺寸，列表滚动位置和 Scaffold 内边距都不受影响。
+- [PullToRefresh](../../../../coui/src/main/java/com/cycling/coui/pulltorefresh/PullToRefresh.kt)：按原厂 `BounceLayout` + `DefaultHeader` 复刻，头部是 16dp 环加「下拉刷新」文案、40dp 高、26% 不透明度，锁定位置 80dp、松手达到 80dp 才刷新，800ms 锁入、500ms 收回，未过阈值走 `CouiScrollPhysics` 2.15 倍弹簧。位移只在本组件持有：向下拉的位移完全留给内层列表，`onPostScroll` 在列表到顶后把剩余位移转成下拉、`onPreScroll` 只在向上收时先收回，两者都返回消费量以压住平台拉伸；`onPreFling` 同时承担松手、CANCEL 与父容器接管的收尾。内容用 `graphicsLayer` 下移而不是改布局尺寸，列表滚动位置和 Scaffold 内边距都不受影响。
 - [Accordion](../../../../coui/src/main/java/com/cycling/coui/accordion/Accordion.kt)：受控展开 + `AnimatedVisibility`；箭头自绘两段折线并整体旋转，不依赖图标库，也不受宿主图标配色影响。
 - [Avatar](../../../../coui/src/main/java/com/cycling/coui/avatar/Avatar.kt)：只负责尺寸、裁剪与底色，图片加载、占位、首字母取字、在线角标都留给宿主与 `BadgedBox`。
 - [StateLayout](../../../../coui/src/main/java/com/cycling/coui/statelayout/StateLayout.kt)：`CouiLoadState` 四态 + 宿主提供的空/失败槽；不内置文案，避免把中英文案塞进库。空态与失败态不居中，按原厂 `COUIEmptyStateView` 的 `onMeasure` / `onLayout` 摆位：测量后判定 `EMPTY_VIEW_SIZE_TYPE_*`（高 200dp / 宽 320dp / 高 480dp 阈值），顶部留白 = (容器高 − 槽高) × 0.45，`Small` 时 0.5 且槽内 `EmptyState` 跳过插图；容器高未被外部固定时自身收拢到槽内容高度。
@@ -25,7 +25,7 @@ Status: implemented
 ## Alternatives considered
 
 - 下拉刷新复用 `SwipeRefresh` 类第三方实现：会引入依赖，且无法与 `couiVerticalScroll` 和折叠顶栏的 nestedScroll 共用一条链。
-- 指示器内置固定样式：不同页面对指示器的要求不同（环形、文字、Logo），改成 `indicator` 槽后宿主可完全替换。
+- 指示器内置固定样式：不同页面对头部的要求不同（环形、文字、Logo），改成 `header` 槽后宿主可完全替换。
 - Accordion 使用图标库的 chevron：库的图标子集不保证有箭头，自绘折线更稳，也避免为单个组件扩大图标面。
 - StateLayout 内置「加载中/暂无内容/重试」文案：需要维护中英资源且场景差异大，改为宿主提供槽。
 - StepBar 做成可点击导航：那是 `SegmentedControl` / `ChipTab` 的职责，步骤条只表达进度。

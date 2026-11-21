@@ -10,22 +10,18 @@ implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui-icons:$couiVersio
 
 以下示例中的 `contentDescription` 由调用方根据界面语义提供。
 
-## 基本显示
+## 显示图标
 
-在 Composable 中使用 `Image` 可直接显示图标内置颜色；需要跟随内容色时传入 `tint`，传 `Color.Unspecified` 保留图标默认配色：
+`com.cycling.coui.icon.Icon` 负责显示：默认 24dp、按当前内容色着色。放在按钮、顶栏、Chip 等提供内容色的插槽里会自动跟随；普通布局中没有内容色时保留图标原色，因此带功能色的图标可以直接用。`contentDescription` 传 `null` 表示装饰图标，不建立无障碍节点。
 
 ```kotlin
-Image(
-    imageVector = CouiIcons.Filled.Wifi,
-    contentDescription = contentDescription,
-)
+Icon(CouiIcons.Filled.Wifi, contentDescription)
 
-Icon(
-    imageVector = CouiIcons.Filled.Wifi,
-    contentDescription = contentDescription,
-    tint = Color.Unspecified,
-)
+// 指定尺寸并保留图标原色
+Icon(CouiIcons.Filled.Wifi, null, size = 28.dp, tint = Color.Unspecified)
 ```
+
+需要 `contentScale`、自定义 `Painter` 或直接操作 `ImageVector` 时仍可用 `Image`；图标尺寸优先用 `size` 参数，不要再叠加 `Modifier.size`。
 
 图标按 `CouiIcons.Filled` 和 `CouiIcons.Outlined` 提供。`Back`、`Next`、`Close`、`Add`、`DarkLight`、`ListFilter`、`More` 和 `Scan` 在两种样式中使用相同图形；`Search`、`SliderCustom` 和 `LayoutSpliced` 仅提供 `Outlined`。它们默认日间为黑色、夜间为白色，其中 `Back`、`Next`、`ChevronRight`、`Download`、`Copy` 和 `Send` 支持 RTL 自动镜像。
 

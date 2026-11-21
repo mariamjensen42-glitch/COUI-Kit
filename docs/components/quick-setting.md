@@ -7,6 +7,8 @@
 
 它们与 [Slider](slider.md) 不是同一个控件：`Slider` 是横向细轨道加圆钮，带刻度吸附、触感与 RTL 镜像；档位条是整块胶囊，填充量即当前值，竖直方向不参与 RTL 镜像。
 
+控制中心磁贴随 `coui-blocks` 发布，与核心使用同一版本，包名为 `com.cycling.coui.blocks.quicksetting`；只接入核心时没有这几个控件。
+
 ## 网格
 
 数值取自 ColorOS 17 控制中心的真机布局树（一加 Ace 5，1264×2780 @560dpi）：
@@ -116,4 +118,8 @@ DeformationTileGrid(
 
 原厂磁贴还有长按进入设置、二级页展开、状态副标题、不可用态与跨页轮播；档位条还有自动亮度/静音的点按切换图标。这些属于 SystemUI 的交互外壳，不在组件范围内。大磁贴开启态、浅色主题、RTL 与真机玻璃叠加尚未验收。
 
-源码见 [QuickSettingTile](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/quicksetting/QuickSettingTile.kt)、[LevelSlider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/quicksetting/LevelSlider.kt) 与 [DeformationTileGrid](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/quicksetting/DeformationTileGrid.kt)。
+源码见 [QuickSettingTile](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-blocks/src/main/java/com/cycling/coui/blocks/quicksetting/QuickSettingTile.kt)、[LevelSlider](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-blocks/src/main/java/com/cycling/coui/blocks/quicksetting/LevelSlider.kt) 与 [DeformationTileGrid](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-blocks/src/main/java/com/cycling/coui/blocks/quicksetting/DeformationTileGrid.kt)。
+
+## Demo
+
+完整示例见 [DemoCardSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoCardSamples.kt)。

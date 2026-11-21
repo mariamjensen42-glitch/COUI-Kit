@@ -10,4 +10,7 @@
     <string name="progress_ring_unit">分</string>
     <string name="progress_skeleton">骨架占位</string>
     <string name="progress_animated">占位动画</string>
+    <string name="progress_install">安装进度</string>
+    <string name="progress_install_text">下载</string>
+    <string name="progress_install_hint">点击按钮循环切换空闲、下载中、等待与失败状态。</string>
 </resources>

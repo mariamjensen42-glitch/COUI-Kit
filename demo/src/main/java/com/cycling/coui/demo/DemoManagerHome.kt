@@ -40,7 +40,7 @@ import com.cycling.coui.button.CouiButtonStyle
 import com.cycling.coui.backdrop.CouiBackdrop
 import com.cycling.coui.backdrop.couiBackdrop
 import com.cycling.coui.backdrop.rememberCouiBackdrop
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.progress.CircularProgress
 import com.cycling.coui.shape.CouiShape

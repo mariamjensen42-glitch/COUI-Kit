@@ -1,0 +1,12 @@
+<resources>
+    <string name="chip_family_title">标签</string>
+    <string name="intro_chip_family">可选、可关闭的标签，并支持行内输入新标签</string>
+    <string name="chip_basic">基础标签</string>
+    <string name="chip_selectable">可选标签</string>
+    <string name="chip_closable">可关闭标签</string>
+    <string name="chip_collapsable">可折叠分组</string>
+    <string name="chip_collapse_toggle">已折叠</string>
+    <string name="chip_input_hint">添加标签</string>
+    <string name="chip_close_description">移除标签</string>
+    <string name="chip_tag_value">标签 %1$d</string>
+</resources>

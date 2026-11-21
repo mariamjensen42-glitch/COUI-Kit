@@ -31,3 +31,11 @@ ChoiceCardGroup(
 卡片最小高度、间距、图标尺寸与描边宽度在 `CouiChoiceCardDefaults`。项目数较多时卡片会等分压缩，超过四项建议改用[快捷动作网格](quick-action-grid.md)或列表。
 
 源码见 [ChoiceCardGroup](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/choicecard/ChoiceCardGroup.kt)。
+
+## 与原厂的差异
+
+项目新增的模式选择卡，原厂无同名实现；选中描边与强调色取自 `CouiTheme`，不含图标与副标题的响应式重排。
+
+## Demo
+
+完整示例见 [DemoCardSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoCardSamples.kt)。

@@ -61,3 +61,7 @@ Row(Modifier.clickable(onClick = { open() })) { Tag(text = label) }
 ## Demo 与源码
 
 示例见 [DemoTagSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoTagSamples.kt)，公开入口见 [Tag](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/tag/Tag.kt)。
+
+## 与原厂的差异
+
+四角轮廓、可选描边与左图标按 `COUITagView` 移植；容器默认色沿用原厂 attr 组合（`couiColorContainer8` 薄填充 + 白字），实际配色由宿主传入。

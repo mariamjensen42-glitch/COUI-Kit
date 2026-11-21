@@ -8,11 +8,12 @@
 #   maven { url = uri("https://jitpack.io") }
 #   implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui:<tag>")
 #   implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui-icons:<tag>")
+#   implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui-blocks:<tag>")
 jdk:
   - openjdk21
 
 install:
-  - ./gradlew :coui:publishToMavenLocal :coui-icons:publishToMavenLocal
+  - ./gradlew :coui:publishToMavenLocal :coui-blocks:publishToMavenLocal :coui-icons:publishToMavenLocal
     -PGROUP=com.github.mariamjensen42-glitch.COUI-Kit
     -PVERSION_NAME=$VERSION
     --no-daemon

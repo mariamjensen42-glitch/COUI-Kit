@@ -11,7 +11,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.CouiPageDefaults
 import com.cycling.coui.layout.Divider
@@ -19,7 +19,7 @@ import com.cycling.coui.layout.Group
 import com.cycling.coui.text.CouiTextKind
 import com.cycling.coui.text.Text
 import com.cycling.coui.theme.CouiTheme
-import com.cycling.coui.topappbar.UserFollowBar
+import com.cycling.coui.blocks.topappbar.UserFollowBar
 
 /** 用户主页顶栏：头像、主副标题与关注按钮。 */
 @Composable

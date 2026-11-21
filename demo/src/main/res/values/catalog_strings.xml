@@ -275,6 +275,18 @@
     <string name="step_bar_step_clean">Clean</string>
     <string name="step_bar_step_done">Done</string>
     <string name="step_bar_next">Next step</string>
+    <string name="step_ring_summary">Step %1$d of %2$d</string>
+    <string name="statement_title">Privacy statement</string>
+    <string name="statement_intro">Full-page statement: centred title, scrollable body capped at 248dp, a 174dp primary button and a text decline action.</string>
+    <string name="statement_heading">Before you continue</string>
+    <string name="statement_body">This app collects basic diagnostics to keep the device running smoothly. The data stays on this device unless you enable cloud sync. You can withdraw at any time from Settings.\n\nBy continuing you acknowledge the terms of service and the privacy policy, and you allow the app to check for updates automatically.</string>
+    <string name="statement_confirm">Agree and continue</string>
+    <string name="statement_exit">Disagree</string>
+    <string name="statement_result">Last action: %1$s</string>
+    <string name="statement_agreed">agreed</string>
+    <string name="statement_declined">declined</string>
+    <string name="catalog_statement">Privacy statement</string>
+    <string name="statement_hint">The confirm and decline actions are host callbacks; the layout switches to a button row on small-screen landscape.</string>
     <string name="catalog_stepper">Stepper</string>
     <string name="intro_stepper">Numeric stepper with minus and plus buttons; tap once or hold for continuous steps.</string>
     <string name="catalog_icon_button">Icon button</string>
@@ -303,6 +315,9 @@
     <string name="adaptive_current">Size class: %1$s</string>
     <string name="adaptive_current_summary">Measure the container, not the window, so a split view reports its own width.</string>
     <string name="adaptive_breakpoints">Breakpoints</string>
+    <string name="adaptive_compact_label">Compact</string>
+    <string name="adaptive_medium_label">Medium</string>
+    <string name="adaptive_expanded_label">Expanded</string>
     <string name="adaptive_compact_range">Below 600dp</string>
     <string name="adaptive_medium_range">600dp to 839dp</string>
     <string name="adaptive_expanded_range">840dp and up</string>
@@ -326,4 +341,16 @@
     <string name="catalog_group_pages">Page samples</string>
     <string name="catalog_group_effect_material">Material &amp; blur</string>
     <string name="catalog_group_effect_motion">Lighting &amp; motion</string>
+    <string name="catalog_line_chart">Line chart</string>
+    <string name="intro_line_chart">Sliding window line: a new point pushes the oldest out, the last segment grows in, and the area fades to the bottom.</string>
+    <string name="line_chart_title">Network speed</string>
+    <string name="line_chart_value">Latest</string>
+    <string name="line_chart_unit_mbps">Mbps</string>
+    <string name="catalog_scan_ring">Scan ring</string>
+    <string name="intro_scan_ring">Score arc with the rotating scan band. Tap to switch between a healthy score and one below the red threshold.</string>
+    <string name="scan_ring_title">Security score</string>
+    <string name="scan_ring_score_unit">pts</string>
+    <string name="scan_ring_hint">Tap the ring to rescan</string>
+    <string name="scan_ring_scanning">Scanning</string>
+    <string name="scan_ring_done">Done</string>
 </resources>

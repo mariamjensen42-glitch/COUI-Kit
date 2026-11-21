@@ -33,3 +33,11 @@ Group(title = "高级设置") {
 箭头由组件自绘（两段折线，展开时旋转 180°），不依赖图标库，也不受宿主图标配色影响。内容区域的上下留白由 `CouiAccordionDefaults.contentBottomPadding` 控制，行间距仍由放入的子项决定。
 
 源码见 [Accordion](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/accordion/Accordion.kt)。
+
+## 与原厂的差异
+
+原厂的 `COUIExpandableListView` / `ExpandableRecyclerView` 是可展开列表；`Accordion` 只覆盖单张卡片内的一段展开，没有列表级折叠、分组复用与项回收。
+
+## Demo
+
+完整示例见 [DemoExtraSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoExtraSamples.kt)。

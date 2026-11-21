@@ -95,3 +95,7 @@ dex 复核（`com.coui.appcompat.indicator.COUIPageIndicator` 的 `$c` 内部类
 ## Demo 示例
 
 三点、五点、切换当前页与点击跳页示例见 [DemoPageIndicatorSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoPageIndicatorSamples.kt)，库入口见 [PageIndicator](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/pageindicator/PageIndicator.kt)。
+
+## 与原厂的差异
+
+原厂 `COUIPageIndicatorKit` 与 `COUIBanner` 联动；这里把两者拆开：本组件只画圆点，翻页、自动轮播与指示器的叠放都在[轮播](banner.md)里，宿主自行摆放时仍由宿主驱动当前页。

@@ -2,6 +2,8 @@
 
 用户主页顶栏：圆形头像、主副标题与关注按钮。副标题可省略，关注态在按钮底色、内容色和字号之间过渡。
 
+该组件随 `coui-blocks` 发布，与核心使用同一版本，包名为 `com.cycling.coui.blocks.topappbar`；只接入核心时没有这个顶栏。
+
 ## 最小调用
 
 ```kotlin
@@ -60,4 +62,8 @@ UserFollowBar(
 4. 原厂副标题的显示/隐藏靠 `Barrier` 重新连接约束（`connect(SUB_TEXT, END, TEXT, END)`）；这里用副标题高度乘可见度插值，关闭时副标题不参与布局，标题末端对齐略有差异。
 5. 原厂 `setAnimate(false)` 时直接写约束集跳变；这里所有状态变化都走 300ms 过渡。
 
-Demo：`DemoUserFollowSamples.kt` 中的 User follow bar 页面。源码见 [UserFollowBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/UserFollowBar.kt)、[CouiUserFollowDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/topappbar/CouiUserFollowDefaults.kt)。
+Demo：`DemoUserFollowSamples.kt` 中的 User follow bar 页面。源码见 [UserFollowBar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-blocks/src/main/java/com/cycling/coui/blocks/topappbar/UserFollowBar.kt)、[CouiUserFollowDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-blocks/src/main/java/com/cycling/coui/blocks/topappbar/CouiUserFollowDefaults.kt)。
+
+## Demo
+
+完整示例见 [DemoUserFollowSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoUserFollowSamples.kt)。

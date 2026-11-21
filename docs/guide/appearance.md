@@ -42,6 +42,8 @@ CouiTheme(darkTheme = dark, colorScheme = CouiPresets.green(dark)) {
 
 `com.cycling.coui.text.Text` 提供固定 COUI 排版角色，`kind` 必填。文字颜色依次取显式 `color`、已提供的 `LocalCouiContentColor`、当前 `CouiTheme.colorScheme.onSurface`。省略颜色即可在独立布局中跟随主题，详见[Item](../components/item.md#配色与文字)。菜单项则读取 `CouiTheme.typography.menuItem` 的字号、字重与字体族。
 
+需要自定义字号或复用现成样式时，用 `Text` 的 `style` 重载直接传 `TextStyle`；`rememberCouiSystemTextStyle(kind, size)` 按角色换字号，同时保留系统字重补偿。两处都只改字号与样式，不改变颜色解析顺序。
+
 `LocalCouiContentColor` 的缺省值为 `Color.Unspecified`，表示未提供内容色。直接读取该 Local 的宿主应在未指定时取当前主题颜色；COUI 的文字和图标已经在消费处解析。显式颜色优先，包括透明色；图标显式传入 `tint = Color.Unspecified` 时保留不染色语义。
 
 ## 菜单、底栏、悬浮操作栏、搜索栏与 FAB 的染色

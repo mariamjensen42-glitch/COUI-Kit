@@ -1,0 +1,8 @@
+<resources>
+    <string name="banner_title">轮播</string>
+    <string name="intro_banner">露出相邻页的轮播与页码圆点</string>
+    <string name="banner_count">页数</string>
+    <string name="banner_margin">露边宽度</string>
+    <string name="banner_example">示例</string>
+    <string name="banner_page">第 %1$d 张</string>
+</resources>

@@ -87,3 +87,7 @@ StateLayout(
 ## Demo 示例
 
 标题、说明与操作槽的组合见 [DemoEmptyStateSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoEmptyStateSamples.kt)，库入口见 [EmptyState](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/emptystate/EmptyState.kt)。
+
+## 与原厂的差异
+
+按原厂空状态的图标、标题、说明与操作排布实现；插画与按钮外观由宿主传入，未内置原厂预设组合。

@@ -1,0 +1,9 @@
+<resources>
+    <string name="state_effect_title">状态效果</string>
+    <string name="state_effect_intro">在同一表面上查看悬停、焦点与按压蒙层，以及焦点描边和按压缩放。</string>
+    <string name="state_effect_item">卡片 %1$d</string>
+    <string name="state_effect_hint">按压卡片；指针设备可悬停，键盘可聚焦，逐个查看各通道。</string>
+    <string name="state_effect_outline">焦点描边</string>
+    <string name="state_effect_scale">按压缩放</string>
+    <string name="state_effect_enabled">启用</string>
+</resources>

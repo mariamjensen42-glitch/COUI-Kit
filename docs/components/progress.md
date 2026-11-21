@@ -54,11 +54,13 @@ CircularProgress(
 
 ### 渐变弧
 
-`arcGradient` 非空时弧线改用竖直渐变，第一项是环顶、最后一项是环底，`color` 退为光晕与取色基线。原厂分数环的弧正是竖直渐变：顶端满饱和、底端偏淡，色相与明度基本不变，只有饱和度下降——手机管家首页 78 分环沿弧采样时 R 通道 0→41、B 通道 16→40，G 通道稳定在 208–214。端点色随页面而异（首页 `#00D616` → `#29CF28`，清理存储 `#2ACB1B` → `#58C358`），所以端点不进入默认值，由调用方按页面给出。
+`arcGradient` 非空时弧线改用竖直渐变，第一项是环顶、最后一项是环底，`color` 退为光晕与取色基线。竖直渐变是项目按截图采样得到的近似：手机管家首页 78 分环沿弧采样时 R 通道 0→41、B 通道 16→40，G 通道稳定在 208–214，观感是「顶端满饱和、底端偏淡」。原厂 `ScanCircleView` 实际用的是 `SweepGradient`——五段颜色沿角度分布、停位 `.2 / .45 / .7`，再整体旋转 90°；需要算法级一致时用[分数环](scan-ring.md)，`arcGradient` 留给只需要「上浓下淡」的普通环形进度。端点色随页面而异（首页 `#00D616` → `#29CF28`，清理存储 `#2ACB1B` → `#58C358`），所以端点不进入默认值，由调用方按页面给出。
 
 渐变按环的上下外缘铺满描边带，换 `size` 或 `strokeWidth` 只改变长度、不改变两端颜色；端部仍是圆头，与原厂弧端收口一致。整圈（无缺口且进度为 1）直接按椭圆描边绘制，避免 `Path.arcTo` 在 360° 上退化成空路径。
 
 ### 分数环
+
+需要与原厂 `ScanCircleView` 逐项对齐时用独立的[分数环](scan-ring.md)：角度渐变、扫描色带旋转、70 分红线都由组件内部处理。下面这段是只用 `CircularProgress` 拼出的近似版，适合已有白色圆盘背景、只要求外观接近的场景。
 
 手机管家首页那种「白色圆盘 + 外环」的分数环不单独提供组件，用 `CircularProgress` 叠一层实心圆即可——内圆尺寸取环的内径，两者正好贴合：
 
@@ -87,7 +89,9 @@ Box(Modifier.size(225.dp), contentAlignment = Alignment.Center) {
 }
 ~~~
 
-数值取自真机测量（872×1920 手机管家截图，2.2px/dp）：环外径 189dp、描边 24dp、内孔 141dp，三者满足 `189 - 2×24 = 141`，说明圆盘正好填满环内孔。缺口落在右下，对应 `startAngleDegrees = 80f`、`gapDegrees = 70f`。
+数值取自真机测量（872×1920 手机管家截图，2.2px/dp）：环外径 189dp、描边 24dp、内孔 141dp，三者满足 `189 - 2×24 = 141`，说明圆盘正好填满环内孔。缺口按 78 分截图取 `startAngleDegrees = 80f`、`gapDegrees = 70f`，落在右下。
+
+这个缺口是**该分数下的未填充差额**，不是原厂的固定缺口：原厂弧长等于 `score / 100 × 360°`，78 分时留白 `360° × 22% ≈ 79°`，分数变化后缺口随之变化。固定 `gapDegrees` 只对这一个分数点成立，需要随分数变化时改用[分数环](scan-ring.md)。
 
 **内圆尺寸必须按环内孔算，不能按环外径算**：开 `glow` 时环会按 `circularGlowRingScale`（0.82）内收，且 `size` 表示含光晕的整体尺寸，直接传 189dp 得到的环只有约 159dp 外径、111dp 内孔，白色圆盘会盖住环的内侧。圆盘与数字的配色是页面级的（原厂是白底深字），由调用方显式给出，不跟随深色主题——手机管家整页是深色背景，圆盘仍是白色。
 
@@ -132,7 +136,8 @@ Skeleton(Modifier.size(48.dp), shape = CircleShape)
 ## 安装进度按钮
 
 `InstallLoadProgress` 对应原厂 `COUIInstallLoadProgress`：底色上叠一段进度、文字居中，
-进度覆盖到的文字换成另一种颜色，按下时整体内缩、变暗、文字缩小：
+进度覆盖到的文字换成另一种颜色，按下时整体内缩、变暗、文字缩小。它随 `coui-blocks` 发布，
+包名为 `com.cycling.coui.blocks.progress`；其余进度控件仍在核心库。
 
 ~~~kotlin
 var state by remember { mutableStateOf(CouiLoadProgressState.InProgress) }
@@ -175,4 +180,4 @@ InstallLoadProgress(
 
 ## Demo 示例
 
-环形、大号读数环、线性、分段、安装进度按钮与占位示例见 [DemoProgressSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoProgressSamples.kt)，库入口见 [CircularProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/progress/CircularProgress.kt)、[LinearProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/progress/LinearProgress.kt) 、[Skeleton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/progress/Skeleton.kt) 与 [InstallLoadProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/progress/InstallLoadProgress.kt)。
+环形、大号读数环、线性、分段、安装进度按钮与占位示例见 [DemoProgressSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoProgressSamples.kt)，库入口见 [CircularProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/progress/CircularProgress.kt)、[LinearProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/progress/LinearProgress.kt) 、[Skeleton](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/progress/Skeleton.kt) 与 [InstallLoadProgress](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui-blocks/src/main/java/com/cycling/coui/blocks/progress/InstallLoadProgress.kt)。

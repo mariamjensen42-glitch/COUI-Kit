@@ -2,7 +2,7 @@ package com.cycling.coui.demo
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.layout.Divider
 import com.cycling.coui.layout.Group
 import com.cycling.coui.theme.CouiTheme

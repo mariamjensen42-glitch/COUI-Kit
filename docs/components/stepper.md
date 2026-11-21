@@ -35,3 +35,7 @@ Stepper(
 - 长按由 `awaitEachGesture` 自行实现：抬手在控件内、且未被父容器消费才算单击；长按后离开控件不结束重复，抬手或取消才结束。
 
 源码见 [Stepper](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/stepper/Stepper.kt)。
+
+## Demo
+
+完整示例见 [DemoExtraSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoExtraSamples.kt)。

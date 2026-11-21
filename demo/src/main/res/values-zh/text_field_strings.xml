@@ -1,0 +1,13 @@
+<resources>
+    <string name="textfield_family_title">输入框</string>
+    <string name="intro_textfield_family">错误抖动、验证码格子与多行输入卡</string>
+    <string name="textfield_error_title">错误态</string>
+    <string name="textfield_error_label">昵称</string>
+    <string name="textfield_error_message">昵称已被占用</string>
+    <string name="textfield_error_action">校验</string>
+    <string name="textfield_code_title">验证码</string>
+    <string name="textfield_code_secure">隐藏数字</string>
+    <string name="textfield_code_clear">清空</string>
+    <string name="textfield_multi_title">多行输入卡</string>
+    <string name="textfield_multi_hint">简单描述一下这个想法</string>
+</resources>

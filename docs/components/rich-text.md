@@ -59,3 +59,7 @@ Text(text = text, kind = CouiTextKind.ItemSummary)
 ## Demo 与源码
 
 示例见 [DemoRichTextSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoRichTextSamples.kt)，公开入口见 [Text](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/text/Text.kt) 与 [CouiTextLinkDefaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/text/CouiTextLinkDefaults.kt)。
+
+## 与原厂的差异
+
+链接色取 `CouiTextLinkDefaults`；Compose 的 `TextLinkStyles` 没有禁用态，禁用链接需要宿主改回普通 span。

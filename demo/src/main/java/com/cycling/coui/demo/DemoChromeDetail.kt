@@ -4,7 +4,7 @@ import android.os.Build
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectableGroup
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.demo.ui.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable

@@ -2,16 +2,31 @@
 
 COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和兼容要求的变化。日期以提交合并时间为准；版本归档以真实 Git Tag 和发行产物为准。
 
-## [未发布]
+## [0.1.0-alpha1] - 2026-11-21
 
 以下为相对 `0.0.1-alpha13` 的变更。
 
+### 新增与改进
+
+- 新增环形步进徽标 `StepRing` 与 `CouiStepRingDefaults`、`CouiStepRingColors`：按手机管家「应用内清理」页的 `InAppClearStepIndicatorView` 移植 24dp 环、1.63dp 描边、`step / total` 的顺时针弧长、满步的整圈分支，以及随尺寸等比缩放且不跟随系统字号的 18dp 数字。[步骤条](docs/components/step-bar.md)
+- 新增全屏隐私声明 `PrivacyStatement` 与 `CouiStatementDefaults`：按 `COUIFullPageStatement` 与 `coui_full_page_statement.xml` 移植居中标题、最高 248dp 的可滚动正文、174dp 主按钮、文字拒绝入口，以及 `smallestScreenWidthDp < 480` 横屏时的一行双按钮。正文支持 `AnnotatedString` 链接；32dp 滚动渐隐、tiny 布局与自动缩字未移植。[隐私声明](docs/components/statement.md)
+- 新增折线图 `LineChart` 与 `CouiLineChartDefaults`：按手机管家「网络安全检测」页的 `NetworkSlidingWindowLineView` 移植滑动窗口（默认 50 点）、1dp 圆头线 `#00BD13`、上下各 0.1 留白、面积自上而下淡出、每点水平切线的三次贝塞尔，以及新增点 300ms 线性入场；相邻点均分规则随窗口是否填满分档，值域差小于 0.1 时改为「中值 ± 0.5」。原厂 `drawCompleteChart()` 的 40 点高斯降采样分支未移植。[折线图](docs/components/line-chart.md)
+- 新增分数环 `ScanRing`、`CouiScanRingPalette` 与 `CouiScanRingDefaults`：按手机管家首页的 `ScanCircleView` 移植 172dp 环与 22dp 描边、`score/100×360` 的弧长、绿红两套五阶角度渐变（停位 `.2/.45/.7` 与 `.2/.5/.85`）、70 分红线（转红立即、回绿 600ms + 300ms 延迟）、8 阶镜像色板的 5000ms 扫描旋转与按剩余角度补完的停止分支、2000ms 分数缓动。`main_circle_*.webp` 的外发光底图、中心图标与扩散波纹属于位图，未移植。[分数环](docs/components/scan-ring.md)
+- 新增轮播 `Banner`、`BannerState`、`rememberBannerState` 与 `CouiBannerDefaults`：一屏一张卡片、两侧露出相邻卡片（`contentPadding` = 露边宽度 + 24dp，`pageSpacing` = 24dp）、底部居中叠[页码指示器](docs/components/page-indicator.md)（距底 10dp，深底配色 #4DFFFFFF / #E6FFFFFF）。首尾各补一页形成无限循环，停稳后无动画跳回真实页；自动轮播沿用原厂节奏（停留 5s + 滚动 950ms，`CubicBezierEasing(0.2, 0, 0.1, 1)`），按下暂停、抬手重排。对外下标一律是真实页下标。原厂 `type = 1` 的平板双列列表未移植。[轮播](docs/components/banner.md)
+- 新增基础原语 `Icon`、`Surface` 与 `Grid`：`Icon` 提供 `ImageVector` 与 `Painter` 两个入口，默认 24dp 并跟随当前内容色，`tint = Color.Unspecified` 保留图标原色；`Surface` 负责铺底、按形状裁剪、可选描边并下发 `LocalCouiContentColor`；`Grid` 按列数均分宽度、行高取该行最高子项，约束无界时退化为单列。Demo 的内部图标包装改用公共 `Icon`。[图标](docs/components/icons.md) · [表面](docs/components/surface.md) · [网格](docs/components/grid.md)
+
 ### 调整与修复
+
+- 重构：控制中心磁贴（`QuickSettingTile`、`LevelSlider`、`DeformationTileGrid`）、安装进度按钮 `InstallLoadProgress` 与用户关注顶栏 `UserFollowBar` 连同各自 Defaults 从 `coui` 迁到新模块 `coui-blocks`，与核心同版本发布。**破坏性变更**：包名由 `com.cycling.coui.quicksetting` / `progress` / `topappbar` 改为 `com.cycling.coui.blocks.quicksetting` / `progress` / `topappbar`，宿主需新增 `coui-blocks` 坐标并改 import；核心库不再包含这些类。为跨模块消费，`Text` 新增 `TextStyle` 重载，`rememberCouiSystemTextStyle` 公开并支持 `TextUnit` 字号。[控制中心磁贴](docs/components/quick-setting.md) · [安装进度按钮](docs/components/progress.md#安装进度按钮) · [用户关注顶栏](docs/components/user-follow-bar.md)
+
+- 调整命名：自适应布局入口 `CouiAdaptiveLayout` 改为 `AdaptiveLayout`，与公开 UI 组件不带 `Coui` 前缀的约定一致；`CouiWindowSizeClass` 与 `LocalCouiWindowSizeClass` 保留前缀。**破坏性变更**：宿主把调用处的 `CouiAdaptiveLayout` 改成 `AdaptiveLayout` 即可。[自适应布局](docs/components/adaptive-layout.md)
+- 重做下拉刷新 `PullToRefresh`：按 `BounceLayout` + `DefaultHeader` 复刻度量、阻尼与状态机——头部为 16dp 环加「下拉刷新」文案、整体 26% 不透明度、高 40dp，锁定位置 80dp、松手达到 80dp 才刷新、800ms 锁定与 500ms 收回、越过阈值触发 `ScrollEdge` 触感；向下拉完全留给内层列表，`onPostScroll` 在列表到顶后把剩余位移转成下拉，`onPreScroll` 只负责向上收回，未过阈值改用 `CouiScrollPhysics` 弹簧回弹（张力倍数 2.15）。`indicator` 参数改为 `header`，新增 `hapticFeedbackEnabled`；`CouiPullToRefreshDefaults` 的 `threshold` 改为 80dp、去掉 `maxPullFactor`、`indicatorSize` / `indicatorStroke` 改为 16dp / 2dp，新增 `headerHeight` / `indicatorGap` / `indicatorAlpha` / `lockDurationMillis` / `settleDurationMillis` / `labelFadeDelayMillis` / `labelFadeMillis`。组件不能再嵌在外层滚动容器里，否则外层会先吃掉下拉位移。[下拉刷新](docs/components/pull-to-refresh.md)
 
 - 调整公开发行渠道：Maven Central 发布工作流与 Tag 版本校验脚本下线，公开版本改由 JitPack 按 `v` 开头的 Tag 构建，坐标变为 `com.github.mariamjensen42-glitch.COUI-Kit:coui` 与 `:coui-icons`；Android 工程需在 `settings.gradle.kts` 增加 `maven("https://jitpack.io")`。[快速开始](docs/guide/getting-started.md)
 - 调整 GitHub Packages 快照的归属：仓库地址、POM 的 url/scm 与工作流 gate 统一指向 `mariamjensen42-glitch/COUI-Kit`，坐标 group 仍为 `io.github.itoseo`。[发布渠道](docs/development/publishing.md)
 - 调整页签条外观为胶囊分段：容器改为包裹内容的胶囊并在可用宽度内居中，选中项由底部 2dp 下划线改为整段宽度的胶囊填充，几何与配色复用分段控件（40dp 高、4dp 内缩、52dp 最小段宽、12dp 文字留白）。`TabLayout` 移除 `dividerVisible`，`CouiTabLayoutDefaults` 移除 `indicatorHeight` / `indicatorMinWidth` / `indicatorPadding` / `dividerHeight` / `tabSpacing` / `edgeMargin` / `contentMinWidth`，改为 `containerPadding` / `tabMinWidth` / `labelPadding`；`CouiTabLayoutColors` 的 `divider` 换成 `container`。[页签条](docs/components/tab-layout.md)
 - 调整包名为 `com.cycling.coui`：核心、`coui-icons` 与 Demo 的 `namespace` 由 `com.itos.*` 改为 `com.cycling.*`，Demo `applicationId` 改为 `com.cycling.coui.demo`。源码目录随包名迁移，宿主的 `import` 与依赖坐标中的 group `io.github.itoseo` 不变；Demo 因 applicationId 变化，需卸载旧版本再安装。
+- 修复滑条交互手感与行为：三个 SeekBar 统一改用系统 `touchSlop` 才进入拖动；`SectionSeekBar` 按 `SectionAnimationHandler` 补齐拖动锚点、100ms 跨档中间吸附、0.6 跟随 / 0.4 动画混合与方向反转重锚，抬手/点击改用原厂默认 `AccelerateDecelerate`，点击目标在动画前提交，抬手按最终手指位置取档；`IconSeekBar` 阻尼改为原厂 `PathInterpolator(0.3, 0, 0.1, 1)` 曲线并按原厂以面板绝对横坐标与进度区半宽比较（左右不对称），保留 80ms 回档平滑并标注为受控状态适配；三个组件的吸附/点击/惯性动画在新手势开始时取消，避免并发写显示值；`VerticalSeekBar` 新增 `onValueChangeFinished`，越过 `touchSlop` 才拖动，文字 `Paint` 复用。[分段与图标滑动条](docs/components/section-seek-bar.md) · [竖向滑动条](docs/components/vertical-seek-bar.md)
 
 ## [0.0.1-alpha13] - 2026-11-15
 
@@ -30,6 +45,7 @@ COUI-Kit 处于早期预览阶段。本文记录公开 API、行为、接入和�
 - 新增 `StateEffectSurface` 与 `CouiStateEffectDefaults`：悬停、焦点、选中与按压蒙层的图层顺序、焦点并入选中、禁用归零与按压缩放按 `COUIStateEffectDrawable` 组合，蒙层与描边复用 `couiStateMask` / `couiFocusOutline`；原厂 `Processor` 体系未移植。[状态效果表面](docs/components/state-effect.md)
 - 新增 `ProgressiveDragState`、`rememberProgressiveDragState`、`Modifier.couiProgressiveDrag` 与 `CouiProgressiveDefaults`：按行距递增的响应与步长封顶、速度对回落响应与回弹的修正、橡皮筋公式按 `animatekit/progressive` 移植；原厂 View + 协程框架换成 `CouiSpring`，触发排由宿主传入。[渐进式拖动](docs/components/progressive-drag.md)
 - 新增 `UserFollowBar` 与 `CouiUserFollowDefaults`：头像 24dp、按钮 52×28dp、高度 52dp 与 8dp 间距按 `COUIUserFollowView` 的约束移植，关注态在 300ms 内插值按钮底色、内容色、字号与位置。[用户关注顶栏](docs/components/user-follow-bar.md)
+- 新增 `FloatingToolbar` 与 `CouiFloatingToolbarDefaults`：单条玻璃胶囊承载多个同级操作，48dp 栏高、每项 48dp 最小宽与按下置顶绘制按原厂悬浮操作栏移植；展开与吸附动画未复刻。[悬浮操作栏](docs/components/floating-toolbar.md)
 
 ### 调整与修复
 

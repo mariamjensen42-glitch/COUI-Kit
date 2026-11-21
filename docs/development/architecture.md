@@ -5,10 +5,13 @@
 ~~~text
 宿主 App / demo
   ├─ coui-icons（可选）→ coui
+  ├─ coui-blocks（可选）→ coui
   └─ coui → Android / Compose / AndroidX
 ~~~
 
 coui 持有通用 COUI 组件、原生主题与固定预设、效果、背景采样、几何、输入与动效。宿主提供受控状态、导航、错误展示和业务回调，并可覆盖配色、字体、Shape 与 Style。应用偏好与动态色创建仍归宿主；核心不读取应用设置或外部设计体系的主题。
+
+可选 `coui-blocks` 承载只对一类页面有意义的业务组件：控制中心磁贴（`quicksetting`）、安装进度按钮（`progress`）与用户关注顶栏（`topappbar`）。它依赖核心读取同一主题与公共效果，核心不反向依赖它；业务状态、提交与页面装配仍归宿主。
 
 核心的 CouiStyle 只使用核心和基础 Compose 类型。宿主外观通过 CouiTheme 或显式参数接入；库不缓存宿主色板、不持有 Context、不接管业务状态。局部 CouiTheme 提供 native/custom 外观。模式与覆盖顺序见[外观指南](../guide/appearance.md)。
 
@@ -29,6 +32,7 @@ Group、Item、Divider、Footer 处理局部分组和行布局。Item.onClick �
 | 包 | 职责 |
 | --- | --- |
 | layout | 可选页面容器、分组与行布局；Scaffold 管理局部正文源，不持有业务状态 |
+| icon、surface | 图标显示与通用表面：固定边长、内容色下发，不接管点击与投影 |
 | topappbar、search、navigation、floatingactionbutton、menu、slider、checkbox、radiobutton、switch、chip、dialog、picker、text | 局部组件的布局、状态装配、语义与公开 Defaults |
 | backdrop | 所属窗口的内容源、绘制录制与采样坐标映射 |
 | effect | 普通投影、模糊、材质、光效与融合绘制 |
@@ -38,6 +42,8 @@ Group、Item、Divider、Footer 处理局部分组和行布局。Item.onClick �
 | theme | 可选外观上下文、原生配色、普通字体与内容局部样式 |
 
 这些是现有 coui 模块内的职责划分。新入口放到实际负责的组件族；共享算法按职责复用，不按导入或文件名搬迁。不要新增只转发参数的包装层。
+
+`coui-blocks` 按 `quicksetting`、`progress`、`topappbar` 三个包划分，各自持有组件与其 Defaults，不建立跨组件的共享层；需要通用绘制时走核心的公开效果。
 
 ## 状态与资源
 

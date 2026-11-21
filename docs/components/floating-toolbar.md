@@ -94,3 +94,7 @@ val style = base.copy(material = base.material.copy(blurRadius = 30f))
 放入 COUI Scaffold 的顶栏、底栏或 FAB 槽位时可省略 `backdrop`；正文中的操作栏需要显式传入覆盖页面内容的背景源，创建方式见[背景采样](../effects/backdrop.md)。
 
 源码见 [FloatingToolbar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/floatingtoolbar/FloatingToolbar.kt) 与 [Defaults](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/floatingtoolbar/CouiFloatingToolbarDefaults.kt)。Demo 装配见 [DemoFloatingToolbar](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoFloatingToolbar.kt)。
+
+## 与原厂的差异
+
+浅色胶囊两层色同样比参数表低一档（与 `DockBar`、`NavigationBar` 同源），深色一致，待真机对照；原厂的展开与吸附动画未移植。

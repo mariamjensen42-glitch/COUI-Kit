@@ -17,7 +17,7 @@
 
 ```kotlin
 dependencies {
-    implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui:v0.0.1-alpha13")
+    implementation("com.github.mariamjensen42-glitch.COUI-Kit:coui:v0.1.0-alpha1")
 }
 ```
 
@@ -28,7 +28,7 @@ dependencies {
 | 入口 | 内容 |
 | --- | --- |
 | [快速开始](guide/getting-started.md) | 添加依赖、配置页面与常见问题 |
-| [组件目录](components/README.md) | 页面、列表、输入、弹窗与反馈组件 |
+| [组件目录](components/README.md) | 按通用、布局、导航、录入、展示与反馈分层的控件索引 |
 | [效果目录](effects/README.md) | 背景采样、模糊、阴影、光效与动效 |
 | [外观与预设](guide/appearance.md) | 配色、字体、Shape 与局部覆盖 |
 | [与原厂的定制差异](guide/customizations.md) | 与 ColorOS 原厂实现的差异说明 |

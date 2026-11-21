@@ -81,3 +81,11 @@ ThumbnailNavigationGroup(
 - 三列圆角取 20dp：顶边水平内缩实测 21.7dp、左边垂直内缩 16.3dp，平滑圆角两个方向的读数本就不等，取中间值。待原厂资源确认。
 
 源码见 [ThumbnailChoiceCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/choicecard/ThumbnailChoiceCard.kt)。
+
+## 与原厂的差异
+
+缩略图单选卡与三列导航卡按原厂对应排布实现；图片加载、缓存与失败兜底由宿主提供。
+
+## Demo
+
+完整示例见 [DemoCardSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoCardSamples.kt)。

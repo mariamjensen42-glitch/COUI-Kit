@@ -68,3 +68,7 @@ QuickActionGrid(
 ## 完整示例与 API
 
 两列示例见 [DemoLayoutSamples](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoLayoutSamples.kt)，库入口见 [QuickActionGrid](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/layout/QuickActionGrid.kt)。
+
+## 与原厂的差异
+
+两列入口按原厂快捷入口的等宽排布实现；胶囊样式属项目新增，图标与文案由 `CouiQuickAction` 提供。

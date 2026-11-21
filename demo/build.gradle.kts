@@ -37,7 +37,7 @@ android {
         minSdk = 31
         targetSdk = 37
         versionCode = gitCommitCount.get()
-        versionName = "0.0.1-alpha13"
+        versionName = "0.1.0-alpha1"
     }
     buildFeatures { compose = true }
     val demoSigning = if (signingValues.isNotEmpty()) {
@@ -71,6 +71,7 @@ android {
 
 dependencies {
     implementation(project(":coui"))
+    implementation(project(":coui-blocks"))
     implementation(project(":coui-icons"))
     implementation(libs.capsule)
     implementation(libs.androidx.core.ktx)

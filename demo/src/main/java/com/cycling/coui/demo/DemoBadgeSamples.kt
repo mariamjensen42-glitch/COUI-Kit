@@ -23,7 +23,7 @@ import com.cycling.coui.badge.BadgedBox
 import com.cycling.coui.badge.CouiBadgeDefaults
 import com.cycling.coui.button.Button
 import com.cycling.coui.button.CouiButtonStyle
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.demo.ui.Text
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.Divider

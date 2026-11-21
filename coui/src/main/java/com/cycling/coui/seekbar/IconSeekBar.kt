@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -41,6 +42,7 @@ import androidx.compose.ui.semantics.setProgress
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import com.cycling.coui.theme.CouiTheme
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 import kotlin.math.roundToInt
@@ -56,7 +58,9 @@ import kotlin.math.roundToInt
  * - 原厂固定 408×96px 的居中面板，这里面板铺满可用宽度、高度固定 32dp；
  * - 原厂音量档在 `ic_volume_seekbar_close/middle/open` 三张位图之间切换，
  *   项目没有对应位图，统一用单个音量图标并按档位调整不透明度；
- * - 原厂 305/306 触感码是厂商私有常量，这里映射为系统分档触感反馈。
+ * - 原厂 305/306 触感码是厂商私有常量，这里映射为系统分档触感反馈；
+ * - 阻尼中心按原厂字面用面板绝对横坐标与进度区半宽比较，因此左右不对称；
+ * - 拖动结束后 80ms 回档平滑是受控 Compose 状态的适配，原厂拖动结束停在阻尼位置，不做吸附。
  *
  * @param progress 当前档位，落在 [min]..[max] 内。
  * @param onProgressChange 点击与拖动引起的档位变化。
@@ -95,6 +99,10 @@ fun IconSeekBar(
 
     var visual by remember { mutableFloatStateOf(fractionOf(progress.coerceIn(min, max))) }
     var interacting by remember { mutableStateOf(false) }
+    var animationJob by remember { mutableStateOf<Job?>(null) }
+    DisposableEffect(Unit) {
+        onDispose { animationJob?.cancel() }
+    }
 
     LaunchedEffect(progress, interacting) {
         if (!interacting) visual = fractionOf(progress.coerceIn(min, max))
@@ -127,26 +135,47 @@ fun IconSeekBar(
                         CouiIconSeekBarDefaults.iconTrackGap).toPx()
                 }
                 val trackEndInset = with(density) { CouiIconSeekBarDefaults.trackEndInset.toPx() }
+                val trackEnd = size.width.toFloat() - trackEndInset
+                val dampingCenter = (trackEnd - trackStart) / 2f
                 awaitEachGesture {
                     val down = awaitFirstDown()
                     down.consume()
-                    val trackEnd = size.width.toFloat() - trackEndInset
+                    animationJob?.cancel()
+                    animationJob = null
+                    interacting = false
                     var dragging = false
                     var committed = progress.coerceIn(min, max)
                     var fingerFraction = fractionAt(down.position.x, trackStart, trackEnd, isRtl)
                     while (true) {
                         val change = awaitPointerEvent().changes.firstOrNull { it.id == down.id } ?: break
-                        if (!change.pressed) break
+                        // 点击目标取抬手坐标，与原厂 ACTION_UP 使用 motionEvent.getX() 一致。
                         fingerFraction = fractionAt(change.position.x, trackStart, trackEnd, isRtl)
+                        if (!change.pressed) break
                         if (!dragging) {
-                            if (abs(change.position.x - down.position.x) < 2f) {
+                            if (abs(change.position.x - down.position.x) <= viewConfiguration.touchSlop) {
                                 change.consume()
                                 continue
                             }
                             dragging = true
                             interacting = true
+                            // 原厂首个拖动事件直接把进度跳到手指位置，后续事件才应用阻尼。
+                            visual = fingerFraction
+                            val jumped = (min + (visual * span).roundToInt()).coerceIn(min, max)
+                            if (jumped != committed) {
+                                committed = jumped
+                                onChange(jumped)
+                                performIconHaptic(view, jumped, min, max)
+                            }
+                            change.consume()
+                            continue
                         }
-                        val damping = (1f - abs(fingerFraction - 0.5f) * 2f)
+                        // 原厂用面板绝对横坐标与进度区半宽比较，左右不对称；字面 1:1 复现。
+                        val ratio = if (dampingCenter > 0f) {
+                            (abs(change.position.x - dampingCenter) / dampingCenter).coerceIn(0f, 1f)
+                        } else {
+                            0f
+                        }
+                        val damping = (1f - CouiIconSeekBarDefaults.moveEase.transform(ratio))
                             .coerceIn(CouiIconSeekBarDefaults.minDamping, 1f)
                         visual = (visual + (fingerFraction - visual) * damping).coerceIn(0f, 1f)
                         val next = (min + (visual * span).roundToInt()).coerceIn(min, max)
@@ -158,7 +187,8 @@ fun IconSeekBar(
                         change.consume()
                     }
                     interacting = true
-                    scope.launch {
+                    animationJob?.cancel()
+                    animationJob = scope.launch {
                         if (dragging) {
                             val target = fractionOf(committed)
                             animate(visual, target, 0f,
@@ -182,8 +212,11 @@ fun IconSeekBar(
                                 performIconHaptic(view, target, min, max)
                             }
                         }
-                        interacting = false
-                        onFinished?.invoke()
+                        if (animationJob === coroutineContext[Job]) {
+                            interacting = false
+                            animationJob = null
+                            onFinished?.invoke()
+                        }
                     }
                 }
             },
@@ -282,13 +315,31 @@ private fun DrawScope.drawIconSeekBar(
 
     val progressWidth = usable * visual
     if (progressWidth > 0f) {
+        val progressColor = if (enabled) colors.progress else colors.disabledProgress
+        val top = centerY - trackHeight / 2f
         val left = if (isRtl) trackEnd - progressWidth else trackStart
         drawRoundRect(
-            color = if (enabled) colors.progress else colors.disabledProgress,
-            topLeft = Offset(left, centerY - trackHeight / 2f),
-            size = Size(progressWidth.coerceAtLeast(trackRadius * 2f), trackHeight),
+            color = progressColor,
+            topLeft = Offset(left, top),
+            size = Size(progressWidth, trackHeight),
             cornerRadius = CornerRadius(trackRadius),
         )
+        // 原厂在非满档且进度宽于圆角时把移动端方角化；满档或过窄时保留圆角。
+        if (visual < 1f && progressWidth > trackRadius) {
+            if (isRtl) {
+                drawRect(
+                    color = progressColor,
+                    topLeft = Offset(left, top),
+                    size = Size(progressWidth - trackRadius, trackHeight),
+                )
+            } else {
+                drawRect(
+                    color = progressColor,
+                    topLeft = Offset(left + trackRadius, top),
+                    size = Size(progressWidth - trackRadius, trackHeight),
+                )
+            }
+        }
     }
 }
 

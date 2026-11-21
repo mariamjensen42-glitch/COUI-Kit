@@ -6,6 +6,7 @@
 |-------------------------------------|----------------------------------------|
 | 工作顺序、原厂对齐要求、决定记录与 PR                | [开发流程](workflow.md)                    |
 | 如何定位原厂消费者、还原算法和排查差异                 | [原厂分析与 1:1 复刻方法](replication-guide.md) |
+| ColorOS 17 目标版本、职责边界与页面组件映射             | [ColorOS 17 组件库规范与组件地图](coloros17-component-map.md) |
 | 从目标应用筛选、转换和接入图标                     | [新增图标](icon-workflow.md)               |
 | 已确认的视觉与交互定制                         | [与原厂的定制差异](../guide/customizations.md) |
 | Kotlin、Compose、资源、输入及错误处理           | [代码规范](coding-style.md)                |

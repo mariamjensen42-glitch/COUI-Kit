@@ -19,7 +19,7 @@ import com.cycling.coui.button.CouiIconButtonDefaults
 import com.cycling.coui.button.IconButton
 import com.cycling.coui.card.Card
 import com.cycling.coui.card.CouiCardDefaults
-import com.cycling.coui.layout.CouiAdaptiveLayout
+import com.cycling.coui.layout.AdaptiveLayout
 import com.cycling.coui.sidepane.CouiSidePaneSide
 import com.cycling.coui.sidepane.SidePane
 import com.cycling.coui.text.CouiTextKind
@@ -127,7 +127,7 @@ private fun PanePreviewBox(side: CouiSidePaneSide) {
 @Composable
 private fun AdaptiveLayoutPreview() {
     CouiPreviewSurface {
-        CouiAdaptiveLayout { sizeClass ->
+        AdaptiveLayout { sizeClass ->
             val colors = CouiTheme.colorScheme
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Text(text = "Size class: ${sizeClass.name}", kind = CouiTextKind.ItemTitle,

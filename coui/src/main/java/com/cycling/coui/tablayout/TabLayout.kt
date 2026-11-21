@@ -5,10 +5,10 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.rememberScrollState
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -100,7 +100,7 @@ fun TabLayout(
         val labelPaddingPx = with(density) { CouiTabLayoutDefaults.labelPadding.toPx() }
         val minTabPx = with(density) { CouiTabLayoutDefaults.tabMinWidth.toPx() }
         val tabMaxPx = with(density) { CouiTabLayoutDefaults.tabMaxWidth.toPx() }
-        val viewportPx = if (constraints.hasBoundedWidth) maxWidth.toPx() else Float.MAX_VALUE
+        val viewportPx = if (constraints.hasBoundedWidth) with(density) { maxWidth.toPx() } else Float.MAX_VALUE
 
         val textWidths = remember(tabs, textStyle, density, tabMaxPx) {
             tabs.map { tab ->

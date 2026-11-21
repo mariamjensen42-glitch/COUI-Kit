@@ -19,7 +19,7 @@ import com.cycling.coui.chip.ChipGroup
 import com.cycling.coui.chip.ChipGroupEditText
 import com.cycling.coui.chip.CouiChipDefaults
 import com.cycling.coui.chip.CouiChipStyle
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.Divider
 import com.cycling.coui.layout.Group

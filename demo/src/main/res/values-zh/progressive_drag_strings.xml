@@ -1,0 +1,5 @@
+<resources>
+    <string name="progressive_drag_title">渐进式拖动</string>
+    <string name="progressive_drag_row">第 %1$d 行</string>
+    <string name="progressive_drag_hint">横向拖动面板：离手指近的行比远的行跟得更快。</string>
+</resources>

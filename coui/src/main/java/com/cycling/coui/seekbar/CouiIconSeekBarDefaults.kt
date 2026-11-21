@@ -58,7 +58,12 @@ object CouiIconSeekBarDefaults {
     /** 拖动阻尼下限，对应原厂 `mMinDamping`。 */
     const val minDamping = 0.4f
 
-    /** 拖动抬手后对齐到整数档的时长。 */
+    /**
+     * 项目适配：受控 `progress` 回写时把滑块平滑回档的时长。
+     *
+     * 原厂 `COUIIconSeekBar` 拖动结束不做吸附，滑块停在阻尼位置；
+     * Compose 受控状态会把视觉位置拉回整数档，这里用 80ms 过渡避免瞬时跳变。
+     */
     const val settleMillis = 80
 
     /** 点击过渡最短时长。 */

@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.demo.ui.Text
 import com.cycling.coui.icons.CouiIcons
 import com.cycling.coui.layout.CouiPageDefaults
@@ -24,7 +24,7 @@ internal data class DemoCatalogEntry(
     val icon: @Composable () -> ImageVector,
 )
 
-/** 目录分组：分类标题 + 条目。分组按 docs/components/README.md 的分类划分。 */
+/** 目录分组：分类标题 + 条目。分组按使用场景划分，与 docs/components/README.md 的场景速查一致。 */
 internal data class DemoCatalogGroup(val title: Int, val entries: List<DemoCatalogEntry>)
 
 private val CatalogRowMinHeight = 52.dp
@@ -62,6 +62,7 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("thumbnail", R.string.catalog_thumbnail_choice, DemoIconTone.Blue) { CouiIcons.Filled.DarkLight },
         DemoCatalogEntry("choice", R.string.catalog_choice_card, DemoIconTone.Purple) { CouiIcons.Filled.GridSliders },
         DemoCatalogEntry("chart", R.string.catalog_bar_chart, DemoIconTone.Green) { CouiIcons.Filled.Battery },
+        DemoCatalogEntry("linechart", R.string.catalog_line_chart, DemoIconTone.Green) { CouiIcons.Filled.Radar },
         DemoCatalogEntry("accordion", R.string.catalog_accordion, DemoIconTone.Orange) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("avatar", R.string.catalog_avatar, DemoIconTone.Green) { CouiIcons.Filled.Health },
         DemoCatalogEntry("stepbar", R.string.catalog_step_bar, DemoIconTone.Yellow) { CouiIcons.Filled.Album },
@@ -96,16 +97,19 @@ internal val DemoComponentGroups = listOf(
         DemoCatalogEntry("floatmenu", R.string.catalog_floatmenu, DemoIconTone.Green) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("iconbutton", R.string.catalog_icon_button, DemoIconTone.Purple) { CouiIcons.Filled.More },
         DemoCatalogEntry("progress", R.string.progress_title, DemoIconTone.Green) { CouiIcons.Filled.Fan },
+        DemoCatalogEntry("scanring", R.string.catalog_scan_ring, DemoIconTone.Green) { CouiIcons.Filled.Health },
         DemoCatalogEntry("toast", R.string.toast_title, DemoIconTone.Orange) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("snackbar", R.string.snackbar_title, DemoIconTone.Purple) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("badge", R.string.badge_title, DemoIconTone.Red) { CouiIcons.Filled.Rings },
         DemoCatalogEntry("pageindicator", R.string.pageindicator_title, DemoIconTone.Blue) { CouiIcons.Filled.Album },
+        DemoCatalogEntry("banner", R.string.banner_title, DemoIconTone.Blue) { CouiIcons.Filled.Photo },
         DemoCatalogEntry("emptystate", R.string.emptystate_title, DemoIconTone.Yellow) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("statelayout", R.string.catalog_state_layout, DemoIconTone.Purple) { CouiIcons.Filled.Fan },
         DemoCatalogEntry("refresh", R.string.catalog_pull_refresh, DemoIconTone.Blue) { CouiIcons.Filled.CloudData },
         DemoCatalogEntry("toptips", R.string.top_tips_title, DemoIconTone.Yellow) { CouiIcons.Filled.Bell })),
     DemoCatalogGroup(R.string.catalog_group_pages, listOf(
         DemoCatalogEntry("manager", R.string.manager_title, DemoIconTone.Green) { CouiIcons.Filled.Health },
+        DemoCatalogEntry("privacy", R.string.catalog_statement, DemoIconTone.Yellow) { CouiIcons.Filled.BookOpen },
         DemoCatalogEntry("cleanup", R.string.cleanup_title, DemoIconTone.Green) { CouiIcons.Filled.Fan })),
 )
 
@@ -186,6 +190,9 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "buttonbar" -> R.string.intro_buttonbar
     "floatmenu" -> R.string.intro_floatmenu
     "progress" -> R.string.intro_progress
+    "linechart" -> R.string.intro_line_chart
+    "scanring" -> R.string.intro_scan_ring
+    "privacy" -> R.string.statement_intro
     "toast" -> R.string.intro_toast
     "marquee" -> R.string.intro_marquee
     "verticalseek" -> R.string.intro_vertical_seek
@@ -197,6 +204,7 @@ internal fun catalogDescription(page: String): Int = when (page) {
     "richtext" -> R.string.intro_richtext
     "scrollbar" -> R.string.intro_scrollbar
     "pageindicator" -> R.string.intro_pageindicator
+    "banner" -> R.string.intro_banner
     "emptystate" -> R.string.intro_emptystate
     "textfield" -> R.string.intro_text_field
     "textfields" -> R.string.intro_textfield_family

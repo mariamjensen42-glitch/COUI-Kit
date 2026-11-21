@@ -2,7 +2,7 @@ package com.cycling.coui.demo
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.demo.ui.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable

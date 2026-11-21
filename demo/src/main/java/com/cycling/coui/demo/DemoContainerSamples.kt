@@ -28,9 +28,9 @@ import com.cycling.coui.button.CouiButtonStyle
 import com.cycling.coui.button.CouiIconButtonDefaults
 import com.cycling.coui.button.IconButton
 import com.cycling.coui.card.Card
-import com.cycling.coui.demo.ui.Icon
+import com.cycling.coui.icon.Icon
 import com.cycling.coui.icons.CouiIcons
-import com.cycling.coui.layout.CouiAdaptiveLayout
+import com.cycling.coui.layout.AdaptiveLayout
 import com.cycling.coui.layout.CouiPageDefaults
 import com.cycling.coui.layout.CouiWindowSizeClass
 import com.cycling.coui.layout.Divider
@@ -133,7 +133,7 @@ internal fun CardSample(dark: Boolean) {
 /** 自适应断点：同一份内容在三种宽度下的排布。 */
 @Composable
 internal fun AdaptiveSample(dark: Boolean) {
-    CouiAdaptiveLayout { sizeClass ->
+    AdaptiveLayout { sizeClass ->
         // 回调内容在 Box 里, 多个分组要自己纵向排列, 否则会叠在同一个起点上。
         Column { AdaptiveSampleContent(dark = dark, sizeClass = sizeClass) }
     }
@@ -151,19 +151,19 @@ private fun AdaptiveSampleContent(dark: Boolean, sizeClass: CouiWindowSizeClass)
         }
     }
     Group(title = stringResource(R.string.adaptive_breakpoints)) {
-        Item(title = { Text(text = "Compact", kind = CouiTextKind.ItemTitle) },
+        Item(title = { Text(text = stringResource(R.string.adaptive_compact_label), kind = CouiTextKind.ItemTitle) },
             trailing = {
                 Text(text = stringResource(R.string.adaptive_compact_range), kind = CouiTextKind.ItemValue,
                     color = colors.onSurfaceVariant)
             })
         Divider()
-        Item(title = { Text(text = "Medium", kind = CouiTextKind.ItemTitle) },
+        Item(title = { Text(text = stringResource(R.string.adaptive_medium_label), kind = CouiTextKind.ItemTitle) },
             trailing = {
                 Text(text = stringResource(R.string.adaptive_medium_range), kind = CouiTextKind.ItemValue,
                     color = colors.onSurfaceVariant)
             })
         Divider()
-        Item(title = { Text(text = "Expanded", kind = CouiTextKind.ItemTitle) },
+        Item(title = { Text(text = stringResource(R.string.adaptive_expanded_label), kind = CouiTextKind.ItemTitle) },
             trailing = {
                 Text(text = stringResource(R.string.adaptive_expanded_range), kind = CouiTextKind.ItemValue,
                     color = colors.onSurfaceVariant)

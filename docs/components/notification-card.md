@@ -65,3 +65,11 @@ NotificationCard(
 单条通知卡（211px 高）里标题框高 57px ≈ 16.3dp、正文框高 70px ≈ 20dp，比当前 `ItemTitle` / `ItemSummary` 的行高更矮更扁；该行是「无头」推广通知（`notification_headerless_view_row`），普通通知行是否同值待补证，因此字号暂不跟随调整。
 
 源码见 [NotificationCard](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/coui/src/main/java/com/cycling/coui/notificationcard/NotificationCard.kt)。
+
+## 与原厂的差异
+
+按原厂通知卡的图标、标题、相对时间与正文排布实现；通知的展开、清除与多行折叠未纳入。
+
+## Demo
+
+完整示例见 [DemoCardSamples.kt](https://github.com/mariamjensen42-glitch/COUI-Kit/blob/main/demo/src/main/java/com/cycling/coui/demo/DemoCardSamples.kt)。

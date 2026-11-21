@@ -1,0 +1,6 @@
+<resources>
+    <string name="qs_edit_title">磁贴尺寸</string>
+    <string name="qs_edit_intro">长按面板进入编辑态；横向拖动磁贴把手切换跨度。</string>
+    <string name="qs_edit_mode">编辑态</string>
+    <string name="qs_edit_hint">拖动磁贴右缘的把手，在一列与两列之间切换。</string>
+</resources>

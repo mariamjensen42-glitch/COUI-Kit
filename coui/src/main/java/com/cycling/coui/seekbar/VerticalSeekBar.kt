@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -45,6 +46,7 @@ import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.sp
 import com.cycling.coui.theme.CouiTheme
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 import kotlin.math.roundToInt
@@ -57,7 +59,8 @@ import kotlin.math.roundToInt
  * （对应原厂 `mBackgroundEnlargeScale`、`mProgressEnlargeScale` 与 `mTouchEnlargeAnimator`），抬手后复原。
  *
  * 交互与原厂一致的部分：
- * - 拖动时进度跟随手指，位移按原厂 `calculateDamping()` 的 0.4 系数平滑收敛，
+ * - 越过系统 `touchSlop` 后才进入拖动，首个拖动事件直接跳到手指位置；
+ *   之后按原厂 `calculateDamping()` 的 0.4 系数从锚点收敛，档位变化时推进锚点，
  *   手指抖动不会直接反映到进度上。
  * - 抬手时速度超过 100px/s 才继续惯性滑动，衰减系数取原厂 `mFlingLinearDamping` 的 15。
  * - 点击轨道按点击位置跳转，跳转时长取 `|Δ| * 483ms`，最短 150ms。
@@ -74,6 +77,7 @@ import kotlin.math.roundToInt
  * @param value 当前进度，0f..1f，底部为 0。
  * @param onValueChange 拖动、点击与惯性滑动引起的进度变化。
  * @param label 轨道上方的文字标签，对应原厂 `couiVerticalSeekBarText`。
+ * @param onValueChangeFinished 拖动、点击或惯性结束后的回调，对应原厂 `onStopTrackingTouch`。
  */
 @Composable
 fun VerticalSeekBar(
@@ -84,16 +88,27 @@ fun VerticalSeekBar(
     enabled: Boolean = true,
     dark: Boolean = CouiTheme.isDark,
     colors: CouiVerticalSeekBarColors = CouiVerticalSeekBarDefaults.colors(dark),
+    onValueChangeFinished: (() -> Unit)? = null,
 ) {
     val density = LocalDensity.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
     val fraction = value.coerceIn(0f, 1f)
     val onChange by rememberUpdatedState(onValueChange)
+    val onFinished by rememberUpdatedState(onValueChangeFinished)
     // 显示值与业务值分离：拖动与动画期间显示值自行推进，外部值变化时再同步。
     var visual by remember { mutableFloatStateOf(fraction) }
     var interacting by remember { mutableStateOf(false) }
     var pressed by remember { mutableStateOf(false) }
+    var animationJob by remember { mutableStateOf<Job?>(null) }
+    val labelPaint = remember {
+        android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply {
+            textAlign = android.graphics.Paint.Align.CENTER
+        }
+    }
+    DisposableEffect(Unit) {
+        onDispose { animationJob?.cancel() }
+    }
     val enlarge by animateFloatAsState(
         targetValue = if (pressed) 1f else 0f,
         animationSpec = tween(CouiVerticalSeekBarDefaults.enlargeMillis),
@@ -102,6 +117,13 @@ fun VerticalSeekBar(
 
     LaunchedEffect(fraction, interacting) {
         if (!interacting) visual = fraction
+    }
+    LaunchedEffect(enabled) {
+        if (!enabled) {
+            animationJob?.cancel()
+            interacting = false
+            pressed = false
+        }
     }
 
     Box(
@@ -122,11 +144,15 @@ fun VerticalSeekBar(
                     awaitEachGesture {
                         val down = awaitFirstDown()
                         val downTime = down.uptimeMillis
+                        animationJob?.cancel()
+                        animationJob = null
+                        interacting = false
                         tracker.clear()
                         tracker.addChange(down, downTime)
-                        var smoothedY = down.position.y
+                        var anchorY = down.position.y
                         var upY = down.position.y
                         var dragging = false
+                        var lastPercent = (visual * 100).roundToInt()
                         var hapticStep = (visual * 20).roundToInt()
                         down.consume()
                         while (true) {
@@ -140,13 +166,37 @@ fun VerticalSeekBar(
                                 change.consume()
                                 continue
                             }
-                            smoothedY -= (smoothedY - change.position.y) * damping
-                            dragging = true
-                            interacting = true
-                            pressed = true
-                            val next = VerticalSeekBarGeometry.progressOf(size.height.toFloat(), smoothedY, usable)
+                            if (!dragging) {
+                                // 原厂 handleMotionEventMove 在越过 touch slop 后才 startDrag + touchAnim，
+                                // 首个拖动事件由 invalidateProgress 直接跳到手指位置。
+                                if (abs(change.position.y - down.position.y) <= viewConfiguration.touchSlop) {
+                                    change.consume()
+                                    continue
+                                }
+                                dragging = true
+                                interacting = true
+                                pressed = true
+                                anchorY = change.position.y
+                                val jumped = VerticalSeekBarGeometry.progressOf(
+                                    size.height.toFloat(), anchorY, usable)
+                                val previous = visual
+                                visual = jumped
+                                lastPercent = (jumped * 100).roundToInt()
+                                hapticStep = (jumped * 20).roundToInt()
+                                if (jumped != previous) onChange(jumped)
+                                change.consume()
+                                continue
+                            }
+                            // 原厂 trackTouchEventByFinger：锚点加 0.4 倍位移，档位变化时才推进锚点。
+                            val dampedY = anchorY - (anchorY - change.position.y) * damping
+                            val next = VerticalSeekBarGeometry.progressOf(size.height.toFloat(), dampedY, usable)
                             visual = next
                             onChange(next)
+                            val percent = (next * 100).roundToInt()
+                            if (percent != lastPercent) {
+                                lastPercent = percent
+                                anchorY = dampedY
+                            }
                             // 原厂按进度分档震动，这里按 5% 一档触发，避免逐帧连续震动。
                             val step = (next * 20).roundToInt()
                             if (step != hapticStep) {
@@ -157,42 +207,60 @@ fun VerticalSeekBar(
                         }
                         tracker.computeCurrentVelocity(1000, 8000f)
                         val velocity = tracker.yVelocity
-                        val usable = size.height.toFloat() -
-                            VerticalSeekBarGeometry.paddingVertical(density) * 2f
+                        val padding = VerticalSeekBarGeometry.paddingVertical(density)
+                        val usable = size.height.toFloat() - padding * 2f
+                        // 原厂 touchInSeekBar：落在上下留白内的抬手不触发点击跳转。
+                        val inTrack = upY >= padding && upY <= size.height - padding
                         if (!dragging) {
-                            if (usable > 0f) {
+                            if (usable > 0f && inTrack) {
                                 // 未发生拖动按点击处理：跳到点击位置，位移越大动画越长。
                                 val target = VerticalSeekBarGeometry.progressOf(size.height.toFloat(), upY, usable)
                                 val duration = (abs(target - visual) *
                                     CouiVerticalSeekBarDefaults.clickDurationFactor).toInt()
                                     .coerceAtLeast(CouiVerticalSeekBarDefaults.clickMinMillis)
-                                scope.launch {
-                                    interacting = true
-                                    animate(visual, target, 0f, tween(duration)) { animated, _ ->
-                                        visual = animated
-                                        onChange(animated)
+                                interacting = true
+                                animationJob = scope.launch {
+                                    try {
+                                        animate(visual, target, 0f, tween(duration)) { animated, _ ->
+                                            visual = animated
+                                            onChange(animated)
+                                        }
+                                    } finally {
+                                        if (animationJob === coroutineContext[Job]) {
+                                            interacting = false
+                                            animationJob = null
+                                        }
                                     }
-                                    interacting = false
+                                    onFinished?.invoke()
                                 }
+                            } else {
+                                interacting = false
                             }
                         } else if (abs(velocity) >= CouiVerticalSeekBarDefaults.flingThreshold && usable > 0f) {
-                            scope.launch {
-                                interacting = true
-                                fling(velocity, visual, usable) { next ->
-                                    visual = next
-                                    onChange(next)
+                            interacting = true
+                            animationJob = scope.launch {
+                                try {
+                                    fling(velocity, visual, usable) { next ->
+                                        visual = next
+                                        onChange(next)
+                                    }
+                                } finally {
+                                    if (animationJob === coroutineContext[Job]) {
+                                        interacting = false
+                                        animationJob = null
+                                    }
                                 }
-                                interacting = false
+                                onFinished?.invoke()
                             }
                         } else {
                             interacting = false
+                            onFinished?.invoke()
                         }
                         pressed = false
                     }
                 } finally {
                     tracker.recycle()
                     pressed = false
-                    interacting = false
                 }
             },
     ) {
@@ -206,6 +274,7 @@ fun VerticalSeekBar(
                 colors = colors,
                 label = label,
                 labelColor = labelColor,
+                textPaint = labelPaint,
             )
         }
     }
@@ -273,6 +342,7 @@ private fun DrawScope.drawVerticalSeekBar(
     colors: CouiVerticalSeekBarColors,
     label: String?,
     labelColor: Color,
+    textPaint: android.graphics.Paint,
 ) {
     val paddingVertical = with(density) { CouiVerticalSeekBarDefaults.paddingVertical.toPx() }
     val top = paddingVertical
@@ -297,11 +367,8 @@ private fun DrawScope.drawVerticalSeekBar(
     drawCircle(thumbColor, thumbSize / 2f, Offset(centerX, thumbCenterY))
 
     if (label.isNullOrEmpty()) return
-    val textPaint = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply {
-        color = labelColor.toArgb()
-        textSize = with(density) { 12.sp.toPx() }
-        textAlign = android.graphics.Paint.Align.CENTER
-    }
+    textPaint.color = labelColor.toArgb()
+    textPaint.textSize = with(density) { 12.sp.toPx() }
     val metrics = textPaint.fontMetrics
     // 原厂把文字画在轨道上方的 marginTop 处，这里同样贴在轨道顶端之上。
     val baseline = top - paddingVertical / 2f - (metrics.ascent + metrics.descent) / 2f

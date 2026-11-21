@@ -13,7 +13,7 @@
     <string name="button_clicks">点击次数</string>
     <string name="button_desc_title">两行文案</string>
     <string name="button_desc_label">立即同步</string>
-    <string name="button_desc_text">将消耗 12% 电量</string>
+    <string name="button_desc_text" formatted="false">将消耗 12% 电量</string>
     <string name="button_group_title">按钮组</string>
     <string name="button_group_cancel">取消</string>
     <string name="button_group_confirm">确定</string>

@@ -13,7 +13,7 @@
     <string name="button_clicks">Clicks</string>
     <string name="button_desc_title">Two-line label</string>
     <string name="button_desc_label">Sync now</string>
-    <string name="button_desc_text">Uses 12% battery</string>
+    <string name="button_desc_text" formatted="false">Uses 12% battery</string>
     <string name="button_group_title">Button group</string>
     <string name="button_group_cancel">Cancel</string>
     <string name="button_group_confirm">Confirm</string>

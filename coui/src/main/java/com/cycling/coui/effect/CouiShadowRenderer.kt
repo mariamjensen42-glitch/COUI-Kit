@@ -91,13 +91,14 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
                 drawLegacy(canvas, slot, index, key, index == 1, argb, blurRadius)
                 continue
             }
-            val draw = slots[slot][index]?.takeIf { it.key == key } ?: makeDraw(key, index == 1).also {
-                slots[slot][index] = it
+            // lint 不跨 let 与字段推断版本判断，用显式 SDK 判断包住整段 API 34 路径。
+            if (Build.VERSION.SDK_INT >= 34) {
+                val draw = slots[slot][index]?.takeIf { it.key == key } ?: makeDraw(key, index == 1).also {
+                    slots[slot][index] = it
+                }
+                updateColor(draw, argb)
+                drawProjection(canvas, draw)
             }
-            updateColor(draw, argb)
-            // Mesh 与 Canvas.drawMesh 是 API 34 平台 API。前面已按 meshAvailable 分流，
-            // 这里再显式判一次版本：lint 不跨 let 推断字段形式的版本判断。
-            if (Build.VERSION.SDK_INT >= 34) drawProjection(canvas, draw)
         }
     }
 
@@ -188,6 +189,7 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
         }
     }
 
+    @RequiresApi(34)
     private fun makeDraw(key: ShadowKey, spot: Boolean): ProjectionDraw {
         val oval = key.outline == CouiShadowOutline.Oval
         val projection = floatingShadowGeometry(key.width, key.height, key.sx, key.sy, key.x, key.y,
@@ -251,6 +253,7 @@ class CouiShadowRenderer(surfaceCount: Int = 1) {
         return ProjectionDraw(key, projection, paint, node = node, path = path)
     }
 
+    @RequiresApi(34)
     private fun updateColor(draw: ProjectionDraw, color: Int) {
         // 系统可在后台丢弃 DisplayList, 同色不代表录制内容仍然有效。
         if (draw.color == color && draw.node?.hasDisplayList() != false) return
